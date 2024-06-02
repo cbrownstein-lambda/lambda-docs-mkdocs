@@ -44,15 +44,15 @@ the base environment and other virtual environments.
     Locally installed packages can conflict with packages installed in virtual
     environments. For this reason, it's recommended to uninstall locally installed
     packages by running:
-    
+
     To uninstall packages installed locally for your user only, run:
-    
+
     ``` { .bash .copy }
     pip uninstall -y $(pip -v list | grep ${HOME}/.local | awk '{printf "%s ", $1}')
     ```
 
     To uninstall packages installed locally, system-wide (for all users), run:
-    
+
     ``` { .bash .copy }
     sudo pip uninstall -y $(pip -v list | grep /usr/local | awk '{printf "%s ", $1}')
     ```

@@ -1,0 +1,29 @@
+site_name: Lambda Docs
+theme:
+  name: material
+  features:
+    - navigation.tabs
+      #    - toc.integrate
+  palette:
+    primary: deep purple
+  logo: assets/img/lambda-logo.jpg
+nav:
+  - Home: index.md
+  - On-Demand Cloud:
+    - on-demand-cloud/getting-started.md
+    - on-demand-cloud/billing.md
+  - Software:
+    - software/virtual-environments-containers.md
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - sane_lists
+  - toc:
+      permalink: "#"

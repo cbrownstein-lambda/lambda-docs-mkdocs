@@ -12,6 +12,8 @@ nav:
   - On-Demand Cloud:
     - on-demand-cloud/getting-started.md
     - on-demand-cloud/billing.md
+  - Workstations:
+    - workstations/getting-started.md
   - Software:
     - software/virtual-environments-containers.md
 markdown_extensions:

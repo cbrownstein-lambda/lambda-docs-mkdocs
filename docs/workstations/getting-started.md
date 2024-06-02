@@ -135,3 +135,43 @@ follows:
 | Super Flower | SF-1300F14MG V1.0 | 1300    | 100-240      | 15          | 60/50          | C14/C13      |
 | Super Flower | SF-1600F14HT      | 1600    | 115-240      | 17-10       | 60/50          | C20/C19      |
 | Super Flower | SF-2000F14HP      | 2000    | 200-240      | 15          | 50             | C20/C19      |
+
+## How do I upgrade my Samsung 980 PRO NVMe SSD's firmware?
+
+Follow these instructions to upgrade your Samsung 980 PRO NVMe SSD's firmware.
+
+!!! danger
+
+    [Samsung 980 PRO NVMe SSDs with the older 3B2QGXA7 firmware are known to fail](https://www.pugetsystems.com/support/guides/critical-samsung-ssd-firmware-update/).
+
+    To know if your SSD is using the 3B2QGXA7 firmware, install the
+    `smartmontools` package by running `sudo apt -y install smartmontools`.
+    Then, run `sudo smartctl -a /dev/nvme0`.
+
+    If your SSD is using the 3B2QGXA7 firmware, it's recommended that you
+    upgrade the firmware as soon as possible.
+
+First, download the latest firmware ISO from Samsung's website by running:
+
+``` { .sh .copy }
+wget https://semiconductor.samsung.com/resources/software-resources/Samsung_SSD_980_PRO_5B2QGXA7.iso
+```
+
+Next, run `sudo -s` to open a shell with root (administrator) privileges.
+
+Finally, run:
+
+``` { .sh .copy }
+mkdir /mnt/iso && mount -o loop Samsung_SSD_980_PRO_5B2QGXA7.iso /mnt/iso && \
+mkdir fwupdate && cd fwupdate && \
+gzip -dc /mnt/iso/initrd | cpio -idv --no-absolute-filenames && \
+cd root/fumagician && ./fumagician
+```
+
+The above command mounts the firmware upgrade ISO, extracts the firmware
+upgrade, and launches the upgrade.
+
+After the firmware upgrade completes, restart your computer.
+
+Run `sudo smartctl -a /dev/nvme0` to confirm your SSD is using the new
+firmware.

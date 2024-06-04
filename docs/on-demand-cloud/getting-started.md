@@ -1,3 +1,8 @@
+---
+tags:
+  - kubernetes
+---
+
 # Getting started
 
 ## Can my data be recovered once I've terminated my instance?

@@ -1,3 +1,8 @@
+---
+tags:
+  - distributed training
+---
+
 # Getting started
 
 ## Conceptual overview

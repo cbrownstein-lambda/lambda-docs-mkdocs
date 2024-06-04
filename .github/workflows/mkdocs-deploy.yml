@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Check out main
-        uses: actions/checkout@v4.1.6
+        uses: actions/checkout@v4
 
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master

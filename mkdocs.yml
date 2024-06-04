@@ -38,4 +38,5 @@ plugins:
   - redirects:
       redirect_maps:
         'one-click-clusters/getting-started.md': '1-click-clusters/getting-started.md'
-  - tags
+  - tags:
+      tags_file: tags.md

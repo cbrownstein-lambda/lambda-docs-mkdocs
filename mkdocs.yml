@@ -33,3 +33,7 @@ markdown_extensions:
   - tables
   - toc:
       permalink: "#"
+plugins:
+  - redirects:
+      redirect_maps:
+        'one-click-clusters/getting-started.md': '1-click-clusters/getting-started.md'

@@ -46,3 +46,7 @@ plugins:
         'one-click-clusters/getting-started.md': '1-click-clusters/getting-started.md'
   - tags:
       tags_file: tags.md
+extra:
+  social:
+    - icon: fontawesome/brands/x-twitter
+      link: https://x.com/LambdaAPI

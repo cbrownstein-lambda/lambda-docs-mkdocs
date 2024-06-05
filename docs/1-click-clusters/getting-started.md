@@ -5,6 +5,8 @@ tags:
 
 # Getting started
 
+{% include "../includes/hello-world.incl.md" %}
+
 ## Conceptual overview
 
 1-Click Clusters (1CC) are clusters of GPU and CPU instances in

@@ -1,4 +1,5 @@
 site_name: Lambda Docs
+site_url: https://cbrownstein-lambda.github.io/lambda-docs-mkdocs/
 theme:
   name: material
   features:

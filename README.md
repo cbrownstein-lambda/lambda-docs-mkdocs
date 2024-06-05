@@ -39,31 +39,31 @@ Make a local copy of the GitHub repository
 
 1. Setup MKdocs on your local environment by running the following commands in your new terminal window:
 
-        pip install mkdocs-material=="9.*"
-        pip install -r requirements.txt
-        pip install mkdocs-techdocs-redirects
-        pip install mkdocs-git-revision-date-localized-plugin
-        pip install "mkdocs-material[imaging]"
+       pip install mkdocs-material=="9.*"
+       pip install -r requirements.txt
+       pip install mkdocs-techdocs-redirects
+       pip install mkdocs-git-revision-date-localized-plugin
+       pip install "mkdocs-material[imaging]"
     
-    This installs the MKdocs [material theme](https://squidfunk.github.io/mkdocs-material/), the [redirect plugin](https://pypi.org/project/mkdocs-techdocs-redirects/), the [date and last git modification plugin](https://github.com/timvink/mkdocs-git-revision-date-localized-plugin), and the [image processing plugin](https://github.com/squidfunk/mkdocs-material/blob/master/docs/plugins/requirements/image-processing.md)
+   This installs the MKdocs [material theme](https://squidfunk.github.io/mkdocs-material/), the [redirect plugin](https://pypi.org/project/mkdocs-techdocs-redirects/), the [date and last git modification plugin](https://github.com/timvink/mkdocs-git-revision-date-localized-plugin), and the [image processing plugin](https://github.com/squidfunk/mkdocs-material/blob/master/docs/plugins/requirements/image-processing.md)
 
-    **Note:** If you have homebrew configured on your mac run:
+   **Note:** If you have homebrew configured on your mac run:
 
-        export DYLD_FALLBACK_LIBRARY_PATH=/opt/homebrew/lib
+       export DYLD_FALLBACK_LIBRARY_PATH=/opt/homebrew/lib
 
-    This environment variable [fixes potential errors](https://github.com/squidfunk/mkdocs-material/issues/5121) with finding libraries used by the theme's built-in plugins.
+   This environment variable [fixes potential errors](https://github.com/squidfunk/mkdocs-material/issues/5121) with finding libraries used by the theme's built-in plugins.
 
 2. Now you can run `mkdocs serve` to build the site. You should expect to see the following output:
 
-        INFO    -  Building documentation...
-        INFO    -  Cleaning site directory
-        INFO    -  The following pages exist in the docs directory, but are not included in the "nav" configuration:
-                    - tags.md
-                    - includes/hello-world.incl.md
-        INFO    -  Documentation built in 2.52 seconds
-        INFO    -  [10:19:27] Watching paths for changes: 'docs', 'mkdocs.yml', 'docs/includes/hello-world.incl.md'
-        INFO    -  [10:19:27] Serving on http://127.0.0.1:8000/lambda-docs-mkdocs/
+       INFO    -  Building documentation...
+       INFO    -  Cleaning site directory
+       INFO    -  The following pages exist in the docs directory, but are not included in the "nav" configuration:
+                   - tags.md
+                   - includes/hello-world.incl.md
+       INFO    -  Documentation built in 2.52 seconds
+       INFO    -  [10:19:27] Watching paths for changes: 'docs', 'mkdocs.yml', 'docs/includes/hello-world.incl.md'
+       INFO    -  [10:19:27] Serving on http://127.0.0.1:8000/lambda-docs-mkdocs/
 
 3. Once the site has been built, open a browser window and paste `http://127.0.0.1:8000/` into the search bar and press enter.
 
-    Congratulations, your local preview is now live!
+   Congratulations, your local preview is now live!

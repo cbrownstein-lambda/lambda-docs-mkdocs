@@ -9,6 +9,7 @@ theme:
   palette:
     primary: deep purple
   logo: assets/img/lambda-logo.png
+  favicon: assets/img/lambda-logo.png
 nav:
   - Home: index.md
   - On-Demand Cloud:

@@ -34,7 +34,7 @@ markdown_extensions:
   - toc:
       permalink: "#"
 plugins:
-  - mkdocs-git-revision-date-localized-plugin
+  - git-revision-date-localized
   - search
   - redirects:
       redirect_maps:

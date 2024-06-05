@@ -35,7 +35,6 @@ markdown_extensions:
       permalink: "#"
 plugins:
   - search
-  - git-revision-date-localized
   - redirects:
       redirect_maps:
         'one-click-clusters/getting-started.md': '1-click-clusters/getting-started.md'

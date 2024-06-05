@@ -1,4 +1,5 @@
 # lambda-docs-mkdocs
+
 MkDocs proof of concept. Running [Material for MkDocs theme](https://squidfunk.github.io/mkdocs-material/)
 
 ## Setting up a local build environment for MKdocs on MacOS

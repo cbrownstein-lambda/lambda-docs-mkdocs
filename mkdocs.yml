@@ -6,7 +6,7 @@ theme:
       #    - toc.integrate
   palette:
     primary: deep purple
-  logo: assets/img/lambda-logo.jpg
+  #logo: assets/img/lambda-logo.jpg
 nav:
   - Home: index.md
   - On-Demand Cloud:

@@ -45,7 +45,7 @@ Make a local copy of the GitHub repository
        pip install mkdocs-techdocs-redirects
        pip install mkdocs-git-revision-date-localized-plugin
        pip install "mkdocs-material[imaging]"
-    
+
    This installs the MKdocs [material theme](https://squidfunk.github.io/mkdocs-material/), the [redirect plugin](https://pypi.org/project/mkdocs-techdocs-redirects/), the [date and last git modification plugin](https://github.com/timvink/mkdocs-git-revision-date-localized-plugin), and the [image processing plugin](https://github.com/squidfunk/mkdocs-material/blob/master/docs/plugins/requirements/image-processing.md)
 
    **Note:** If you have homebrew configured on your mac run:

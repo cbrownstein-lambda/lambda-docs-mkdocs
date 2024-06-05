@@ -86,7 +86,7 @@ instances.
 
 1. To install another version of Python alongside the preinstalled version:
 
-   Run `sudo apt -y update && sudo apt -y install pythonVERSION-full`.
+   Run `#!sh sudo apt -y update && sudo apt -y install pythonVERSION-full`.
 
    Replace **VERSION** with the Python version you want to install, for
    example, `3.13`. Make sure `-full` is appended to the Python version,
@@ -99,14 +99,14 @@ instances.
    sudo apt -y update && sudo apt -y install python3.13-full
    ```
 
-2. Run `pythonVERSION -m venv VENV-NAME` to create a Python virtual
+2. Run `#!sh pythonVERSION -m venv VENV-NAME` to create a Python virtual
    environment.
 
    Replace **VERSION** with the Python version you installed in the previous
    step. Replace **VENV-NAME** with the name you want to give your virtual
    environment.
 
-   Then, run `source VENV-NAME/bin/activate`.
+   Then, run `#!sh source VENV-NAME/bin/activate`.
 
    Replace **VENV-NAME** with the name you gave your virtual environment.
 
@@ -119,5 +119,5 @@ instances.
    source my-virtual-environment/bin/activate
    ```
 
-   Run `python --version` to confirm that your virtual environment is using
+   Run `#!sh python --version` to confirm that your virtual environment is using
    your desired Python version.

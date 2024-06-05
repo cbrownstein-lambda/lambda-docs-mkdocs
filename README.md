@@ -7,7 +7,7 @@ MkDocs proof of concept. Running [Material for MkDocs theme](https://squidfunk.g
 
 **Git**
 
-Open a terminal and run <samp>git --version</samp>
+Open a terminal and run `git --version`
 
 If git isn't installed already, you will be prompted to install it.
 
@@ -17,7 +17,7 @@ Download the latest [python release](https://www.python.org/downloads/macos/)
 
 Open a terminal at the Python application folder.
 
-Run the command <samp>curl https://bootstrap.pypa.io/get-pip.py | python3</samp>
+Run the command `curl https://bootstrap.pypa.io/get-pip.py | python3`
 
 This ensures that you can use pip to install the required MKdocs plugins and serve a live preview.
 
@@ -25,11 +25,11 @@ This ensures that you can use pip to install the required MKdocs plugins and ser
 
 Make a local copy of the GitHub repository
 
-1. Create a file path for the repository you'd like to clone, for example: <samp>/Users/yourname/Documents/GitHub/</samp>
+1. Create a file path for the repository you'd like to clone, for example: `/Users/yourname/Documents/GitHub/`
 
 2. Clone the repository to your local disk. You should now have a folder with the repository that looks something like this:
 
-    <samp>/Users/yourname/Documents/GitHub/lambda-docs-mkdocs</samp>
+    `/Users/yourname/Documents/GitHub/lambda-docs-mkdocs`
 
 3. Now open a new terminal window at the repository main folder. Right click the folder and select 'New Terminal at Folder' from the thumbnail menu.
 

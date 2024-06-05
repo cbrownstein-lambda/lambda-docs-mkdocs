@@ -39,7 +39,7 @@ Make a local copy of the GitHub repository
 
 1. Setup MKdocs on your local environment by running the following commands in your new terminal window:
 
-        pip install mkdocs-material $$==" 9 . * "$$
+        pip install mkdocs-material=="9.*"
         pip install -r requirements.txt
         pip install mkdocs-techdocs-redirects
         pip install mkdocs-git-revision-date-localized-plugin

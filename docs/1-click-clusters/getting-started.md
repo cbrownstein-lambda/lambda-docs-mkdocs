@@ -35,7 +35,7 @@ Generic CPU nodes can optionally be launched in the same regions as 1CCs.
 These generic CPU nodes run independently of 1CCs and don't terminate when 1CC
 reservations end.
 
-Each compute note includes 24TB of usable local ephemeral NVMe storage. Each
+Each compute node includes 24TB of usable local ephemeral NVMe storage. Each
 management node includes 208GB of usable local ephemeral NVMe storage.
 [Persistent storage](https://docs.lambdalabs.com/on-demand-cloud/file-systems)
 is automatically created and attached to each 1CC node, and can also be

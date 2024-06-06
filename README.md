@@ -6,7 +6,7 @@ MkDocs proof of concept. Running [Material for MkDocs theme](https://squidfunk.g
 
 ### Prerequisites
 
-**Git**
+#### Git
 
 Open a terminal and run `git --version`
 

@@ -12,7 +12,7 @@ Open a terminal and run `git --version`
 
 If git isn't installed already, you will be prompted to install it.
 
-**Python**
+#### Python
 
 Download the latest [python release](https://www.python.org/downloads/macos/)
 

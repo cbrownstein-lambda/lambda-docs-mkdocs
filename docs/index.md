@@ -21,7 +21,7 @@ hide:
 
 ## What's new in April 2024
 
-- Lambda's ML Team released ML Times, an LLM-powered app that aggregates and
+- Lambda's ML Team released [ML Times](https://news.lambdalabs.com/news/today), an LLM-powered app that aggregates and
   summarizes AI and ML content from various sources such as the
   r/MachineLearning subreddit and Hacker News.
 

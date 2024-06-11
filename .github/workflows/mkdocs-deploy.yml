@@ -5,6 +5,18 @@ on:
       - main
 
 jobs:
+  vale:
+    name: Run Vale Linter
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+
+      - name: Run Vale Linter
+        uses: errata-ai/vale-action@v2.1.0
+        with:
+          files: docs
+
   build:
     name: Deploy docs
     runs-on: ubuntu-22.04

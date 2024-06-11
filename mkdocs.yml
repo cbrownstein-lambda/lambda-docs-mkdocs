@@ -1,10 +1,13 @@
 site_name: Lambda Docs
 site_url: https://cbrownstein-lambda.github.io/lambda-docs-mkdocs/
 repo_url: https://github.com/cbrownstein-lambda/lambda-docs-mkdocs
+edit_uri: edit/main/docs/
 theme:
   name: material
   features:
     - navigation.tabs
+    - content.action.view
+    - content.action.edit
       #    - toc.integrate
   palette:
     primary: deep purple

@@ -11,9 +11,7 @@ On-demand instances are billed in one-minute increments from the moment you
 spin up (start) the instance up to the moment you terminate (stop) the
 instance.
 
-!!! danger
-
-    Be sure to terminate any instances that you're not using!
+!!! danger "Be sure to terminate any instances that you're not using!"
 
     You will be billed for all minutes that an instance is running, even if
     the instance isn't actively being used.
@@ -22,7 +20,7 @@ The GPU Cloud dashboard allows you to view your resource usage.
 
 Invoices are sent weekly for the previous week's usage.
 
-!!! note
+!!! note "On-Demand Cloud vs. Reserved Cloud"
 
     On-demand instances require us to maintain excess capacity at all times so
     we can meet the changing workloads of our customers. For this reason,

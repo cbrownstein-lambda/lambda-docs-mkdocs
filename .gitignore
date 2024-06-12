@@ -15,3 +15,6 @@ Sessionx.vim
 *~
 tags
 [._]*.un~
+
+# OS-related
+.DS_Store

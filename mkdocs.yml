@@ -13,7 +13,7 @@ theme:
     primary: deep purple
   logo: assets/img/lambda-logo.png
   favicon: assets/img/lambda-logo.png
-  custor_dir: overrides
+  custom_dir: overrides
 nav:
   - Home: index.md
   - On-Demand Cloud:

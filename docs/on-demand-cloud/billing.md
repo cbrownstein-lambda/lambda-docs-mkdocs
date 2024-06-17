@@ -1,3 +1,10 @@
+---
+comments: true
+tags:
+  - billing
+  - on-demand cloud
+---
+
 # Billing
 
 ## How are on-demand instances billed?

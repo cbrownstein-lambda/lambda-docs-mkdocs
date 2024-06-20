@@ -14,7 +14,7 @@ your account using the dashboard. We'll make a $10 pre-authorization charge to
 make sure the card is valid, similar to how gas stations and hotels do. The
 charge will be refunded in a few days.
 
-On-demand instances are billed in one-minute increments from the moment you
+[On-demand instances](https://lambdalabs.com/service/gpu-cloud) are billed in one-minute increments from the moment you
 spin up (start) the instance up to the moment you terminate (stop) the
 instance.
 

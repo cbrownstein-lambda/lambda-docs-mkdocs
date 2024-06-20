@@ -69,6 +69,10 @@ For example, based on the price of $0.20 per GB used per month:
     The actual price of persistent storage will be displayed when you create
     your file system.
 
+## How do I change my payment method and billing address?
+
+[Use the dashboard to change your payment method and billing address](https://cloud.lambdalabs.com/settings/billing).
+
 ## Do I have to pay sales tax for usage of Lambda GPU Cloud?
 
 Sales tax is charged for usage of Lambda GPU Cloud.

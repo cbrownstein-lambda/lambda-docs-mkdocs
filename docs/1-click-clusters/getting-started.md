@@ -50,3 +50,13 @@ including NCCL, Open MPI, PyTorch with DDP and FSDP support, TensorFlow, OFED,
 and other popular libraries and frameworks for distributed ML workloads,
 allowing ML engineers and researchers to begin their large-scale experiments
 and other work immediately after launching a 1CC.
+
+## Accessing your 1-Click Cluster
+
+!!! note "Don't use the mlx5_0 adapters for RDMA"
+
+    The `mlx5_0` adapter in your 1CC worker nodes isn't intended for RDMA.
+
+    To prevent NCCL from using the `mlx5_0` adapters, set the `NCCL_IB_HCA`
+    [environment variable](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/env.html#nccl-ib-hca)
+    on your worker nodes to `^=mlx5_0`.

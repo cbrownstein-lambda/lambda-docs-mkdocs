@@ -55,7 +55,7 @@ and other work immediately after launching a 1CC.
 
 !!! note "Don't use the mlx5_0 adapters for RDMA"
 
-    The `mlx5_0` adapter in your 1CC worker nodes isn't intended for RDMA.
+    The `mlx5_0` adapters in your 1CC worker nodes aren't intended for RDMA.
 
     To prevent NCCL from using the `mlx5_0` adapters, set the `NCCL_IB_HCA`
     [environment variable](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/env.html#nccl-ib-hca)

@@ -46,6 +46,9 @@ markdown_extensions:
   - toc:
       permalink: "#"
 plugins:
+  - git-committers:
+      repository: cbrownstein-lambda/lambda-docs-mkdocs
+      branch: main
   - git-revision-date-localized
   - include-markdown
   - search

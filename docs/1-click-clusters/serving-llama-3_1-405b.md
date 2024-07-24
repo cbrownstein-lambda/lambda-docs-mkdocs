@@ -62,8 +62,8 @@ These commands:
 
 !!! note
 
-    The Llama 3.1 405B model is about 2.3TB in size and can take more than 30
-    minutes to download.
+    The Llama 3.1 405B model is about 2.3TB in size and can take several hours
+    to download.
 
 On the same head node, run:
 

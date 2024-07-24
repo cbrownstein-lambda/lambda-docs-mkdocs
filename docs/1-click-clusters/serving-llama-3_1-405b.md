@@ -70,11 +70,11 @@ On the same head node, run:
 ```bash
 curl -o "${SHARED_DIR}/run_cluster.sh" https://raw.githubusercontent.com/vllm-project/vllm/main/examples/run_cluster.sh
 
-"${SHARED_DIR}/run_cluster.sh" \
-    vllm/vllm-openai \
-    "${HEAD_IP}" \
-    --head "${HF_HOME}" \
-    --privileged -e NCCL_IB_HCA=^mlx5_0
+sudo bash "${SHARED_DIR}/run_cluster.sh" \
+       vllm/vllm-openai \
+       "${HEAD_IP}" \
+       --head "${HF_HOME}" \
+       --privileged -e NCCL_IB_HCA=^mlx5_0
 ```
 
 These commands:

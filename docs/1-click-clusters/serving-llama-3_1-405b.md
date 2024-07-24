@@ -53,7 +53,7 @@ huggingface-cli download "${MODEL_REPO}"
 
 These commands:
 
-1. Set environment variables needed for this tutorial.
+1. Set on the head node environment variables needed for this tutorial.
 2. Create a
    [Python virtual environment](https://docs.lambdalabs.com/software/virtual-environments-and-docker-containers#creating-a-python-virtual-environment)
    for this tutorial.

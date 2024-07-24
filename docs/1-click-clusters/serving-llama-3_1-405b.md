@@ -89,6 +89,10 @@ First, create a file named `hostfile` on your shared persistent storage file
 by running `touch "${SHARED_DIR}/hostfile`. Add to this file the IP address of
 each of your 1CC worker nodes. Each IP address should be on a new line.
 
+!!! note
+
+    The IP addresses of your worker nodes are on your
+    [Cloud dashboard](https://cloud.lambdalabs.com/one-click-clusters/running).
 
 bash "${SHARED_DIR}/run_cluster.sh" \
     vllm/vllm-openai \

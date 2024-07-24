@@ -90,6 +90,8 @@ These commands:
 
 Next, you'll connect your 1CC worker nodes to your 1CC head node.
 
+<!--
+
 First, create a file named `hostfile` on your shared persistent storage file
 by running `touch "${SHARED_DIR}/hostfile`. Add to this file the IP address of
 each of your 1CC worker nodes. Each IP address should be on a new line.
@@ -107,10 +109,13 @@ The file should look like:
 172.26.133.73
 ```
 
-bash "${SHARED_DIR}/run_cluster.sh" \
+```bash
+sudo bash "${SHARED_DIR}/run_cluster.sh" \
     vllm/vllm-openai \
     "${HEAD_IP}" \
     --worker \
     "${HF_HOME}" \
     --privileged -e NCCL_IB_HCA=^mlx5_0
 ```
+
+-->

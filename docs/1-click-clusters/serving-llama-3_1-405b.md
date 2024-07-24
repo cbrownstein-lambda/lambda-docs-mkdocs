@@ -94,6 +94,14 @@ each of your 1CC worker nodes. Each IP address should be on a new line.
     The IP addresses of your worker nodes are on your
     [Cloud dashboard](https://cloud.lambdalabs.com/one-click-clusters/running).
 
+The file should look like:
+
+```
+172.26.135.252
+172.26.134.16
+172.26.133.73
+```
+
 bash "${SHARED_DIR}/run_cluster.sh" \
     vllm/vllm-openai \
     "${HEAD_IP}" \

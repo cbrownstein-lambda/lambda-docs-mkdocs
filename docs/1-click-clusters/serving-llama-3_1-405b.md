@@ -14,11 +14,16 @@ In this tutorial, you'll learn how to use a 1-Click Cluster (1CC) to serve the
 
 !!! note
 
-    You need to review and accept the Llama 3.1 Community License Agreement
-    before you can download and use the Llama 3.1 405B model. Once you accept
-    the agreement, a request to access the repository will be submitted.
+    You need a [Hugging Face](https://huggingface.co/) account to download the
+    Llama 3.1 405B model. You also need a
+    [User Access Token](https://huggingface.co/docs/hub/en/security-tokens)
+    with the **Read** role.
 
-    You can see the status of your request in your
+    Before you can download the Llama 3.1 405B model, you need to review and
+    accept the model's license agreement. Once you accept the agreement, a
+    request to access the repository will be submitted.
+
+    You can see the status of the request in your
     [Hugging Face account settings](https://huggingface.co/settings/gated-repos).
 
 ## Download the Llama 3.1 405B model and set up your 1CC's head node

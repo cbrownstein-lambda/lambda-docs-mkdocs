@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to use a 1-Click Cluster (1CC) to serve the
     You can see the status of your request in your
     [Hugging Face account settings](https://huggingface.co/settings/gated-repos).
 
-# Download the Llama 3.1 405B model and set up your 1CC's head node
+## Download the Llama 3.1 405B model and set up your 1CC's head node
 
 First, follow the
 [instructions for accessing your 1CC](https://docs.lambdalabs.com/1-click-clusters/getting-started#accessing-your-1-click-cluster).
@@ -81,7 +81,7 @@ These commands:
    for serving the Llama 3.1 405B model using vLLM. The Ray cluster uses your
    1CC's InfiniBand fabric for optimal performance.
 
-# Connect your 1CC workers nodes to your head node
+## Connect your 1CC workers nodes to your head node
 
 Next, you'll connect your 1CC worker nodes to your 1CC head node.
 

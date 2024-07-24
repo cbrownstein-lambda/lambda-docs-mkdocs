@@ -26,7 +26,7 @@ In this tutorial, you'll learn how to use a 1-Click Cluster (1CC) to serve the
     You can see the status of the request in your
     [Hugging Face account settings](https://huggingface.co/settings/gated-repos).
 
-## Download the Llama 3.1 405B model and set up your 1CC's head node
+## Download the Llama 3.1 405B model and set up a head node
 
 First, follow the
 [instructions for accessing your 1CC](https://docs.lambdalabs.com/1-click-clusters/getting-started#accessing-your-1-click-cluster).

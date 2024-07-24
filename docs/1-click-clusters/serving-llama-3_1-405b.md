@@ -37,7 +37,7 @@ your head nodes. On the head node, run:
 ```bash
 export HEAD_IP=
 export SHARED_DIR=/home/ubuntu/FILE-SYSTEM-NAME
-export HF_HOME=${SHARED_DIR}/.cache/huggingface
+export HF_HOME="${SHARED_DIR}/.cache/huggingface"
 export HF_TOKEN=
 export MODEL_REPO=
 
@@ -95,13 +95,13 @@ On each worker node, run:
 ```bash
 export HEAD_IP=
 export SHARED_DIR=/home/ubuntu/FILE-SYSTEM-NAME
-export HF_HOME=${SHARED_DIR}/.cache/huggingface
+export HF_HOME="${SHARED_DIR}/.cache/huggingface"
 
-sudo bash ${SHARED_DIR}/run_cluster.sh \
+sudo bash "${SHARED_DIR}/run_cluster.sh" \
        vllm/vllm-openai \
-       ${HEAD_IP} \
+       "${HEAD_IP}" \
        --worker \
-       ${HF_HOME} \
+       "${HF_HOME}" \
        --privileged -e NCCL_IB_HCA=^mlx5_0
 ```
 

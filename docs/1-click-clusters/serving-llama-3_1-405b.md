@@ -8,7 +8,7 @@ tags:
 # How to serve the Llama 3.1 405B model using a Lambda 1-Click Cluster
 
 In this tutorial, you'll learn how to use a 1-Click Cluster (1CC) to serve the
-[Meta Llama 3.1 405B model](https://llama.meta.com/) using
+[Meta Llama 3.1 405B model](https://huggingface.co/meta-llama/Meta-Llama-3.1-405B) using
 [vLLM](https://docs.vllm.ai/en/latest/index.html) and pipeline parallelism.
 
 

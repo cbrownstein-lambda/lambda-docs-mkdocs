@@ -90,6 +90,26 @@ These commands:
 
 Next, you'll connect your 1CC worker nodes to your 1CC head node.
 
+On each worker node, run:
+
+```bash
+export HEAD_IP=
+export SHARED_DIR=/home/ubuntu/FILE-SYSTEM-NAME
+export HF_HOME=${SHARED_DIR}/.cache/huggingface
+
+sudo bash ${SHARED_DIR}/run_cluster.sh \
+       vllm/vllm-openai \
+       ${HEAD_IP} \
+       --worker \
+       ${HF_HOME} \
+       --privileged -e NCCL_IB_HCA=^mlx5_0
+```
+
+These commands:
+
+1. Set on the worker node environment variables needed for this tutorial.
+2. Connect the worker node to the head node.
+
 <!--
 
 First, create a file named `hostfile` on your shared persistent storage file

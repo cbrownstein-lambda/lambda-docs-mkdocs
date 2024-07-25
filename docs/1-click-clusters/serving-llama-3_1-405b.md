@@ -139,7 +139,7 @@ This command connects the worker node to the head node.
 
 ## Check the status of the Ray cluster and serve the Llama 3.1 405B model
 
-Still on the worker node, press **Ctrl** + **b**, then press **Ctrl** + **c**
+Still on the worker node, press ++ctrl++ + ++b++, then press ++ctrl++ + ++c++
 to open a new tmux window. Then, run:
 
 ```bash
@@ -181,7 +181,7 @@ Demands:
 This output shows 2 active nodes (the head node and the worker node) and 16
 GPUs in the Ray cluster.
 
-Press **Ctrl** + **b**, then press **Ctrl** + **c** to open a new tmux window.
+Press ++ctrl++ + ++b++, then press ++ctrl++ + ++c++ to open a new tmux window.
 
 Obtain the name of the Llama 3.1 405B model snapshot by running:
 
@@ -223,7 +223,7 @@ INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
 
 ## Test the Llama 3.1 405B model
 
-Still on the worker node, press **Ctrl** + **b**, then press **Ctrl** + **c**
+Still on the worker node, press ++ctrl++ + ++b++, then press ++ctrl++ + ++c++
 to open a new tmux window.
 
 Then, run:

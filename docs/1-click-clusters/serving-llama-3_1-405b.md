@@ -26,46 +26,67 @@ In this tutorial, you'll learn how to use a 1-Click Cluster (1CC) to serve the
     You can see the status of the request in your
     [Hugging Face account settings](https://huggingface.co/settings/gated-repos).
 
+!!! tip
+
+    It's recommended that you use [tmux](https://github.com/tmux/tmux/wiki/)
+    sesions for this tutorial. Otherwise, you'll need to use multiple
+    terminals and multiple SSH connections. You'll also need to set
+    environment variables multiple times.
+
 ## Download the Llama 3.1 405B model and set up a head node
 
 First, follow the
 [instructions for accessing your 1CC](https://docs.lambdalabs.com/1-click-clusters/getting-started#accessing-your-1-click-cluster).
 
 Once you've followed the instructions for accessing your 1CC, SSH into one of
-your head nodes. On the head node, run:
+your 1CC GPU nodes. This GPU node will be set up as a head node for this
+tutorial and will be referred to in this tutorial as the "head node."
+
+On the head node, run:
 
 ```bash
-export HEAD_IP=
+export HEAD_IP=HEAD-IP
 export SHARED_DIR=/home/ubuntu/FILE-SYSTEM-NAME
+export HF_TOKEN=HF-TOKEN
 export HF_HOME="${SHARED_DIR}/.cache/huggingface"
-export HF_TOKEN=
-export MODEL_REPO=
+export MODEL_REPO=meta-llama/Meta-Llama-3.1-405B-Instruct
 
 mkdir -p "${HF_HOME}"
 
-python3 -m venv llama-3.1
+python3 -m venv llama-3.1-tutorial
 source llama-3.1/bin/activate
-pip install -U "huggingface_hub[cli]"
+pip install -U "huggingface_hub[cli] openai"
 
 huggingface-cli login --token "${HF_TOKEN}"
 huggingface-cli download "${MODEL_REPO}"
 ```
 
+Replace **HEAD-IP** with the IP address of the head node. You can
+obtain the IP address from the
+[1-Click Clusters dashboard](https://cloud.lambdalabs.com/one-click-clusters/running).
+
+Replace **FILE-SYSTEM-NAME** with the name of your 1CC's persistent storage
+file system.
+
+Replace **HF-TOKEN** with your Hugging Face User Access Token.
+
 These commands:
 
-1. Set on the head node environment variables needed for this tutorial.
+1. Set the head node environment variables needed for this tutorial.
+
 2. Create a
    [Python virtual environment](https://docs.lambdalabs.com/software/virtual-environments-and-docker-containers#creating-a-python-virtual-environment)
    for this tutorial.
-3. Download the Llama 3.1 405B model to your 1CC's shared persistent storage
-   file system.
+
+3. Download the Llama 3.1 405B model to your 1CC's persistent storage file
+   system.
 
 !!! note
 
     The Llama 3.1 405B model is about 2.3TB in size and can take several hours
     to download.
 
-On the same head node, run:
+On the head node, run:
 
 ```bash
 curl -o "${SHARED_DIR}/run_cluster.sh" https://raw.githubusercontent.com/vllm-project/vllm/main/examples/run_cluster.sh
@@ -81,19 +102,21 @@ These commands:
 
 1. Download to your shared persistent storage file system a helper script to
    [set up vLLM for multi-node inference and serving](https://docs.vllm.ai/en/latest/serving/distributed_serving.html#multi-node-inference-and-serving).
+
 2. Run the script to start a
    [Ray cluster](https://docs.ray.io/en/latest/cluster/getting-started.html)
    for serving the Llama 3.1 405B model using vLLM. The Ray cluster uses your
    1CC's InfiniBand fabric for optimal performance.
 
-## Connect your 1CC workers nodes to your head node
+## Connect another GPU node to the head node
 
-Next, you'll connect your 1CC worker nodes to your 1CC head node.
+Next, you'll connect another of your 1CC's GPUs nodes to the head node. This
+other GPU node will be referred to below as the "worker node."
 
-On each worker node, run:
+SSH into the worker node and run:
 
 ```bash
-export HEAD_IP=
+export HEAD_IP=HEAD-IP
 export SHARED_DIR=/home/ubuntu/FILE-SYSTEM-NAME
 export HF_HOME="${SHARED_DIR}/.cache/huggingface"
 
@@ -105,10 +128,92 @@ sudo bash "${SHARED_DIR}/run_cluster.sh" \
        --privileged -e NCCL_IB_HCA=^mlx5_0
 ```
 
+Replace **HEAD-IP** with the IP address of the head node.
+
+Replace **FILE-SYSTEM-NAME** with the name of your 1CC's persistent storage
+file system.
+
 These commands:
 
-1. Set on the worker node environment variables needed for this tutorial.
+1. Set the worker node environment variables needed for this tutorial.
+
 2. Connect the worker node to the head node.
+
+## Check the status of the Ray cluster and serve the Llama 3.1 405B model
+
+On the head node run:
+
+```bash
+sudo docker exec -it node /bin/bash
+```
+
+Then, run:
+
+```bash
+ray status
+```
+
+You should see output similar to:
+
+```
+======== Autoscaler status: 2024-07-25 00:20:50.831620 ========
+Node status
+---------------------------------------------------------------
+Active:
+ 1 node_d86d9f0f1894c2e463d8168530f6745e32beb08ddf3b908d229d8527
+ 1 node_37af7f860c4bab2e035b5a55ba06e2e49dba9fa891d65f8264648804
+Pending:
+ (no pending nodes)
+Recent failures:
+ (no failures)
+
+Resources
+---------------------------------------------------------------
+Usage:
+ 0.0/416.0 CPU
+ 16.0/16.0 GPU (16.0 used of 16.0 reserved in placement groups)
+ 0B/3.43TiB memory
+ 0B/19.46GiB object_store_memory
+
+Demands:
+ (no resource demands)
+
+```
+
+This output shows 2 active nodes (the head node and the worker node) and 16
+GPUs in the Ray cluster.
+
+Run the following command to begin serving the Llama 3.1 405B model:
+
+```bash
+vllm serve "/root/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-405B-Instruct/snapshots/SNAPSHOT" --tensor-parallel-size 8 --pipeline-parallel-size 2
+```
+
+Replace **SNAPSHOT** with the name of the model snapshot. You can obtain the
+name of the snapshot by running:
+
+```bash
+ls /root/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-405B-Instruct/snapshots
+```
+
+## Test the Llama 3.1 405B model
+
+On the head node, run:
+
+```bash
+curl -o ${SHARED_DIR}/inference_test.py 'https://raw.githubusercontent.com/vllm-project/vllm/main/examples/openai_chat_completion_client.py'
+
+python3 ${SHARED_DIR}/inference_test.py
+```
+
+These commands:
+
+1. Download the Open AI chat completion client.
+
+2. Run an inference test.
+
+
+
 
 <!--
 

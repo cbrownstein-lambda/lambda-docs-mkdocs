@@ -26,13 +26,6 @@ In this tutorial, you'll learn how to use a 1-Click Cluster (1CC) to serve the
     You can see the status of the request in your
     [Hugging Face account settings](https://huggingface.co/settings/gated-repos).
 
-!!! tip
-
-    It's recommended that you use [tmux](https://github.com/tmux/tmux/wiki/)
-    sesions for this tutorial. Otherwise, you'll need to use multiple
-    terminals and multiple SSH connections. You'll also need to set
-    environment variables multiple times.
-
 ## Download the Llama 3.1 405B model and set up a head node
 
 First, follow the

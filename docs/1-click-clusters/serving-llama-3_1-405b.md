@@ -42,7 +42,8 @@ Once you've followed the instructions for accessing your 1CC, SSH into one of
 your 1CC GPU nodes. This GPU node will be set up as a head node for this
 tutorial and will be referred to in this tutorial as the "head node."
 
-On the head node, run:
+On the head node, set environment variables needed for this tutorial by
+running:
 
 ```bash
 export HEAD_IP=HEAD-IP
@@ -50,15 +51,6 @@ export SHARED_DIR=/home/ubuntu/FILE-SYSTEM-NAME
 export HF_TOKEN=HF-TOKEN
 export HF_HOME="${SHARED_DIR}/.cache/huggingface"
 export MODEL_REPO=meta-llama/Meta-Llama-3.1-405B-Instruct
-
-mkdir -p "${HF_HOME}"
-
-python3 -m venv llama-3.1-tutorial
-source llama-3.1/bin/activate
-pip install -U "huggingface_hub[cli] openai"
-
-huggingface-cli login --token "${HF_TOKEN}"
-huggingface-cli download "${MODEL_REPO}"
 ```
 
 Replace **HEAD-IP** with the IP address of the head node. You can
@@ -70,15 +62,29 @@ file system.
 
 Replace **HF-TOKEN** with your Hugging Face User Access Token.
 
+Then, start a tmux session by running `tmux`.
+
+Run:
+
+```bash
+mkdir -p "${HF_HOME}"
+
+python3 -m venv llama-3.1
+source llama-3.1/bin/activate
+pip install -U huggingface_hub[cli] openai
+
+huggingface-cli login --token "${HF_TOKEN}"
+huggingface-cli download "${MODEL_REPO}"
+```
+
+
 These commands:
 
-1. Set the head node environment variables needed for this tutorial.
-
-2. Create a
+1. Create a
    [Python virtual environment](https://docs.lambdalabs.com/software/virtual-environments-and-docker-containers#creating-a-python-virtual-environment)
    for this tutorial.
 
-3. Download the Llama 3.1 405B model to your 1CC's persistent storage file
+2. Download the Llama 3.1 405B model to your 1CC's persistent storage file
    system.
 
 !!! note
@@ -86,7 +92,10 @@ These commands:
     The Llama 3.1 405B model is about 2.3TB in size and can take several hours
     to download.
 
-On the head node, run:
+Still on the head node, press **Ctrl** + **b**, then press **Ctrl** + **c** to
+open a new tmux window.
+
+Then, run:
 
 ```bash
 curl -o "${SHARED_DIR}/run_cluster.sh" https://raw.githubusercontent.com/vllm-project/vllm/main/examples/run_cluster.sh
@@ -113,13 +122,22 @@ These commands:
 Next, you'll connect another of your 1CC's GPUs nodes to the head node. This
 other GPU node will be referred to below as the "worker node."
 
-SSH into the worker node and run:
+In a new terminal, SSH into the worker node, then set environment variables
+needed for this tutorial by running:
 
 ```bash
 export HEAD_IP=HEAD-IP
 export SHARED_DIR=/home/ubuntu/FILE-SYSTEM-NAME
 export HF_HOME="${SHARED_DIR}/.cache/huggingface"
+```
+Replace **HEAD-IP** with the IP address of the head node.
 
+Replace **FILE-SYSTEM-NAME** with the name of your 1CC's persistent storage
+file system.
+
+Run `tmux` to start a new tmux session. Then, run:
+
+```bash
 sudo bash "${SHARED_DIR}/run_cluster.sh" \
        vllm/vllm-openai \
        "${HEAD_IP}" \
@@ -128,26 +146,18 @@ sudo bash "${SHARED_DIR}/run_cluster.sh" \
        --privileged -e NCCL_IB_HCA=^mlx5_0
 ```
 
-Replace **HEAD-IP** with the IP address of the head node.
-
-Replace **FILE-SYSTEM-NAME** with the name of your 1CC's persistent storage
-file system.
-
-These commands:
-
-1. Set the worker node environment variables needed for this tutorial.
-
-2. Connect the worker node to the head node.
+This command connects the worker node to the head node.
 
 ## Check the status of the Ray cluster and serve the Llama 3.1 405B model
 
-On the head node run:
+Still on the worker node, press **Ctrl** + **b**, then press **Ctrl** + **c**
+to open a new tmux window. Then, run:
 
 ```bash
 sudo docker exec -it node /bin/bash
 ```
 
-Then, run:
+Check the status of the Ray cluster by running:
 
 ```bash
 ray status
@@ -177,11 +187,12 @@ Usage:
 
 Demands:
  (no resource demands)
-
 ```
 
 This output shows 2 active nodes (the head node and the worker node) and 16
 GPUs in the Ray cluster.
+
+Press **Ctrl** + **b**, then press **Ctrl** + **c** to open a new tmux window.
 
 Run the following command to begin serving the Llama 3.1 405B model:
 
@@ -189,8 +200,11 @@ Run the following command to begin serving the Llama 3.1 405B model:
 vllm serve "/root/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-405B-Instruct/snapshots/SNAPSHOT" --tensor-parallel-size 8 --pipeline-parallel-size 2
 ```
 
-Replace **SNAPSHOT** with the name of the model snapshot. You can obtain the
-name of the snapshot by running:
+Replace **SNAPSHOT** with the name of snapshot of the Llama 3.1 405B model.
+The name of the snapshot should be similar to
+`e04e3022cdc89bfed0db69f5ac1d249e21ee2d30`.
+
+You can obtain the name of the snapshot by running:
 
 ```bash
 ls /root/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-405B-Instruct/snapshots
@@ -198,7 +212,9 @@ ls /root/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-405B-Instruct
 
 ## Test the Llama 3.1 405B model
 
-On the head node, run:
+Press **Ctrl** + **b**, then press **Ctrl** + **c** to open a new tmux window.
+
+Then, run:
 
 ```bash
 curl -o ${SHARED_DIR}/inference_test.py 'https://raw.githubusercontent.com/vllm-project/vllm/main/examples/openai_chat_completion_client.py'
@@ -212,6 +228,7 @@ These commands:
 
 2. Run an inference test.
 
+You should see output similar to:
 
 
 

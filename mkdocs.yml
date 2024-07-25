@@ -38,7 +38,11 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.snippets
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: vegalite
+          class: vegalite
+          format: !!python/name:mkdocs_charts_plugin.fences.fence_vegalite
   - pymdownx.tabbed:
       alternate_style: true
       slugify: !!python/object/apply:pymdownx.slugs.slugify
@@ -49,6 +53,7 @@ markdown_extensions:
   - toc:
       permalink: "#"
 plugins:
+  - charts
   - git-committers:
       repository: cbrownstein-lambda/lambda-docs-mkdocs
       branch: main
@@ -61,6 +66,10 @@ plugins:
         'one-click-clusters/getting-started.md': '1-click-clusters/getting-started.md'
   - tags:
       tags_file: tags.md
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/vega@5
+  - https://cdn.jsdelivr.net/npm/vega-lite@5
+  - https://cdn.jsdelivr.net/npm/vega-embed@6
 extra:
   social:
     - icon: fontawesome/brands/x-twitter

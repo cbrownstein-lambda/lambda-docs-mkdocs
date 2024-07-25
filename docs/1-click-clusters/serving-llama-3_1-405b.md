@@ -69,7 +69,7 @@ mkdir -p "${HF_HOME}"
 
 python3 -m venv llama-3.1
 source llama-3.1/bin/activate
-pip install -U huggingface_hub[cli] openai
+pip install -U huggingface_hub[cli]
 
 huggingface-cli login --token "${HF_TOKEN}"
 huggingface-cli download "${MODEL_REPO}"
@@ -79,7 +79,7 @@ These commands:
 
 1. Create and activate a
    [Python virtual environment](https://docs.lambdalabs.com/software/virtual-environments-and-docker-containers#creating-a-python-virtual-environment)
-   for this tutorial.
+   on the head node for this tutorial.
 
 2. Download the Llama 3.1 405B model to your 1CC's persistent storage file
    system.
@@ -97,10 +97,10 @@ Then, run:
 curl -o "${SHARED_DIR}/run_cluster.sh" https://raw.githubusercontent.com/vllm-project/vllm/main/examples/run_cluster.sh
 
 sudo bash "${SHARED_DIR}/run_cluster.sh" \
-       vllm/vllm-openai \
-       "${HEAD_IP}" \
-       --head "${HF_HOME}" \
-       --privileged -e NCCL_IB_HCA=^mlx5_0
+     vllm/vllm-openai \
+     "${HEAD_IP}" \
+     --head "${HF_HOME}" \
+     --privileged -e NCCL_IB_HCA=^mlx5_0
 ```
 
 These commands:
@@ -136,11 +136,11 @@ Run `tmux` to start a new tmux session. Then, run:
 
 ```bash
 sudo bash "${SHARED_DIR}/run_cluster.sh" \
-       vllm/vllm-openai \
-       "${HEAD_IP}" \
-       --worker \
-       "${HF_HOME}" \
-       --privileged -e NCCL_IB_HCA=^mlx5_0
+     vllm/vllm-openai \
+     "${HEAD_IP}" \
+     --worker \
+     "${HF_HOME}" \
+     --privileged -e NCCL_IB_HCA=^mlx5_0
 ```
 
 This command connects the worker node to the head node.
@@ -191,43 +191,65 @@ GPUs in the Ray cluster.
 
 Press **Ctrl** + **b**, then press **Ctrl** + **c** to open a new tmux window.
 
-Run the following command to begin serving the Llama 3.1 405B model:
-
-```bash
-vllm serve "/root/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-405B-Instruct/snapshots/SNAPSHOT" --tensor-parallel-size 8 --pipeline-parallel-size 2
-```
-
-Replace **SNAPSHOT** with the name of snapshot of the Llama 3.1 405B model.
-The name of the snapshot should be similar to
-`e04e3022cdc89bfed0db69f5ac1d249e21ee2d30`.
-
-You can obtain the name of the snapshot by running:
+Obtain the name of the Llama 3.1 405B model snapshot by running:
 
 ```bash
 ls /root/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-405B-Instruct/snapshots
 ```
 
+Then, run the following command to begin serving the Llama 3.1 405B model:
+
+```bash
+vllm serve "/root/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-405B-Instruct/snapshots/SNAPSHOT" --tensor-parallel-size 8 --pipeline-parallel-size 2
+```
+
+Replace **SNAPSHOT** with the name of the Llama 3.1 405B model snapshot.
+The name of the snapshot should be similar to
+`e04e3022cdc89bfed0db69f5ac1d249e21ee2d30`.
+
+You should begin seeing output similar to:
+
+```
+INFO 07-25 04:17:41 api_server.py:219] vLLM API server version 0.5.3.post1
+INFO 07-25 04:17:41 api_server.py:220] args: Namespace(model_tag='/root/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-405B-Instruct/snapshots/e04e3022cdc89bfed0db69f5ac1d249e21ee2d30', host=None, port=8000, uvicorn_log_level='info', allow_credentials=False, allowed_origins=['*'], allowed_methods=['*'], allowed_headers=['*'], api_key=None, lora_modules=None, prompt_adapters=None, chat_template=None, response_role='assistant', ssl_keyfile=None, ssl_certfile=None, ssl_ca_certs=None, ssl_cert_reqs=0, root_path=None, middleware=[], model='/root/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-405B-Instruct/snapshots/e04e3022cdc89bfed0db69f5ac1d249e21ee2d30', tokenizer=None, skip_tokenizer_init=False, revision=None, code_revision=None, tokenizer_revision=None, tokenizer_mode='auto', trust_remote_code=False, download_dir=None, load_format='auto', dtype='auto', kv_cache_dtype='auto', quantization_param_path=None, max_model_len=None, guided_decoding_backend='outlines', distributed_executor_backend=None, worker_use_ray=False, pipeline_parallel_size=2, tensor_parallel_size=8, max_parallel_loading_workers=None, ray_workers_use_nsight=False, block_size=16, enable_prefix_caching=False, disable_sliding_window=False, use_v2_block_manager=False, num_lookahead_slots=0, seed=0, swap_space=4, cpu_offload_gb=0, gpu_memory_utilization=0.9, num_gpu_blocks_override=None, max_num_batched_tokens=None, max_num_seqs=256, max_logprobs=20, disable_log_stats=False, quantization=None, rope_scaling=None, rope_theta=None, enforce_eager=False, max_context_len_to_capture=None, max_seq_len_to_capture=8192, disable_custom_all_reduce=False, tokenizer_pool_size=0, tokenizer_pool_type='ray', tokenizer_pool_extra_config=None, enable_lora=False, max_loras=1, max_lora_rank=16, lora_extra_vocab_size=256, lora_dtype='auto', long_lora_scaling_factors=None, max_cpu_loras=None, fully_sharded_loras=False, enable_prompt_adapter=False, max_prompt_adapters=1, max_prompt_adapter_token=0, device='auto', scheduler_delay_factor=0.0, enable_chunked_prefill=None, speculative_model=None, num_speculative_tokens=None, speculative_draft_tensor_parallel_size=None, speculative_max_model_len=None, speculative_disable_by_batch_size=None, ngram_prompt_lookup_max=None, ngram_prompt_lookup_min=None, spec_decoding_acceptance_method='rejection_sampler', typical_acceptance_sampler_posterior_threshold=None, typical_acceptance_sampler_posterior_alpha=None, disable_logprobs_during_spec_decoding=None, model_loader_extra_config=None, ignore_patterns=[], preemption_mode=None, served_model_name=None, qlora_adapter_name_or_path=None, otlp_traces_endpoint=None, engine_use_ray=False, disable_log_requests=False, max_log_len=None, dispatch_function=<function serve at 0x7de812d13520>)
+INFO 07-25 04:17:41 config.py:715] Defaulting to use ray for distributed inference
+```
+
 ## Test the Llama 3.1 405B model
 
-Press **Ctrl** + **b**, then press **Ctrl** + **c** to open a new tmux window.
+Still on the worker node, press **Ctrl** + **b**, then press **Ctrl** + **c**
+to open a new tmux window.
 
 Then, run:
 
 ```bash
-curl -o ${SHARED_DIR}/inference_test.py 'https://raw.githubusercontent.com/vllm-project/vllm/main/examples/openai_chat_completion_client.py'
+python3 -m venv llama-3.1
+source llama-3.1/bin/activate
+pip install -U openai
 
-python3 ${SHARED_DIR}/inference_test.py
+curl -o ${SHARED_DIR}/inference_test.py 'https://raw.githubusercontent.com/vllm-project/vllm/main/examples/openai_chat_completion_client.py'
 ```
 
 These commands:
 
-1. Download the Open AI chat completion client.
+1. Create and activate a
+   [Python virtual environment](https://docs.lambdalabs.com/software/virtual-environments-and-docker-containers#creating-a-python-virtual-environment)
+   on the worker node.
 
-2. Run an inference test.
+2. Download the Open AI chat completion client.
+
+Finally, to test the Llama 3.1 405B model, run:
+
+```bash
+python3 ${SHARED_DIR}/inference_test.py
+```
 
 You should see output similar to:
 
-
+```
+Chat completion results:
+ChatCompletion(id='chat-8eba7fa7e2f7442aafa82a1683bfc77f', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='The 2020 World Series was played at Globe Life Field in Arlington, Texas. This was a neutral site due to COVID-19 restrictions and was also referred to as a "bubble" environment.', role='assistant', function_call=None, tool_calls=[]), stop_reason=None)], created=1721884178, model='/root/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-405B-Instruct/snapshots/e04e3022cdc89bfed0db69f5ac1d249e21ee2d30', object='chat.completion', service_tier=None, system_fingerprint=None, usage=CompletionUsage(completion_tokens=41, prompt_tokens=59, total_tokens=100))
+```
 
 <!--
 

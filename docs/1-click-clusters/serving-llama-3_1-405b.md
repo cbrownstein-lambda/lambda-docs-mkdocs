@@ -207,6 +207,11 @@ Replace **SNAPSHOT** with the name of the Llama 3.1 405B model snapshot.
 The name of the snapshot should be similar to
 `e04e3022cdc89bfed0db69f5ac1d249e21ee2d30`.
 
+!!! note
+
+    It can take 15 minutes or more before the model is loaded onto the GPUs
+    and ready to be served.
+
 You should begin seeing output similar to:
 
 ```

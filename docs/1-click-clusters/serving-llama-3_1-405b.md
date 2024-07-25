@@ -62,9 +62,7 @@ file system.
 
 Replace **HF-TOKEN** with your Hugging Face User Access Token.
 
-Then, start a tmux session by running `tmux`.
-
-Run:
+Then, run:
 
 ```bash
 mkdir -p "${HF_HOME}"
@@ -77,10 +75,9 @@ huggingface-cli login --token "${HF_TOKEN}"
 huggingface-cli download "${MODEL_REPO}"
 ```
 
-
 These commands:
 
-1. Create a
+1. Create and activate a
    [Python virtual environment](https://docs.lambdalabs.com/software/virtual-environments-and-docker-containers#creating-a-python-virtual-environment)
    for this tutorial.
 
@@ -92,8 +89,7 @@ These commands:
     The Llama 3.1 405B model is about 2.3TB in size and can take several hours
     to download.
 
-Still on the head node, press **Ctrl** + **b**, then press **Ctrl** + **c** to
-open a new tmux window.
+Still on the head node, start a tmux session by running `tmux`.
 
 Then, run:
 
@@ -130,6 +126,7 @@ export HEAD_IP=HEAD-IP
 export SHARED_DIR=/home/ubuntu/FILE-SYSTEM-NAME
 export HF_HOME="${SHARED_DIR}/.cache/huggingface"
 ```
+
 Replace **HEAD-IP** with the IP address of the head node.
 
 Replace **FILE-SYSTEM-NAME** with the name of your 1CC's persistent storage

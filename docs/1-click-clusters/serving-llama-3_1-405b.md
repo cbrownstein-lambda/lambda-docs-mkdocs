@@ -220,6 +220,15 @@ INFO 07-25 04:17:41 api_server.py:220] args: Namespace(model_tag='/root/.cache/h
 INFO 07-25 04:17:41 config.py:715] Defaulting to use ray for distributed inference
 ```
 
+The Llama 3.1 405B model is ready to be served once you see output similar to:
+
+```
+INFO:     Started server process [24469]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+```
+
 ## Test the Llama 3.1 405B model
 
 Still on the worker node, press **Ctrl** + **b**, then press **Ctrl** + **c**

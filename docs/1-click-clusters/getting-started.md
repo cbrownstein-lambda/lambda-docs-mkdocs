@@ -79,3 +79,69 @@ and other work immediately after launching a 1CC.
   }
 }
 ```
+
+```vegalite
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "ResNet 50 Performance",
+  "width": 800,
+  "data": {
+    "url": "https://raw.githubusercontent.com/lambdal/deeplearning-benchmark/master/pytorch/pytorch-train-throughput-fp32.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "name_gpu",
+          "type": "nominal",
+          "sort": {
+            "field": "resnet50",
+            "order": "descending"
+          },
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+        "x": {
+          "field": "resnet50",
+          "type": "quantitative",
+          "axis": {
+            "tickCount": 10,
+            "tickMinStep": 1,
+            "tickStep": 1
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 6
+      },
+      "encoding": {
+        "y": {
+          "field": "name_gpu",
+          "type": "nominal",
+          "sort": {
+            "field": "resnet50",
+            "order": "descending"
+          }
+        },
+        "x": {
+          "field": "resnet50",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "resnet50",
+          "type": "quantitative"
+        }
+      }
+    }
+  ]
+}
+```

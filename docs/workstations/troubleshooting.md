@@ -6,7 +6,9 @@ If you have a Vector desktop with a WRX80 motherboard and a 4K monitor, when the
 
 You can determine whether your system has the WRX80 motherboard by running:
 
-```sudo dmidecode -t 2 | grep Name```
+``` bash
+sudo dmidecode -t 2 | grep Name
+```
 
 Your system has a WRX80 motherboard if the command returns: `Product Name: Pro WS WRX80E-SAGE SE`
 

@@ -1,3 +1,11 @@
+---
+comments: true
+tags:
+  - BIOS
+  - monitor
+  - WRX80
+---
+
 # Troubleshooting Workstations and Desktops
 
 ## I can't access the BIOS on a Vector desktop with a WRX80 motherboard when it's connected to a 4K monitor.

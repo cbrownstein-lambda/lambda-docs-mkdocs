@@ -23,6 +23,8 @@ with a persistent storage file system. Then, SSH into your instance.
 
     Persistent storage file systems can't be attached to running instances.
 
+Run:
+
 ```bash
 export PERSISTENT_STORAGE=/home/ubuntu/FILE-SYSTEM-NAME
 export HF_TOKEN=HF-TOKEN

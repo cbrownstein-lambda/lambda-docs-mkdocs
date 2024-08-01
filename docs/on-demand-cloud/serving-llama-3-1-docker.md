@@ -50,7 +50,7 @@ These commands set environment variables needed for this tutorial.
 
 Start a tmux session by running `tmux`.
 
-If you're serving the 8B model on either a 1x A100 or H100 instance, run:
+If you're serving the 8B model, run:
 
 ```bash
 sudo docker run \

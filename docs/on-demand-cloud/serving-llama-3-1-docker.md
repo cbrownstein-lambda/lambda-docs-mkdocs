@@ -12,7 +12,8 @@ tags:
 This tutorial shows you how to use a [Lambda
 Cloud](https://lambdalabs.com/service/gpu-cloud) 1x or 8x A100 or H100
 on-demand instance to serve the Llama 3.1 8B and 70B models. You'll serve the
-model using vLLM running inside of a Docker container.
+model using [vLLM running inside of a Docker
+container](https://docs.vllm.ai/en/latest/serving/deploying_with_docker.html).
 
 {% include "../includes/need-hugging-face-llama.md" %}
 

@@ -129,3 +129,52 @@ You should see output similar to:
 ```
 {"id":"cmpl-d3a33498b5d74d9ea09a7c256733b8df","object":"text_completion","created":1722545598,"model":"meta-llama/Meta-Llama-3.1-70B-Instruct","choices":[{"index":0,"text":" Paris","logprobs":null,"finish_reason":"length","stop_reason":null}],"usage":{"prompt_tokens":11,"total_tokens":12,"completion_tokens":1}}
 ```
+
+!!! tip
+
+    You can make the output more human-readable using jq. To do this, first
+    install jq by running:
+
+    ```bash
+    sudo apt update && sudo apt install -y jq
+    ```
+
+    Then, append `| jq .` to the `curl` command, above.
+
+    The complete command should be:
+
+    ```bash
+    curl -X POST http://localhost:8000/v1/completions \
+         -H "Content-Type: application/json" \
+         -d '{
+               "prompt": "What is the name of the capital of France?",
+               "model": "${MODEL_REPO}",
+               "temperature": 0.0,
+               "max_tokens": 1
+             }' | jq .
+    ```
+
+    The output should now look similar to:
+
+    ```json
+    {
+      "id": "cmpl-529d01c83069409fa5c166e1d137e21e",
+      "object": "text_completion",
+      "created": 1722545913,
+      "model": "meta-llama/Meta-Llama-3.1-70B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "text": " Paris",
+          "logprobs": null,
+          "finish_reason": "length",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 11,
+        "total_tokens": 12,
+        "completion_tokens": 1
+      }
+    }
+    ```

@@ -118,7 +118,7 @@ curl -X POST http://localhost:8000/v1/completions \
      -H "Content-Type: application/json" \
      -d '{
            "prompt": "What is the name of the capital of France?",
-           "model": "meta-llama/Meta-Llama-3-8B",
+           "model": "${MODEL_REPO}",
            "temperature": 0.0,
            "max_tokens": 1
          }'

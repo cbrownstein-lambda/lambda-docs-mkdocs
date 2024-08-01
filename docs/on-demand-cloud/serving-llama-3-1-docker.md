@@ -42,6 +42,8 @@ Replace **MODEL** with:
 - If you're serving the 8B model: `Meta-Llama-3.1-8B-Instruct`.
 - If you're serving the 70B model: `Meta-Llama-3.1-70B-Instruct`.
 
+These commands set environment variables needed for this tutorial.
+
 !!! note
 
     The 70B model requires an 8x A100 or H100.

@@ -9,7 +9,8 @@ tags:
 
 # How to serve the Llama 3.1 8B and 70B models using Lambda Cloud on-demand instances
 
-This tutorial shows you how to use a Lambda Cloud 1x or 8x A100 or H100
+This tutorial shows you how to use a [Lambda
+Cloud](https://lambdalabs.com/service/gpu-cloud) 1x or 8x A100 or H100
 on-demand instance to serve the Llama 3.1 8B and 70B models. You'll serve the
 model using vLLM running inside of a Docker container.
 

@@ -87,7 +87,7 @@ Both commands, above:
 !!! note
 
     The difference betweeen the two commands, above, is that the second
-    command enables the tensor parallel strategy to use. [See vLLM's docs to
+    command enables the tensor parallel strategy to use 8x GPUs. [See vLLM's docs to
     learn more about the distributed inference
     strategies](https://docs.vllm.ai/en/latest/serving/distributed_serving.html).
 

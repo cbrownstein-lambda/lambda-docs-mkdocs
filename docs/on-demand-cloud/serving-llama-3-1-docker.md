@@ -126,7 +126,7 @@ curl -X POST http://localhost:8000/v1/completions \
 
 You should see output similar to:
 
-```
+```json
 {"id":"cmpl-d3a33498b5d74d9ea09a7c256733b8df","object":"text_completion","created":1722545598,"model":"meta-llama/Meta-Llama-3.1-70B-Instruct","choices":[{"index":0,"text":" Paris","logprobs":null,"finish_reason":"length","stop_reason":null}],"usage":{"prompt_tokens":11,"total_tokens":12,"completion_tokens":1}}
 ```
 

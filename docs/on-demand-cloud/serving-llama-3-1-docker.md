@@ -1,0 +1,125 @@
+---
+description: How to serve the Llama 3.1 8B and 70B models using Lambda Cloud on-demand instances
+comments: true
+tags:
+  - docker
+  - llama
+  - llm
+---
+
+# How to serve the Llama 3.1 8B and 70B models using Lambda Cloud on-demand instances
+
+This tutorial shows you how to use a Lambda Cloud 1x or 8x A100 or H100
+on-demand instance to serve the Llama 3.1 8B and 70B models. You'll serve the
+model using vLLM running inside of a Docker container.
+
+{% include "../includes/need-hugging-face-llama.md" %}
+
+If you haven't already, use the dashboard or Cloud API to launch an instance
+with a persistent storage file system. Then, SSH into your instance.
+
+!!! warning
+
+    Persistent storage file systems can't be attached to running instances.
+
+```bash
+export PERSISTENT_STORAGE=/home/ubuntu/FILE-SYSTEM-NAME
+export HF_TOKEN=HF-TOKEN
+export HF_HOME="${PERSISTENT_STORAGE}/.cache/huggingface"
+export MODEL_REPO=meta-llama/MODEL
+```
+
+Replace **FILE-SYSTEM-NAME** with the name of the persistent storage file
+system attached to your instance.
+
+Replace **HF-TOKEN** with your Hugging Face User Access Token.
+
+Replace **MODEL** with:
+
+- If you're serving the 8B model: `Meta-Llama-3.1-8B-Instruct`.
+- If you're serving the 70B model: `Meta-Llama-3.1-70B-Instruct`.
+
+!!! note
+
+    The 70B model requires an 8x A100 or H100.
+
+Start a tmux session by running `tmux`.
+
+If you're server the 8B model on either a 1x A100 or H100 instance, run:
+
+```bash
+sudo docker run \
+  --gpus all \
+  --ipc=host \
+  -v "${HF_HOME}":/root/.cache/huggingface \
+  -p 8000:8000 \
+  --env "HUGGING_FACE_HUB_TOKEN=${HF_TOKEN}" \
+  vllm/vllm-openai --model "${MODEL_REPO}" \
+    --disable-log-requests
+```
+
+If you're serving the 70B model using an 8x A100 or H100 instance (required),
+instead run:
+
+```bash
+sudo docker run \
+  --gpus all \
+  --ipc=host \
+  -v "${HF_HOME}":/root/.cache/huggingface \
+  -p 8000:8000 \
+  --env "HUGGING_FACE_HUB_TOKEN=${HF_TOKEN}" \
+  vllm/vllm-openai --model "${MODEL_REPO}" \
+    --disable-log-requests \
+    --tensor-parallel-size 8
+```
+
+Both commands, above:
+
+- Download the model you're serving to your persistent storage file system.
+- Start vLLM's API server with the chosen model.
+
+!!! note
+
+    The difference betweeen the two commands, above, is that the second
+    command enables the tensor parallel strategy to use. [See vLLM's docs to
+    learn more about the distributed inference
+    strategies](https://docs.vllm.ai/en/latest/serving/distributed_serving.html).
+
+The vLLM API server is running once you see:
+
+```
+INFO 08-01 19:11:07 api_server.py:292] Available routes are:
+INFO 08-01 19:11:07 api_server.py:297] Route: /openapi.json, Methods: GET, HEAD
+INFO 08-01 19:11:07 api_server.py:297] Route: /docs, Methods: GET, HEAD
+INFO 08-01 19:11:07 api_server.py:297] Route: /docs/oauth2-redirect, Methods: GET, HEAD
+INFO 08-01 19:11:07 api_server.py:297] Route: /redoc, Methods: GET, HEAD
+INFO 08-01 19:11:07 api_server.py:297] Route: /health, Methods: GET
+INFO 08-01 19:11:07 api_server.py:297] Route: /tokenize, Methods: POST
+INFO 08-01 19:11:07 api_server.py:297] Route: /detokenize, Methods: POST
+INFO 08-01 19:11:07 api_server.py:297] Route: /v1/models, Methods: GET
+INFO 08-01 19:11:07 api_server.py:297] Route: /version, Methods: GET
+INFO 08-01 19:11:07 api_server.py:297] Route: /v1/chat/completions, Methods: POST
+INFO 08-01 19:11:07 api_server.py:297] Route: /v1/completions, Methods: POST
+INFO 08-01 19:11:07 api_server.py:297] Route: /v1/embeddings, Methods: POST
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+```
+
+To test that the API server is serving the Llama 3.1 model:
+
+Press ++ctrl++ + ++b++, then press ++c++ to open a new tmux window.
+
+Then, run:
+
+```bash
+curl -X POST http://localhost:8000/v1/completions \
+     -H "Content-Type: application/json" \
+     -d '{
+           "prompt": "What is the name of the capital of France?",
+           "model": "meta-llama/Meta-Llama-3-8B",
+           "temperature": 0.0,
+           "max_tokens": 1
+         }'
+```

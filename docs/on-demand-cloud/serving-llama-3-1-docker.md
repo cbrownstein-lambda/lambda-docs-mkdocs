@@ -25,9 +25,7 @@ Then, SSH into your instance.
 Run:
 
 ```bash
-export HF_TOKEN=HF-TOKEN
-export HF_HOME="/home/ubuntu/.cache/huggingface"
-export MODEL_REPO=meta-llama/MODEL
+export HF_TOKEN=HF-TOKEN HF_HOME="/home/ubuntu/.cache/huggingface" MODEL_REPO=meta-llama/MODEL
 ```
 
 Replace **HF-TOKEN** with your Hugging Face User Access Token.

@@ -19,8 +19,10 @@ container](https://docs.vllm.ai/en/latest/serving/deploying_with_docker.html).
 
 ## Start the vLLM API server
 
-If you haven't already, use the dashboard or Cloud API to launch an instance.
-Then, SSH into your instance.
+If you haven't already, use the
+[dashboard](https://cloud.lambdalabs.com/instances) or [Cloud
+API](https://docs.lambdalabs.com/on-demand-cloud/cloud-api) to launch an
+instance. Then, SSH into your instance.
 
 Run:
 

@@ -17,6 +17,8 @@ container](https://docs.vllm.ai/en/latest/serving/deploying_with_docker.html).
 
 {% include "../includes/need-hugging-face-llama.md" %}
 
+## Start the vLLM API server
+
 If you haven't already, use the dashboard or Cloud API to launch an instance.
 Then, SSH into your instance.
 
@@ -104,6 +106,8 @@ INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
 ```
+
+## Test the vLLM API server
 
 To test that the API server is serving the Llama 3.1 model:
 

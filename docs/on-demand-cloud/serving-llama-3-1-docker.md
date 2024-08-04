@@ -114,12 +114,12 @@ Then, run:
 ```bash
 curl -X POST http://localhost:8000/v1/completions \
      -H "Content-Type: application/json" \
-     -d '{
-           "prompt": "What is the name of the capital of France?",
-           "model": "${MODEL_REPO}",
-           "temperature": 0.0,
-           "max_tokens": 1
-         }'
+     -d "{
+           \"prompt\": \"What is the name of the capital of France?\",
+           \"model\": \"${MODEL_REPO}\",
+           \"temperature\": 0.0,
+           \"max_tokens\": 1
+         }"
 ```
 
 You should see output similar to:
@@ -144,12 +144,12 @@ You should see output similar to:
     ```bash
     curl -X POST http://localhost:8000/v1/completions \
          -H "Content-Type: application/json" \
-         -d '{
-               "prompt": "What is the name of the capital of France?",
-               "model": "${MODEL_REPO}",
-               "temperature": 0.0,
-               "max_tokens": 1
-             }' | jq .
+         -d "{
+               \"prompt\": \"What is the name of the capital of France?\",
+               \"model\": \"${MODEL_REPO}\",
+               \"temperature\": 0.0,
+               \"max_tokens\": 1
+             }" | jq .
     ```
 
     The output should now look similar to:

@@ -32,8 +32,14 @@ Replace **HF-TOKEN** with your Hugging Face User Access Token.
 
 Replace **MODEL** with:
 
-- If you're serving the 8B model: `Meta-Llama-3.1-8B-Instruct`.
-- If you're serving the 70B model: `Meta-Llama-3.1-70B-Instruct`.
+- If you're serving the 8B model:
+  ```
+  Meta-Llama-3.1-8B-Instruct
+  ```
+- If you're serving the 70B model:
+  ```
+  Meta-Llama-3.1-70B-Instruct
+  ```
 
 These commands set environment variables needed for this tutorial.
 

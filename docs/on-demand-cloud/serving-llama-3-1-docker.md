@@ -17,24 +17,16 @@ container](https://docs.vllm.ai/en/latest/serving/deploying_with_docker.html).
 
 {% include "../includes/need-hugging-face-llama.md" %}
 
-If you haven't already, use the dashboard or Cloud API to launch an instance
-with a persistent storage file system. Then, SSH into your instance.
-
-!!! warning
-
-    Persistent storage file systems can't be attached to running instances.
+If you haven't already, use the dashboard or Cloud API to launch an instance.
+Then, SSH into your instance.
 
 Run:
 
 ```bash
-export PERSISTENT_STORAGE=/home/ubuntu/FILE-SYSTEM-NAME
 export HF_TOKEN=HF-TOKEN
-export HF_HOME="${PERSISTENT_STORAGE}/.cache/huggingface"
+export HF_HOME="~/.cache/huggingface"
 export MODEL_REPO=meta-llama/MODEL
 ```
-
-Replace **FILE-SYSTEM-NAME** with the name of the persistent storage file
-system attached to your instance.
 
 Replace **HF-TOKEN** with your Hugging Face User Access Token.
 
@@ -81,7 +73,7 @@ sudo docker run \
 
 Both commands, above:
 
-- Download the model you're serving to your persistent storage file system.
+- Download the model you're serving.
 - Start vLLM's API server with the chosen model.
 
 !!! note

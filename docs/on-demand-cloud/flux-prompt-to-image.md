@@ -102,7 +102,7 @@ This share link expires in 72 hours. For free permanent hosting and GPU upgrades
 ```
 
 
-### Access the Gradio app serving the FLUX.1 model
+## Access the Gradio app serving the FLUX.1 model
 
 Open the public URL to access the Gradio app serving the FLUX.1 model.
 

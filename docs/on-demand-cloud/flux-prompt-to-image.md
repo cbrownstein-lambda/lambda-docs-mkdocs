@@ -109,7 +109,7 @@ Open the public URL to access the Gradio app serving the FLUX.1 model.
 !!! warning
 
     Anyone with the public URL can access the Gradio app serving the FLUX.1
-    model
+    model.
 
 As an example prompt, try:
 

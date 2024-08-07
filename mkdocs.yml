@@ -21,6 +21,7 @@ nav:
     - on-demand-cloud/getting-started.md
     - on-demand-cloud/billing.md
     - on-demand-cloud/serving-llama-3-1-docker.md
+    - on-demand-cloud/flux-prompt-to-image.md
   - 1-Click Clusters:
     - 1-click-clusters/getting-started.md
     - 1-click-clusters/serving-llama-3_1-405b.md

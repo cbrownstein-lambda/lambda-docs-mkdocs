@@ -36,7 +36,7 @@ Alternatively, you can use [Jupyter
 Notebook](https://docs.lambdalabs.com/on-demand-cloud/getting-started#how-do-i-open-jupyter-notebook-on-my-instance)
 to access the instance.
 
-Clone the [Flux.1 inference GitHub
+Clone the [FLUX.1 inference GitHub
 repository](https://github.com/black-forest-labs/flux) to your home directory
 by running:
 

@@ -67,7 +67,7 @@ pip install -e '.[all]'
 
 ## Download and serve the FLUX.1 model
 
-### To download and serve the FLUX.1 [schnell] model:
+### To download and serve the FLUX.1 [schnell] model
 
 Run:
 
@@ -75,7 +75,7 @@ Run:
 python3 demo_gr.py --name flux-schnell --share
 ```
 
-### To download and serve the FLUX.1 [dev] model:
+### To download and serve the FLUX.1 [dev] model
 
 First, log into your Hugging Face account by running:
 

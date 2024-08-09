@@ -63,5 +63,28 @@ curl http://192.222.52.40:8000/v1/chat/completions -d @messages.json -H "Authori
 You should see output similar to:
 
 ```json
-
+{
+  "id": "chat-c0b989214e164879826a76820f9e238d",
+  "object": "chat.completion",
+  "created": 1723165547,
+  "model": "405bnmfp8",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The Los Angeles Dodgers won the 2020 World Series, defeating the Tampa Bay Rays in the series 4 games to 2. This was the Dodgers' first World Series title since 1988.",
+        "tool_calls": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop",
+      "stop_reason": null
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 31,
+    "total_tokens": 73,
+    "completion_tokens": 42
+  }
+}
 ```

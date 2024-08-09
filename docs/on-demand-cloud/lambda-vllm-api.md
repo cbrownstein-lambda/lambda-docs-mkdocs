@@ -38,21 +38,21 @@ any optional
 parameters](https://platform.openai.com/docs/api-reference/chat/create). For
 example:
 
-   ```json
-   {
-    "model": "405bnmfp8",
-    "messages": [
-      {
-        "role": "system",
-        "content": "You are an expert machine learning engineering."
-      },
-      {
-        "role": "user",
-        "content": "What are the differences between data and model parallelism?"
-      }
-    ]
-   }
-   ```
+```json
+{
+  "model": "405bnmfp8",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant."
+    },
+    {
+      "role": "user",
+      "content": "Who won the world series in 2020?"
+    }
+  ]
+}
+```
 
 Then, run the following command:
 

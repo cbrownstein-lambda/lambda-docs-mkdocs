@@ -1,0 +1,67 @@
+---
+description: Using the Lambda Cloud vLLM API
+comments: true
+tags:
+  - llama
+  - llm
+---
+
+# Using the Lambda Cloud vLLM API
+
+The Lambda Cloud vLLM API enables you to use the Llama 3.1 405B large language
+model (LLM) without the need to set up your own vLLM API server on an
+on-demand instance or 1-Click Cluster (1CC).
+
+Since the Lambda Cloud vLLM API is compatible with the [OpenAI
+API](https://platform.openai.com/docs/overview), you can use it as a drop-in
+replacement for applications currently using the OpenAI API.
+
+The Lambda Cloud vLLM API implements endpoints for:
+
+- [Creating chat completions](#creating-chat-completions) (`/chat/completions`)
+- Creating completions (`/completions`)
+- Listing models (`/models`)
+
+To use the Lambda Cloud vLLM API, first [generate an API key from the
+dashboard](https://cloud.lambdalabs.com/api-keys). You can also use an API key
+that you've already generated.
+
+# Creating chat completions
+
+The `/chat/completions` endpoint takes a list of messages that make up a
+conversation, then outputs a response.
+
+To use the `/chat/completions` endpoint:
+
+First, create a file named `messages.json` that contains [the necessary and
+any optional
+parameters](https://platform.openai.com/docs/api-reference/chat/create). For
+example:
+
+   ```json
+   {
+    "model": "405bnmfp8",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are an expert machine learning engineering."
+      },
+      {
+        "role": "user",
+        "content": "What are the differences between data and model parallelism?"
+      }
+    ]
+   }
+   ```
+
+Then, run the following command:
+
+```bash
+curl http://192.222.52.40:8000/v1/chat/completions -d @messages.json -H "Authorization: Bearer secret_testing_768cff5cff2e446d891f5967174699f4.1veckDNxjf6j3l02KBwGGh322nt1OvCe" -H "Content-Type: application/json" | jq .
+```
+
+You should see output similar to:
+
+```json
+
+```

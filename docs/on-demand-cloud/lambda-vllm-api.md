@@ -57,8 +57,10 @@ example:
 Then, run the following command:
 
 ```bash
-curl http://192.222.52.40:8000/v1/chat/completions -d @messages.json -H "Authorization: Bearer secret_testing_768cff5cff2e446d891f5967174699f4.1veckDNxjf6j3l02KBwGGh322nt1OvCe" -H "Content-Type: application/json" | jq .
+curl http://192.222.52.40:8000/v1/chat/completions -d @messages.json -H "Authorization: Bearer API-KEY" -H "Content-Type: application/json" | jq .
 ```
+
+Replace **API-KEY** with your actual API key.
 
 You should see output similar to:
 

@@ -1,0 +1,1336 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="How to serve the Llama 3.1 405B model using a Lambda 1-Click Cluster">
+      
+      
+      
+        <link rel="canonical" href="https://cbrownstein-lambda.github.io/lambda-docs-mkdocs/1-click-clusters/serving-llama-3_1-405b/">
+      
+      
+        <link rel="prev" href="../getting-started/">
+      
+      
+        <link rel="next" href="../../workstations/getting-started/">
+      
+      
+      <link rel="icon" href="../../assets/img/lambda-logo.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+    
+    
+      
+        <title>How to serve the Llama 3.1 405B model using a Lambda 1-Click Cluster - Lambda Docs [PROOF OF CONCEPT]</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="How to serve the Llama 3.1 405B model using a Lambda 1-Click Cluster - Lambda Docs [PROOF OF CONCEPT]" >
+      
+        <meta  property="og:description"  content="How to serve the Llama 3.1 405B model using a Lambda 1-Click Cluster" >
+      
+        <meta  property="og:image"  content="https://cbrownstein-lambda.github.io/lambda-docs-mkdocs/assets/images/social/1-click-clusters/serving-llama-3_1-405b.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://cbrownstein-lambda.github.io/lambda-docs-mkdocs/1-click-clusters/serving-llama-3_1-405b/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="How to serve the Llama 3.1 405B model using a Lambda 1-Click Cluster - Lambda Docs [PROOF OF CONCEPT]" >
+      
+        <meta  name="twitter:description"  content="How to serve the Llama 3.1 405B model using a Lambda 1-Click Cluster" >
+      
+        <meta  name="twitter:image"  content="https://cbrownstein-lambda.github.io/lambda-docs-mkdocs/assets/images/social/1-click-clusters/serving-llama-3_1-405b.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-to-serve-the-llama-31-405b-model-using-a-lambda-1-click-cluster" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Lambda Docs [PROOF OF CONCEPT]" class="md-header__button md-logo" aria-label="Lambda Docs [PROOF OF CONCEPT]" data-md-component="logo">
+      
+  <img src="../../assets/img/lambda-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Lambda Docs [PROOF OF CONCEPT]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              How to serve the Llama 3.1 405B model using a Lambda 1-Click Cluster
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cbrownstein-lambda/lambda-docs-mkdocs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../on-demand-cloud/getting-started/" class="md-tabs__link">
+          
+  
+  On-Demand Cloud
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  1-Click Clusters
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../workstations/getting-started/" class="md-tabs__link">
+          
+  
+  Workstations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../software/virtual-environments-containers/" class="md-tabs__link">
+          
+  
+  Software
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Lambda Docs [PROOF OF CONCEPT]" class="md-nav__button md-logo" aria-label="Lambda Docs [PROOF OF CONCEPT]" data-md-component="logo">
+      
+  <img src="../../assets/img/lambda-logo.png" alt="logo">
+
+    </a>
+    Lambda Docs [PROOF OF CONCEPT]
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cbrownstein-lambda/lambda-docs-mkdocs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    On-Demand Cloud
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            On-Demand Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-demand-cloud/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-demand-cloud/billing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Billing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-demand-cloud/serving-llama-3-1-docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to serve the Llama 3.1 8B and 70B models using Lambda Cloud on-demand instances
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-demand-cloud/flux-prompt-to-image/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to serve the FLUX.1 prompt-to-image models using Lambda Cloud on-demand instances
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-demand-cloud/lambda-vllm-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the Lambda Cloud vLLM API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    1-Click Clusters
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            1-Click Clusters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    How to serve the Llama 3.1 405B model using a Lambda 1-Click Cluster
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    How to serve the Llama 3.1 405B model using a Lambda 1-Click Cluster
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#download-the-llama-31-405b-model-and-set-up-a-head-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download the Llama 3.1 405B model and set up a head node
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connect-another-gpu-node-to-the-head-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connect another GPU node to the head node
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-the-status-of-the-ray-cluster-and-serve-the-llama-31-405b-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check the status of the Ray cluster and serve the Llama 3.1 405B model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-the-llama-31-405b-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test the Llama 3.1 405B model
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Workstations
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Workstations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workstations/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workstations/troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting Workstations and Desktops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software/virtual-environments-containers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Virtual environments and Docker containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#download-the-llama-31-405b-model-and-set-up-a-head-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download the Llama 3.1 405B model and set up a head node
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connect-another-gpu-node-to-the-head-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connect another GPU node to the head node
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-the-status-of-the-ray-cluster-and-serve-the-llama-31-405b-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check the status of the Ray cluster and serve the Llama 3.1 405B model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-the-llama-31-405b-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test the Llama 3.1 405B model
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../../tags/#distributed-training" class="md-tag">distributed training</a>
+    
+  
+</nav>
+
+
+  
+    <a href="https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/edit/main/docs/1-click-clusters/serving-llama-3_1-405b.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/raw/main/docs/1-click-clusters/serving-llama-3_1-405b.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="how-to-serve-the-llama-31-405b-model-using-a-lambda-1-click-cluster">How to serve the Llama 3.1 405B model using a Lambda 1-Click Cluster<a class="headerlink" href="#how-to-serve-the-llama-31-405b-model-using-a-lambda-1-click-cluster" title="Permanent link">#</a></h1>
+<p>In this tutorial, you'll learn how to use a 1-Click Cluster (1CC) to serve the
+<a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-405B">Meta Llama 3.1 405B model</a> using
+<a href="https://docs.vllm.ai/en/latest/index.html">vLLM</a> with pipeline parallelism.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You need a <a href="https://huggingface.co/">Hugging Face</a> account to download the
+Llama 3.1 405B model. You also need a
+<a href="https://huggingface.co/docs/hub/en/security-tokens">User Access Token</a>
+with the <strong>Read</strong> role.</p>
+<p>Before you can download the Llama 3.1 405B model, you need to review and
+accept the model's license agreement. Once you accept the agreement, a
+request to access the repository will be submitted.</p>
+<p>You can see the status of the request in your
+<a href="https://huggingface.co/settings/gated-repos">Hugging Face account settings</a>.</p>
+</div>
+<h2 id="download-the-llama-31-405b-model-and-set-up-a-head-node">Download the Llama 3.1 405B model and set up a head node<a class="headerlink" href="#download-the-llama-31-405b-model-and-set-up-a-head-node" title="Permanent link">#</a></h2>
+<p>First, follow the
+<a href="https://docs.lambdalabs.com/1-click-clusters/getting-started#accessing-your-1-click-cluster">instructions for accessing your 1CC</a>.</p>
+<p>Once you've followed the instructions for accessing your 1CC, SSH into one of
+your 1CC GPU nodes. This GPU node will be set up as a head node for this
+tutorial and will be referred to in this tutorial as the "head node."</p>
+<p>On the head node, set environment variables needed for this tutorial by
+running:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HEAD_IP</span><span class="o">=</span>HEAD-IP
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">SHARED_DIR</span><span class="o">=</span>/home/ubuntu/FILE-SYSTEM-NAME
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HF_TOKEN</span><span class="o">=</span>HF-TOKEN
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HF_HOME</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">SHARED_DIR</span><span class="si">}</span><span class="s2">/.cache/huggingface&quot;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">MODEL_REPO</span><span class="o">=</span>meta-llama/Meta-Llama-3.1-405B-Instruct
+</span></code></pre></div>
+<p>Replace <strong>HEAD-IP</strong> with the IP address of the head node. You can
+obtain the IP address from the
+<a href="https://cloud.lambdalabs.com/one-click-clusters/running">1-Click Clusters dashboard</a>.</p>
+<p>Replace <strong>FILE-SYSTEM-NAME</strong> with the name of your 1CC's persistent storage
+file system.</p>
+<p>Replace <strong>HF-TOKEN</strong> with your Hugging Face User Access Token.</p>
+<p>Then, run:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HF_HOME</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>llama-3.1
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">source</span><span class="w"> </span>llama-3.1/bin/activate
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>huggingface_hub<span class="o">[</span>cli<span class="o">]</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>huggingface-cli<span class="w"> </span>login<span class="w"> </span>--token<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HF_TOKEN</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>huggingface-cli<span class="w"> </span>download<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">MODEL_REPO</span><span class="si">}</span><span class="s2">&quot;</span>
+</span></code></pre></div>
+<p>These commands:</p>
+<ol>
+<li>
+<p>Create and activate a
+   <a href="https://docs.lambdalabs.com/software/virtual-environments-and-docker-containers#creating-a-python-virtual-environment">Python virtual environment</a>
+   on the head node for this tutorial.</p>
+</li>
+<li>
+<p>Download the Llama 3.1 405B model to your 1CC's persistent storage file
+   system.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Llama 3.1 405B model is about 2.3TB in size and can take several hours
+to download.</p>
+</div>
+<p>Still on the head node, start a tmux session by running <code>tmux</code>.</p>
+<p>Then, run:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span>-o<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">SHARED_DIR</span><span class="si">}</span><span class="s2">/run_cluster.sh&quot;</span><span class="w"> </span>https://raw.githubusercontent.com/vllm-project/vllm/main/examples/run_cluster.sh
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>sudo<span class="w"> </span>bash<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">SHARED_DIR</span><span class="si">}</span><span class="s2">/run_cluster.sh&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">     </span>vllm/vllm-openai<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">     </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HEAD_IP</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">     </span>--head<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HF_HOME</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">     </span>--privileged<span class="w"> </span>-e<span class="w"> </span><span class="nv">NCCL_IB_HCA</span><span class="o">=</span>^mlx5_0
+</span></code></pre></div>
+<p>These commands:</p>
+<ol>
+<li>
+<p>Download to your shared persistent storage file system a helper script to
+   <a href="https://docs.vllm.ai/en/latest/serving/distributed_serving.html#multi-node-inference-and-serving">set up vLLM for multi-node inference and serving</a>.</p>
+</li>
+<li>
+<p>Run the script to start a
+   <a href="https://docs.ray.io/en/latest/cluster/getting-started.html">Ray cluster</a>
+   for serving the Llama 3.1 405B model using vLLM. The Ray cluster uses your
+   1CC's InfiniBand fabric for optimal performance.</p>
+</li>
+</ol>
+<h2 id="connect-another-gpu-node-to-the-head-node">Connect another GPU node to the head node<a class="headerlink" href="#connect-another-gpu-node-to-the-head-node" title="Permanent link">#</a></h2>
+<p>Next, you'll connect another of your 1CC's GPUs nodes to the head node. This
+other GPU node will be referred to below as the "worker node."</p>
+<p>In a new terminal, SSH into the worker node, then set environment variables
+needed for this tutorial by running:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HEAD_IP</span><span class="o">=</span>HEAD-IP
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">SHARED_DIR</span><span class="o">=</span>/home/ubuntu/FILE-SYSTEM-NAME
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HF_HOME</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">SHARED_DIR</span><span class="si">}</span><span class="s2">/.cache/huggingface&quot;</span>
+</span></code></pre></div>
+<p>Replace <strong>HEAD-IP</strong> with the IP address of the head node.</p>
+<p>Replace <strong>FILE-SYSTEM-NAME</strong> with the name of your 1CC's persistent storage
+file system.</p>
+<p>Run <code>tmux</code> to start a new tmux session. Then, run:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>bash<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">SHARED_DIR</span><span class="si">}</span><span class="s2">/run_cluster.sh&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">     </span>vllm/vllm-openai<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">     </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HEAD_IP</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">     </span>--worker<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">     </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HF_HOME</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">     </span>--privileged<span class="w"> </span>-e<span class="w"> </span><span class="nv">NCCL_IB_HCA</span><span class="o">=</span>^mlx5_0
+</span></code></pre></div>
+<p>This command connects the worker node to the head node.</p>
+<h2 id="check-the-status-of-the-ray-cluster-and-serve-the-llama-31-405b-model">Check the status of the Ray cluster and serve the Llama 3.1 405B model<a class="headerlink" href="#check-the-status-of-the-ray-cluster-and-serve-the-llama-31-405b-model" title="Permanent link">#</a></h2>
+<p>Still on the worker node, press <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + <span class="keys"><kbd class="key-b">B</kbd></span>, then press <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + <span class="keys"><kbd class="key-c">C</kbd></span>
+to open a new tmux window. Then, run:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>node<span class="w"> </span>/bin/bash
+</span></code></pre></div>
+<p>Check the status of the Ray cluster by running:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ray<span class="w"> </span>status
+</span></code></pre></div>
+<p>You should see output similar to:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>======== Autoscaler status: 2024-07-25 00:20:50.831620 ========
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Node status
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>---------------------------------------------------------------
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Active:
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a> 1 node_d86d9f0f1894c2e463d8168530f6745e32beb08ddf3b908d229d8527
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a> 1 node_37af7f860c4bab2e035b5a55ba06e2e49dba9fa891d65f8264648804
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>Pending:
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a> (no pending nodes)
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>Recent failures:
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a> (no failures)
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>Resources
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>---------------------------------------------------------------
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>Usage:
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a> 0.0/416.0 CPU
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a> 16.0/16.0 GPU (16.0 used of 16.0 reserved in placement groups)
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a> 0B/3.43TiB memory
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a> 0B/19.46GiB object_store_memory
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>Demands:
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a> (no resource demands)
+</span></code></pre></div>
+<p>This output shows 2 active nodes (the head node and the worker node) and 16
+GPUs in the Ray cluster.</p>
+<p>Press <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + <span class="keys"><kbd class="key-b">B</kbd></span>, then press <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + <span class="keys"><kbd class="key-c">C</kbd></span> to open a new tmux window.</p>
+<p>Obtain the name of the Llama 3.1 405B model snapshot by running:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ls<span class="w"> </span>/root/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-405B-Instruct/snapshots
+</span></code></pre></div>
+<p>Then, run the following command to begin serving the Llama 3.1 405B model:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>vllm<span class="w"> </span>serve<span class="w"> </span><span class="s2">&quot;/root/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-405B-Instruct/snapshots/SNAPSHOT&quot;</span><span class="w"> </span>--tensor-parallel-size<span class="w"> </span><span class="m">8</span><span class="w"> </span>--pipeline-parallel-size<span class="w"> </span><span class="m">2</span>
+</span></code></pre></div>
+<p>Replace <strong>SNAPSHOT</strong> with the name of the Llama 3.1 405B model snapshot.
+The name of the snapshot should be similar to
+<code>e04e3022cdc89bfed0db69f5ac1d249e21ee2d30</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It can take 15 minutes or more before the model is loaded onto the GPUs
+and ready to be served.</p>
+</div>
+<p>You should begin seeing output similar to:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>INFO 07-25 04:17:41 api_server.py:219] vLLM API server version 0.5.3.post1
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>INFO 07-25 04:17:41 api_server.py:220] args: Namespace(model_tag=&#39;/root/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-405B-Instruct/snapshots/e04e3022cdc89bfed0db69f5ac1d249e21ee2d30&#39;, host=None, port=8000, uvicorn_log_level=&#39;info&#39;, allow_credentials=False, allowed_origins=[&#39;*&#39;], allowed_methods=[&#39;*&#39;], allowed_headers=[&#39;*&#39;], api_key=None, lora_modules=None, prompt_adapters=None, chat_template=None, response_role=&#39;assistant&#39;, ssl_keyfile=None, ssl_certfile=None, ssl_ca_certs=None, ssl_cert_reqs=0, root_path=None, middleware=[], model=&#39;/root/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-405B-Instruct/snapshots/e04e3022cdc89bfed0db69f5ac1d249e21ee2d30&#39;, tokenizer=None, skip_tokenizer_init=False, revision=None, code_revision=None, tokenizer_revision=None, tokenizer_mode=&#39;auto&#39;, trust_remote_code=False, download_dir=None, load_format=&#39;auto&#39;, dtype=&#39;auto&#39;, kv_cache_dtype=&#39;auto&#39;, quantization_param_path=None, max_model_len=None, guided_decoding_backend=&#39;outlines&#39;, distributed_executor_backend=None, worker_use_ray=False, pipeline_parallel_size=2, tensor_parallel_size=8, max_parallel_loading_workers=None, ray_workers_use_nsight=False, block_size=16, enable_prefix_caching=False, disable_sliding_window=False, use_v2_block_manager=False, num_lookahead_slots=0, seed=0, swap_space=4, cpu_offload_gb=0, gpu_memory_utilization=0.9, num_gpu_blocks_override=None, max_num_batched_tokens=None, max_num_seqs=256, max_logprobs=20, disable_log_stats=False, quantization=None, rope_scaling=None, rope_theta=None, enforce_eager=False, max_context_len_to_capture=None, max_seq_len_to_capture=8192, disable_custom_all_reduce=False, tokenizer_pool_size=0, tokenizer_pool_type=&#39;ray&#39;, tokenizer_pool_extra_config=None, enable_lora=False, max_loras=1, max_lora_rank=16, lora_extra_vocab_size=256, lora_dtype=&#39;auto&#39;, long_lora_scaling_factors=None, max_cpu_loras=None, fully_sharded_loras=False, enable_prompt_adapter=False, max_prompt_adapters=1, max_prompt_adapter_token=0, device=&#39;auto&#39;, scheduler_delay_factor=0.0, enable_chunked_prefill=None, speculative_model=None, num_speculative_tokens=None, speculative_draft_tensor_parallel_size=None, speculative_max_model_len=None, speculative_disable_by_batch_size=None, ngram_prompt_lookup_max=None, ngram_prompt_lookup_min=None, spec_decoding_acceptance_method=&#39;rejection_sampler&#39;, typical_acceptance_sampler_posterior_threshold=None, typical_acceptance_sampler_posterior_alpha=None, disable_logprobs_during_spec_decoding=None, model_loader_extra_config=None, ignore_patterns=[], preemption_mode=None, served_model_name=None, qlora_adapter_name_or_path=None, otlp_traces_endpoint=None, engine_use_ray=False, disable_log_requests=False, max_log_len=None, dispatch_function=&lt;function serve at 0x7de812d13520&gt;)
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>INFO 07-25 04:17:41 config.py:715] Defaulting to use ray for distributed inference
+</span></code></pre></div>
+<p>The Llama 3.1 405B model is ready to be served once you see output similar to:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>INFO:     Started server process [24469]
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>INFO:     Waiting for application startup.
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>INFO:     Application startup complete.
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+</span></code></pre></div>
+<h2 id="test-the-llama-31-405b-model">Test the Llama 3.1 405B model<a class="headerlink" href="#test-the-llama-31-405b-model" title="Permanent link">#</a></h2>
+<p>Still on the worker node, press <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + <span class="keys"><kbd class="key-b">B</kbd></span>, then press <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + <span class="keys"><kbd class="key-c">C</kbd></span>
+to open a new tmux window.</p>
+<p>Then, run:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>llama-3.1
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">source</span><span class="w"> </span>llama-3.1/bin/activate
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>openai
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>curl<span class="w"> </span>-o<span class="w"> </span><span class="si">${</span><span class="nv">SHARED_DIR</span><span class="si">}</span>/inference_test.py<span class="w"> </span><span class="s1">&#39;https://raw.githubusercontent.com/vllm-project/vllm/main/examples/openai_chat_completion_client.py&#39;</span>
+</span></code></pre></div>
+<p>These commands:</p>
+<ol>
+<li>
+<p>Create and activate a
+   <a href="https://docs.lambdalabs.com/software/virtual-environments-and-docker-containers#creating-a-python-virtual-environment">Python virtual environment</a>
+   on the worker node.</p>
+</li>
+<li>
+<p>Download the Open AI chat completion client.</p>
+</li>
+</ol>
+<p>Finally, to test the Llama 3.1 405B model, run:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>python3<span class="w"> </span><span class="si">${</span><span class="nv">SHARED_DIR</span><span class="si">}</span>/inference_test.py
+</span></code></pre></div>
+<p>You should see output similar to:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Chat completion results:
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>ChatCompletion(id=&#39;chat-8eba7fa7e2f7442aafa82a1683bfc77f&#39;, choices=[Choice(finish_reason=&#39;stop&#39;, index=0, logprobs=None, message=ChatCompletionMessage(content=&#39;The 2020 World Series was played at Globe Life Field in Arlington, Texas. This was a neutral site due to COVID-19 restrictions and was also referred to as a &quot;bubble&quot; environment.&#39;, role=&#39;assistant&#39;, function_call=None, tool_calls=[]), stop_reason=None)], created=1721884178, model=&#39;/root/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-405B-Instruct/snapshots/e04e3022cdc89bfed0db69f5ac1d249e21ee2d30&#39;, object=&#39;chat.completion&#39;, service_tier=None, system_fingerprint=None, usage=CompletionUsage(completion_tokens=41, prompt_tokens=59, total_tokens=100))
+</span></code></pre></div>
+<!--
+
+First, create a file named `hostfile` on your shared persistent storage file
+by running `touch "${SHARED_DIR}/hostfile`. Add to this file the IP address of
+each of your 1CC worker nodes. Each IP address should be on a new line.
+
+!!! note
+
+    The IP addresses of your worker nodes are on your
+    [Cloud dashboard](https://cloud.lambdalabs.com/one-click-clusters/running).
+
+The file should look like:
+
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>172.26.135.252
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>172.26.134.16
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>172.26.133.73
+</span></code></pre></div>
+
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>sudo<span class="w"> </span>bash<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">SHARED_DIR</span><span class="si">}</span><span class="s2">/run_cluster.sh&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span>vllm/vllm-openai<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HEAD_IP</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span>--worker<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HF_HOME</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span>--privileged<span class="w"> </span>-e<span class="w"> </span><span class="nv">NCCL_IB_HCA</span><span class="o">=</span>^mlx5_0
+</span></code></pre></div>
+
+-->
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 25, 2024</span>
+  </span>
+
+    
+    
+    
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributors">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/cbrownstein-lambda" class="md-author" title="@cbrownstein-lambda">
+          
+          <img src="https://avatars.githubusercontent.com/u/105375373?v=4&size=72" alt="cbrownstein-lambda">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
+    
+  </aside>
+
+
+
+
+
+  <h2 id="__comments">Comments</h2>
+  <script src="https://giscus.app/client.js"
+          data-repo="cbrownstein-lambda/lambda-docs-mkdocs"
+          data-repo-id="R_kgDOMD4WhQ"
+          data-category="Announcements"
+          data-category-id="DIC_kwDOMD4Whc4CgGaQ"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://x.com/LambdaAPI" target="_blank" rel="noopener" title="x.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "content.action.view", "content.action.edit", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../../js/mkdocs-charts-plugin.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+      
+    
+  </body>
+</html>

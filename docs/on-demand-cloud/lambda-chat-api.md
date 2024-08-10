@@ -49,7 +49,7 @@ example:
     },
     {
       "role": "user",
-      "content": "Who won the world series in 2020?"
+      "content": "What is machine learning?"
     }
   ]
 }
@@ -67,16 +67,16 @@ You should see output similar to:
 
 ```json
 {
-  "id": "chat-c0b989214e164879826a76820f9e238d",
+  "id": "chat-11990cbb28f24a1c90848316f3f920ca",
   "object": "chat.completion",
-  "created": 1723165547,
-  "model": "405bnmfp8",
+  "created": 1723297942,
+  "model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
   "choices": [
     {
       "index": 0,
       "message": {
         "role": "assistant",
-        "content": "The Los Angeles Dodgers won the 2020 World Series, defeating the Tampa Bay Rays in the series 4 games to 2. This was the Dodgers' first World Series title since 1988.",
+        "content": "Machine learning is a subset of artificial intelligence (AI) that involves the development of algorithms and statistical models that enable computers to learn from data, make decisions, and improve their performance on a task without being explicitly programmed.\n\nIn traditional programming, a computer is given a set of instructions to follow in order to solve a problem. In contrast, machine learning algorithms are trained on data, allowing the computer to identify patterns, relationships, and trends, and to make predictions or decisions based on that data.\n\nThere are several key characteristics of machine learning:\n\n1. **Learning from data**: Machine learning algorithms are trained on a dataset, which allows them to learn from the data and improve their performance over time.\n2. **Improvement over time**: As the algorithm is exposed to more data, it can refine its performance and make more accurate predictions or decisions.\n3. **Ability to generalize**: Machine learning algorithms can apply what they have learned to new, unseen data, allowing them to make predictions or decisions in situations that are not explicitly programmed.\n4. **Autonomy**: Machine learning algorithms can operate independently, making decisions and taking actions without human intervention.\n\nSome common applications of machine learning include:\n\n1. **Predictive modeling**: Machine learning algorithms can be used to predict outcomes, such as customer churn, credit risk, or stock prices.\n2. **Image and speech recognition**: Machine learning algorithms can be used to recognize objects, people, and speech patterns.\n3. **Natural language processing**: Machine learning algorithms can be used to analyze and generate text, such as chatbots and language translation systems.\n4. **Recommendation systems**: Machine learning algorithms can be used to recommend products or services based on a user's preferences and behavior.\n\nThere are several types of machine learning, including:\n\n1. **Supervised learning**: The algorithm is trained on labeled data, and its goal is to predict the output based on the input.\n2. **Unsupervised learning**: The algorithm is trained on unlabeled data, and its goal is to identify patterns or structure in the data.\n3. **Reinforcement learning**: The algorithm learns through trial and error, receiving feedback in the form of rewards or penalties.\n4. **Deep learning**: A type of machine learning that uses neural networks to analyze and understand data.\n\nMachine learning has many benefits, including:\n\n1. **Improved accuracy**: Machine learning algorithms can make more accurate predictions and decisions than traditional programming.\n2. **Increased efficiency**: Machine learning algorithms can automate tasks, freeing up human resources for more strategic work.\n3. **Scalability**: Machine learning algorithms can handle large amounts of data and scale to meet the needs of growing businesses.\n\nHowever, machine learning also has some challenges, including:\n\n1. **Data quality**: Machine learning algorithms are only as good as the data they are trained on.\n2. **Explainability**: Machine learning algorithms can be difficult to understand and interpret.\n3. **Bias**: Machine learning algorithms can perpetuate biases and prejudices present in the data.\n4. **Security**: Machine learning algorithms can be vulnerable to attacks and data breaches.",
         "tool_calls": []
       },
       "logprobs": null,
@@ -85,9 +85,9 @@ You should see output similar to:
     }
   ],
   "usage": {
-    "prompt_tokens": 31,
-    "total_tokens": 73,
-    "completion_tokens": 42
+    "prompt_tokens": 46,
+    "total_tokens": 667,
+    "completion_tokens": 621
   }
 }
 ```

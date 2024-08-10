@@ -26,7 +26,7 @@ To use the Lambda Chat API, first [generate an API key from the
 dashboard](https://cloud.lambdalabs.com/api-keys). You can also use an API key
 that you've already generated.
 
-# Creating chat completions
+## Creating chat completions
 
 The `/chat/completions` endpoint takes a list of messages that make up a
 conversation, then outputs a response.

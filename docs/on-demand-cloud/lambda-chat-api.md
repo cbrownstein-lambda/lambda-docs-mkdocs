@@ -123,6 +123,26 @@ Replace **API-KEY** with your actual API key.
 You should see output similar to:
 
 ```json
+{
+  "id": "cmpl-042276c70e5d4c7a8fa0cd0d3fc4c785",
+  "object": "text_completion",
+  "created": 1723300326,
+  "model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "text": " a crucial part of our daily lives, and they are used in various ways,",
+      "logprobs": null,
+      "finish_reason": "length",
+      "stop_reason": null
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 4,
+    "total_tokens": 20,
+    "completion_tokens": 16
+  }
+}
 ```
 
 ## Listing models

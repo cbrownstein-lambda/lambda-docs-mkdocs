@@ -90,3 +90,37 @@ You should see output similar to:
   }
 }
 ```
+
+## Creating completions
+
+The `/completions` endpoint takes a single text string (a prompt) as input,
+then outputs a response. In comparison, the `/chat/completions` endpoint takes
+a list of messages as input.
+
+To use the `/chat/completions` endpoint:
+
+First, create a file named `prompt.json` that contains [the necessary and any
+optional
+parameters](https://platform.openai.com/docs/api-reference/completions). For
+example:
+
+```json
+{
+  "model": "facebook/opt-125m",
+  "prompt": "San Francisco is a",
+  "temperature": 0
+}
+```
+
+Then, run the following command:
+
+```bash
+curl http://192.222.52.40:8000/v1/chat/completions -d @prompt.json -H "Authorization: Bearer API-KEY" -H "Content-Type: application/json" | jq .
+```
+
+Replace **API-KEY** with your actual API key.
+
+You should see output similar to:
+
+```json
+```

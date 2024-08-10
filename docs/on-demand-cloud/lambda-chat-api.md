@@ -10,7 +10,9 @@ tags:
 
 The Lambda Chat API enables you to use the [Llama 3.1 405B Instruct large
 language model (LLM)](https://llama.meta.com/) without the need to set up your
-own vLLM API server on an on-demand instance or 1-Click Cluster (1CC).
+own vLLM API server on an [on-demand
+instance](https://lambdalabs.com/service/gpu-cloud) or [1-Click Cluster
+(1CC)](https://lambdalabs.com/service/gpu-cloud/1-click-clusters).
 
 Since the Lambda Chat API is compatible with the [OpenAI
 API](https://platform.openai.com/docs/overview), you can use it as a drop-in

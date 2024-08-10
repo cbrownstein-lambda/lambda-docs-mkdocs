@@ -24,9 +24,9 @@ The Lambda Chat API implements endpoints for:
 - [Creating completions](#creating-completions) (`/completions`)
 - [Listing models](#listing-models) (`/models`)
 
-To use the Lambda Chat API, first [generate an API key from the
-dashboard](https://cloud.lambdalabs.com/api-keys). You can also use an API key
-that you've already generated.
+To use the Lambda Chat API, first [generate a Cloud API key from the
+dashboard](https://cloud.lambdalabs.com/api-keys). You can also use a Cloud
+API key that you've already generated.
 
 ## Creating chat completions
 

@@ -41,7 +41,7 @@ example:
 
 ```json
 {
-  "model": "405bnmfp8",
+  "model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
   "messages": [
     {
       "role": "system",
@@ -58,7 +58,7 @@ example:
 Then, run the following command:
 
 ```bash
-curl http://192.222.52.40:8000/v1/chat/completions -d @messages.json -H "Authorization: Bearer API-KEY" -H "Content-Type: application/json" | jq .
+curl http://localhost:8000/v1/chat/completions -d @messages.json -H "Authorization: Bearer API-KEY" -H "Content-Type: application/json" | jq .
 ```
 
 Replace **API-KEY** with your actual API key.
@@ -107,8 +107,8 @@ example:
 
 ```json
 {
-  "model": "facebook/opt-125m",
   "prompt": "San Francisco is a",
+  "model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
   "temperature": 0
 }
 ```
@@ -116,7 +116,7 @@ example:
 Then, run the following command:
 
 ```bash
-curl http://192.222.52.40:8000/v1/completions -d @prompt.json -H "Authorization: Bearer API-KEY" -H "Content-Type: application/json" | jq .
+curl http://localhost:8000/v1/completions -d @prompt.json -H "Authorization: Bearer API-KEY" -H "Content-Type: application/json" | jq .
 ```
 
 Replace **API-KEY** with your actual API key.

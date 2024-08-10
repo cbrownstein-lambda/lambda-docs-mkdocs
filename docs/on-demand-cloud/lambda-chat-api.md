@@ -107,8 +107,8 @@ example:
 
 ```json
 {
-  "prompt": "San Francisco is a",
   "model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "prompt": "Computers are",
   "temperature": 0
 }
 ```

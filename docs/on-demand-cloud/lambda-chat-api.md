@@ -62,7 +62,7 @@ Then, run the following command:
 curl http://localhost:8000/v1/chat/completions -d @messages.json -H "Authorization: Bearer API-KEY" -H "Content-Type: application/json" | jq .
 ```
 
-Replace **API-KEY** with your actual API key.
+Replace **API-KEY** with your actual Cloud API key.
 
 You should see output similar to:
 
@@ -120,7 +120,7 @@ Then, run the following command:
 curl http://localhost:8000/v1/completions -d @prompt.json -H "Authorization: Bearer API-KEY" -H "Content-Type: application/json" | jq .
 ```
 
-Replace **API-KEY** with your actual API key.
+Replace **API-KEY** with your actual Cloud API key.
 
 You should see output similar to:
 

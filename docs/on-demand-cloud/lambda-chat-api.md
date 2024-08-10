@@ -1,28 +1,28 @@
 ---
-description: Using the Lambda Cloud vLLM API
+description: Using the Lambda Chat API
 comments: true
 tags:
   - llama
   - llm
 ---
 
-# Using the Lambda Cloud vLLM API
+# Using the Lambda Chat API
 
-The Lambda Cloud vLLM API enables you to use the Llama 3.1 405B large language
+The Lambda Chat API enables you to use the Llama 3.1 405B large language
 model (LLM) without the need to set up your own vLLM API server on an
 on-demand instance or 1-Click Cluster (1CC).
 
-Since the Lambda Cloud vLLM API is compatible with the [OpenAI
+Since the Lambda Chat API is compatible with the [OpenAI
 API](https://platform.openai.com/docs/overview), you can use it as a drop-in
 replacement for applications currently using the OpenAI API.
 
-The Lambda Cloud vLLM API implements endpoints for:
+The Lambda Chat API implements endpoints for:
 
 - [Creating chat completions](#creating-chat-completions) (`/chat/completions`)
 - Creating completions (`/completions`)
 - Listing models (`/models`)
 
-To use the Lambda Cloud vLLM API, first [generate an API key from the
+To use the Lambda Chat API, first [generate an API key from the
 dashboard](https://cloud.lambdalabs.com/api-keys). You can also use an API key
 that you've already generated.
 

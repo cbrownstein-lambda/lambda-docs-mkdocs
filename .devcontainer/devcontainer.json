@@ -1,8 +1,0 @@
-{
-  "image": "mcr.microsoft.com/devcontainers/python:3",
-  "features": {
-    "ghcr.io/devcontainers-contrib/features/mkdocs:2": {
-        "plugins": "mkdocs-git-revision-date-localized-plugin mkdocs-include-markdown-plugin mkdocs-material[imaging] mkdocs-redirects"
-    }
-  }
-}

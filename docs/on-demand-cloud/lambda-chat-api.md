@@ -124,3 +124,54 @@ You should see output similar to:
 
 ```json
 ```
+
+## Listing models
+
+The `/models` endpoint lists the models available for use through the Lambda
+Chat API.
+
+!!! note
+
+    Currently, only the Llama 3.1 405B Instruct model is available for use
+    through the Lambda Chat API.
+
+To use the `/models` endpoint, run:
+
+```bash
+curl http://localhost:8000/v1/models -H "Authorization: Bearer API-KEY" -H "Content-Type: application/json" | jq .
+```
+
+You should see output similar to:
+
+```json
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+      "object": "model",
+      "created": 1723300383,
+      "owned_by": "vllm",
+      "root": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+      "parent": null,
+      "max_model_len": 131072,
+      "permission": [
+        {
+          "id": "modelperm-467095b6c94a40469cadc960c8d78868",
+          "object": "model_permission",
+          "created": 1723300383,
+          "allow_create_engine": false,
+          "allow_sampling": true,
+          "allow_logprobs": true,
+          "allow_search_indices": false,
+          "allow_view": true,
+          "allow_fine_tuning": false,
+          "organization": "*",
+          "group": null,
+          "is_blocking": false
+        }
+      ]
+    }
+  ]
+}
+```

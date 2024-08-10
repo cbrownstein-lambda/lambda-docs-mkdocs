@@ -97,7 +97,7 @@ The `/completions` endpoint takes a single text string (a prompt) as input,
 then outputs a response. In comparison, the `/chat/completions` endpoint takes
 a list of messages as input.
 
-To use the `/chat/completions` endpoint:
+To use the `/completions` endpoint:
 
 First, create a file named `prompt.json` that contains [the necessary and any
 optional
@@ -115,7 +115,7 @@ example:
 Then, run the following command:
 
 ```bash
-curl http://192.222.52.40:8000/v1/chat/completions -d @prompt.json -H "Authorization: Bearer API-KEY" -H "Content-Type: application/json" | jq .
+curl http://192.222.52.40:8000/v1/completions -d @prompt.json -H "Authorization: Bearer API-KEY" -H "Content-Type: application/json" | jq .
 ```
 
 Replace **API-KEY** with your actual API key.

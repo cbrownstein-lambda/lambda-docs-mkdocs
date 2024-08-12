@@ -42,7 +42,7 @@ example:
 
 ```json
 {
-  "model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "model": "405bnmfp8",
   "messages": [
     {
       "role": "system",
@@ -68,28 +68,29 @@ You should see output similar to:
 
 ```json
 {
-  "id": "chat-11990cbb28f24a1c90848316f3f920ca",
-  "object": "chat.completion",
-  "created": 1723297942,
-  "model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "id": "chat-a5e42b46ac604fc1bd83142278a755c0",
   "choices": [
     {
+      "finish_reason": "stop",
       "index": 0,
       "message": {
+        "content": "Machine learning is a branch of artificial intelligence (AI) that focuses on the development of algorithms and statistical models that enable computer systems to improve their performance on a specific task through experience. In other words, it allows computers to learn from data without being explicitly programmed. The goal of machine learning is to create models that can generalize well to new data, allowing them to make accurate predictions or take appropriate actions based on that data. Some common applications of machine learning include image and speech recognition, natural language processing, recommendation systems, and predictive analytics.",
         "role": "assistant",
-        "content": "Machine learning is a subset of artificial intelligence (AI) that involves the development of algorithms and statistical models that enable computers to learn from data, make decisions, and improve their performance on a task without being explicitly programmed.\n\nIn traditional programming, a computer is given a set of instructions to follow in order to solve a problem. In contrast, machine learning algorithms are trained on data, allowing the computer to identify patterns, relationships, and trends, and to make predictions or decisions based on that data.\n\nThere are several key characteristics of machine learning:\n\n1. **Learning from data**: Machine learning algorithms are trained on a dataset, which allows them to learn from the data and improve their performance over time.\n2. **Improvement over time**: As the algorithm is exposed to more data, it can refine its performance and make more accurate predictions or decisions.\n3. **Ability to generalize**: Machine learning algorithms can apply what they have learned to new, unseen data, allowing them to make predictions or decisions in situations that are not explicitly programmed.\n4. **Autonomy**: Machine learning algorithms can operate independently, making decisions and taking actions without human intervention.\n\nSome common applications of machine learning include:\n\n1. **Predictive modeling**: Machine learning algorithms can be used to predict outcomes, such as customer churn, credit risk, or stock prices.\n2. **Image and speech recognition**: Machine learning algorithms can be used to recognize objects, people, and speech patterns.\n3. **Natural language processing**: Machine learning algorithms can be used to analyze and generate text, such as chatbots and language translation systems.\n4. **Recommendation systems**: Machine learning algorithms can be used to recommend products or services based on a user's preferences and behavior.\n\nThere are several types of machine learning, including:\n\n1. **Supervised learning**: The algorithm is trained on labeled data, and its goal is to predict the output based on the input.\n2. **Unsupervised learning**: The algorithm is trained on unlabeled data, and its goal is to identify patterns or structure in the data.\n3. **Reinforcement learning**: The algorithm learns through trial and error, receiving feedback in the form of rewards or penalties.\n4. **Deep learning**: A type of machine learning that uses neural networks to analyze and understand data.\n\nMachine learning has many benefits, including:\n\n1. **Improved accuracy**: Machine learning algorithms can make more accurate predictions and decisions than traditional programming.\n2. **Increased efficiency**: Machine learning algorithms can automate tasks, freeing up human resources for more strategic work.\n3. **Scalability**: Machine learning algorithms can handle large amounts of data and scale to meet the needs of growing businesses.\n\nHowever, machine learning also has some challenges, including:\n\n1. **Data quality**: Machine learning algorithms are only as good as the data they are trained on.\n2. **Explainability**: Machine learning algorithms can be difficult to understand and interpret.\n3. **Bias**: Machine learning algorithms can perpetuate biases and prejudices present in the data.\n4. **Security**: Machine learning algorithms can be vulnerable to attacks and data breaches.",
-        "tool_calls": []
-      },
-      "logprobs": null,
-      "finish_reason": "stop",
-      "stop_reason": null
+        "tool_calls": null,
+        "function_call": null
+      }
     }
   ],
+  "created": 1723487177,
+  "model": "405bnmfp8",
+  "object": "chat.completion",
+  "system_fingerprint": null,
   "usage": {
-    "prompt_tokens": 46,
-    "total_tokens": 667,
-    "completion_tokens": 621
-  }
+    "completion_tokens": 108,
+    "prompt_tokens": 25,
+    "total_tokens": 133
+  },
+  "service_tier": null
 }
 ```
 
@@ -108,7 +109,7 @@ example:
 
 ```json
 {
-  "model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "model": "405bnmfp8",
   "prompt": "Computers are",
   "temperature": 0
 }
@@ -117,7 +118,7 @@ example:
 Then, run the following command:
 
 ```bash
-curl http://localhost:8000/v1/completions -d @prompt.json -H "Authorization: Bearer API-KEY" -H "Content-Type: application/json" | jq .
+curl https://api.lambdalabs.com/v1/completions -d @prompt.json -H "Authorization: Bearer API-KEY" -H "Content-Type: application/json" | jq .
 ```
 
 Replace **API-KEY** with your actual Cloud API key.
@@ -126,24 +127,25 @@ You should see output similar to:
 
 ```json
 {
-  "id": "cmpl-042276c70e5d4c7a8fa0cd0d3fc4c785",
+  "id": "cmpl-0ed3e4f07bf242bab6d4ec67c48e0e83",
   "object": "text_completion",
-  "created": 1723300326,
-  "model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "created": 1723487710,
+  "model": "405bnmfp8",
   "choices": [
     {
+      "stop_reason": null,
+      "finish_reason": "stop",
       "index": 0,
-      "text": " a crucial part of our daily lives, and they are used in various ways,",
-      "logprobs": null,
-      "finish_reason": "length",
-      "stop_reason": null
+      "text": " a part of our daily lives, and we use them for various purposes, including work, entertainment, and communication. However, like any other electronic device, computers are prone to malfunctions and errors. When your computer starts acting up, it can be frustrating, especially if you don’t know how to fix the problem. In this article, we will discuss some common computer problems and how to troubleshoot them.\n1. Slow Performance\nOne of the most common computer problems is slow performance. If your computer is running slowly, there could be several reasons why. Here are some steps you can take to troubleshoot the issue:\nCheck your hard drive space: If your hard drive is almost full, it can slow down your computer. Free up some space by deleting unnecessary files or moving them to an external hard drive.\nClose unused programs: If you have too many programs running at the same time, it can slow down your computer. Close any programs that you’re not using.\nRun a virus scan: Malware and viruses can slow down your computer. Run a virus scan to check for any malicious software.\nUpgrade your hardware: If your computer is old, it may not have the necessary hardware to run newer programs efficiently. Consider upgrading your RAM or processor.\n2. Blue Screen of Death\nThe Blue Screen of Death (BSOD) is a common error that occurs when your computer encounters a critical system error. When this happens, your computer will restart, and you may lose any unsaved work. Here are some steps you can take to troubleshoot the issue:\nCheck for updates: Make sure your operating system and drivers are up to date.\nRun a memory test: A faulty RAM module can cause the BSOD. Run a memory test to check for any errors.\nCheck your hardware: Loose cables, overheating, and faulty hardware can all cause the BSOD. Check your computer’s hardware and make sure everything is properly connected and functioning.\n3. Internet Connectivity Issues\nIf you’re having trouble connecting to the internet, there could be several reasons why. Here are some steps you can take to troubleshoot the issue:\nCheck your router: Make sure your router is properly connected and turned on. If it’s not working, try restarting it.\nCheck your network settings: Make sure your computer is set to connect to the correct network and that your network settings are correct.\nRun a network troubleshooter: Most operating systems have a built-in network troubleshooter that can help diagnose and fix connectivity issues.\n4. Printer Problems\nPrinter problems are another common issue that computer users face. If your printer isn’t working, here are some steps you can take to troubleshoot the issue:\nCheck your printer queue: If there are too many print jobs in the queue, it can cause your printer to stop working. Clear the print queue and try again.\nCheck your printer drivers: Make sure your printer drivers are up to date. If they’re not, download and install the latest drivers from the manufacturer’s website.\nCheck your printer settings: Make sure your printer settings are correct. If they’re not, adjust them and try again.\n5. Audio Issues\nIf you’re having trouble with your computer’s audio, there could be several reasons why. Here are some steps you can take to troubleshoot the issue:\nCheck your audio settings: Make sure your audio settings are correct and that your speakers or headphones are properly connected.\nUpdate your audio drivers: If your audio drivers are outdated, it can cause audio issues. Download and install the latest drivers from the manufacturer’s website.\nCheck for muted applications: If you’re not hearing any sound from a specific application, make sure it’s not muted.\nIn conclusion, computer problems can be frustrating, but with the right troubleshooting steps, you can often fix the issue yourself. If you’re still having trouble, consider contacting a professional for help.\n*Note: This is a sample article and may not reflect the most up-to-date information or best practices. Always consult with a professional for the most accurate and relevant advice.*",
+      "logprobs": null
     }
   ],
   "usage": {
+    "completion_tokens": 816,
     "prompt_tokens": 4,
-    "total_tokens": 20,
-    "completion_tokens": 16
-  }
+    "total_tokens": 820
+  },
+  "system_fingerprint": null
 }
 ```
 
@@ -160,40 +162,21 @@ Chat API.
 To use the `/models` endpoint, run:
 
 ```bash
-curl http://localhost:8000/v1/models -H "Authorization: Bearer API-KEY" -H "Content-Type: application/json" | jq .
+curl https://api.lambdalabs.com/v1/models -H "Authorization: Bearer API-KEY" -H "Content-Type: application/json" | jq .
 ```
 
 You should see output similar to:
 
 ```json
 {
-  "object": "list",
   "data": [
     {
-      "id": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+      "id": "405bnmfp8",
       "object": "model",
-      "created": 1723300383,
-      "owned_by": "vllm",
-      "root": "meta-llama/Meta-Llama-3.1-8B-Instruct",
-      "parent": null,
-      "max_model_len": 131072,
-      "permission": [
-        {
-          "id": "modelperm-467095b6c94a40469cadc960c8d78868",
-          "object": "model_permission",
-          "created": 1723300383,
-          "allow_create_engine": false,
-          "allow_sampling": true,
-          "allow_logprobs": true,
-          "allow_search_indices": false,
-          "allow_view": true,
-          "allow_fine_tuning": false,
-          "organization": "*",
-          "group": null,
-          "is_blocking": false
-        }
-      ]
+      "created": 1677610602,
+      "owned_by": "openai"
     }
-  ]
+  ],
+  "object": "list"
 }
 ```

@@ -59,7 +59,7 @@ example:
 Then, run the following command:
 
 ```bash
-curl http://localhost:8000/v1/chat/completions -d @messages.json -H "Authorization: Bearer API-KEY" -H "Content-Type: application/json" | jq .
+curl https://api.lambdalabs.com/v1/chat/completions -d @messages.json -H "Authorization: Bearer API-KEY" -H "Content-Type: application/json" | jq .
 ```
 
 Replace **API-KEY** with your actual Cloud API key.

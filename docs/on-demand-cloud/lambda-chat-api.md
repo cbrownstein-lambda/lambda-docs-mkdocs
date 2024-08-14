@@ -68,27 +68,27 @@ You should see output similar to:
 
 ```json
 {
-  "id": "chat-a5e42b46ac604fc1bd83142278a755c0",
+  "id": "chat-0c39fdafb9b142519494bef9fb7c5f81",
   "choices": [
     {
       "finish_reason": "stop",
       "index": 0,
       "message": {
-        "content": "Machine learning is a branch of artificial intelligence (AI) that focuses on the development of algorithms and statistical models that enable computer systems to improve their performance on a specific task through experience. In other words, it allows computers to learn from data without being explicitly programmed. The goal of machine learning is to create models that can generalize well to new data, allowing them to make accurate predictions or take appropriate actions based on that data. Some common applications of machine learning include image and speech recognition, natural language processing, recommendation systems, and predictive analytics.",
+        "content": "Machine Learning is a subset of Artificial Intelligence that involves the development of algorithms that can learn from and make predictions or decisions based on data. It is a method of teaching computers to learn from data, without being explicitly programmed. This is achieved by building models that can recognize patterns and make predictions from data, which can then be used to solve complex problems or automate tasks. Machine learning is used in a wide range of applications, including speech recognition, image recognition, natural language processing, and recommendation systems.",
         "role": "assistant",
         "tool_calls": null,
         "function_call": null
       }
     }
   ],
-  "created": 1723487177,
+  "created": 1723639634,
   "model": "405bnmfp8",
   "object": "chat.completion",
   "system_fingerprint": null,
   "usage": {
-    "completion_tokens": 108,
-    "prompt_tokens": 25,
-    "total_tokens": 133
+    "completion_tokens": 100,
+    "prompt_tokens": 32,
+    "total_tokens": 132
   },
   "service_tier": null
 }

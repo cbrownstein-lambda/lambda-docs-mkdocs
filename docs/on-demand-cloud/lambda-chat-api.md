@@ -46,7 +46,7 @@ example:
   "messages": [
     {
       "role": "system",
-      "content": "You are a helpful assistant."
+      "content": "You are a helpful assistant named Hermes, made by Nous Research."
     },
     {
       "role": "user",

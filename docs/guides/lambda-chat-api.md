@@ -1,12 +1,13 @@
 ---
-description: Using the Lambda Chat API
+description: Using the Lambda Chat Completions API
 comments: true
 tags:
+  - api
   - llama
   - llm
 ---
 
-# Using the Lambda Chat API
+# Using the Lambda Chat Completions API
 
 The Lambda Chat API enables you to use the [Llama 3.1 405B Instruct large
 language model (LLM)](https://llama.meta.com/) without the need to set up your

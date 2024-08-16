@@ -31,6 +31,10 @@ nav:
     - workstations/troubleshooting.md
   - Software:
     - software/virtual-environments-containers.md
+  - Guides:
+      - guides/index.md
+      - Large language models (LLMs):
+        - guides/large-language-models/lambda-chat-api.md
 markdown_extensions:
   - admonition
   - attr_list

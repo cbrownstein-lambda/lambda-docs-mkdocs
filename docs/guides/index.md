@@ -1,8 +1,3 @@
----
-hide:
-  - navigation
----
-
 # How-to guides and tutorials
 
 ## Generative AI (GAI)

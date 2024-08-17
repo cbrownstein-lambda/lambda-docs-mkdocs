@@ -29,8 +29,6 @@ nav:
   - Workstations:
     - workstations/getting-started.md
     - workstations/troubleshooting.md
-  - Software:
-    - software/virtual-environments-containers.md
   - Guides:
       - guides/index.md
       - Large language models (LLMs):

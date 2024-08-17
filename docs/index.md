@@ -7,40 +7,44 @@ hide:
 
 # Welcome to Lambda Docs
 
-!!! warning
+<div class="grid cards" markdown>
 
-    As of March 1, 2024, Lambda charges sales tax in jurisdictions it's
-    required to do so. Keep your billing address up to date to ensure the tax
-    is correctly calculated and to avoid disruption to your account.
+-   :material-cloud:{ .lg .middle } **Public Cloud**
 
-!!! note
+    ---
 
-    As of March 4, 2024, Cloud file systems in the Texas, USA (us-south-1)
-    region are billed the same as file systems in other regions. See our FAQ
-    to learn more about how file systems are billed.
+    Instantly launch a 16x to 512x NVIDIA H100 GPU cluster or a single-node
+    instance. No long-term commitments required. Managed Kubernetes,
+    Preinstalled Kubernetes, and Slurm are available. Our Public Cloud
+    includes use of serverless APIs for inference.
 
-## What's new in April 2024
+    [:octicons-arrow-right-24: Getting started](#)
 
-- Lambda's ML Team released [ML Times](https://news.lambdalabs.com/news/today), an LLM-powered app that aggregates and
-  summarizes AI and ML content from various sources such as the
-  r/MachineLearning subreddit and Hacker News.
+-   :material-cloud-key:{ .lg .middle } **Private Cloud**
 
-## What's new in March 2024
+    ---
 
-- Beginning March 1, Lambda started charging sales tax for On-Demand Cloud.
-- Beginning March 4, Lambda started billing for usage of Cloud file systems in
-  the Texas, USA (us-south-1) region.
-- virtiofsd for On-Demand Cloud was upgraded. This upgrade fixes an issue that
-  caused some customers to encounter "Too many open files" errors, which could
-  also lead to Jupyter Notebook becoming unresponsive.
+    Private Cloud is the ideal solution 
 
-## Top FAQs
+    [:octicons-arrow-right-24: Getting started](#)
 
-### GPU Cloud
+-   :material-network-outline:{ .lg .middle } **Hardware**
 
-- Can I launch an instance from the command line?
-- Why is my credit or debit card being declined?
-- How do I get started using the Team feature?
-- How do I terminate an instance using the Cloud API?
-- How do I use persistent storage to save datasets and system state?
-- Can I pause my instance instead of terminating it?
+    ---
+
+    For individuals and small teams, we offer our Vector One, Vector, and
+    Vector Pro workstations and desktops. Our workstations and desktops are
+    available in multiple configurations to meet your exact needs.
+
+    [:octicons-arrow-right-24: Customization](#)
+
+-   :material-book-open:{ .lg .middle } **Education**
+
+    ---
+
+    Our expert ML Engineers and Researchers have put together guides and
+    tutorials to help you work quickly and efficiently.
+
+    [:octicons-arrow-right-24: How-to guides and tutorials](#)
+
+</div>

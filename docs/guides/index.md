@@ -14,3 +14,9 @@
 ## Benchmarking
 
 - Benchmark DeepSpeed-Chat training on Lambda 1-Click Clusters
+
+## Basic Linux usage and system administration
+
+- Transferring large amounts of data
+- Port forwarding using SSH
+- Using Tailscale to securely access remote systems

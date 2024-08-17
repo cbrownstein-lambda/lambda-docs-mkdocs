@@ -35,11 +35,13 @@ nav:
     - workstations/getting-started.md
     - workstations/troubleshooting.md
   - Guides:
-      - guides/index.md
-      - Large language models (LLMs):
-        - guides/large-language-models/lambda-chat-api.md
-      - Basic Linux usage and system administration:
-        - guides/linux-usage/virtual-environments-containers.md
+    - guides/index.md
+    - Large language models (LLMs):
+      - guides/large-language-models/lambda-chat-api.md
+    - Kubernetes (K8s):
+      - guides/kubernetes/installing-k3s.md
+    - Basic Linux usage and system administration:
+      - guides/linux-usage/virtual-environments-containers.md
 markdown_extensions:
   - admonition
   - attr_list

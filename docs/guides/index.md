@@ -7,7 +7,7 @@
 
 ## Large language models (LLMs)
 
-- Serve the Llama 3.1 8B and 70B models using Lambda Cloud on-demand instances
+- [Serving the Llama 3.1 8B and 70B models using Lambda Cloud on-demand instances](large-language-models/serving-llama-3-1-docker.md)
 - Serve Llama 3.1 405B on a Lambda 1-Click Cluster
 - [Using the Lambda Chat Completions API](large-language-models/lambda-chat-api)
 

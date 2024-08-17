@@ -7,7 +7,7 @@ tags:
   - llm
 ---
 
-# How to serve the Llama 3.1 8B and 70B models using Lambda Cloud on-demand instances
+# Serving the Llama 3.1 8B and 70B models using Lambda Cloud on-demand instances
 
 This tutorial shows you how to use a [Lambda
 Cloud](https://lambdalabs.com/service/gpu-cloud) 1x or 8x A100 or H100

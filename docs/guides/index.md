@@ -15,6 +15,10 @@
 
 - Benchmark DeepSpeed-Chat training on Lambda 1-Click Clusters
 
+## Kubernetes (K8s)
+
+- Installing K3s lightweight Kubernetes
+
 ## Basic Linux usage and system administration
 
 - Transferring large amounts of data

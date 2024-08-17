@@ -33,6 +33,8 @@ nav:
       - guides/index.md
       - Large language models (LLMs):
         - guides/large-language-models/lambda-chat-api.md
+      - Basic Linux usage and system administration:
+        - guides/linux-usage/virtual-environments-containers.md
 markdown_extensions:
   - admonition
   - attr_list

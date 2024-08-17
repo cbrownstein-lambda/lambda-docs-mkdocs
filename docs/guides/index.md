@@ -20,3 +20,4 @@
 - Transferring large amounts of data
 - Port forwarding using SSH
 - Using Tailscale to securely access remote systems
+- Setting and using environment variables

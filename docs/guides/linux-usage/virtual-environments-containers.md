@@ -8,7 +8,7 @@ that are isolated from each other. Lambda recommends using either:
 - [Python venv](#creating-a-python-virtual-environment)
 - conda
 
-### Creating a Python virtual environment
+## Creating a Python virtual environment
 
 === "Linux / MacOS"
 

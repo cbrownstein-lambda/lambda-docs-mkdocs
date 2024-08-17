@@ -20,9 +20,7 @@ nav:
   - On-Demand Cloud:
     - on-demand-cloud/getting-started.md
     - on-demand-cloud/billing.md
-    - on-demand-cloud/serving-llama-3-1-docker.md
     - on-demand-cloud/flux-prompt-to-image.md
-    - on-demand-cloud/lambda-chat-api.md
   - 1-Click Clusters:
     - 1-click-clusters/getting-started.md
     - 1-click-clusters/serving-llama-3_1-405b.md
@@ -37,6 +35,7 @@ nav:
   - Guides:
     - guides/index.md
     - Large language models (LLMs):
+      - guides/large-language-models/serving-llama-3-1-docker.md
       - guides/large-language-models/lambda-chat-api.md
     - Kubernetes (K8s):
       - guides/kubernetes/installing-k3s.md

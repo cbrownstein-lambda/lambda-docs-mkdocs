@@ -26,6 +26,11 @@ nav:
   - 1-Click Clusters:
     - 1-click-clusters/getting-started.md
     - 1-click-clusters/serving-llama-3_1-405b.md
+  - Servers:
+    - servers/index.md
+    - Unboxing and Setup:
+      - servers/unboxing-and-setup/power-and-network-cables.md
+      - servers/unboxing-and-setup/using-bmc-ipmi.md
   - Workstations:
     - workstations/getting-started.md
     - workstations/troubleshooting.md

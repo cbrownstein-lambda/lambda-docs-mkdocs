@@ -264,3 +264,69 @@ To use the `/completions` endpoint:
     ```
     Completion(id='cmpl-bed15d67c6894588bc0292c1cc5ed28d', choices=[CompletionChoice(finish_reason='stop', index=0, logprobs=None, text=' a part of our everyday lives. They are used in homes, schools, businesses, and many other places. Computers have changed the way we live, work, and play. They have made many tasks easier and more efficient. However, computers can also be frustrating and challenging to use at times. In this article, we will explore the pros and cons of computers.\nPros of Computers:\n1. Increased Productivity: Computers have made many tasks easier and more efficient. They can perform complex calculations, store large amounts of data, and automate repetitive tasks. This has led to increased productivity in many industries.\n\n2. Improved Communication: Computers have revolutionized the way we communicate. With email, instant messaging, and video conferencing, we can communicate with people all over the world instantly.\n\n3. Access to Information: The internet has made a vast amount of information available to us at our fingertips. We can search for information on any topic and find answers to our questions quickly and easily.\n\n4. Entertainment: Computers have also changed the way we entertain ourselves. We can play games, watch movies, listen to music, and read books all on our computers.\n\n5. Education: Computers have had a significant impact on education. They have made it possible for students to learn from anywhere in the world and have access to a wealth of educational resources.\n\nCons of Computers:\n1. Dependence: As we become more reliant on computers, we may find it difficult to function without them. This dependence can be problematic if there is a power outage or if our computers break down.\n\n2. Health Issues: Prolonged use of computers can lead to health issues such as eye strain, headaches, and back pain. Sitting for long periods can also contribute to obesity and other health problems.\n\n3. Security Risks: Computers are vulnerable to security risks such as viruses, malware, and hacking. These risks can compromise our personal information and lead to identity theft.\n\n4. Social Isolation: While computers have improved communication, they can also lead to social isolation. People may spend more time interacting with their computers than with other people, leading to feelings of loneliness and disconnection.\n\n5. Cost: Computers can be expensive to purchase and maintain. Upgrading hardware and software can also be costly.\n\nIn conclusion, computers have both pros and cons. They have made many aspects of our lives easier and more efficient, but they also come with challenges and risks. It is essential to use computers responsibly and to be aware of the potential drawbacks. By doing so, we can maximize the benefits of computers while minimizing the negative impacts.1) + 1\n    return n\n\ndef main():\n    n = int(input())\n    print(fibonacci(n))\n\nif __name__ == "__main__":\n    main()\n```\n\n## Explanation\n\nThe `fibonacci` function takes an integer `n` as input and returns the `n`-th Fibonacci number. The function uses recursion to calculate the Fibonacci number.\n\nThe base cases for the recursion are:\n- If `n` is 0, the function returns 0.\n- If `n` is 1, the function returns 1.\n\nFor any other value of `n`, the function recursively calls itself with `n-1` and `n-2` and returns the sum of the results.\n\nIn the `main` function, we read an integer `n` from the user using `input()` and convert it to an integer using `int()`. We then call the `fibonacci` function with `n` and print the result.\n\nThe `if __name__ == "__main__":` condition ensures that the `main` function is only executed when the script is run directly, and not when it is imported as a module.\n\n## Example\n\nLet\'s say the user inputs the number 6. The program will output:\n```\n8\n```\n\nThis is because the 6th Fibonacci number is 8 (0, 1, 1, 2, 3, 5, 8).\n\nThe recursive calls will be as follows:\n- `fibonacci(6)` calls `fibonacci(5)` and `fibonacci(4)`\n  - `fibonacci(5)` calls `fibonacci(4)` and `fibonacci(3)`\n    - `fibonacci(4)` calls `fibonacci(3)` and `fibonacci(2)`\n      - `fibonacci(3)` calls `fibonacci(2)` and `fibonacci(1)`\n        - `fibonacci(2)` calls `fibonacci(1)` and `fibonacci(0)`\n          - `fibonacci(1)` returns 1\n          - `fibonacci(0)` returns 0\n        - `fibonacci(1)` returns 1\n      - `fibonacci(2)` returns 1\n    - `fibonacci(3)` returns 2\n  - `fibonacci(4)` returns 3\n\nFinally, `fibonacci(6)` returns 5 + 3 = 8.', stop_reason=None)], created=1723743390, model='hermes-3-llama-3.1-405b-fp8', object='text_completion', system_fingerprint=None, usage=CompletionUsage(completion_tokens=1026, prompt_tokens=4, total_tokens=1030))
     ```
+
+## Listing models
+
+The `/models` endpoint lists the models available for use through the Lambda
+Chat API.
+
+To use the `/models` endpoint:
+
+=== "Curl"
+
+    Run:
+
+    ```bash
+    curl https://api.lambdalabs.com/v1/models -H "Authorization: Bearer API-KEY" -H "Content-Type: application/json" | jq .
+    ```
+
+    You should see output similar to:
+
+    ```json
+    {
+      "data": [
+        {
+          "id": "hermes-3-llama-3.1-405b-fp8",
+          "object": "model",
+          "created": 1677610602,
+          "owned_by": "openai"
+        },
+        {
+          "id": "hermes-3-llama-3.1-405b-fp8-128k",
+          "object": "model",
+          "created": 1677610602,
+          "owned_by": "openai"
+        }
+      ],
+      "object": "list"
+    }
+    ```
+
+=== "Python"
+
+    First, [create a Python virtual
+    environment](https://docs.lambdalabs.com/software/virtual-environments-and-docker-containers#creating-a-python-virtual-environment).
+    Then, install the [OpenAI Python API
+    library](https://pypi.org/project/openai/).
+
+    Run:
+
+    ```python
+    from openai import OpenAI
+
+    openai_api_key = "API-KEY"
+    openai_api_base = "https://api.lambdalabs.com/v1"
+
+    client = OpenAI(
+        api_key=openai_api_key,
+        base_url=openai_api_base,
+    )
+
+    client.models.list()
+    ```
+
+    You should see output similar to:
+
+    ```
+    SyncPage[Model](data=[Model(id='hermes-3-llama-3.1-405b-fp8', created=1677610602, object='model', owned_by='openai'), Model(id='hermes-3-llama-3.1-405b-fp8-128k', created=1677610602, object='model', owned_by='openai')], object='list')
+    ```

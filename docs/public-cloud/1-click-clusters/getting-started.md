@@ -7,7 +7,7 @@ tags:
 
 # Getting started
 
-{% include "../includes/hello-world.incl.md" %}
+{% include "../../includes/hello-world.incl.md" %}
 
 ## Conceptual overview
 

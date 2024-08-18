@@ -18,6 +18,7 @@
 ## Kubernetes (K8s)
 
 - Installing K3s lightweight Kubernetes
+- Setting up a Ray Cluster on Kubernetes (KubeRay)
 
 ## Basic Linux usage and system administration
 

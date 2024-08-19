@@ -45,6 +45,7 @@ nav:
       - education/large-language-models/lambda-chat-api.md
     - Kubernetes (K8s):
       - education/kubernetes/installing-k3s.md
+      - education/kubernetes/ray-cluster-kubernetes.md
     - Basic Linux usage and system administration:
       - education/linux-usage/virtual-environments-containers.md
 markdown_extensions:

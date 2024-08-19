@@ -40,6 +40,8 @@ nav:
           - hardware/workstations/troubleshooting.md
   - Education:
     - education/index.md
+    - Generative AI:
+      - education/generative-ai/flux-prompt-to-image.md
     - Large language models (LLMs):
       - education/large-language-models/serving-llama-3-1-docker.md
       - education/large-language-models/lambda-chat-api.md

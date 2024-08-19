@@ -2,8 +2,8 @@
 
 ## Generative AI (GAI)
 
-- Serve the FLUX.1 prompt-to-image models using Lambda Cloud on-demand
-  instances
+- [Serve the FLUX.1 prompt-to-image models using Lambda Cloud on-demand
+  instances](generative-ai/flux-prompt-to-image)
 
 ## Large language models (LLMs)
 

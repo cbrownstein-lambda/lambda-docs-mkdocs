@@ -1,5 +1,5 @@
 ## Description
-<!-- What will this PR do when merged? -->
+<!-- What does this PR do? -->
 
 ## Related issues
 <!-- What issues in JIRA or GitHub if any, does this PR relate to? -->

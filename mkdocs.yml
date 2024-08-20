@@ -21,6 +21,7 @@ nav:
   - Public Cloud:
     - public-cloud/index.md
     - On-Demand:
+      - public-cloud/on-demand/index.md
       - public-cloud/on-demand/getting-started.md
       - public-cloud/on-demand/billing.md
     - 1-Click Clusters:

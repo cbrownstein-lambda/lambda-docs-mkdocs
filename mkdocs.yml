@@ -89,7 +89,7 @@ plugins:
   - social
   - redirects:
       redirect_maps:
-        'one-click-clusters/getting-started.md': '1-click-clusters/getting-started.md'
+        'one-click-clusters/getting-started.md': 'public-cloud/1-click-clusters/getting-started.md'
   - tags:
       tags_file: tags.md
 extra_javascript:

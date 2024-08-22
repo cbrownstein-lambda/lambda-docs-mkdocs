@@ -42,7 +42,7 @@ Kubernetes, also known as K8s, isn't supported on On-Demand Cloud.
 
 However, Lambda offers managed Kubernetes for Reserved Cloud.
 
-[See our Managed Kubernetes Product Outline to learn more](../assets/pdf/Lambda_Kubernetes_One_Pager.pdf).
+[See our Managed Kubernetes Product Outline to learn more](../../assets/pdf/Lambda_Kubernetes_One_Pager.pdf).
 
 ## Why can't my program find the NVIDIA cuDNN library?
 

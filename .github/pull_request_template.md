@@ -16,4 +16,4 @@
 - [ ] Reviewers have been assigned (at least 1 tech writer and 1 eng).
 
 ## Additional notes
-<!-- What else, if anything, would be helpful for a reviewer to know? -->
+<!-- What else, if anything, is helpful for a reviewer to know? -->

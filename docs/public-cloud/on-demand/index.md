@@ -147,7 +147,7 @@ instance:
   PyTorch®, JAX, Triton
 - Dev tools: Git, Vim, Emacs, Valgrind, tmux, screen, htop, build-essential
 
-For more information on Lambda Stack, see Lambda Stack.
+For more information on Lambda Stack, see [Lambda Stack](https://lambdalabs.com/lambda-stack-deep-learning-software).
 
 In addition, each ODC instance provides a JupyterLab installation for creating
 and managing Jupyter notebooks. You can access your instance's JupyterLab by

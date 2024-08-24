@@ -1,3 +1,27 @@
+:root {
+    --md-primary-fg-color: #6F5CFF;
+}
+
 .lambda {
     color: #4027FF;
+}
+
+.md-header {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.md-tabs {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+[data-md-color-scheme="slate"] {
+    --md-default-bg-color: #000000;
+    --md-default-fg-color--light: #FFFFFF;
+    --md-typeset-color: #FFFFFF;
+    .md-tabs {
+        background-color: #F9F9F9;
+        color: #000000;
+    }
 }

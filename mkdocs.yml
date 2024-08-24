@@ -13,13 +13,13 @@ theme:
       #    - toc.integrate
   palette:
     - media: "(prefers-color-scheme: light)"
-      primary: deep purple
+      primary: custom
       scheme: default
       toggle:
-        icon: material/brightness-7 
+        icon: material/brightness-7
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
-      primary: deep purple
+      primary: custom
       scheme: slate
       toggle:
         icon: material/brightness-4
@@ -103,6 +103,8 @@ plugins:
         'one-click-clusters/getting-started.md': 'public-cloud/1-click-clusters/getting-started.md'
   - tags:
       tags_file: tags.md
+extra_css:
+  - assets/css/extra.css
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/vega@5
   - https://cdn.jsdelivr.net/npm/vega-lite@5

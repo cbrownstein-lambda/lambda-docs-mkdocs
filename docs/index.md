@@ -9,7 +9,7 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :material-cloud:{ .lg .middle } **Public Cloud**
+-   :material-cloud:{ .lg .middle .lambda} **Public Cloud**
 
     ---
 
@@ -20,7 +20,7 @@ hide:
 
     [:octicons-arrow-right-24: Introduction](public-cloud/index.md)
 
--   :material-cloud-key:{ .lg .middle } **Private Cloud**
+-   :material-cloud-key:{ .lg .middle .lambda} **Private Cloud**
 
     ---
 
@@ -31,7 +31,7 @@ hide:
 
     [:octicons-arrow-right-24: Introduction](private-cloud/index.md)
 
--   :material-network-outline:{ .lg .middle } **Hardware**
+-   :material-network-outline:{ .lg .middle .lambda } **Hardware**
 
     ---
 
@@ -42,7 +42,7 @@ hide:
 
     [:octicons-arrow-right-24: Introduction](hardware/index.md)
 
--   :material-book-open:{ .lg .middle } **Education**
+-   :material-book-open:{ .lg .middle .lambda } **Education**
 
     ---
 

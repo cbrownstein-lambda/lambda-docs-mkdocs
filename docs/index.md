@@ -9,7 +9,7 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :material-cloud:{ .lg .middle .lambda} **Public Cloud**
+-   :material-cloud:{ .lg .middle .lambda } **Public Cloud**
 
     ---
 
@@ -20,7 +20,7 @@ hide:
 
     [:octicons-arrow-right-24: Introduction](public-cloud/index.md)
 
--   :material-cloud-key:{ .lg .middle .lambda} **Private Cloud**
+-   :material-cloud-key:{ .lg .middle .lambda } **Private Cloud**
 
     ---
 

@@ -3,7 +3,7 @@ hide:
   - navigation
 ---
 
-![Homepage](assets/img/homepage-image.png)
+![Homepage](assets/img/homepage-image-2.png)
 
 # Welcome to Lambda Docs
 

@@ -1,5 +1,10 @@
 :root {
-    --md-primary-fg-color: #6F5CFF;
+--md-admonition-fg-color: #000000;
+--md-default-bg-color: #FFFFFF;
+--md-default-fg-color: #FFFFFF;
+--md-default-fg-color--light: #000000;
+--md-primary-fg-color: #6F5CFF;
+--md-typeset-color: #000000;
 }
 
 .lambda {
@@ -16,12 +21,24 @@
     color: #000000;
 }
 
+.md-typeset h1 {
+    color: #000000;
+    font-weight: 900;
+}
+
 [data-md-color-scheme="slate"] {
+    --md-admonition-fg-color: #FFFFFF;
     --md-default-bg-color: #000000;
+    --md-default-fg-color: #000000;
     --md-default-fg-color--light: #FFFFFF;
+    --md-primary-fg-color: #6F5CFF;
     --md-typeset-color: #FFFFFF;
     .md-tabs {
         background-color: #F9F9F9;
         color: #000000;
+    }
+    .md-typeset h1 {
+        color: #FFFFFF;
+        font-weight: 900;
     }
 }

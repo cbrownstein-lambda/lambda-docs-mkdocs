@@ -2,7 +2,7 @@
     "[markdown]": {
         "editor.rulers": [
             {
-                "column": 78,
+                "column": 80,
                 "color": "#ff0000"
             }
         ]

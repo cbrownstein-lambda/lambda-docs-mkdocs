@@ -1,3 +1,4 @@
+site_description: Lambda GPU Cloud documentation
 site_name: Lambda Docs [PROOF OF CONCEPT]
 site_url: https://cbrownstein-lambda.github.io/lambda-docs-mkdocs/
 repo_url: https://github.com/cbrownstein-lambda/lambda-docs-mkdocs

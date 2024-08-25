@@ -11,6 +11,7 @@
     --md-default-bg-color: #FFFFFF;
     --md-default-fg-color: #000000;
     --md-default-fg-color--light: #000000;
+    --md-default-fg-color--lightest: #000000;
     --md-primary-fg-color: #6F5CFF;
     --md-typeset-color: #000000;
     .md-tabs {
@@ -25,6 +26,10 @@
         color: #000000;
         font-weight: 600;
     }
+    .md-typeset .md-tag {
+        background-color: #000000;
+        color: #FFFFFF;
+    }
 }
 
 [data-md-color-scheme="slate"] {
@@ -32,6 +37,7 @@
     --md-default-bg-color: #000000;
     --md-default-fg-color: #FFFFFF;
     --md-default-fg-color--light: #FFFFFF;
+    --md-default-fg-color--lightest: #FFFFFF;
     --md-primary-fg-color: #6F5CFF;
     --md-typeset-color: #FFFFFF;
     .md-tabs {
@@ -43,5 +49,9 @@
     }
     .md-typeset h2 {
         font-weight: 600;
+    }
+    .md-typeset .md-tag {
+        background-color: #FFFFFF;
+        color: #000000;
     }
 }

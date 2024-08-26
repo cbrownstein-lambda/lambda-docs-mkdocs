@@ -99,31 +99,20 @@ and serve the Llama 3.1 8B model.
 type: task
 name: llama31-task-vllm
 
-# If `image` is not specified, dstack uses its default image
 python: "3.10"
 
-# Required environment variables
 env:
-  - HUGGING_FACE_HUB_TOKEN
-  - MODEL_ID=meta-llama/Meta-Llama-3.1-8B-Instruct
-  - MAX_MODE_LEN=4096
+  - MODEL=NousResearch/Hermes-3-Llama-3.1-8B
+
 commands:
   - pip install vllm
-  - vllm serve $MODEL_ID
-    --tensor-parallel-size $DSTACK_GPUS_NUM
-    --max-model-len $MAX_MODEL_LEN
-# Expose the vllm server port
+  - vllm serve $MODEL
+
 ports:
   - 8000
 
-# Use either spot or on-demand instances
 spot_policy: auto
-# Uncomment to ensure it doesn't create a new fleet
-#creation_policy: reuse
 
 resources:
-  # Required resources
   gpu: 24GB
-  # Shared memory (required by multi-gpu)
-  shm_size: 24GB
 ```

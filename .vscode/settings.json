@@ -5,7 +5,8 @@
                 "column": 80,
                 "color": "#ff0000"
             }
-        ]
+        ],
+        "rewrap.autoWrap.enabled": true
     },
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,

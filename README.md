@@ -68,3 +68,21 @@ Make a local copy of the GitHub repository
 3. Once the site has been built, open a browser window and paste `http://127.0.0.1:8000/` into the search bar and press enter.
 
    Congratulations, your local preview is now live!
+
+### Configure MKdocs in Docker
+
+1. Build the container:
+
+   ```bash
+   docker build -t lambda-docs-mkdocs .
+   ```
+
+1. Run the container:
+
+   ```bash
+   docker run --rm -it -p 8000:8000 -v ${PWD}:/docs lambda-docs-mkdocs serve
+   ```
+
+1. Once the container is running, open a browser window and paste `http://127.0.0.1:8000/lambda-docs-mkdocs` into the search bar and press enter.
+
+Congratulation, your local preview is now live inside of a container!

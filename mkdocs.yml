@@ -58,6 +58,7 @@ nav:
       - education/large-language-models/serving-llama-3-1-docker.md
       - education/large-language-models/lambda-chat-api.md
     - Kubernetes (K8s):
+      - education/kubernetes/dstack-vllm-llama-3-1.md
       - education/kubernetes/installing-k3s.md
       - education/kubernetes/ray-cluster-kubernetes.md
     - Basic Linux usage and system administration:

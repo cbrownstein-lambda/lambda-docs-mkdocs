@@ -5,9 +5,7 @@
                 "column": 80,
                 "color": "#ff0000"
             }
-        ],
-        "editor.wordWrap": "wordWrapColumn",
-        "editor.wordWrapColumn": 80
+        ]
     },
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,

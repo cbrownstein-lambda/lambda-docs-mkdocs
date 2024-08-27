@@ -65,7 +65,7 @@ and serve the Llama 3.1 8B model.
 
    ```yaml
    projects:
-   - name: dstack-tutorial
+   - name: main
      backends:
        - type: lambda
          creds:

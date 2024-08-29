@@ -1,5 +1,5 @@
 ---
-description: This tutorial teaches you how to use dstack to deploy vLLM and serve the fine-tuned Hermes 3 Llama 3.1 8B model. dstack is an alternative to K8s designed for AI and ML applications.
+description: Learn how to use dstack to deploy vLLM and serve the Hermes 3 fine-tuned Llama 3.1 8B model.
 comments: true
 tags:
   - api
@@ -15,14 +15,14 @@ tags:
 orchestration of AI and ML applications. With dstack, you can use YAML
 configuration files to define the [Lambda Public
 Cloud](https://lambdalabs.com/service/gpu-cloud) resources needed for your
-applications. dstack will automatically obtain those resources and launch your
-applications.
+applications. dstack will automatically obtain those resources, that is, launch
+appropriate on-demand instances, and start your applications.
 
-In this tutorial, you'll learn how to set up dstack, and use it to deploy vLLM
-and serve the [Hermes-3 fine-tuned Llama 3.1 8B large language model
-(LLM)](https://nousresearch.com/hermes3/).
+In this tutorial, you'll learn how to set up dstack, and use it to deploy
+[vLLM](https://github.com/vllm-project/vllm) and serve the [Hermes 3 fine-tuned
+Llama 3.1 8B large language model (LLM)](https://nousresearch.com/hermes3/).
 
-All of the instructions in this tutorial should be followed on your computerV
+All of the instructions in this tutorial should be followed on your computer
 rather than on a Cloud on-demand instance. This tutorial assumes you already
 have Python, the [Python venv
 module](https://docs.python.org/3/library/venv.html), and
@@ -30,8 +30,10 @@ module](https://docs.python.org/3/library/venv.html), and
 
 ## Setting up the dstack server
 
+To set up the dstack server:
+
 1. [Generate a Cloud API key from the
-   dashboard](https://docs.lambdalabs.com/on-demand-cloud/dashboard#generate-and-delete-api-keys).
+   Cloud dashboard](https://docs.lambdalabs.com/on-demand-cloud/dashboard#generate-and-delete-api-keys).
 
 2. Create a directory for this tutorial, and change into the directory by
    running:
@@ -46,7 +48,7 @@ module](https://docs.python.org/3/library/venv.html), and
    python -m venv .venv && source .venv/bin/activate
    ```
 
-3. Install the dstack by running:
+3. Install dstack by running:
 
    ```bash
    pip install -U "dstack[all]"
@@ -62,13 +64,14 @@ module](https://docs.python.org/3/library/venv.html), and
 
     You can safely disregard these messages.
 
-4. Create a directory for the dstack server configuration by running:
+4. Create a directory for the dstack server configuration and files that will be
+   created by the dstack server by running:
 
    ```bash
    mkdir -p -m 700 ~/.dstack/server
    ```
 
-   In the `~/.dstack/server` directory you just created, create a [config
+   In the `~/.dstack/server` directory you just created, create a [configuration
    file](https://dstack.ai/docs/reference/server/config.yml/) named `config.yml`
    with the following contents:
 
@@ -100,7 +103,9 @@ module](https://docs.python.org/3/library/venv.html), and
               INFO     The dstack server 0.18.11 is running at http://127.0.0.1:3000
    ```
 
-## Deploying vLLM and serving Llama 3.1
+## Deploying vLLM and serving Hermes 3
+
+To deploy vLLM and serve the Hermes 3 model:
 
 5. Open another terminal and activate the virtual environment you created
    earlier by running:
@@ -125,7 +130,7 @@ module](https://docs.python.org/3/library/venv.html), and
      - 8000
    spot_policy: auto
    resources:
-     gpu: A100
+     gpu: A100:1
    ```
 
    Then, apply the configuration by running:
@@ -167,23 +172,24 @@ module](https://docs.python.org/3/library/venv.html), and
 
    - Launch a new 1x A100 instance
    - Install vLLM and its dependencies
-   - Download the Hermes-3 model
-   - Start vLLM and serve the Hermes-3 model
+   - Download the Hermes 3 model
+   - Start vLLM and serve the Hermes 3 model
 
-!!! note
+   [**You're billed for all of the time the instance is
+   running.**](https://docs.lambdalabs.com/on-demand-cloud/billing#how-are-on-demand-instances-billed)
 
-    **You're billed for all of the time the instance is running.**
+   In the [Cloud dashboard](https://cloud.lambdalabs.com/instances), you can
+   see the 1x A100 instance launching.
 
-    You can see the newly launched 1x A100 instance in the Cloud dashboard.
+   vLLM is running and serving the Hermes 3 model once you see output similar
+   to:
 
-    vLLM is running and serving the Hermes 3 model once you see output similar to:
-
-    ```
-    INFO:     Started server process [57]
-    INFO:     Waiting for application startup.
-    INFO:     Application startup complete.
-    INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
-    ```
+   ```
+   INFO:     Started server process [57]
+   INFO:     Waiting for application startup.
+   INFO:     Application startup complete.
+   INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+   ```
 
 8. In another terminal, test that vLLM is serving the Hermes 3 model by running:
 
@@ -232,15 +238,17 @@ module](https://docs.python.org/3/library/venv.html), and
    before detaching. Press ++y++ then ++enter++. You'll see `Stopped` once the
    run is stopped.
 
-   After 5 minutes, the instance will terminate. You can delete the instance
-   immediately by running:
+   After 5 minutes, the instance will terminate. Alternatively, you can delete
+   the instance immediately by running:
 
-   `dstack fleet delete task-vllm-hermes-3`
+   ```bash
+   dstack fleet delete task-vllm-hermes-3
+   ```
 
-   You'll be asked for confirmation that you want to delete the fleet (the
-   instance). Press ++y++ then press ++enter++.
+   You'll be asked for confirmation that you want to delete the fleet, that is,
+   the instance launched for this tutorial. Press ++y++ then press ++enter++.
 
-   You can confirm the instance was terminated from the Cloud dashboard.
+   Using the Cloud dashboard, you can confirm that the instance was terminated.
 
 10. To shut down the dstack server, press ++ctrl++ + ++c++ in the terminal
     running the server.

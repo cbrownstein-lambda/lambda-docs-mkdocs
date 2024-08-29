@@ -3,7 +3,7 @@
         "editor.rulers": [
             {
                 "column": 80,
-                "color": "#ff0000"
+                "color": "#111111"
             }
         ],
         "rewrap.autoWrap.enabled": true

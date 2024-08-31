@@ -26,7 +26,13 @@ All of the instructions in this tutorial should be followed on your computer
 rather than on a Cloud on-demand instance. This tutorial assumes you already
 have Python, the [Python venv
 module](https://docs.python.org/3/library/venv.html), and
-[pip](https://pypi.org/project/pip/) installed on your computer.
+[pip](https://pypi.org/project/pip/), and Git installed on your computer.
+
+You can install these packages by running:
+
+```bash
+sudo apt update && sudo apt install -y python3 python3-venv pip git
+```
 
 ## Setting up the dstack server
 
@@ -45,7 +51,7 @@ To set up the dstack server:
    Then, create and activate a Python virtual environment by running:
 
    ```bash
-   python -m venv .venv && source .venv/bin/activate
+   python3 -m venv .venv && source .venv/bin/activate
    ```
 
 3. Install dstack by running:

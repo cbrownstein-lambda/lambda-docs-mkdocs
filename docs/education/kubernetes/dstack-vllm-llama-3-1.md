@@ -43,8 +43,8 @@ sudo apt update && sudo apt install -y python3 python3-venv pip git curl jq
 
 To set up the dstack server:
 
-1. [Generate a Cloud API key from the
-   Cloud dashboard](https://docs.lambdalabs.com/on-demand-cloud/dashboard#generate-and-delete-api-keys).
+1. [Generate a Cloud API key from the Lambda Public Cloud
+   dashboard](https://docs.lambdalabs.com/on-demand-cloud/dashboard#generate-and-delete-api-keys).
 
 2. Create a directory for this tutorial, and change into the directory by
    running:
@@ -97,9 +97,8 @@ To set up the dstack server:
    You should see output similar to:
 
    ```
-              INFO     Applying ~/.dstack/server/config.yml...
-   [02:23:11] INFO     Configured the main project in ~/.dstack/config.yml
-              INFO     The admin token is ADMIN-TOKEN
+   [16:20:35] INFO     Applying ~/.dstack/server/config.yml...
+   [16:20:36] INFO     The admin token is ADMIN-TOKEN
               INFO     The dstack server 0.18.11 is running at http://127.0.0.1:3000
    ```
 

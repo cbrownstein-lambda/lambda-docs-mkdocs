@@ -24,14 +24,19 @@ instance. vLLM will serve the [Hermes 3 fine-tuned Llama 3.1 8B large language
 model (LLM)](https://nousresearch.com/hermes3/).
 
 All of the instructions in this tutorial should be followed on your computer.
-This tutorial assumes you already have Python, the [Python venv
-module](https://docs.python.org/3/library/venv.html),
-[pip](https://pypi.org/project/pip/), and Git installed on your computer.
+This tutorial assumes you already have installed:
+
+- `python3`
+- `python3-venv`
+- `pip`
+- `git`
+- `curl`
+- `jq`
 
 You can install these packages by running:
 
 ```bash
-sudo apt update && sudo apt install -y python3 python3-venv pip git
+sudo apt update && sudo apt install -y python3 python3-venv pip git curl jq
 ```
 
 ## Setting up the dstack server
@@ -60,27 +65,11 @@ To set up the dstack server:
    pip install -U "dstack[all]"
    ```
 
-!!! note
-
-    You might see error messages during the installation, for example:
-
-    ```
-    ERROR: Command errored out with exit status 1:
-    ```
-
-    You can safely disregard these messages.
-
-4. Create a directory for the dstack server configuration and files that will be
-   created by the dstack server by running:
+4. Create a directory for the dstack server and change into the directory by
+   running:
 
    ```bash
-   mkdir -p -m 700 ~/.dstack/server
-   ```
-
-   Change into the directory by running:
-
-   ```bash
-   cd ~/.dstack/server
+   mkdir -p -m 700 ~/.dstack/server && cd ~/.dstack/server
    ```
 
    In this directory, create a [configuration
@@ -108,7 +97,6 @@ To set up the dstack server:
    You should see output similar to:
 
    ```
-   [02:23:10] WARNING  dstack._internal.server.app:91 OpenSSH 8.4+ is required. The dstack server may not work properly
               INFO     Applying ~/.dstack/server/config.yml...
    [02:23:11] INFO     Configured the main project in ~/.dstack/config.yml
               INFO     The admin token is ADMIN-TOKEN
@@ -120,14 +108,21 @@ To set up the dstack server:
 To deploy vLLM and serve the Hermes 3 model:
 
 5. Open another terminal. Then, change into the directory you created for this
-   tutorial, and activate the Python virtual environment you created earlier by
+   tutorial, and activate the Python virtual environment you created earlier, by
    running:
 
    ```bash
-   cd ~/lambda-stack-tutorial && source .venv/bin/activate
+   cd ~/lambda-dstack-tutorial && source .venv/bin/activate
    ```
 
-6. In this directory, create a filed named `.dstack.yml` with the following
+6. In this directory, create a new directory named `task-hermes-3-vllm` and
+   change into the new directory by running:
+
+   ```bash
+   mkdir task-hermes-3-vllm && cd task-hermes-3-vllm
+   ```
+
+   In this new directory, create a filed named `.dstack.yml` with the following
    contents:
 
    ```yaml
@@ -146,10 +141,10 @@ To deploy vLLM and serve the Hermes 3 model:
      gpu: 40GB..80GB 
    ```
 
-   Then, apply the configuration by running:
+   Then, initialize and apply the configuration by running:
 
    ```bash
-   dstack apply
+   dstack init && dstack apply
    ```
 
 7. You'll see output similar to:
@@ -191,8 +186,9 @@ To deploy vLLM and serve the Hermes 3 model:
    [**You're billed for all of the time the instance is
    running.**](https://docs.lambdalabs.com/on-demand-cloud/billing#how-are-on-demand-instances-billed)
 
-   In the [Cloud dashboard](https://cloud.lambdalabs.com/instances), you can see
-   the instance launching.
+   In the [Lambda Public Cloud
+   dashboard](https://cloud.lambdalabs.com/instances), you can see the instance
+   launching.
 
    vLLM is running and serving the Hermes 3 model once you see output similar
    to:
@@ -255,13 +251,14 @@ To deploy vLLM and serve the Hermes 3 model:
    the instance immediately by running:
 
    ```bash
-   dstack fleet delete task-vllm-hermes-3
+   dstack fleet delete task-hermes-3-vllm
    ```
 
    You'll be asked for confirmation that you want to delete the fleet, that is,
    the instance launched for this tutorial. Press ++y++ then press ++enter++.
 
-   Using the Cloud dashboard, you can confirm that the instance was terminated.
+   Using the Lambda Public Cloud dashboard, you can confirm that the instance
+   was terminated.
 
 10. To shut down the dstack server, press ++ctrl++ + ++c++ in the terminal
     running the server.

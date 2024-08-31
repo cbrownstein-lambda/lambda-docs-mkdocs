@@ -19,13 +19,13 @@ applications. dstack will automatically obtain those resources, that is, launch
 appropriate on-demand instances, and start your applications.
 
 In this tutorial, you'll learn how to set up dstack, and use it to deploy
-[vLLM](https://github.com/vllm-project/vllm) and serve the [Hermes 3 fine-tuned
-Llama 3.1 8B large language model (LLM)](https://nousresearch.com/hermes3/).
+[vLLM](https://github.com/vllm-project/vllm) on a Lambda Public Cloud on-demand
+instance. vLLM will serve the [Hermes 3 fine-tuned Llama 3.1 8B large language
+model (LLM)](https://nousresearch.com/hermes3/).
 
-All of the instructions in this tutorial should be followed on your computer
-rather than on a Cloud on-demand instance. This tutorial assumes you already
-have Python, the [Python venv
-module](https://docs.python.org/3/library/venv.html), and
+All of the instructions in this tutorial should be followed on your computer.
+This tutorial assumes you already have Python, the [Python venv
+module](https://docs.python.org/3/library/venv.html),
 [pip](https://pypi.org/project/pip/), and Git installed on your computer.
 
 You can install these packages by running:
@@ -62,7 +62,7 @@ To set up the dstack server:
 
 !!! note
 
-    You'll see multiple error messages during the installation, for example:
+    You might see error messages during the installation, for example:
 
     ```
     ERROR: Command errored out with exit status 1:
@@ -77,7 +77,13 @@ To set up the dstack server:
    mkdir -p -m 700 ~/.dstack/server
    ```
 
-   In the `~/.dstack/server` directory you just created, create a [configuration
+   Change into the directory by running:
+
+   ```bash
+   cd ~/.dstack/server
+   ```
+
+   In this directory, create a [configuration
    file](https://dstack.ai/docs/reference/server/config.yml/) named `config.yml`
    with the following contents:
 
@@ -113,15 +119,16 @@ To set up the dstack server:
 
 To deploy vLLM and serve the Hermes 3 model:
 
-5. Open another terminal and activate the virtual environment you created
-   earlier by running:
+5. Open another terminal. Then, change into the directory you created for this
+   tutorial, and activate the Python virtual environment you created earlier by
+   running:
 
    ```bash
    cd ~/lambda-stack-tutorial && source .venv/bin/activate
    ```
 
-6. In the `~/lambda-stack-tutorial` directory, create a filed named
-   `.dstack.yml` with the following contents:
+6. In this directory, create a filed named `.dstack.yml` with the following
+   contents:
 
    ```yaml
    type: task
@@ -136,7 +143,7 @@ To deploy vLLM and serve the Hermes 3 model:
      - 8000
    spot_policy: auto
    resources:
-     gpu: A100:1
+     gpu: 40GB..80GB 
    ```
 
    Then, apply the configuration by running:
@@ -176,16 +183,16 @@ To deploy vLLM and serve the Hermes 3 model:
 
    dstack will automatically:
 
-   - Launch a new 1x A100 instance
-   - Install vLLM and its dependencies
+   - Launch an instance with between 40GB and 80GB of VRAM
+   - Install vLLM and its dependencies using pip
    - Download the Hermes 3 model
    - Start vLLM and serve the Hermes 3 model
 
    [**You're billed for all of the time the instance is
    running.**](https://docs.lambdalabs.com/on-demand-cloud/billing#how-are-on-demand-instances-billed)
 
-   In the [Cloud dashboard](https://cloud.lambdalabs.com/instances), you can
-   see the 1x A100 instance launching.
+   In the [Cloud dashboard](https://cloud.lambdalabs.com/instances), you can see
+   the instance launching.
 
    vLLM is running and serving the Hermes 3 model once you see output similar
    to:

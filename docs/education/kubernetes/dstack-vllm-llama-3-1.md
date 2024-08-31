@@ -138,7 +138,7 @@ To deploy vLLM and serve the Hermes 3 model:
      - 8000
    spot_policy: auto
    resources:
-     gpu: 40GB..80GB 
+     gpu: 40GB..80GB
    ```
 
    Then, initialize and apply the configuration by running:

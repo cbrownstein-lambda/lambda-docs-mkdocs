@@ -7,7 +7,7 @@ tags:
   - llm
 ---
 
-# Using dstack to deploy vLLM and serve the Hermes 3 fine-tuned Llama 3.1 8B model
+# Deploying models with dstack
 
 ## Introduction
 

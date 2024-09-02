@@ -17,7 +17,7 @@
 
 ## Scheduling and orchestration
 
-- [Using dstack to deploy vLLM and serve the Hermes 3 fine-tuned Llama 3.1 8B model](kubernetes/dstack-vllm-llama-3-1.md)
+- [Deploying models with dstack](kubernetes/dstack-vllm-llama-3-1.md)
 - Installing K3s lightweight Kubernetes
 - Setting up a Ray Cluster on Kubernetes (KubeRay)
 

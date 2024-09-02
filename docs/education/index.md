@@ -15,7 +15,7 @@
 
 - Benchmark DeepSpeed-Chat training on Lambda 1-Click Clusters
 
-## Kubernetes (K8s)
+## Scheduling and orchestration
 
 - [Using dstack to deploy vLLM and serve the Hermes 3 fine-tuned Llama 3.1 8B model](kubernetes/dstack-vllm-llama-3-1.md)
 - Installing K3s lightweight Kubernetes

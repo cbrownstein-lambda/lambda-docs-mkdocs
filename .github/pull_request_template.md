@@ -12,6 +12,7 @@
 
 - [ ] Documentation follows the style guidelines of the project.
 - [ ] Files used in this PR (e.g., images and PDFs) are committed.
+- [ ] Link to existing documentation and the reverse.
 - [ ] Changes have been tested locally.
 - [ ] Reviewers have been assigned (at least 1 tech writer and 1 eng).
 

@@ -20,6 +20,7 @@
 - [Deploying models with dstack](scheduling-and-orchestration/dstack-vllm-llama-3-1.md)
 - Installing K3s lightweight Kubernetes
 - Setting up a Ray Cluster on Kubernetes (KubeRay)
+- [Using SkyPilot to deploy a Kubernetes cluster](scheduling-and-orchestration/skypilot-deploy-kubernetes.md)
 
 ## Basic Linux usage and system administration
 

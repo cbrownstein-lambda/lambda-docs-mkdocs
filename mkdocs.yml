@@ -61,6 +61,7 @@ nav:
       - education/scheduling-and-orchestration/dstack-vllm-llama-3-1.md
       - education/scheduling-and-orchestration/installing-k3s.md
       - education/scheduling-and-orchestration/ray-cluster-kubernetes.md
+      - education/scheduling-and-orchestration/skypilot-deploy-kubernetes.md
     - Basic Linux usage and system administration:
       - education/linux-usage/virtual-environments-containers.md
 markdown_extensions:

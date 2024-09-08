@@ -1,6 +1,6 @@
 ---
-tags:
-  - kubernetes
+description: Learn how to start using Lambda Public Cloud on-demand instances.
+comments: true
 ---
 
 # Getting started
@@ -40,25 +40,26 @@ to imitate some of the benefits of being able to pause your instance.
 ## Do you support Kubernetes (K8s)?
 
 Yes. You can install and use Kubernetes, also known as K8s, on on-demand
-instances and [1-Click
-Clusters :octicons-link-external-16:](https://lambdalabs.com/service/gpu-cloud/1-click-clusters){target="_blank"}.
+instances and [1-Click Clusters
+:octicons-link-external-16:](https://lambdalabs.com/service/gpu-cloud/1-click-clusters){target=_blank}.
 
 Additionally, Managed Kubernetes and Pre-Installed Kubernetes are available for
-1-Click Clusters and [Reserved
-Cloud :octicons-link-external-16:](https://lambdalabs.com/service/gpu-cloud/reserved){target="_blank"}.
+1-Click Clusters and [Reserved Cloud
+:octicons-link-external-16:](https://lambdalabs.com/service/gpu-cloud/reserved){target="_blank"}.
 
 Managed Kubernetes includes:
 
 * Kubernetes installation and upgrades.
 * Control plane maintenance and high-availability.
-* [NVIDIA GPU
-  Operator :octicons-link-external-16:](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html){target="_blank"}
+* [NVIDIA GPU Operator
+  :octicons-link-external-16:](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html){target="_blank"}
   installed and configured to deploy and manage NVIDIA GPUs in a Kubernetes
   cluster.
 * Detecting node failures, node pool adjustment and failed hardware replacement.
 * Gathering chassis and cluster metrics and proactive monitoring.
 
-See our [:material-file-pdf-box: Managed Kubernetes Product Outline :octicons-link-external-16:](#){target="_blank"} to learn
+See our [:material-file-pdf-box: Managed Kubernetes Product
+Outline](../../../assets/docs/Lambda_Kubernetes_One_Pager.pdf){target="_blank"} to learn
 more.
 
 ## Why can't my program find the NVIDIA cuDNN library?
@@ -94,7 +95,8 @@ instances.
 
 To open Jupyter Notebook on your instance:
 
-1. In the [GPU instances dashboard :octicons-link-external-16:](https://cloud.lambdalabs.com/instances){target="_blank"},
+1. In the [GPU instances dashboard
+   :octicons-link-external-16:](https://cloud.lambdalabs.com/instances){target="_blank"},
    find the row for your instance.
 2. Click **Launch** in the **Cloud IDE** column.
 
@@ -120,7 +122,7 @@ To install another version of Python alongside the preinstalled version:
 1. Run:
 
    ```bash
-   sudo apt -y update && sudo apt -y install pythonVERSION-full`
+   sudo apt -y update && sudo apt -y install pythonVERSION-full
    ```
 
    Replace **VERSION** with the Python version you want to install, for
@@ -178,10 +180,10 @@ To install another version of Python alongside the preinstalled version:
 
     **Do not run `sudo do-release-upgrade` or try to upgrade to the latest
     Ubuntu release.** Doing so will break [Jupyter
-    Notebook](how-do-i-open-jupyter-notebook-on-my-instance)
-    and unless you have [SSH access](dashboard.md#add-or-generate-an-ssh-key) to
-    your instance, [Lambda Support :octicons-link-external-16:](https://lambdalabs.com/support){target="_blank"} won't be
-    able to help you recover your data.
+    Notebook](#how-do-i-open-jupyter-notebook-on-my-instance) and unless you
+    have [SSH access](#) to your instance, [Lambda Support
+    :octicons-link-external-16:](https://lambdalabs.com/support){target="_blank"}
+    won't be able to help you recover your data.
 
     Jupyter Notebook on our instances is configured and tested for the
     preinstalled version of Python. Upgrading to the latest Ubuntu release will
@@ -196,8 +198,7 @@ the `echo` command.
 
 !!! tip
 
-    You can also [import SSH keys from
-    GitHub](../software/basic-linux-commands-and-system-administration.md#importing-ssh-keys-from-github-accounts).
+    You can also [import SSH keys from GitHub](#).
 
 !!! note
 
@@ -276,10 +277,9 @@ Multi-GPU instances usually take 10-15 minutes to launch.
 
 !!! note
 
-    [Jupyter
-    Notebook](#how-do-i-open-jupyter-notebook-on-my-instance)
-    and [Demos](https://docs.lambdalabs.com/cloud/get-started-demos/) can take a
-    few minutes after an instance launches to become accessible.
+    [Jupyter Notebook](#how-do-i-open-jupyter-notebook-on-my-instance) and
+    [Demos](#) can take a few minutes after an instance launches to become
+    accessible.
 
 !!! note
 
@@ -421,12 +421,12 @@ To close your Lambda GPU Cloud account:
     data](../software/basic-linux-commands-and-system-administration.md#using-rsync-to-copy-and-synchronize-files).
 
 2. Terminate all of your instances from the [Cloud
-   dashboard](dashboard.md#terminate-instances) or using the [Cloud
+   dashboard](#) or using the [Cloud
    API](cloud-api.md#terminating-instances).
 
 3. Delete all of your persistent storage file systems.
 
-4. In the [Cloud dashboard](dashboard.md), under
+4. In the [Cloud dashboard](#), under
    [**Settings** :octicons-link-external-16:](https://cloud.lambdalabs.com/settings){target="_blank"}, click **Close my
    account**. Carefully read the warning in the dialog box that appears. To
    proceed with closing your account, type in **close account**, then click

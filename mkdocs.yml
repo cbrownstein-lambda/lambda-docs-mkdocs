@@ -25,8 +25,8 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-  logo: assets/img/lambda-logo.png
-  favicon: assets/img/lambda-logo.png
+  logo: assets/images/lambda/lambda-logo.png
+  favicon: assets/images/lambda/lambda-logo.png
   custom_dir: overrides
 nav:
   - Home: index.md
@@ -104,6 +104,7 @@ plugins:
   - redirects:
       redirect_maps:
         'one-click-clusters/getting-started.md': 'public-cloud/1-click-clusters/getting-started.md'
+        'on-demand-cloud/getting-started.md': 'public-cloud/on-demand/getting-started.md'
   - tags:
       tags_file: tags.md
 extra_css:

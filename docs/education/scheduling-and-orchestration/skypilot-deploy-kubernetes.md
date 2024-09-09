@@ -87,6 +87,7 @@ Run the following commands to:
 - Change into the repository directory.
 - Check out the `lambda_k8s` branch.
 
+<!-- TODO: Remove the check-out step once skypilot-org/skypilot#3929 is merged -->
 ```bash
 git clone https://github.com/skypilot-org/skypilot.git ~/skypilot && \
 cd ~/skypilot && \

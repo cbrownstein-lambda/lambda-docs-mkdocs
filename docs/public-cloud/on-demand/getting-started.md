@@ -59,7 +59,7 @@ Managed Kubernetes includes:
 * Gathering chassis and cluster metrics and proactive monitoring.
 
 See our [:material-file-pdf-box: Managed Kubernetes Product
-Outline](../../../assets/docs/Lambda_Kubernetes_One_Pager.pdf){target="_blank"} to learn
+Outline](../../assets/docs/Lambda_Kubernetes_One_Pager.pdf){target="_blank"} to learn
 more.
 
 ## Why can't my program find the NVIDIA cuDNN library?

@@ -44,12 +44,13 @@ This tutorial assumes you already have installed:
 - `python3-pip`
 - `git`
 - `curl`
+- `netcat`
 - `socat`
 
 You can install these packages by running:
 
 ```bash
-sudo apt update && sudo apt install -y python3 python3-venv python3-pip git curl socat
+sudo apt update && sudo apt install -y python3 python3-venv python3-pip git curl netcat socat
 ```
 
 You also need to install

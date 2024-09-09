@@ -400,8 +400,9 @@ In the above example, TCP port 22 (SSH) is publicly accessible.
 
     If `nmap` doesn’t show TCP/22 (SSH) or any other ports open, your:
 
-    * Instance might be terminated. Check the [GPU Instances
-      dashboard](https://cloud.lambdalabs.com/instances) to find out.
+    * Instance might be terminated. Check the [GPU Instances dashboard
+      :octicons-link-external-16:](https://cloud.lambdalabs.com/instances){target="_blank"}
+      to find out.
     * Firewall rules might be blocking incoming connections to your instance.
 
 !!! note
@@ -417,12 +418,10 @@ To close your Lambda GPU Cloud account:
 
 !!! tip
 
-    [You can use rsync to back up your
-    data](../software/basic-linux-commands-and-system-administration.md#using-rsync-to-copy-and-synchronize-files).
+    [You can use rsync to back up your data](#).
 
-2. Terminate all of your instances from the [Cloud
-   dashboard](#) or using the [Cloud
-   API](cloud-api.md#terminating-instances).
+2. Terminate all of your instances from the [Cloud dashboard](#) or using the
+   [Cloud API](#).
 
 3. Delete all of your persistent storage file systems.
 

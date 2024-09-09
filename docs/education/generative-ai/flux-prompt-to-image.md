@@ -119,4 +119,4 @@ a photo of a city skyline that clearly looks like the letters "Lambda". award wi
 
 With the FLUX.1 [dev] model, this prompt should generate an image similar to:
 
-![a photo of a city skyline that clearly looks like the letters "Lambda". award winning font architecture, evening hours, some office windows shine through the night, The skyline says "Lambda"](../../assets/img/flux-lambda-skyline.jpg)
+![a photo of a city skyline that clearly looks like the letters "Lambda". award winning font architecture, evening hours, some office windows shine through the night, The skyline says "Lambda"](../../assets/images/flux-lambda-skyline.jpg)

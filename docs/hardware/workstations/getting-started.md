@@ -11,7 +11,7 @@ quickstart guide.
 ## What are the buttons and ports at the front and top of my Vector One?
 
 <figure markdown="span">
-  ![Vector One front and top buttons and ports](../../assets/img/vector-one-buttons.jpg)
+  ![Vector One front and top buttons and ports](../../assets/images/vector-one-buttons.jpg)
   <figcaption>Vector One front and top buttons and ports</figcaption>
 </figure>
 
@@ -29,7 +29,7 @@ The jack at the top is used to connect a headset/microphone.
 ## How do I fix Wi-Fi issues with my Vector One?
 
 There are
-[known issues in Ubuntu with the Wi-Fi adapter](https://bugs.launchpad.net/ubuntu/+source/linux-firmware/+bug/2049220)
+[known issues in Ubuntu with the Wi-Fi adapter :octicons-link-external-16:](https://bugs.launchpad.net/ubuntu/+source/linux-firmware/+bug/2049220){target="_blank"}
 installed in Vector Ones. In some cases, the Wi-Fi adapter isn't detected at
 all. In other cases, the Wi-Fi adapter is detected but exhibits slow
 performance. These issues are fixed in updated firmware for the Wi-Fi adapter.
@@ -49,7 +49,7 @@ updated firmware.
 
 Once your Vector One is connected to the Internet, open a terminal and run:
 
-``` { .sh .copy }
+```bash
 sudo apt update && sudo apt upgrade -y
 ```
 
@@ -85,13 +85,13 @@ IPMI interface.
 
 First, install `ipmitool` by running:
 
-``` { .sh .copy }
+```bash
 sudo apt -y update && sudo apt -y install ipmitool
 ```
 
 Then, set the baseline fan speeds by running:
 
-``` { .sh .copy }
+```bash
 sudo ipmitool raw 0x30 0x0E 0x04 0x00 0x32 0x23 0x49 0x46 0x5a 0x64 0x61 0x64 0x61 0x64 && \
 sudo ipmitool raw 0x30 0x0E 0x04 0x01 0x32 0x23 0x49 0x46 0x5a 0x64 0x61 0x64 0x61 0x64 && \
 sudo ipmitool raw 0x30 0x0E 0x04 0x02 0x32 0x23 0x49 0x46 0x5a 0x64 0x61 0x64 0x61 0x64 && \
@@ -103,8 +103,8 @@ sudo ipmitool raw 0x30 0x0E 0x04 0x06 0x32 0x23 0x49 0x46 0x5a 0x64 0x61 0x64 0x
 
 !!! tip
 
-    See the
-    [ASUS ASMB9-iKVM Fan Customized Mode User Guide [PDF]](../../assets/pdf/ASMB9-iKVM_Fan_Customized_Mode_User_Guide_v0.71_20191112.pdf)
+    See the [:material-file-pdf-box: ASUS ASMB9-iKVM Fan Customized Mode User
+    Guide](../../assets/docs/ASMB9-iKVM_Fan_Customized_Mode_User_Guide_v0.71_20191112.pdf){target="_blank"}
     to learn how to customize fan speeds in the web-based IPMI interface.
 
     Note that Lambda workstations are high-performance systems and generate
@@ -142,7 +142,9 @@ Follow these instructions to upgrade your Samsung 980 PRO NVMe SSD's firmware.
 
 !!! danger
 
-    [Samsung 980 PRO NVMe SSDs with the older 3B2QGXA7 firmware are known to fail](https://www.pugetsystems.com/support/guides/critical-samsung-ssd-firmware-update/).
+    [Samsung 980 PRO NVMe SSDs with the older 3B2QGXA7 firmware are known to
+    fail
+    :octicons-link-external-16:](https://www.pugetsystems.com/support/guides/critical-samsung-ssd-firmware-update/){target="_blank"}.
 
     To know if your SSD is using the 3B2QGXA7 firmware, install the
     `smartmontools` package by running `sudo apt -y install smartmontools`.

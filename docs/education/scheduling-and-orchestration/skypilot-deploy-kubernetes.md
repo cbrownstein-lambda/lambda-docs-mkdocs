@@ -6,6 +6,11 @@ tags:
   - kubernetes
 ---
 
+!!! note
+
+    [**Apply for Cloud Credits and experiment with this tutorial—for
+    free!**](https://lambdalabs.com/skypilot-tutorial-cloud-credits)
+
 # Using SkyPilot to deploy a Kubernetes cluster
 
 ## Introduction
@@ -32,8 +37,8 @@ In this tutorial, you'll:
 
 !!! note
 
-    [You're billed for all of the time the instances are
-    running.](https://docs.lambdalabs.com/on-demand-cloud/billing#how-are-on-demand-instances-billed)
+    [**You're billed for all of the time the instances are
+    running.**](https://docs.lambdalabs.com/on-demand-cloud/billing#how-are-on-demand-instances-billed)
 
 All of the instructions in this tutorial should be followed on your computer.
 
@@ -42,7 +47,6 @@ This tutorial assumes you already have installed:
 - `python3`
 - `python3-venv`
 - `python3-pip`
-- `git`
 - `curl`
 - `netcat`
 - `socat`
@@ -50,7 +54,7 @@ This tutorial assumes you already have installed:
 You can install these packages by running:
 
 ```bash
-sudo apt update && sudo apt install -y python3 python3-venv python3-pip git curl netcat socat
+sudo apt update && sudo apt install -y python3 python3-venv python3-pip curl netcat socat
 ```
 
 You also need to install
@@ -73,46 +77,41 @@ for SkyPilot. You can also use an existing Cloud API key.
 
 ## Install SkyPilot
 
+Create a directory for this tutorial and change into the directory by running:
+
+```bash
+mkdir ~/skypilot-tutorial && cd ~/skypilot-tutorial
+```
+
 Create and activate a Python virtual environment for this tutorial by running:
 
 ```bash
-python3 -m venv ~/skypilot-tutorial && source ~/skypilot-tutorial/bin/activate
+python3 -m venv ~/skypilot-tutorial/.venv && source ~/skypilot-tutorial/.venv/bin/activate
 ```
 
-Run the following commands to:
-
-- Clone the [SkyPilot GitHub repository
-  :octicons-link-external-16:](https://github.com/skypilot-org/skypilot){target="_blank"}
-  to your home directory.
-- Change into the repository directory.
-- Check out the `lambda_k8s` branch.
-
-<!-- TODO: Remove the check-out step once skypilot-org/skypilot#3929 is merged -->
-```bash
-git clone https://github.com/skypilot-org/skypilot.git ~/skypilot && \
-cd ~/skypilot && \
-git checkout lambda_k8s
-```
-
-Install SkyPilot in your virtual environment by running:
+Then, install SkyPilot in your virtual environment by running:
 
 ```bash
-pip3 install -e ".[lambda,kubernetes]"
+pip3 install "skypilot-nightly[lambda,kubernetes]"
 ```
 
 ## Configure SkyPilot for Lambda Public Cloud
 
-Change into the SkyPilot repository `examples/k8s_deploy` directory by running:
+Download the SkyPilot example [`cloud_k8s.yaml`
+:octicons-link-external-16:](https://github.com/skypilot-org/skypilot/blob/master/examples/k8s_cloud_deploy/cloud_k8s.yaml){target="_blank"}
+and [`launch_k8s.sh`
+:octicons-link-external-16:](https://github.com/skypilot-org/skypilot/blob/master/examples/k8s_cloud_deploy/launch_k8s.sh){target="_blank"}
+files by running:
 
 ```bash
-cd ~/skypilot/examples/k8s_deploy
+curl -LO https://raw.githubusercontent.com/skypilot-org/skypilot/master/examples/k8s_cloud_deploy/cloud_k8s.yaml && \
+curl -LO https://raw.githubusercontent.com/skypilot-org/skypilot/master/examples/k8s_cloud_deploy/launch_k8s.sh
 ```
 
-Edit the `deploy_k8s.yaml` file.
+Edit the `cloud_k8s.yaml` file.
 
-At the top of the file, under `cloud: lambda`, add `accelerators: A10:1`.
-
-For `SKY_K3S_TOKEN`, replace **mytoken** with a strong passphrase.
+At the top of the file, for`SKY_K3S_TOKEN`, replace **mytoken** with a strong
+passphrase.
 
 !!! warning
 
@@ -145,6 +144,11 @@ envs:
   SKY_K3S_TOKEN: zPUlZGe4HRcy+Om04RvGmQ== # Can be any string, used to join worker nodes to the cluster
 ```
 
+!!! note
+
+    You can set `accelerators` to a different instance type, for example,
+    `A100:8` for an 8x A100 instance or `H100:8` for an 8x H100 instance.
+
 Create a directory in your home directory named `.lambda_cloud` and change into
 that directory by running:
 
@@ -158,52 +162,62 @@ Create a file named `lambda_keys` that contains:
 api_key = API-KEY
 ```
 
+!!! tip
+
+    You can do this by running:
+
+    ```bash
+    echo "api_key = API-KEY" > lambda_keys
+    ```
+
 Replace **API-KEY** with your actual Cloud API key.
 
 ## Use SkyPilot to launch instances and deploy Kubernetes
 
-Change into the repository `examples/k8s_deploy` directory by running:
+Change into the directory you created for this tutorial by running:
 
 ```bash
-cd ~/skypilot/examples/k8s_deploy
+cd ~/skypilot-tutorial
 ```
 
 Then, launch 2 1x A10 instances and deploy a 2-node Kubernetes cluster using
 those instances by running:
 
 ```bash
-./launch_k8s.sh
+bash launch_k8s.sh
 ```
 
 You'll begin to see output similar to:
 
 ```{.text .no-copy}
-This script will deploy a Kubernetes cluster on the cloud and GPUs specified in deploy_k8s.yaml.
+===== SkyPilot Kubernetes cluster deployment script =====
+This script will deploy a Kubernetes cluster on the cloud and GPUs specified in cloud_k8s.yaml.
 
 + CLUSTER_NAME=k8s
-+ sky launch -y -c k8s deploy_k8s.yaml
++ sky launch -y -c k8s cloud_k8s.yaml
 SkyPilot collects usage data to improve its services. `setup` and `run` commands are not collected to ensure privacy.
 Usage logging can be disabled by setting the environment variable SKYPILOT_DISABLE_USAGE_COLLECTION=1.
-Task from YAML spec: deploy_k8s.yaml
-I 09-07 08:56:33 common.py:228] Updated Lambda catalog.
-I 09-07 08:56:33 optimizer.py:718] == Optimizer ==
-I 09-07 08:56:33 optimizer.py:729] Target: minimizing cost
-I 09-07 08:56:33 optimizer.py:741] Estimated cost: $1.5 / hour
-I 09-07 08:56:33 optimizer.py:741]
-I 09-07 08:56:33 optimizer.py:866] Considered resources (2 nodes):
-I 09-07 08:56:33 optimizer.py:936] ------------------------------------------------------------------------------------------
-I 09-07 08:56:33 optimizer.py:936]  CLOUD    INSTANCE     vCPUs   Mem(GB)   ACCELERATORS   REGION/ZONE   COST ($)   CHOSEN
-I 09-07 08:56:33 optimizer.py:936] ------------------------------------------------------------------------------------------
-I 09-07 08:56:33 optimizer.py:936]  Lambda   gpu_1x_a10   30      200       A10:1          us-east-1     1.50          ✔
-I 09-07 08:56:33 optimizer.py:936] ------------------------------------------------------------------------------------------
-I 09-07 08:56:33 optimizer.py:936]
+Task from YAML spec: cloud_k8s.yaml
+I 09-11 16:10:04 optimizer.py:719] == Optimizer ==
+I 09-11 16:10:04 optimizer.py:730] Target: minimizing cost
+I 09-11 16:10:04 optimizer.py:742] Estimated cost: $1.5 / hour
+I 09-11 16:10:04 optimizer.py:742] 
+I 09-11 16:10:04 optimizer.py:867] Considered resources (2 nodes):
+I 09-11 16:10:04 optimizer.py:937] ------------------------------------------------------------------------------------------
+I 09-11 16:10:04 optimizer.py:937]  CLOUD    INSTANCE     vCPUs   Mem(GB)   ACCELERATORS   REGION/ZONE   COST ($)   CHOSEN   
+I 09-11 16:10:04 optimizer.py:937] ------------------------------------------------------------------------------------------
+I 09-11 16:10:04 optimizer.py:937]  Lambda   gpu_1x_a10   30      200       A10:1          us-east-1     1.50          ✔     
+I 09-11 16:10:04 optimizer.py:937] ------------------------------------------------------------------------------------------
+I 09-11 16:10:04 optimizer.py:937] 
 Running task on cluster k8s...
-I 09-07 08:56:33 cloud_vm_ray_backend.py:4354] Creating a new cluster: 'k8s' [2x Lambda(gpu_1x_a10, {'A10': 1})].
-I 09-07 08:56:33 cloud_vm_ray_backend.py:4354] Tip: to reuse an existing cluster, specify --cluster (-c). Run `sky status` to see existing clusters.
-I 09-07 08:56:34 cloud_vm_ray_backend.py:1314] To view detailed progress: tail -n100 -f /home/c/sky_logs/sky-2024-09-07-08-56-32-005984/provision.log
-I 09-07 08:56:35 cloud_vm_ray_backend.py:1721] Launching on Lambda us-east-1
-I 09-07 09:00:57 log_utils.py:45] Head node is up.
-I 09-07 09:01:44 cloud_vm_ray_backend.py:1826] Successfully provisioned or found existing head instance. Waiting for workers.
+I 09-11 16:10:04 cloud_vm_ray_backend.py:4397] Creating a new cluster: 'k8s' [2x Lambda(gpu_1x_a10, {'A10': 1})].
+I 09-11 16:10:04 cloud_vm_ray_backend.py:4397] Tip: to reuse an existing cluster, specify --cluster (-c). Run `sky status` to see existing clusters.
+I 09-11 16:10:05 cloud_vm_ray_backend.py:1314] To view detailed progress: tail -n100 -f /home/lambda/sky_logs/sky-2024-09-11-16-10-03-504822/provision.log
+I 09-11 16:10:06 cloud_vm_ray_backend.py:1721] Launching on Lambda us-east-1
+I 09-11 16:13:24 log_utils.py:45] Head node is up.
+I 09-11 16:14:10 cloud_vm_ray_backend.py:1826] Successfully provisioned or found existing head instance. Waiting for workers.
+I 09-11 16:18:13 cloud_vm_ray_backend.py:1569] Successfully provisioned or found existing VMs.
+I 09-11 16:18:17 cloud_vm_ray_backend.py:3319] Job submitted with Job ID: 1
 ```
 
 It usually takes about 15 minutes for the Kubernetes cluster to be deployed.

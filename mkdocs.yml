@@ -25,7 +25,7 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-  logo: assets/images/lambda/lambda-logo.png
+  logo: assets/images/lambda/lambda_docs_logo.svg
   favicon: assets/images/lambda/lambda-logo.png
   custom_dir: overrides
 nav:

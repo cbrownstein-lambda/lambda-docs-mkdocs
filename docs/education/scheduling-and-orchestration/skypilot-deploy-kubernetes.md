@@ -4,6 +4,7 @@ comments: true
 tags:
   - api
   - kubernetes
+title: Using SkyPilot to deploy a Kubernetes cluster
 ---
 
 !!! note
@@ -201,14 +202,14 @@ Task from YAML spec: cloud_k8s.yaml
 I 09-11 16:10:04 optimizer.py:719] == Optimizer ==
 I 09-11 16:10:04 optimizer.py:730] Target: minimizing cost
 I 09-11 16:10:04 optimizer.py:742] Estimated cost: $1.5 / hour
-I 09-11 16:10:04 optimizer.py:742] 
+I 09-11 16:10:04 optimizer.py:742]
 I 09-11 16:10:04 optimizer.py:867] Considered resources (2 nodes):
 I 09-11 16:10:04 optimizer.py:937] ------------------------------------------------------------------------------------------
-I 09-11 16:10:04 optimizer.py:937]  CLOUD    INSTANCE     vCPUs   Mem(GB)   ACCELERATORS   REGION/ZONE   COST ($)   CHOSEN   
+I 09-11 16:10:04 optimizer.py:937]  CLOUD    INSTANCE     vCPUs   Mem(GB)   ACCELERATORS   REGION/ZONE   COST ($)   CHOSEN
 I 09-11 16:10:04 optimizer.py:937] ------------------------------------------------------------------------------------------
-I 09-11 16:10:04 optimizer.py:937]  Lambda   gpu_1x_a10   30      200       A10:1          us-east-1     1.50          ✔     
+I 09-11 16:10:04 optimizer.py:937]  Lambda   gpu_1x_a10   30      200       A10:1          us-east-1     1.50          ✔
 I 09-11 16:10:04 optimizer.py:937] ------------------------------------------------------------------------------------------
-I 09-11 16:10:04 optimizer.py:937] 
+I 09-11 16:10:04 optimizer.py:937]
 Running task on cluster k8s...
 I 09-11 16:10:04 cloud_vm_ray_backend.py:4397] Creating a new cluster: 'k8s' [2x Lambda(gpu_1x_a10, {'A10': 1})].
 I 09-11 16:10:04 cloud_vm_ray_backend.py:4397] Tip: to reuse an existing cluster, specify --cluster (-c). Run `sky status` to see existing clusters.

@@ -103,7 +103,7 @@ To set up Prometheus and Grafana:
     sudo docker compose up -d
     ```
 
-1. In your web browser, go to http://localhost:3000 and log into Grafana. For
+1. In your web browser, go to <http://localhost:3000> and log into Grafana. For
    the username, enter `admin`. For the password, enter the password you set in
    a previous step.
 

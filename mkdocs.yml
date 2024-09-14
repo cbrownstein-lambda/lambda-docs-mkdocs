@@ -37,6 +37,7 @@ nav:
       - public-cloud/on-demand/getting-started.md
       - public-cloud/on-demand/dashboard.md
       - public-cloud/on-demand/billing.md
+      - public-cloud/on-demand/guest-agent.md
     - 1-Click Clusters:
       - public-cloud/1-click-clusters/getting-started.md
       - public-cloud/1-click-clusters/serving-llama-3_1-405b.md

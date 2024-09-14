@@ -10,7 +10,8 @@ comments: true
 !!! note
 
     The guest agent is currently an alpha release. Please report any bugs you
-    encounter to [Lambda's Support team](https://lambdalabs.com/support).
+    encounter to [Lambda's Support team
+    :octicons-link-external-16:](https://lambdalabs.com/support){target="_blank"}.
 
 You can install the guest agent on your Lambda Public Cloud on-demand instances
 to gather metrics such as GPU and CPU utilization.

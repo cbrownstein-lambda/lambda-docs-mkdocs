@@ -110,8 +110,7 @@ To set up Prometheus and Grafana:
 1. At the top-right of the dashboard, click the **+**. Then, choose **Import
    dashboard**.
 
-    ![Screenshot of how to import
-    dashboard](../../assets/images/import-dashboard.png)
+    ![Screenshot of how to import dashboard](../../assets/images/import-dashboard.png)
 
 1. In the **Import via dashboard JSON model** field, enter the [example JSON
    model
@@ -127,8 +126,7 @@ To set up Prometheus and Grafana:
     - InfiniBand transfer rates
     - local storage transfer rates
 
-    ![Screenshot of an example Grafana
-    dashboard](../../assets/images/grafana-dashboard-guest-agent.png)
+    ![Screenshot of an example Grafana dashboard](../../assets/images/grafana-dashboard-guest-agent.png)
 
     !!! note
 

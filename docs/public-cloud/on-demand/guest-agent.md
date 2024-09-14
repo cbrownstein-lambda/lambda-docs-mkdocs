@@ -128,4 +128,4 @@ To install the guest agent on an on-demand instance:
 
     On-demand instances, unlike [1-Click
     Clusters](../1-click-clusters/getting-started.md), don't use InfiniBand
-    fabric, so the InfiniBand transfer rates will always be zero.
+    fabric. Accordingly, the InfiniBand transfer rates will always be zero.

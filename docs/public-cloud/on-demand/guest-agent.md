@@ -13,8 +13,9 @@ comments: true
     encounter to [Lambda's Support team
     :octicons-link-external-16:](https://lambdalabs.com/support){target="_blank"}.
 
-You can install the guest agent on your Lambda Public Cloud on-demand instances
-to gather metrics such as GPU and CPU utilization.
+You can install the guest agent on your [Lambda Public Cloud
+:octicons-link-external-16:](https://lambdalabs.com/service/gpu-cloud){target="_blank"}
+on-demand instances to gather metrics such as GPU and CPU utilization.
 
 In this tutorial, you'll install the guest agent and set up [Prometheus
 :octicons-link-external-16:](https://www.prometheus.io/){target="_blank"} and

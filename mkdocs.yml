@@ -103,6 +103,7 @@ plugins:
       repository: cbrownstein-lambda/lambda-docs-mkdocs
       branch: main
   - git-revision-date-localized
+  - glightbox
   - include-markdown
   - search
   - social
@@ -114,7 +115,9 @@ plugins:
       tags_file: tags.md
 extra_css:
   - assets/css/extra.css
+  - assets/css/glightbox.min.css
 extra_javascript:
+  - assets/js/glightbox.min.js
   - https://cdn.jsdelivr.net/npm/vega@5
   - https://cdn.jsdelivr.net/npm/vega-lite@5
   - https://cdn.jsdelivr.net/npm/vega-embed@6

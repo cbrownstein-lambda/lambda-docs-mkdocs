@@ -51,7 +51,7 @@ To launch an instance:
 !!! tip
 
     You can [add additional SSH
-    keys](#is-it-possible-to-use-more-than-one-ssh-key) to your instance once
+    keys](getting-started.md#is-it-possible-to-use-more-than-one-ssh-key) to your instance once
     your instance has launched.
 
 6.  Review the license agreements and terms of service. If you agree to them,

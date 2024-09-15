@@ -19,33 +19,33 @@ on-demand instances to gather metrics such as GPU and CPU utilization.
 
 In this tutorial, you'll install the guest agent and set up [Prometheus
 :octicons-link-external-16:](https://www.prometheus.io/){target="_blank"} and
-[Grafana :octicons-link-external-16:](https://grafana.com/){target="_blank"} so
-you can visualize the collected metrics.
+[Grafana :octicons-link-external-16:](https://grafana.com/){target="_blank"}
+with an example dashboard so you can visualize the collected metrics.
 
 ## Install the guest agent
 
 To install the guest agent on an on-demand instance:
 
-1. SSH into your instance by running:
+First, SSH into your instance by running:
 
-    ```bash
-    ssh ubuntu@IP-ADDRESS -L 3000:localhost:3000
-    ```
+```bash
+ssh ubuntu@IP-ADDRESS -L 3000:localhost:3000
+```
 
-    Replace **IP-ADDRESS** with the actual IP address of your instance.
+Replace **IP-ADDRESS** with the actual IP address of your instance.
 
-    !!! note
+!!! note
 
-        The `-L 3000:localhost:3000` option enables local port forwarding. Local
-        port forwarding is needed to access the Grafana dashboard you'll create
-        in a later step. [See the SSH man page to learn
-        more](https://manpages.ubuntu.com/manpages/jammy/en/man1/ssh.1.html).
+    The `-L 3000:localhost:3000` option enables local port forwarding. Local
+    port forwarding is needed to access the Grafana dashboard you'll create
+    in a later step. [See the SSH man page to learn
+    more](https://manpages.ubuntu.com/manpages/jammy/en/man1/ssh.1.html).
 
-1. Download and install the guest agent by running:
+Then, download and install the guest agent by running:
 
-    ```bash
-    curl -L https://lambdalabs-guest-agent.s3.us-west-2.amazonaws.com/scripts/install.sh | sudo bash
-    ```
+```bash
+curl -L https://lambdalabs-guest-agent.s3.us-west-2.amazonaws.com/scripts/install.sh | sudo bash
+```
 
 ## Set up Prometheus and Grafana
 

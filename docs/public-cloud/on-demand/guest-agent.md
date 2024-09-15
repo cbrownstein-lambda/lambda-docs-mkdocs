@@ -109,9 +109,10 @@ To set up Prometheus and Grafana:
     sudo docker compose up -d
     ```
 
-1. In your web browser, go to <http://localhost:3000> and log into Grafana. For
-   the username, enter `admin`. For the password, enter the password you set in
-   a previous step.
+1. In your web browser, go to [http://localhost:3000
+   :octicons-link-external-16:](http://localhost:3000){target="_blank"} and log
+   into Grafana. For the username, enter `admin`. For the password, enter the
+   password you set earlier.
 
 1. At the top-right of the dashboard, click the **+**. Then, choose **Import
    dashboard**.

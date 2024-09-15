@@ -38,7 +38,7 @@ To install the guest agent on an on-demand instance:
 
         The `-L 3000:localhost:3000` option enables local port forwarding. Local
         port forwarding is needed to access the Grafana dashboard you'll create
-        in a later step. [See the ssh man page to learn
+        in a later step. [See the SSH man page to learn
         more](https://manpages.ubuntu.com/manpages/jammy/en/man1/ssh.1.html).
 
 1. Download and install the guest agent by running:

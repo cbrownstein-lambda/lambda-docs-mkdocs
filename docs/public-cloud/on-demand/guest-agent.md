@@ -72,6 +72,11 @@ To set up Prometheus and Grafana:
     Replace **PRIVATE-IP-ADDRESS** with the private IP address of your instance,
     which you obtained in the previous step.
 
+    !!! note
+
+        Make sure you're changing both the host and the port. It's frequently
+        overlooked that the port is being changed as well as the host.
+
     In the `prometheus.yml` file, the `scrape_configs` key should look like:
 
     ```{.yaml .no-copy}

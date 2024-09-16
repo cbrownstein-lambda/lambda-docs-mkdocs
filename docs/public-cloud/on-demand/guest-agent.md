@@ -9,7 +9,14 @@ comments: true
 
 !!! note
 
-    The guest agent is currently an alpha release. Please report any bugs you
+    The guest agent is currently an alpha release. The guest agent is under
+    active development and might contain bugs, incomplete features, and other
+    issues that might affect performance, security, and reliability. The guest
+    agent currently should only be used for testing and evaluation.
+
+    **The guest agent currently shouldn't be used in production environments**.
+
+    Please report any bugs you
     encounter to [Lambda's Support team
     :octicons-link-external-16:](https://lambdalabs.com/support){target="_blank"}.
 

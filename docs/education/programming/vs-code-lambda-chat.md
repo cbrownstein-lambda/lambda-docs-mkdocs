@@ -26,70 +26,70 @@ You can also use an existing Cloud API key.
 
 ## Install the CodeGPT extension
 
-First, open VS Code.
+1. Open VS Code.
 
-Press ++ctrl++ + ++p++ to open **Quick Open**. Enter the following:
+2. Press ++ctrl++ + ++p++ to open **Quick Open**. Enter the following:
 
-```
-ext install DanielSanMedium.dscodegpt
-```
+    ```
+    ext install DanielSanMedium.dscodegpt
+    ```
 
-Then, press ++enter++ to install the CodeGPT extension.
+3. Press ++enter++ to install the CodeGPT extension.
 
 ## Configure the Lambda Chat integration
 
-In the Primary Side Bar, click the **CODEGPT** button.
+1. In the Primary Side Bar, click the **CODEGPT** button.
 
-![CODEGPT button in Primary Side Bar](../../assets/images/vs-code-button.png)
+    ![CODEGPT button in Primary Side Bar](../../assets/images/vs-code-button.png)
 
-Select **Select Your AI** > **Provider** > **Custom**.
+    Select **Select Your AI** > **Provider** > **Custom**.
 
-<!-- TODO: Replace with animation. There's no visual indication this menu
-scrolls. -->
+    <!-- TODO: Replace with animation. There's no visual indication this menu
+    scrolls. -->
 
-![Custom provider under Select Your AI dropdown menu](../../assets/images/custom-ai-provider.png)
+    ![Custom provider under Select Your AI dropdown menu](../../assets/images/custom-ai-provider.png)
 
-In the **Model** field, enter:
+    In the **Model** field, enter:
 
-```
-hermes-3-llama-3.1-405b-fp8
-```
+    ```
+    hermes-3-llama-3.1-405b-fp8
+    ```
 
-Click **Set Connection**.
+2. Click **Set Connection**.
 
-In the **ApiKey** field, enter your Cloud API key.
+    In the **ApiKey** field, enter your Cloud API key.
 
-In the **Custom Link** field, enter:
+    In the **Custom Link** field, enter:
 
-```
-https://api.lambdalabs.com/v1/chat/completions
-```
+    ```
+    https://api.lambdalabs.com/v1/chat/completions
+    ```
 
-Then, click **Connect**.
+3. Click **Connect**.
 
-You should see:
+    You should see:
 
-![CODEGPT connected](../../assets/images/codegpt-connected.png)
+    ![CODEGPT connected](../../assets/images/codegpt-connected.png)
 
 ## Test the Lambda Chat integration
 
 <!-- TODO: Replace with "find problems" example. -->
 
-In the menu bar, select **File** > **New Text File**.
+1. In the menu bar, select **File** > **New Text File**.
 
-Enter a snippet of code in the editor, for example:
+2. Enter a snippet of code in the editor, for example:
 
-```python
-for _ in range(3):
-    print("Hello, World!")
-```
+    ```python
+    for _ in range(3):
+        print("Hello, World!")
+    ```
 
-Select the code, then right-click the code. Choose **CodeGPT: Explain**.
+3. Select the code, then right-click the code. Choose **CodeGPT: Explain**.
 
-Near the bottom of the Primary Side Bar, click **Send**.
+4. Near the bottom of the Primary Side Bar, click **Send**.
 
-![CODEGPT send](../../assets/images/codegpt-send.png)
+    ![CODEGPT send](../../assets/images/codegpt-send.png)
 
-In a few seconds, you should see output similar to:
+    In a few seconds, you should see output similar to:
 
-![CODEGPT output](../../assets/images/codegpt-output.png)
+    ![CODEGPT output](../../assets/images/codegpt-output.png)

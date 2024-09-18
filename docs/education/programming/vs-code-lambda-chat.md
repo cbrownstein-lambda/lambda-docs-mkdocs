@@ -42,7 +42,6 @@ In the Primary Side Bar, click the **CODEGPT** button.
 
 ![CODEGPT button in Primary Side Bar](../../assets/images/vs-code-button.png)
 
-
 Select **Select Your AI** > **Provider** > **Custom**.
 
 <!-- TODO: Replace with animation. There's no visual indication this menu
@@ -73,6 +72,8 @@ You should see:
 ![CODEGPT connected](../../assets/images/codegpt-connected.png)
 
 ## Test the Lambda Chat integration
+
+<!-- TODO: Replace with "find problems" example. -->
 
 In the menu bar, select **File** > **New Text File**.
 

@@ -38,9 +38,9 @@ Then, press ++enter++ to install the CodeGPT extension.
 
 ## Configure the Lambda Chat integration
 
-In the Primary Side Bar, click the **CHATGPT** button.
+In the Primary Side Bar, click the **CODEGPT** button.
 
-![CHATGPT button in Primary Side Bar](../../assets/images/vs-code-button.png)
+![CODEGPT button in Primary Side Bar](../../assets/images/vs-code-button.png)
 
 Select **Select Your AI** > **Provider** > **Custom**.
 

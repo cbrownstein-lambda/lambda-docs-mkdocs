@@ -73,18 +73,17 @@ You can also use an existing Cloud API key.
 
 ## Test the Lambda Chat integration
 
-<!-- TODO: Replace with "find problems" example. -->
-
 1. In the menu bar, select **File** > **New Text File**.
 
-2. Enter a snippet of code in the editor, for example:
+2. Enter a snippet of _broken_ code in the editor, for example:
 
     ```python
     for _ in range(3):
-        print("Hello, World!")
+        printt("Hello, World!")
     ```
 
-3. Select the code, then right-click the code. Choose **CodeGPT: Explain**.
+3. Select the code, then right-click the code. Choose **CodeGPT: Find
+   Problems**.
 
 4. Near the bottom of the Primary Sidebar, click **Send**.
 
@@ -92,4 +91,4 @@ You can also use an existing Cloud API key.
 
     In a few seconds, you should see output similar to:
 
-    ![CODEGPT output](../../assets/images/codegpt-output.png)
+    ![CODEGPT output](../../assets/images/codegpt-find-problems-output.png)

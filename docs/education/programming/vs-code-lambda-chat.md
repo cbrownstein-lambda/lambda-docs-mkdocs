@@ -38,9 +38,9 @@ You can also use an existing Cloud API key.
 
 ## Configure the Lambda Chat integration
 
-1. In the Primary Side Bar, click the **CODEGPT** button.
+1. In the Primary Sidebar, click the **CODEGPT** button.
 
-    ![CODEGPT button in Primary Side Bar](../../assets/images/vs-code-button.png)
+    ![CODEGPT button in Primary Sidebar](../../assets/images/vs-code-button.png)
 
     Select **Select Your AI** > **Provider** > **Custom**.
 
@@ -86,7 +86,7 @@ You can also use an existing Cloud API key.
 
 3. Select the code, then right-click the code. Choose **CodeGPT: Explain**.
 
-4. Near the bottom of the Primary Side Bar, click **Send**.
+4. Near the bottom of the Primary Sidebar, click **Send**.
 
     ![CODEGPT send](../../assets/images/codegpt-send.png)
 

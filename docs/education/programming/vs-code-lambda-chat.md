@@ -42,7 +42,11 @@ In the Primary Side Bar, click the **CODEGPT** button.
 
 ![CODEGPT button in Primary Side Bar](../../assets/images/vs-code-button.png)
 
+
 Select **Select Your AI** > **Provider** > **Custom**.
+
+<!-- TODO: Replace with animation. There's no visual indication this menu
+scrolls. -->
 
 ![Custom provider under Select Your AI dropdown menu](../../assets/images/custom-ai-provider.png)
 

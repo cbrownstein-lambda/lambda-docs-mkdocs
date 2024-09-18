@@ -59,8 +59,6 @@ nav:
     - Large language models (LLMs):
       - education/large-language-models/serving-llama-3-1-docker.md
       - education/large-language-models/lambda-chat-api.md
-    - Programming:
-      - education/programming/vs-code-lambda-chat.md
     - Scheduling and orchestration:
       - education/scheduling-and-orchestration/dstack-vllm-llama-3-1.md
       - education/scheduling-and-orchestration/installing-k3s.md

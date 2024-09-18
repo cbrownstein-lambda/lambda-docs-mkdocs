@@ -11,10 +11,6 @@
 - Serve Llama 3.1 405B on a Lambda 1-Click Cluster
 - [Using the Lambda Chat Completions API](large-language-models/lambda-chat-api.md)
 
-## Programming
-
-- [Integrating Lambda Chat into VS Code](programming/vs-code-lambda-chat.md)
-
 ## Benchmarking
 
 - Benchmark DeepSpeed-Chat training on Lambda 1-Click Clusters

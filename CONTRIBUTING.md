@@ -29,12 +29,12 @@ Please follow these guidelines when creating a pull request:
 - **Format external links and links to PDFs**.
     - Format external links as follows: `[LINK TEXT :octicons-link-external-16:](URL){target="_blank"}`.
       This formatting appends
-      <svg xmlns="http://www.w3.org/2000/svg" width="0.75em" height="1em" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M11 10h1v3c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h3v1H1v10h10v-3zM6 2l2.25 2.25L5 7.5L6.5 9l3.25-3.25L12 8V2H6z" fill="currentColor"/></svg>
+      ![External link icon](docs/assets/images/octicon--link-external.svg)
       to the link text to indicate an external link. The link also opens in a new tab.
     - Format links to PDFs as follows:
       `[:material-file-pdf-box: LINK TEXT](URL){target="_blank"}`. This
       formatting prefaces the link text with
-      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg>
+      ![PDF icon](docs/assets/images/mdi--file-pdf-box.svg)
       to indicate the link is to a PDF. Don't preface the link text with
       `:octicons-link-external-16:` even if the link is to an external site.
 - **Adhere to the Microsoft Writing Style Guide**. Please try your best to

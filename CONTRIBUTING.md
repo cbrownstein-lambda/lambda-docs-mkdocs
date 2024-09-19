@@ -23,7 +23,7 @@ else.
 
 Please follow these guidelines when creating a pull request:
 
-- **Write in Markdown**. Use HTML only when necessary. If you are not familiar
+- **Write in Markdown**. Use HTML only when necessary. If you're not familiar
   with Markdown, follow this guide on
   [Markdown syntax :octicons-link-external-16:](https://daringfireball.net/projects/markdown/syntax){target="_blank"}.
 - **Format external links and links to PDFs**.

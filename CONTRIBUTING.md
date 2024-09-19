@@ -9,7 +9,8 @@ Below are guidelines to ensure a quick and easy contribution process.
 
 If you find any issues with the documentation (for example, outdated content,
 broken links, or broken styling), or have suggestions for improvements or new
-documentation, please [create an issue](https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/issues/new)
+documentation, please
+[create an issue](https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/issues/new)
 in GitHub.
 
 ## Pull requests
@@ -17,12 +18,14 @@ in GitHub.
 If you want to create a pull request (thank you!) to fix a bug, improve existing
 documentation, or contribute new documentation, we recommend that you first
 [create an issue](https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/issues/new)
-in GitHub. This reduces the likelihood of you duplicating efforts with someone else.
+in GitHub. This reduces the likelihood of you duplicating efforts with someone
+else.
 
 Please follow these guidelines when creating a pull request:
 
 - **Write in Markdown**. Use HTML only when necessary. If you are not familiar with Markdown,
-  follow this guide on [Markdown syntax :octicons-link-external-16:](https://daringfireball.net/projects/markdown/syntax){target="_blank"}.
+  follow this guide on
+  [Markdown syntax :octicons-link-external-16:](https://daringfireball.net/projects/markdown/syntax){target="_blank"}.
 - **Format external links and links to PDFs**.
     - Format external links as follows: `[LINK TEXT :octicons-link-external-16:](URL){target="_blank"}`.
       This formatting appends
@@ -34,10 +37,11 @@ Please follow these guidelines when creating a pull request:
       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg>
       to indicate the link is to a PDF. Don't preface the link text with
       `:octicons-link-external-16:` even if the link is to an external site.
-- **Adhere to the Microsoft Writing Style Guide**. Please try your best to adhere to the
+- **Adhere to the Microsoft Writing Style Guide**. Please try your best to
+  adhere to the
   [Microsoft Writing Style Guide](https://learn.microsoft.com/en-us/style-guide/welcome/)
-  if possible. However, don't let this discourage you from contributing.
-  We're happy to help edit your work!
+  if possible. However, don't let this discourage you from contributing. We're
+  happy to help edit your work!
 - **Wrap lines at 80 characters**. Treat links and images as single words. If a
   link or image causes a line to exceed 80 characters in length, wrap it to a
   new line. **Note**: It doesn't always make sense to wrap lines at 80

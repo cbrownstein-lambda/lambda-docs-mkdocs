@@ -87,7 +87,7 @@ You can also use an existing Cloud API key.
 
 4. Near the bottom of the Primary Sidebar, click **Send**.
 
-    ![CODEGPT send](../../assets/images/codegpt-send.png)
+    ![CODEGPT send](../../assets/images/codegpt-find-problems-send.png)
 
     In a few seconds, you should see output similar to:
 

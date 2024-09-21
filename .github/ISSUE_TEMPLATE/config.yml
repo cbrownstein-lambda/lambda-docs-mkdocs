@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Submit a support ticket
+    url: https://support.lambdalabs.com/hc/en-us/requests/new
+    about: If you need help with a Lambda product, submit a support ticket.
+  - name: Visit Lambda's community forum
+    url: https://deeptalk.lambdalabs.com/
+    about: For questions about Lambda products or to discuss AI/ML topics, visit the community forum.

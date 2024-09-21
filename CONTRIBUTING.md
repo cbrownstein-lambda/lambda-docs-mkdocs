@@ -46,6 +46,10 @@ Please follow these guidelines when creating a pull request:
   [Microsoft Writing Style Guide](https://learn.microsoft.com/en-us/style-guide/welcome/)
   if possible. However, don't let this discourage you from contributing. We're
   happy to help edit your work!
+- **Small commits and pull requests**. Small commits and pull requests make it
+  easier to review, apply, and revert changes. Commit messages and pull request
+  descriptions should be helpful but succinct, and answer the question, "What
+  will this commit or pull request do?"
 - **Wrap lines at 80 characters**. Treat links and images as single words. If a
   link or image causes a line to exceed 80 characters in length, wrap it to a
   new line. **Note**: It doesn't always make sense to wrap lines at 80

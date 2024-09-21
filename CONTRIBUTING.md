@@ -29,8 +29,9 @@ Please follow these guidelines when creating a pull request:
   with Markdown, see
   [Daring Fireball's guide on Markdown syntax](https://daringfireball.net/projects/markdown/syntax).
 - **Format external links and links to PDFs**.
-    - Format external links as follows: `[LINK TEXT :octicons-link-external-16:](URL){target="_blank"}`.
-      This formatting appends
+    - Format external links as follows: `[LINK TEXT
+      :octicons-link-external-16:](URL){target="_blank"}`. This formatting
+      appends
       ![External link icon](docs/assets/images/octicon--link-external.svg) to
       the link text to indicate an external link. The link also opens in a new
       tab.

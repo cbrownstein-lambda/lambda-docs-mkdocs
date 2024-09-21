@@ -1,5 +1,7 @@
 # Contributing to Lambda Docs
 
+![Lambda Docs homepage image](docs/assets/images/lambda/homepage-image-2.png)
+
 Thank you for considering contributing to
 [Lambda Docs](https://docs.lambdalabs.com)! We welcome contributions in all
 forms, including bug reports, requests for new documentation, and pull requests.

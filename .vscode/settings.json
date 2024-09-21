@@ -6,9 +6,9 @@
                 "color": "#111111"
             }
         ],
-        "rewrap.autoWrap.enabled": true
-    },
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "files.trimTrailingWhitespace": true
+        "rewrap.autoWrap.enabled": true,
+        "files.insertFinalNewline": true,
+        "files.trimFinalNewlines": true,
+        "files.trimTrailingWhitespace": true
+    }
 }

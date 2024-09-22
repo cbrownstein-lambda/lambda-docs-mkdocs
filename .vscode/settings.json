@@ -1,14 +1,12 @@
 {
-    "[markdown]": {
-        "editor.rulers": [
-            {
-                "column": 80,
-                "color": "#111111"
-            }
-        ],
-        "rewrap.autoWrap.enabled": true,
-        "files.insertFinalNewline": true,
-        "files.trimFinalNewlines": true,
-        "files.trimTrailingWhitespace": true
-    }
+    "editor.rulers": [
+        {
+            "column": 80,
+            "color": "#111111"
+        }
+    ],
+    "rewrap.autoWrap.enabled": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true
 }

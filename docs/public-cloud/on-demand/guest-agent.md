@@ -67,13 +67,13 @@ To set up Prometheus and Grafana:
     git clone https://github.com/docker/awesome-compose.git && cd awesome-compose/prometheus-grafana
     ```
 
-2. Obtain the private IP address of your instance by running:
+1. Obtain the private IP address of your instance by running:
 
     ```bash
     ip -4 -br addr show eno1 | grep -Eo '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'
     ```
 
-3. Edit the `prometheus/prometheus.yml` file.
+1. Edit the `prometheus/prometheus.yml` file.
 
     Under `targets`, change `localhost:9090` to `PRIVATE-IP-ADDRESS:9101`.
 
@@ -100,7 +100,7 @@ To set up Prometheus and Grafana:
         - PRIVATE-IP-ADDRESS:9101
     ```
 
-4. Edit the `compose.yaml` file and set `GF_SECURITY_ADMIN_PASSWORD` to a strong
+1. Edit the `compose.yaml` file and set `GF_SECURITY_ADMIN_PASSWORD` to a strong
    password.
 
     !!! tip
@@ -111,29 +111,29 @@ To set up Prometheus and Grafana:
         openssl rand -base64 16
         ```
 
-5. Start Prometheus and Grafana containers on your instance by running:
+1. Start Prometheus and Grafana containers on your instance by running:
 
     ```bash
     sudo docker compose up -d
     ```
 
-6. In your web browser, go to [http://localhost:3000
+1. In your web browser, go to [http://localhost:3000
    :octicons-link-external-16:](http://localhost:3000){target="_blank"} and log
    into Grafana. For the username, enter `admin`. For the password, enter the
    password you set earlier.
 
-7. At the top-right of the dashboard, click the **+**. Then, choose **Import
+1. At the top-right of the dashboard, click the **+**. Then, choose **Import
    dashboard**.
 
     ![Screenshot of how to import dashboard](../../assets/images/import-dashboard.png)
 
-8. In the **Import via dashboard JSON model** field, enter the [example JSON
+1. In the **Import via dashboard JSON model** field, enter the [example JSON
    model
    :octicons-link-external-16:](https://gist.githubusercontent.com/LandonTClipp/964e90507d660e3fb710b4137be6cd6f/raw/bc7abd797da65581534513c153d1ad3d1b8e4bbe/lambda-guest-agent-grafana-model.json){target="_blank"}
    prepared for this tutorial, then click **Load**. In the following screen,
    click **Import**.
 
-9. You'll see a Grafana dashboard displaying:
+1. You'll see a Grafana dashboard displaying:
 
     - CPU usage
     - GPU utilization

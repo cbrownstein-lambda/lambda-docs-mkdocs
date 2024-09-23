@@ -58,6 +58,7 @@ curl -L https://lambdalabs-guest-agent.s3.us-west-2.amazonaws.com/scripts/instal
 
 To set up Prometheus and Grafana:
 
+
 1. Clone the [Awesome Compose GitHub repository
    :octicons-link-external-16:](https://github.com/docker/awesome-compose){target="_blank"}
    and change into the `awesome-compose/prometheus-grafana` directory by running:
@@ -66,13 +67,13 @@ To set up Prometheus and Grafana:
     git clone https://github.com/docker/awesome-compose.git && cd awesome-compose/prometheus-grafana
     ```
 
-1. Obtain the private IP address of your instance by running:
+2. Obtain the private IP address of your instance by running:
 
     ```bash
     ip -4 -br addr show eno1 | grep -Eo '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'
     ```
 
-1. Edit the `prometheus/prometheus.yml` file.
+3. Edit the `prometheus/prometheus.yml` file.
 
     Under `targets`, change `localhost:9090` to `PRIVATE-IP-ADDRESS:9101`.
 
@@ -99,7 +100,7 @@ To set up Prometheus and Grafana:
         - PRIVATE-IP-ADDRESS:9101
     ```
 
-1. Edit the `compose.yaml` file and set `GF_SECURITY_ADMIN_PASSWORD` to a strong
+4. Edit the `compose.yaml` file and set `GF_SECURITY_ADMIN_PASSWORD` to a strong
    password.
 
     !!! tip
@@ -110,29 +111,29 @@ To set up Prometheus and Grafana:
         openssl rand -base64 16
         ```
 
-1. Start Prometheus and Grafana containers on your instance by running:
+5. Start Prometheus and Grafana containers on your instance by running:
 
     ```bash
     sudo docker compose up -d
     ```
 
-1. In your web browser, go to [http://localhost:3000
+6. In your web browser, go to [http://localhost:3000
    :octicons-link-external-16:](http://localhost:3000){target="_blank"} and log
    into Grafana. For the username, enter `admin`. For the password, enter the
    password you set earlier.
 
-1. At the top-right of the dashboard, click the **+**. Then, choose **Import
+7. At the top-right of the dashboard, click the **+**. Then, choose **Import
    dashboard**.
 
     ![Screenshot of how to import dashboard](../../assets/images/import-dashboard.png)
 
-1. In the **Import via dashboard JSON model** field, enter the [example JSON
+8. In the **Import via dashboard JSON model** field, enter the [example JSON
    model
    :octicons-link-external-16:](https://gist.githubusercontent.com/LandonTClipp/964e90507d660e3fb710b4137be6cd6f/raw/bc7abd797da65581534513c153d1ad3d1b8e4bbe/lambda-guest-agent-grafana-model.json){target="_blank"}
    prepared for this tutorial, then click **Load**. In the following screen,
    click **Import**.
 
-1. You'll see a Grafana dashboard displaying:
+9. You'll see a Grafana dashboard displaying:
 
     - CPU usage
     - GPU utilization
@@ -147,3 +148,79 @@ To set up Prometheus and Grafana:
         On-demand instances, unlike [1-Click
         Clusters](../1-click-clusters/getting-started.md), don't use InfiniBand
         fabric. Accordingly, the InfiniBand transfer rates will always be zero.
+
+### Public Internet Routing
+
+The Prometheus client that guest-agent exposes listens on `http://0.0.0.0:9101` for the Alpha and Beta tests. This client is provided as a courtesy that enables customers to self-host their own Grafana and Prometheus stack, as described in prior sections. guest-agent will remove the Prometheus client during the GA release once visualization dashboards are available on [https://cloud.lambdalabs.com :octicons-link-external-16:](https://cloud.lambdalabs.com).
+
+#### 1CC
+
+GPU nodes in a 1-Click-Cluster have private IPs only accessible from the head node. You may use these IPs without any special firewall configuration.
+
+#### On-Demand
+
+On-Demand instances only provide public IP addresses. In order to gain access to the Prometheus client running on your On-Demand nodes, you have a few options:
+
+=== "SSH Tunnel"
+
+
+
+    ```
+    ssh -L [local_port]:[remote_host]:[remote_port] [username]@[ssh_server]
+    ```
+    <div class="result" markdown>
+    ```mermaid
+    flowchart LR
+        subgraph OnDemand
+            guestAgent[lambda-guest-agent.service]
+            SSHServer
+            SSHServer --> guestAgent
+        end
+
+        subgraph PrometheusServer
+            SSHTunnel
+            Prometheus
+            Grafana
+        end
+
+        SSHTunnel -->|SSH Tunnel| SSHServer
+        Prometheus --> SSHTunnel
+        Grafana --> Prometheus
+
+    ```
+    </div>
+
+    This will tunnel the Prometheus listener through SSH to your localhost. This would typically be done on the same server that is running your Prometheus server. You can then configure Prometheus to scrape each `localhost:[local_port]` that you have defined.
+
+=== "Cloudflare Tunnel"
+
+    If you have a Cloudflare account, you can use their [tunneling services :octicons-link-external-16:](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) to safely expose a publicly-accessible address to the Prometheus client.
+
+    ```mermaid
+    flowchart LR
+        subgraph OnDemand
+            guestAgent[lambda-guest-agent.service]
+            cloudflared[cloudflared.service]
+            cloudflared --> guestAgent
+        end
+
+        CloudflareCDN
+
+        CloudflareCDN --> cloudflared
+
+        subgraph PrometheusServer
+            Prometheus
+        end
+
+        Prometheus --> CloudflareCDN
+    ```
+
+=== "Non-Tunnelled"
+
+    !!! danger
+
+        This is not recommended as it publicly exposes the Prometheus client with no authentication or encryption!
+
+    If you set a firewall rule on the Lambda front-end, you can expose the Prometheus client from lambda-guest-agent to the public internet:
+
+    ![firewall rules](../../assets/images/lambda-guest-agent-firewall.png)

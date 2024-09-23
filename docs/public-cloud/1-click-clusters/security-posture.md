@@ -36,7 +36,7 @@ and can reconfigure them at will.
 hardware virtualization. Underlying resources, including local storage, memory, and network
 interfaces, are shared with other customers. 
 
-By default, management nodes are directly accessible over the Internet via SSH and via a public
+By default, management nodes are directly accessible over the internet via SSH and via a public
 reverse tunnel to a JupyterLab service running on each management node. Each JupyterLab instance
 is configured with a unique, random authentication token shared via the Lambda Public Cloud dashboard.
 For more information, see
@@ -51,7 +51,7 @@ can reconfigure them at will.
 1CC compute and management nodes share a logically isolated Ethernet switching fabric. Logical
 isolation ensures that customers have no interaction with each other.
 
-## Infiniband interconnect
+## InfiniBand interconnect
 
 1CC compute nodes share a specially isolated InfiniBand fabric that ensures that customer traffic 
 only ever transits physical IB links dedicated to that customer, ensuring complete isolation of
@@ -84,5 +84,5 @@ monitoring of their management and compute nodes.
     *   2FA Access Control (Biometric and RFID badge) into data hall
     *   2FA Access Control (Biometric and RFID badge) into secured cage
 
-Authorized Lambda employees may access data centers for maintenance, upgrade, or other hardware
+Authorized Lambda employees may access data centers for maintenance, upgrades, or other hardware
 infrastructure work.

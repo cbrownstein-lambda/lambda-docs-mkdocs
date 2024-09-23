@@ -25,7 +25,7 @@ the firewall. Compute nodes can be reached either by using a management node as 
 box or via a public reverse tunnel to a JupyterLab service running on each compute node.
 Each JupyterLab instance is configured with a unique, random authentication token shared
 via the Lambda Public Cloud dashboard. For more information, see the [JupyterLab security
-documentation](https://jupyter-server.readthedocs.io/en/latest/operators/security.html).
+documentation :octicons-link-external-16:](https://jupyter-server.readthedocs.io/en/latest/operators/security.html){target="_blank"}.
 
 Customers have full control over the configuration of their compute nodes
 and can reconfigure them at will.
@@ -40,7 +40,7 @@ By default, management nodes are directly accessible over the Internet via SSH a
 reverse tunnel to a JupyterLab service running on each management node. Each JupyterLab instance
 is configured with a unique, random authentication token shared via the Lambda Public Cloud dashboard.
 For more information, see
-[JupyterLab's security documentation[(https://jupyter-server.readthedocs.io/en/latest/operators/security.html).
+[JupyterLab's security documentation :octicons-link-external-16:](https://jupyter-server.readthedocs.io/en/latest/operators/security.html){target="_blank"}.
 
 Customers can configure their own inbound firewall rules to expand or reduce the exposure of their
 management nodes. Customers have full control over the configuration of their management nodes and

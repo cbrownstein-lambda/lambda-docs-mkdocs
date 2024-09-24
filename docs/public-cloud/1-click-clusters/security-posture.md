@@ -76,7 +76,7 @@ monitoring of their management and compute nodes.
 
 1CC infrastructure is located in secure data centers with the following access controls:
 
-*   24x7x365 in-house and on-site security qualified personnel
+*   Qualified in-house security personnel on site 24x7x365
 *   CCTV surveillance, with a minimum 90 days of retention
 *   Multiple security checkpoints:
     *   Controlled fenced access into data center property

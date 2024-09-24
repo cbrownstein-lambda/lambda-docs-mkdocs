@@ -11,6 +11,7 @@
 <!-- Mark the items that apply to this pull request with an 'x'. -->
 
 - [ ] Documentation follows the [contributing guidelines](../CONTRIBUTING.md).
+- [ ] Documentation linked to in nav and index pages.
 - [ ] Files used in this PR (e.g., images and PDFs) are committed.
 - [ ] Link to existing documentation and the reverse.
 - [ ] Changes have been tested locally.

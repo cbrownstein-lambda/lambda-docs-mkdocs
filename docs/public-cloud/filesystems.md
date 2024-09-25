@@ -69,7 +69,7 @@ usage.
 You can see the usage of a persistent storage filesystem from within an
 instance by running `df -h -BG`. This command will produce output similar to:
 
-```
+```{.text .no-copy}
 Filesystem           1G-blocks  Used   Available Use% Mounted on
 udev                       99G    0G         99G   0% /dev
 tmpfs                      20G    1G         20G   1% /run

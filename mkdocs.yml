@@ -39,7 +39,6 @@ nav:
       - public-cloud/on-demand/dashboard.md
       - public-cloud/on-demand/billing.md
       - public-cloud/on-demand/guest-agent.md
-      - public-cloud/on-demand/cloud-api.md
     - 1-Click Clusters:
       - public-cloud/1-click-clusters/getting-started.md
       - public-cloud/1-click-clusters/serving-llama-3_1-405b.md
@@ -47,6 +46,7 @@ nav:
     - public-cloud/filesystems.md
     - public-cloud/firewalls.md
     - public-cloud/teams.md
+    - public-cloud/cloud-api.md
   - Private Cloud:
       - private-cloud/index.md
   - Hardware:

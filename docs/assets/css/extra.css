@@ -58,3 +58,9 @@
         color: #000000;
     }
 }
+
+.ll-card-wrapper > a,
+.ll-card-wrapper > a:hover {
+    all: unset;
+    cursor: pointer;
+}

@@ -107,7 +107,6 @@ markdown_extensions:
       permalink: "#"
 plugins:
   - charts
-  - git-revision-date-localized
   - glightbox
   - include-markdown
   - search

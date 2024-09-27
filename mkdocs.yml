@@ -107,9 +107,6 @@ markdown_extensions:
       permalink: "#"
 plugins:
   - charts
-  - git-committers:
-      repository: cbrownstein-lambda/lambda-docs-mkdocs
-      branch: main
   - git-revision-date-localized
   - glightbox
   - include-markdown

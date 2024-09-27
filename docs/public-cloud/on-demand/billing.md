@@ -1,6 +1,5 @@
 ---
 description: Learn how billing works for Lambda Public Cloud.
-comments: true
 ---
 
 # Billing

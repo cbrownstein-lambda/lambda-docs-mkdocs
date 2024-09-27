@@ -1,6 +1,5 @@
 ---
 description: Learn how to use Lambda Chat in VS Code to help you code more efficiently.
-comments: true
 tags:
   - api
   - llama

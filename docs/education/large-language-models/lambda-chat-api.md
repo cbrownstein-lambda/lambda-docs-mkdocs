@@ -1,6 +1,5 @@
 ---
 description: Using the Lambda Chat Completions API
-comments: true
 tags:
   - api
   - llama

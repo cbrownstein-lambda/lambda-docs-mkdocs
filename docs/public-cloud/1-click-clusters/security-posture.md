@@ -1,6 +1,5 @@
 ---
 description: Lambda's security posture for 1-Click Clusters
-comments: true
 tags:
   - security
 ---
@@ -34,7 +33,7 @@ and can reconfigure them at will.
 
 1CC management nodes run on multi-tenant hardware with tenant isolation enforced using
 hardware virtualization. Underlying resources, including local storage, memory, and network
-interfaces, are shared with other customers. 
+interfaces, are shared with other customers.
 
 By default, management nodes are directly accessible over the internet via SSH and via a public
 reverse tunnel to a JupyterLab service running on each management node. Each JupyterLab instance
@@ -53,7 +52,7 @@ isolation ensures that customers have no interaction with each other.
 
 ## InfiniBand interconnect
 
-1CC compute nodes share a specially isolated InfiniBand fabric that ensures that customer traffic 
+1CC compute nodes share a specially isolated InfiniBand fabric that ensures that customer traffic
 only ever transits physical IB links dedicated to that customer, ensuring complete isolation of
 customer InfiniBand traffic.
 
@@ -70,7 +69,7 @@ Logical and physical access to 1CC infrastructure, such as network and storage s
 to Lambda employees with a specific need for access. Underlying 1CC infrastructure is monitored for
 security, utilization, performance, and reliability. Lambda employees do not access customer environments
 without customers' express authorization. Customers are responsible for all security instrumentation and
-monitoring of their management and compute nodes. 
+monitoring of their management and compute nodes.
 
 ## Physical security
 

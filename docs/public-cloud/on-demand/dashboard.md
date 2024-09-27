@@ -1,6 +1,5 @@
 ---
 description: Learn how to use the Lambda Public Cloud dashboard.
-comments: true
 ---
 
 # Using the Lambda Public Cloud dashboard

@@ -1,6 +1,5 @@
 ---
 description: Install the guest agent and get started with Prometheus and Grafana.
-comments: true
 ---
 
 # Installing the guest agent and getting started with Prometheus and Grafana

@@ -1,6 +1,5 @@
 ---
 description: Learn how to start using Lambda Public Cloud on-demand instances.
-comments: true
 ---
 
 # Getting started

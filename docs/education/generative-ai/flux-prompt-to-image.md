@@ -1,6 +1,5 @@
 ---
 description: How to serve the FLUX.1 prompt-to-image models using Lambda Cloud on-demand instances
-comments: true
 tags:
   - generative ai
   - stable diffusion

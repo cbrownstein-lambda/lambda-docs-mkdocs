@@ -1,6 +1,6 @@
 ---
 description: Lambda and SkyPilot make it easy to deploy a Kubernetes cluster. Read this tutorial to learn more.
-comments: true
+
 tags:
   - api
   - kubernetes

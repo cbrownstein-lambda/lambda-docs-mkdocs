@@ -1,6 +1,5 @@
 ---
 description: How to serve the Llama 3.1 8B and 70B models using Lambda Cloud on-demand instances
-comments: true
 tags:
   - docker
   - llama

@@ -9,8 +9,6 @@ theme:
     - navigation.tabs
     - navigation.top
     - navigation.expand
-    - content.action.view
-    - content.action.edit
     - content.code.copy
       #    - toc.integrate
   palette:

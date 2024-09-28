@@ -20,15 +20,15 @@ In this tutorial, you'll:
    [NVIDIA GPU Operator :octicons-link-external-16:](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html){target="_blank"}
    so your cluster can use your instance's GPUs.
 1. Deploy
-   [ollama :octicons-link-external-16:](https://ollama.com/){target="_blank"} in
+   [Ollama :octicons-link-external-16:](https://ollama.com/){target="_blank"} in
    your cluster to serve the
    [Llama 3.2 3B model :octicons-link-external-16:](https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/){target="_blank"}.
-1. Install the ollama client.
+1. Install the Ollama client.
 1. Interact with the Llama 3.2 3B model.
 
 !!! note
 
-    You don't need a Kubernetes cluster to run ollama and serve the Llama 3.2 3B
+    You don't need a Kubernetes cluster to run Ollama and serve the Llama 3.2 3B
     model. Part of this tutorial is to demonstrate that it's possible to stand
     up a Kubernetes cluster on on-demand instances.
 
@@ -132,15 +132,15 @@ In this tutorial, you'll:
 
         In this tutorial, ollama will only use 1 GPU.
 
-## Deploy ollama in your Kubernetes cluster
+## Deploy Ollama in your Kubernetes cluster
 
-1. Start an ollama server in your Kubernetes cluster by running:
+1. Start an Ollama server in your Kubernetes cluster by running:
 
     ```bash
     k3s kubectl apply -f https://gist.githubusercontent.com/cbrownstein-lambda/123cdd1fb5134482a2e75d05ff087d89/raw/1d030438f0fd9e0b4d6df06be02679962b602159/ollama.yml
     ```
 
-1. In a few minutes, run the following command to verify that the ollama server
+1. In a few minutes, run the following command to verify that the Ollama server
    is accepting connections and is using a GPU:
 
     ```
@@ -159,7 +159,7 @@ In this tutorial, you'll:
     time=2024-09-27T18:51:55.942Z level=INFO source=types.go:107 msg="inference compute" id=GPU-d8c505a1-8af4-7ce4-517d-4f57fa576097 library=cuda variant=v12 compute=7.0 driver=12.2 name="Tesla V100-SXM2-16GB" total="15.8 GiB" available="15.5 GiB"
     ```
 
-    The last line in the example output above shows that ollama is using a
+    The last line in the example output above shows that Ollama is using a
     single `Tesla V100-SXM2-16GB` GPU.
 
 1. Start a tmux session by running:
@@ -168,7 +168,7 @@ In this tutorial, you'll:
     tmux
     ```
 
-    Then, run the following command to make ollama accessible from outside of
+    Then, run the following command to make Ollama accessible from outside of
     your Kubernetes cluster:
 
     ```bash
@@ -182,11 +182,11 @@ In this tutorial, you'll:
     Forwarding from [::1]:11434 -> 11434
     ```
 
-## Install the ollama client
+## Install the Ollama client
 
 - Press ++ctrl++ + ++b++, then press ++c++ to open a new tmux window.
 
-    Download and install the ollama client by running:
+    Download and install the Ollama client by running:
 
     ```bash
     curl -L https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz
@@ -195,7 +195,7 @@ In this tutorial, you'll:
 
 ## Serve and interact with the Llama 3.2 3B model
 
-1. Serve the Llama 3.2 3B model using ollama by running:
+1. Serve the Llama 3.2 3B model using Ollama by running:
 
     ```bash
     ollama run llama3.2

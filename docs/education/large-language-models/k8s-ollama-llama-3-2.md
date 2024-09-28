@@ -130,7 +130,7 @@ In this tutorial, you'll:
 
     !!! note
 
-        In this tutorial, ollama will only use 1 GPU.
+        In this tutorial, Ollama will only use 1 GPU.
 
 ## Deploy Ollama in your Kubernetes cluster
 

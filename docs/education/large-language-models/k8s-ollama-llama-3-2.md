@@ -70,7 +70,22 @@ In this tutorial, you'll:
 1. Install the NVIDIA GPU Operator in your Kubernetes cluster by running:
 
     ```bash
-    k3s kubectl apply -f https://gist.githubusercontent.com/cbrownstein-lambda/d9e0bb8c68bd415354122b31106bdd9b/raw/e8a813a5b723d397e683d935139611c5018cd5cb/nvidia-gpu-operator.yml
+    cat <<EOF | k3s kubectl apply -f -
+    apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: gpu-operator
+    ---
+    apiVersion: helm.cattle.io/v1
+    kind: HelmChart
+    metadata:
+      name: gpu-operator
+      namespace: gpu-operator
+    spec:
+      repo: https://helm.ngc.nvidia.com/nvidia
+      chart: gpu-operator
+      targetNamespace: gpu-operator
+    EOF
     ```
 
 1. In a few minutes, verify that your instance's GPUs are detected by your
@@ -137,7 +152,65 @@ In this tutorial, you'll:
 1. Start an Ollama server in your Kubernetes cluster by running:
 
     ```bash
-    k3s kubectl apply -f https://gist.githubusercontent.com/cbrownstein-lambda/123cdd1fb5134482a2e75d05ff087d89/raw/1d030438f0fd9e0b4d6df06be02679962b602159/ollama.yml
+    cat <<EOF | k3s kubectl apply -f -
+    apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: ollama
+    ---
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: ollama
+      namespace: ollama
+    spec:
+      strategy:
+        type: Recreate
+      selector:
+        matchLabels:
+          name: ollama
+      template:
+        metadata:
+          labels:
+            name: ollama
+        spec:
+          containers:
+          - name: ollama
+            image: ollama/ollama:latest
+            env:
+            - name: PATH
+              value: /usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+            - name: LD_LIBRARY_PATH
+              value: /usr/local/nvidia/lib:/usr/local/nvidia/lib64
+            - name: NVIDIA_DRIVER_CAPABILITIES
+              value: compute,utility
+            ports:
+            - name: http
+              containerPort: 11434
+              protocol: TCP
+            resources:
+              limits:
+                nvidia.com/gpu: 1
+          tolerations:
+          - key: nvidia.com/gpu
+            operator: Exists
+            effect: NoSchedule
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: ollama
+      namespace: ollama
+    spec:
+      type: ClusterIP
+      selector:
+        name: ollama
+      ports:
+      - port: 80
+        name: http
+        targetPort: http
+        protocol: TCP
+    EOF
     ```
 
 1. In a few minutes, run the following command to verify that the Ollama server

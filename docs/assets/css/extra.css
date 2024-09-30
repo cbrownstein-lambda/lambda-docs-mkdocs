@@ -6,6 +6,7 @@
     color: #000000;
 }
 
+# light mode settings
 [data-md-color-scheme="default"] {
     --md-admonition-fg-color: #000000;
     --md-default-bg-color: #FFFFFF;
@@ -35,13 +36,25 @@
     }
 }
 
+# dark mode settings
 [data-md-color-scheme="slate"] {
+    # header styles
+    .md-header {
+      background-color: #000000;
+      color: #ffffff;
+    }#
+    .md-search {
+        background: #ffffff;
+    }
+
+    # body styles
     --md-admonition-fg-color: #FFFFFF;
     --md-default-bg-color: #000000;
     --md-default-fg-color: #FFFFFF;
     --md-default-fg-color--light: #FFFFFF;
     --md-default-fg-color--lightest: #FFFFFF;
     --md-primary-fg-color: #6F5CFF;
+    --md-typeset-a-color: #B9B1FD
     --md-typeset-color: #FFFFFF;
     .md-tabs {
         background-color: #F9F9F9;

@@ -271,7 +271,7 @@ In this tutorial, you'll:
 1. Serve the Llama 3.2 3B model using Ollama by running:
 
     ```bash
-    ollama run llama3.2
+    ollama run llama3.2:3b-instruct-fp16
     ```
 
     You can interact with the model once you see the following prompt:

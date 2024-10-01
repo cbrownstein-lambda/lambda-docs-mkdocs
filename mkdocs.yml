@@ -127,3 +127,6 @@ extra:
   social:
     - icon: fontawesome/brands/x-twitter
       link: https://x.com/LambdaAPI
+  analytics:
+    provider: google
+    property: G-43EZT1FM6Q

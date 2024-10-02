@@ -85,4 +85,4 @@ Make a local copy of the GitHub repository
 
 1. Once the container is running, open a browser window and paste `http://127.0.0.1:8000/lambda-docs-mkdocs` into the search bar and press enter.
 
-Congratulation, your local preview is now live inside of a container!
+Congratulations, your local preview is now live inside of a container!

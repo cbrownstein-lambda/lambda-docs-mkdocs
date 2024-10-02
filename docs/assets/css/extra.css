@@ -59,6 +59,10 @@
     }
 }
 
+.md-typeset .grid.cards>ul>li:hover {
+    border-color: #4027FF;
+}
+
 .ll-card-wrapper > a,
 .ll-card-wrapper > a:hover {
     all: unset;

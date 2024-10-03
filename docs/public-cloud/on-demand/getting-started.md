@@ -6,7 +6,7 @@ description: Learn how to start using Lambda Public Cloud on-demand instances.
 
 ## Can my data be recovered once I've terminated my instance?
 
-!!! danger
+!!! warning
 
     We cannot recover your data once you've terminated your instance! Before
     terminating an instance, make sure to back up all data that you want to

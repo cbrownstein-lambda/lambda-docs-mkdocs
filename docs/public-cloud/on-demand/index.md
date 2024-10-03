@@ -15,7 +15,7 @@ geographical region. For a list of available regions, see the
 Select instance types are backed by GPUs that feature NVIDIA SXM. SXM offers
 improved bandwidth between the NVIDIA GPUs in a single physical server.
 
-!!! danger
+!!! warning
 
     **Important**: Lambda prohibits cryptocurrency mining on ODC instances.
 

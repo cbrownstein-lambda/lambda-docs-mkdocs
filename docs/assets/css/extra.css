@@ -2,7 +2,7 @@
     color: #4027FF;
 }
 .md-header {
-    background-color: #FFFFFF;
+    background-color: #F8F8F8;
     color: #000000;
 }
 
@@ -35,6 +35,7 @@
     }
 }
 
+
 [data-md-color-scheme="slate"] {
     --md-admonition-fg-color: #FFFFFF;
     --md-default-bg-color: #000000;
@@ -63,4 +64,11 @@
 .ll-card-wrapper > a:hover {
     all: unset;
     cursor: pointer;
+}
+
+# search box hover color
+@media screen and (min-width: 60em) {
+    .md-search__form:hover {
+          background-color: #00000042;
+    }
 }

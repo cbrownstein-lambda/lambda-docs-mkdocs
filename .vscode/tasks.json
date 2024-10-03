@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build Lambda Docs Docker Image",
+        "type": "shell",
+        "command": "sudo docker build -t lambda-docs-mkdocs .",
+        "group": "build",
+        "problemMatcher": [],
+        "presentation": {
+          "reveal": "always",
+          "echo": true,
+          "focus": false,
+          "panel": "new"
+        }
+      },
+      {
+        "label": "Run Lambda Docs Container",
+        "type": "shell",
+        "command": "docker run --rm -it -p 8000:8000 -v ${PWD}:/docs lambda-docs-mkdocs",
+        "group": "build",
+        "dependsOn": "Build Lambda Docs Docker Image",
+        "problemMatcher": [],
+        "presentation": {
+          "reveal": "always",
+          "echo": true,
+          "focus": false,
+          "panel": "shared"
+        }
+      },
+      {
+        "label": "Build and Run Docker",
+        "dependsOn": ["Build Lambda Docs Docker Image", "Run Lambda Docs Container"],
+        "group": "build"
+      }
+    ]
+  }

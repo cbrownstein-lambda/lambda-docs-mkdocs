@@ -33,6 +33,80 @@
         background-color: #000000;
         color: #FFFFFF;
     }
+
+    #admonition colors
+	 #warnings
+	.md-typeset .admonition.warning,.md-typeset details.warning {
+	    border-color: #E48603;
+	}
+	
+
+	.md-typeset .admonition.warning:focus-within,.md-typeset details.warning:focus-within {
+	    box-shadow: 0 0 0 .2rem #E4860333;
+	}
+
+	.md-typeset .warning>.admonition-title,.md-typeset .warning>summary {
+	    background-color: #E4860333;
+	}
+
+	.md-typeset .warning>.admonition-title:before,.md-typeset .warning>summary:before {
+	    background-color: #E48603;
+	    -webkit-mask-image: var(--md-admonition-icon--warning);
+	    mask-image: var(--md-admonition-icon--warning)
+	}
+
+	.md-typeset .warning>.admonition-title:after,.md-typeset .warning>summary:after {
+	    color: #E48603;
+	}
+	
+	#notes
+
+	.md-typeset .admonition.note,.md-typeset details.note {
+	    border-color: #0489D1;
+	}
+
+	.md-typeset .admonition.note:focus-within,.md-typeset details.note:focus-within {
+	    box-shadow: 0 0 0 .2rem #0489D1333;
+	}
+
+	.md-typeset .note>.admonition-title,.md-typeset .note>summary {
+	    background-color: #0489D133;
+	}
+
+	.md-typeset .note>.admonition-title:before,.md-typeset .note>summary:before {
+	    background-color: #0489D1;
+	    -webkit-mask-image: var(--md-admonition-icon--warning);
+	    mask-image: var(--md-admonition-icon--warning)
+	}
+
+	.md-typeset .note>.admonition-title:after,.md-typeset .note>summary:after {
+	    color: #0489D1;
+	}
+
+	#tips
+
+	.md-typeset .admonition.tip,.md-typeset details.tip {
+	    border-color: #04B9A8;
+	}
+
+	.md-typeset .admonition.tip:focus-within,.md-typeset details.tip:focus-within {
+	    box-shadow: 0 0 0 .2rem ##04B9A833;
+	}
+
+	.md-typeset .tip>.admonition-title,.md-typeset .tip>summary {
+	    background-color: ##04B9A833;
+	}
+
+	.md-typeset .tip>.admonition-title:before,.md-typeset .tip>summary:before {
+	    background-color: ##04B9A8;
+	    -webkit-mask-image: var(--md-admonition-icon--warning);
+	    mask-image: var(--md-admonition-icon--warning)
+	}
+
+	.md-typeset .tip>.admonition-title:after,.md-typeset .tip>summary:after {
+	    color: #04B9A8;
+	}
+
 }
 
 
@@ -58,6 +132,10 @@
         background-color: #FFFFFF;
         color: #000000;
     }
+	.mdheader {
+		background-color:#000000;
+		color: #FFFFFF;
+	}
 }
 
 .ll-card-wrapper > a,

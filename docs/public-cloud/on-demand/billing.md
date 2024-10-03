@@ -16,7 +16,7 @@ charge will be refunded in a few days.
 are billed in one-minute increments from the moment you spin up (start) the
 instance up to the moment you terminate (stop) the instance.
 
-!!! danger
+!!! warning
 
     You will be billed for all minutes that an instance is running, even if the
     instance isn't actively being used.
@@ -80,7 +80,7 @@ using the [Cloud dashboard](#).
     :octicons-link-external-16:](https://taxation-customs.ec.europa.eu/vat-identification-numbers\_en){target="_blank"}
     to learn more about VAT identification numbers.
 
-!!! danger
+!!! warning
 
     You won't be able to launch new instances if you don't have a billing
     address associated with your account.
@@ -137,7 +137,7 @@ for help.
 
 ## What happens to my account if I don't pay an invoice?
 
-!!! danger
+!!! warning
 
     If an [invoice](#how-are-on-demand-instances-billed) remains unpaid after
     we've made 4 attempts to charge the card on file, we may suspend your

@@ -28,9 +28,6 @@ description: Learn how to start using Lambda Public Cloud on-demand instances.
     `/home/ubuntu/PERSISTENT-FILE-SYSTEM`. **Data not stored in this directory
     is erased once you terminate your instance and cannot be recovered.**
 
-!!! tip
-    this is a test. this is only a test.
-
 ## Can I pause my instance instead of terminating it?
 
 It currently isn't possible to pause (suspend) your instance rather than

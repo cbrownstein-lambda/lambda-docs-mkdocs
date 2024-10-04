@@ -8,6 +8,12 @@
 
 [data-md-color-scheme="default"] {
     --md-admonition-fg-color: #000000;
+    --md-admonition-note-border-color: #0489D1;
+    --md-admonition-note-title-bg-color: #0489D11a;
+    --md-admonition-warning-border-color: #E48603;
+    --md-admonition-warning-title-bg-color: #E486031a;
+    --md-admonition-tip-border-color: #04B9A8;
+    --md-admonition-tip-title-bg-color: #04B9A81a;
     --md-default-bg-color: #FFFFFF;
     --md-default-fg-color: #000000;
     --md-default-fg-color--light: #000000;
@@ -34,76 +40,6 @@
         color: #FFFFFF;
     }
 
-    /* Note admonition */
-	.md-typeset .admonition.note,.md-typeset details.note {
-	    border-color: #0489D1;
-	}
-
-	.md-typeset .admonition.note:focus-within,.md-typeset details.note:focus-within {
-	    box-shadow: 0 0 0 .2rem #0489D133;
-	}
-
-	.md-typeset .note>.admonition-note,.md-typeset .note>summary {
-	    background-color: ##0489D1;
-	}
-
-	.md-typeset .note>.admonition-note:before,.md-typeset .note>summary:before {
-	    background-color: #0489D1;
-	    -webkit-mask-image: var(--md-admonition-icon--note);
-	    mask-image: var(--md-admonition-icon--note)
-	}
-
-	.md-typeset .note>.admonition-note:after,.md-typeset .note>summary:after {
-	    color: #0489D1;
-	}
-
-    /* Warning admonition*/
-	.md-typeset .admonition.warning,.md-typeset details.warning {
-	    border-color: #E48603;
-	}
-
-	.md-typeset .admonition.warning:focus-within,.md-typeset details.warning:focus-within {
-	    box-shadow: 0 0 0 .2rem #E4860333;
-	}
-
-	.md-typeset .warning>.admonition-warning,.md-typeset .warning>summary {
-	    background-color: #E48603;
-	}
-
-	.md-typeset .warning>.admonition-warning:before,.md-typeset .note>summary:before {
-	    background-color: #E48603;
-	    -webkit-mask-image: var(--md-admonition-icon--note);
-	    mask-image: var(--md-admonition-icon--note)
-	}
-
-	.md-typeset .warning>.admonition-warning:after,.md-typeset .warning>summary:after {
-	    color: #E48603;
-	}
-
-
-    /* Tip admonition*/
-	.md-typeset .admonition.tip,.md-typeset details.tip {
-	    border-color: #04B9A8;
-	}
-
-	.md-typeset .admonition.tip:focus-within,.md-typeset details.tip:focus-within {
-	    box-shadow: 0 0 0 .2rem #04B9A833;
-	}
-
-	.md-typeset .warning>.admonition-tip,.md-typeset .tip>summary {
-	    background-color: #04B9A8;
-	}
-
-	.md-typeset .tip>.admonition-tip:before,.md-typeset .tip>summary:before {
-	    background-color: #04B9A8;
-	    -webkit-mask-image: var(--md-admonition-icon--note);
-	    mask-image: var(--md-admonition-icon--note)
-	}
-
-	.md-typeset .tip>.admonition-tip:after,.md-typeset .tip>summary:after {
-	    color: #04B9A8;
-	}
-
 }
 
 [data-md-color-scheme="slate"] {
@@ -128,78 +64,56 @@
         background-color: #FFFFFF;
         color: #000000;
     }
+}
 
-    /* Note admonition */
-	.md-typeset .admonition.note,.md-typeset details.note {
-	    border-color: #0489D1;
-	}
+/*** Admonitions/Callouts ***/
 
-	.md-typeset .admonition.note:focus-within,.md-typeset details.note:focus-within {
-	    box-shadow: 0 0 0 .2rem #0489D133;
-	}
+/* Note */
 
-	.md-typeset .note>.admonition-note,.md-typeset .note>summary {
-	    background-color: ##0489D1;
-	}
+.md-typeset .admonition.note {
+    border-color: var(--md-admonition-note-border-color);
+}
 
-	.md-typeset .note>.admonition-note:before,.md-typeset .note>summary:before {
-	    background-color: #0489D1;
-	    -webkit-mask-image: var(--md-admonition-icon--note);
-	    mask-image: var(--md-admonition-icon--note)
-	}
+.md-typeset .admonition.note > .admonition-title {
+    background-color: var(--md-admonition-note-title-bg-color);
+}
 
-	.md-typeset .note>.admonition-note:after,.md-typeset .note>summary:after {
-	    color: #0489D1;
-	}
+.md-typeset .admonition.note > .admonition-title:before {
+    background-color: var(--md-admonition-note-border-color);
+    -webkit-mask-image: var(--md-admonition-icon--note);
+    mask-image: var(--md-admonition-icon--note)
+}
 
-    /* Warning admonition*/
-	.md-typeset .admonition.warning,.md-typeset details.warning {
-	    border-color: #E48603;
-	}
+/* Warning */
 
-	.md-typeset .admonition.warning:focus-within,.md-typeset details.warning:focus-within {
-	    box-shadow: 0 0 0 .2rem #E4860333;
-	}
+.md-typeset .admonition.warning {
+    border-color: var(--md-admonition-warning-border-color);
+}
 
-	.md-typeset .warning>.admonition-warning,.md-typeset .warning>summary {
-	    background-color: #E48603;
-	}
+.md-typeset .admonition.warning > .admonition-title {
+    background-color: var(--md-admonition-warning-title-bg-color);
+}
 
-	.md-typeset .warning>.admonition-warning:before,.md-typeset .note>summary:before {
-	    background-color: #E48603;
-	    -webkit-mask-image: var(--md-admonition-icon--note);
-	    mask-image: var(--md-admonition-icon--note)
-	}
+.md-typeset .admonition.warning > .admonition-title:before {
+    background-color: var(--md-admonition-warning-border-color);
+    -webkit-mask-image: var(--md-admonition-icon--warning);
+    mask-image: var(--md-admonition-icon--warning)
+}
 
-	.md-typeset .warning>.admonition-warning:after,.md-typeset .warning>summary:after {
-	    color: #E48603;
-	}
+/* Tip */
 
+.md-typeset .admonition.tip {
+    border-color: var(--md-admonition-tip-border-color);
+}
 
-    /* Tip admonition*/
-	.md-typeset .admonition.tip,.md-typeset details.tip {
-	    border-color: #04B9A8;
-	}
+.md-typeset .admonition.tip > .admonition-title {
+    background-color: var(--md-admonition-tip-title-bg-color);
+}
 
-	.md-typeset .admonition.tip:focus-within,.md-typeset details.tip:focus-within {
-	    box-shadow: 0 0 0 .2rem #04B9A833;
-	}
-
-	.md-typeset .warning>.admonition-tip,.md-typeset .tip>summary {
-	    background-color: #04B9A8;
-	}
-
-	.md-typeset .tip>.admonition-tip:before,.md-typeset .tip>summary:before {
-	    background-color: #04B9A8;
-	    -webkit-mask-image: var(--md-admonition-icon--note);
-	    mask-image: var(--md-admonition-icon--note)
-	}
-
-	.md-typeset .tip>.admonition-tip:after,.md-typeset .tip>summary:after {
-	    color: #04B9A8;
-	}
-
-
+.md-typeset .admonition.tip > .admonition-title:before {
+    background-color: var(--md-admonition-tip-border-color);
+    -webkit-mask-image: var(--md-admonition-icon--tip);
+    mask-image: var(--md-admonition-icon--tip)
 }
 
 .md-typeset .grid.cards>ul>li:hover {

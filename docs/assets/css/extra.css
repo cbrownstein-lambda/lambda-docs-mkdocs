@@ -34,6 +34,7 @@
         color: #FFFFFF;
     }
 
+    # Note
 	.md-typeset .admonition.note,.md-typeset details.note {
 	    border-color: #0489D1;
 	}
@@ -56,7 +57,7 @@
 	    color: #0489D1;
 	}
 
-    # Warnings
+    # Warning
 	.md-typeset .admonition.warning,.md-typeset details.warning {
 	    border-color: #E48603;
 	}

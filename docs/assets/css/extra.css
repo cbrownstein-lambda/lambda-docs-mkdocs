@@ -154,7 +154,7 @@
 
     /* Warning admonition*/
 	.md-typeset .admonition.warning,.md-typeset details.warning {
-	    border-color: #000000;
+	    border-color: #E48603;
 	}
 
 	.md-typeset .admonition.warning:focus-within,.md-typeset details.warning:focus-within {

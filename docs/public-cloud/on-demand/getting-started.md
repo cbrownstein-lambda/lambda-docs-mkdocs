@@ -6,7 +6,7 @@ description: Learn how to start using Lambda Public Cloud on-demand instances.
 
 ## Can my data be recovered once I've terminated my instance?
 
-!!! danger
+!!! warning
 
     We cannot recover your data once you've terminated your instance! Before
     terminating an instance, make sure to back up all data that you want to
@@ -27,6 +27,9 @@ description: Learn how to start using Lambda Public Cloud on-demand instances.
     system is **PERSISTENT-FILE-SYSTEM**, the directory is created at
     `/home/ubuntu/PERSISTENT-FILE-SYSTEM`. **Data not stored in this directory
     is erased once you terminate your instance and cannot be recovered.**
+
+!!! tip
+    this is a test. this is only a test.
 
 ## Can I pause my instance instead of terminating it?
 

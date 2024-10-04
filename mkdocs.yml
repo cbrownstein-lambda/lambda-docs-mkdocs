@@ -47,6 +47,9 @@ nav:
 
   - Private Cloud:
       - private-cloud/index.md
+      - Managed Kubernetes:
+        - private-cloud/managed-kubernetes/index.md
+        - private-cloud/managed-kubernetes/getting-started.md
   - Hardware:
       - hardware/index.md
       - Servers:

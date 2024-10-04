@@ -46,7 +46,6 @@ For this reason, _it's recommended that you keep a local copy of the files
 you have saved in your persistent storage filesystems_. This can be done
 using `rsync`.
 
-
 !!! note
 
     Filesystems can't be attached to running instances and can't be mounted
@@ -93,7 +92,7 @@ In the example output, above:
 * The used percentage of the filesystem is `0%`.
 * The filesystem is mounted on `/home/ubuntu/persistent-storage`.
 
-!!! success
+!!! note
 
     You can also use the Cloud API's `/file-systems` endpoint to find out your
     filesystem usage.
@@ -126,7 +125,7 @@ system-wide, you can
 You can also create a
 [conda environment](../../education/linux-usage/virtual-environments-containers#creating-a-conda-virtual-environment).
 
-!!! success
+!!! tip
 
     For the highest performance when training, we recommend copying your
     dataset, containers, and virtual environments from persistent storage to

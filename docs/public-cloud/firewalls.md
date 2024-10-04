@@ -72,7 +72,7 @@ To update a firewall rule:
 
 To delete a firewall rule:
 
-!!! danger
+!!! warning
 
     If you delete the rule that allows incoming traffic to port TCP/22, you
     won’t be able to access your instances using SSH.

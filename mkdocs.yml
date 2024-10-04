@@ -30,10 +30,10 @@ nav:
   - Home: index.md
   - Public Cloud:
     - public-cloud/index.md
-      - public-cloud/general/filesystems.md
-      - public-cloud/general/firewalls.md
-      - public-cloud/general/teams.md
-      - public-cloud/general/cloud-api.md
+    - public-cloud/filesystems.md
+    - public-cloud/firewalls.md
+    - public-cloud/teams.md
+    - public-cloud/cloud-api.md
     - On-Demand:
       - public-cloud/on-demand/index.md
       - public-cloud/on-demand/getting-started.md

@@ -30,6 +30,10 @@ nav:
   - Home: index.md
   - Public Cloud:
     - public-cloud/index.md
+      - public-cloud/general/filesystems.md
+      - public-cloud/general/firewalls.md
+      - public-cloud/general/teams.md
+      - public-cloud/general/cloud-api.md
     - On-Demand:
       - public-cloud/on-demand/index.md
       - public-cloud/on-demand/getting-started.md
@@ -40,11 +44,7 @@ nav:
       - public-cloud/1-click-clusters/getting-started.md
       - public-cloud/1-click-clusters/serving-llama-3_1-405b.md
       - public-cloud/1-click-clusters/security-posture.md
-    - General:
-      - public-cloud/general/filesystems.md
-      - public-cloud/general/firewalls.md
-      - public-cloud/general/teams.md
-      - public-cloud/general/cloud-api.md
+
   - Private Cloud:
       - private-cloud/index.md
   - Hardware:

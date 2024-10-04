@@ -4,6 +4,7 @@ site_url: https://cbrownstein-lambda.github.io/lambda-docs-mkdocs/
 theme:
   name: material
   features:
+    - navigation.sections
     - navigation.tabs
     - navigation.top
     - navigation.expand
@@ -29,6 +30,10 @@ nav:
   - Home: index.md
   - Public Cloud:
     - public-cloud/index.md
+    - public-cloud/filesystems.md
+    - public-cloud/firewalls.md
+    - public-cloud/teams.md
+    - public-cloud/cloud-api.md
     - On-Demand:
       - public-cloud/on-demand/index.md
       - public-cloud/on-demand/getting-started.md
@@ -39,10 +44,7 @@ nav:
       - public-cloud/1-click-clusters/getting-started.md
       - public-cloud/1-click-clusters/serving-llama-3_1-405b.md
       - public-cloud/1-click-clusters/security-posture.md
-    - public-cloud/filesystems.md
-    - public-cloud/firewalls.md
-    - public-cloud/teams.md
-    - public-cloud/cloud-api.md
+
   - Private Cloud:
       - private-cloud/index.md
   - Hardware:

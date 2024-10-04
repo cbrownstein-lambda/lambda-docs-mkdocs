@@ -3,7 +3,7 @@ hide:
   - navigation
 ---
 
-![Homepage](assets/images/lambda/MKDocs_banner.png)
+![Homepage](assets/images/lambda/MKDocs_banner.png){ .skip-lightbox }
 
 # Welcome to Lambda Docs
 

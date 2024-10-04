@@ -105,7 +105,9 @@ markdown_extensions:
       permalink: "#"
 plugins:
   - charts
-  - glightbox
+  - glightbox:
+      skip_classes:
+        - skip-lightbox
   - include-markdown
   - search
   - social

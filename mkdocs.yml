@@ -131,6 +131,8 @@ extra:
   social:
     - icon: fontawesome/brands/x-twitter
       link: https://x.com/LambdaAPI
+    - icon: fontawesome/brands/linkedin-in
+      Link: https://www.linkedin.com/company/lambda-labs
   analytics:
     provider: google
     property: G-43EZT1FM6Q

@@ -86,21 +86,21 @@
 	}
 
 	.md-typeset .admonition.tip:focus-within,.md-typeset details.tip:focus-within {
-	    box-shadow: 0 0 0 .2rem #E4860333;
+	    box-shadow: 0 0 0 .2rem #04B9A833;
 	}
 
 	.md-typeset .warning>.admonition-tip,.md-typeset .tip>summary {
-	    background-color: #E48603;
+	    background-color: #04B9A8;
 	}
 
 	.md-typeset .tip>.admonition-tip:before,.md-typeset .tip>summary:before {
-	    background-color: #E48603;
+	    background-color: #04B9A8;
 	    -webkit-mask-image: var(--md-admonition-icon--note);
 	    mask-image: var(--md-admonition-icon--note)
 	}
 
 	.md-typeset .tip>.admonition-tip:after,.md-typeset .tip>summary:after {
-	    color: #E48603;
+	    color: #04B9A8;
 	}
 
 }

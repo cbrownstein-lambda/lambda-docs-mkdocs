@@ -104,7 +104,9 @@ markdown_extensions:
       permalink: "#"
 plugins:
   - charts
-  - glightbox
+  - glightbox:
+      skip_classes:
+        - skip-lightbox
   - include-markdown
   - search
   - social
@@ -128,6 +130,8 @@ extra:
   social:
     - icon: fontawesome/brands/x-twitter
       link: https://x.com/LambdaAPI
+    - icon: fontawesome/brands/linkedin-in
+      link: https://www.linkedin.com/company/lambda-labs
   analytics:
     provider: google
     property: G-43EZT1FM6Q

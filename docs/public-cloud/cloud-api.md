@@ -70,7 +70,7 @@ Replace **API-KEY** with your actual API key.
     }
     ```
 
-!!! note
+!!! tip
 
     [Use the API to obtain the IDs of your instances](#listing-details-of-running-instances).
 
@@ -102,7 +102,7 @@ previous step.
     }
     ```
 
-!!! note
+!!! tip
 
     [Use the API to obtain the IDs of your instances](#listing-details-of-running-instances).
 
@@ -255,7 +255,7 @@ Replace **API-KEY** with your actual API key.
 
 Replace **SSH-KEY-ID** with the ID of the SSH key you want to delete.
 
-!!! note
+!!! tip
 
     [Use the API to obtain the IDs of the SSH keys saved in your account](#list-the-ssh-keys-saved-in-your-account).
 

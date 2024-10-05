@@ -59,7 +59,7 @@ that are isolated from each other. Lambda recommends using either:
         sudo pip uninstall -y $(pip -v list | grep /usr/local | awk '{printf "%s ", $1}')
         ```
 
-    !!! danger
+    !!! warning
 
         **Don't run the above uninstall commands on Lambda GPU Cloud on-demand
         instances!**

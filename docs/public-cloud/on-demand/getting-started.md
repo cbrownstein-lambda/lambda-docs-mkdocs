@@ -107,7 +107,7 @@ To open Jupyter Notebook on your instance:
 
 ## How do I upgrade Python?
 
-!!! danger
+!!! warning
 
     Upgrading Python, that is, replacing the preinstalled Python version with a
     newer version, will break your instance.
@@ -175,7 +175,7 @@ To install another version of Python alongside the preinstalled version:
 
 ## Can I upgrade to the latest Ubuntu release?
 
-!!! danger
+!!! warning
 
     **Do not run `sudo do-release-upgrade` or try to upgrade to the latest
     Ubuntu release.** Doing so will break [Jupyter

@@ -44,7 +44,6 @@ nav:
       - public-cloud/1-click-clusters/getting-started.md
       - public-cloud/1-click-clusters/serving-llama-3_1-405b.md
       - public-cloud/1-click-clusters/security-posture.md
-
   - Private Cloud:
       - private-cloud/index.md
   - Hardware:
@@ -105,7 +104,9 @@ markdown_extensions:
       permalink: "#"
 plugins:
   - charts
-  - glightbox
+  - glightbox:
+      skip_classes:
+        - skip-lightbox
   - include-markdown
   - search
   - social
@@ -129,6 +130,8 @@ extra:
   social:
     - icon: fontawesome/brands/x-twitter
       link: https://x.com/LambdaAPI
+    - icon: fontawesome/brands/linkedin-in
+      link: https://www.linkedin.com/company/lambda-labs
   analytics:
     provider: google
     property: G-43EZT1FM6Q

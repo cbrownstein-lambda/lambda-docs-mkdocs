@@ -25,7 +25,7 @@ that are isolated from each other. Lambda recommends using either:
 
         The command, above, creates a virtual environment that has access to
         Lambda Stack packages and packages installed from Ubuntu repositories.
-    
+
         To create a virtual environment that doesn't have access to Lambda Stack
         and Ubuntu packages, omit the `--system-site-packages option`.
 
@@ -63,7 +63,7 @@ that are isolated from each other. Lambda recommends using either:
 
         **Don't run the above uninstall commands on Lambda GPU Cloud on-demand
         instances!**
-        
+
         The above uninstall commands remove all locally installed packages and, on
         on-demand instances, break programs including pip and JupyterLab.
 

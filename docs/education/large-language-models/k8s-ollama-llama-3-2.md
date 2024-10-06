@@ -95,7 +95,7 @@ In this tutorial, you'll:
     k3s kubectl describe nodes | grep nvidia.com
     ```
 
-    You should see output similiar to:
+    You should see output similar to:
 
     ```{.text .no-copy}
     nvidia.com/cuda.driver-version.full=535.129.03

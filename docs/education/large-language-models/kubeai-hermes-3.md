@@ -1,7 +1,6 @@
 ---
 description: Learn how to use KubeAI to deploy NousResearch's Hermes 3 LLM.
 tags:
-  - api
   - kubernetes
   - llama
   - llm
@@ -36,7 +35,7 @@ In this tutorial, you'll:
 
 ## Stand up a single-node Kubernetes cluster
 
-1. If you haven't already, use the
+1. Use the
    [dashboard :octicons-link-external-16:](https://cloud.lambdalabs.com/instances)
    or [Cloud API](#) to launch an instance. Then, SSH into your instance.
 
@@ -148,7 +147,9 @@ In this tutorial, you'll:
     `nvidia.com/gpu.product=NVIDIA-H100-PCIe` indicates that the detected GPU is
     an NVIDIA-H100-PCIe.
 
-1. Install KubeAI by running:
+## Install KubeAI
+
+- Install KubeAI by running:
 
     ```bash
     cat <<EOF | kubectl apply -f -
@@ -183,6 +184,10 @@ In this tutorial, you'll:
     kubeai-5f6cb9984b-t6tfz      1/1     Running             0          11s
     ```
 
+    To stop watching, press ++ctrl++ + ++c++.
+
+## Download and serve Hermes 3
+
 1. Download and serve NousResearch's Hermes 3 model using vLLM by running:
 
     ```bash
@@ -215,7 +220,14 @@ In this tutorial, you'll:
     kubeai         model-hermes-3-llama-3.1-8b-79cdb64947-shx5d                 1/1     Running     0          3m52s
     ```
 
-1. Use the Firewall feature to open up port HTTP.
+    To stop watching, press ++ctrl++ + ++c++
+
+1. Use the
+   [Firewall
+   :octicons-link-external-16:](https://cloud.lambdalabs.com/firewall){target="_blank"}
+   feature to create an inbound rule to allow traffic to port TCP/80.
+
+## Set up an Ingress and access the web UI
 
 1. Run:
 
@@ -240,3 +252,5 @@ In this tutorial, you'll:
                       number: 80
     EOF
     ```
+
+1. Access the web UI.

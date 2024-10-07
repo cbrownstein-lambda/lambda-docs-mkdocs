@@ -44,8 +44,18 @@ nav:
       - public-cloud/1-click-clusters/getting-started.md
       - public-cloud/1-click-clusters/serving-llama-3_1-405b.md
       - public-cloud/1-click-clusters/security-posture.md
+    - Additional resources: 
+      - 'Forum': 'https://deeptalk.lambdalabs.com/'
+      - 'Blog': 'https://lambdalabs.com/blog'
+      - 'YouTube': 'https://www.youtube.com/c/LambdaLabs'
+      - 'Main site': 'https://lambdalabs.com/'
   - Private Cloud:
-      - private-cloud/index.md
+    - private-cloud/index.md
+    - Additional resources: 
+      - 'Forum': 'https://deeptalk.lambdalabs.com/'
+      - 'Blog': 'https://lambdalabs.com/blog'
+      - 'YouTube': 'https://www.youtube.com/c/LambdaLabs'
+      - 'Main site': 'https://lambdalabs.com/'
   - Hardware:
       - hardware/index.md
       - Servers:
@@ -55,6 +65,11 @@ nav:
       - Workstations:
           - hardware/workstations/getting-started.md
           - hardware/workstations/troubleshooting.md
+      - Additional resources: 
+        - 'Forum': 'https://deeptalk.lambdalabs.com/'
+        - 'Blog': 'https://lambdalabs.com/blog'
+        - 'YouTube': 'https://www.youtube.com/c/LambdaLabs'
+        - 'Main site': 'https://lambdalabs.com/'
   - Education:
     - education/index.md
     - Generative AI:
@@ -71,6 +86,12 @@ nav:
       - education/scheduling-and-orchestration/skypilot-deploy-kubernetes.md
     - Basic Linux usage and system administration:
       - education/linux-usage/virtual-environments-containers.md
+    - Additional resources: 
+      - 'Forum': 'https://deeptalk.lambdalabs.com/'
+      - 'Blog': 'https://lambdalabs.com/blog'
+      - 'YouTube': 'https://www.youtube.com/c/LambdaLabs'
+      - 'Main site': 'https://lambdalabs.com/'
+
 markdown_extensions:
   - admonition
   - attr_list

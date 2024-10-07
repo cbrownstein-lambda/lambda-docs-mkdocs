@@ -127,7 +127,7 @@ When you click **Workloads**, the left nav expands to reveal categories for diff
 
 ### Managing your services
 
-To access services, click **Service Discovery **in the left nav of your cluster dashboard.
+To access services, click **Service Discovery** in the left nav of your cluster dashboard.
 
 You might find it useful to filter by namespace here, as described in [Managing your project resources ](#managing-your-project-resources)above. For example, in the screenshot below, the Services table has been filtered by the namespace **kuberay**.  Looking at the namespace, you can see an internal service of type ClusterIP and a LoadBalanced external service. The **Target** column contains some details about exposed ports and their names, if set.
 

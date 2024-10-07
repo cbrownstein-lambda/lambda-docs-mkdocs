@@ -62,6 +62,7 @@ nav:
     - Large language models (LLMs):
       - education/large-language-models/serving-llama-3-1-docker.md
       - education/large-language-models/lambda-chat-api.md
+      - education/large-language-models/kubeai-hermes-3.md
     - Programming:
       - education/programming/vs-code-lambda-chat.md
     - Scheduling and orchestration:

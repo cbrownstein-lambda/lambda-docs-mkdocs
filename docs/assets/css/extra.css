@@ -68,3 +68,10 @@
     all: unset;
     cursor: pointer;
 }
+
+/* Page TOC border */
+.md-nav--secondary {
+    padding: 1.0rem 0.4rem 0.8rem;
+    border: 1px solid var(--md-typeset-table-color);
+    box-sizing: border-box;
+}

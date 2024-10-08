@@ -23,7 +23,7 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-  logo: assets/images/lambda/lambda_docs_logo.svg
+  logo: assets/images/lambda/lambda-docs-logo-light-mode.svg
   favicon: assets/images/lambda/lambda-logo.png
   custom_dir: overrides
 nav:
@@ -57,7 +57,7 @@ nav:
           - hardware/workstations/troubleshooting.md
   - Education:
     - education/index.md
-    - Generative AI:
+    - Generative AI (GAI):
       - education/generative-ai/flux-prompt-to-image.md
     - Large language models (LLMs):
       - education/large-language-models/serving-llama-3-1-docker.md
@@ -66,8 +66,6 @@ nav:
       - education/programming/vs-code-lambda-chat.md
     - Scheduling and orchestration:
       - education/scheduling-and-orchestration/dstack-vllm-llama-3-1.md
-      - education/scheduling-and-orchestration/installing-k3s.md
-      - education/scheduling-and-orchestration/ray-cluster-kubernetes.md
       - education/scheduling-and-orchestration/skypilot-deploy-kubernetes.md
     - Basic Linux usage and system administration:
       - education/linux-usage/virtual-environments-containers.md

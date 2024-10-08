@@ -1,0 +1,33 @@
+{% set custom_list %}
+  {% include 'custom/additional-resources.md' %}
+{% endset %}
+
+{% set lines = custom_list.strip().splitlines() %}
+{% set list_title = lines[0] %}
+
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+  <label class="md-nav__link" tabindex="">
+    <span class="md-ellipsis">{{ list_title | safe }}</span>
+    <span class="md-nav__icon md-icon"></span>
+  </label>
+  <nav class="md-nav" data-md-level="2">
+    <label class="md-nav__title">
+      <span class="md-nav__icon md-icon"></span>
+      {{ list_title | safe }}
+    </label>
+    <ul class="md-nav__list">
+      {% for item in lines[1:] %}
+        {% set parts = item.split(': ') %}
+        {% if parts|length == 2 %}
+          {% set page_title = parts[0].strip().replace('-', '').replace('"', '').replace('\'', '') %}
+          {% set page_link = parts[1].strip().strip('"') %}
+          <li class="md-nav__item">
+            <a href="{{ page_link }}" class="md-nav__link">
+              <span class="md-ellipsis">{{ page_title }}</span>
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+</li>

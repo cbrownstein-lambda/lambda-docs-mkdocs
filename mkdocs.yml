@@ -45,17 +45,26 @@ nav:
       - public-cloud/1-click-clusters/serving-llama-3_1-405b.md
       - public-cloud/1-click-clusters/security-posture.md
     - Additional resources: 
+      - 'Tags index': 'tags.md'
       - 'Forum': 'https://deeptalk.lambdalabs.com/'
       - 'Blog': 'https://lambdalabs.com/blog'
       - 'YouTube': 'https://www.youtube.com/c/LambdaLabs'
       - 'Main site': 'https://lambdalabs.com/'
+    - We welcome your feedback!:
+      # URL needs to change post migration
+      - 'File an issue': 'https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/issues/new/choose'
+
   - Private Cloud:
     - private-cloud/index.md
     - Additional resources: 
+      - 'Tags index': 'tags.md'
       - 'Forum': 'https://deeptalk.lambdalabs.com/'
       - 'Blog': 'https://lambdalabs.com/blog'
       - 'YouTube': 'https://www.youtube.com/c/LambdaLabs'
       - 'Main site': 'https://lambdalabs.com/'
+    - We welcome your feedback!:
+      # URL needs to change post migration
+      - 'File an issue': 'https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/issues/new/choose'
   - Hardware:
       - hardware/index.md
       - Servers:
@@ -66,10 +75,15 @@ nav:
           - hardware/workstations/getting-started.md
           - hardware/workstations/troubleshooting.md
       - Additional resources: 
+        - 'Tags index': 'tags.md'
         - 'Forum': 'https://deeptalk.lambdalabs.com/'
         - 'Blog': 'https://lambdalabs.com/blog'
         - 'YouTube': 'https://www.youtube.com/c/LambdaLabs'
         - 'Main site': 'https://lambdalabs.com/'
+      - We welcome your feedback!:
+        # URL needs to change post migration
+        - 'File an issue': 'https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/issues/new/choose'
+
   - Education:
     - education/index.md
     - Generative AI (GAI):
@@ -85,10 +99,15 @@ nav:
     - Basic Linux usage and system administration:
       - education/linux-usage/virtual-environments-containers.md
     - Additional resources: 
+      - 'Tags index': 'tags.md'
       - 'Forum': 'https://deeptalk.lambdalabs.com/'
       - 'Blog': 'https://lambdalabs.com/blog'
       - 'YouTube': 'https://www.youtube.com/c/LambdaLabs'
       - 'Main site': 'https://lambdalabs.com/'
+    - We welcome your feedback!:
+      # URL needs to change post migration
+      - 'File an issue': 'https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/issues/new/choose'
+
 
 markdown_extensions:
   - admonition

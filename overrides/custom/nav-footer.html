@@ -20,7 +20,7 @@
         {% set parts = item.split(': ') %}
         {% if parts|length == 2 %}
           {% set page_title = parts[0].strip().replace('-', '').replace('"', '').replace('\'', '') %}
-          {% set page_link = parts[1].strip().strip('"') %}
+          {% set page_link = parts[1].strip().strip('"').strip('\'') %}
           <li class="md-nav__item">
             <a href="{{ page_link }}" class="md-nav__link">
               <span class="md-ellipsis">{{ page_title }}</span>

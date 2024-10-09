@@ -1,10 +1,10 @@
 # Introduction
 
-Lambda Public Cloud lets you launch individual virtual machines or clusters and turn them down on your schedule. 
+Lambda Public Cloud lets you launch individual virtual machines or clusters and turn them down on your schedule.
 
 <div class="grid cards" markdown>
 
--   :lambda-odc-icon:{ .lg .middle .lambda } **On Demand Cloud**
+-   :lambda-odc-icon:{ .lg .middle .lambda .no-fill } **On Demand Cloud**
 
     ---
 
@@ -12,7 +12,7 @@ Lambda Public Cloud lets you launch individual virtual machines or clusters and 
 
     [:octicons-arrow-right-24: Introduction](on-demand/index.md)
 
--   :lambda-1cc-icon:{ .lg .middle .lambda } **1-Click Clusters**
+-   :lambda-1cc-icon:{ .lg .middle .lambda .no-fill } **1-Click Clusters**
 
     ---
 

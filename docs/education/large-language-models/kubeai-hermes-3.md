@@ -1,19 +1,19 @@
 ---
-description: Learn how to use KubeAI to deploy NousResearch's Hermes 3 LLM.
+description: Learn how to use KubeAI to deploy Nous Research's Hermes 3 LLM.
 tags:
   - kubernetes
   - llama
   - llm
 ---
 
-# Using KubeAI to deploy NousResearch's Hermes 3 LLM
+# Using KubeAI to deploy Nous Research's Hermes 3 LLM
 
 ## Introduction
 
 [KubeAI: Private Open AI on Kubernetes :octicons-link-external-16:](https://github.com/substratusai/kubeai){target="_blank"}
 is a Kubernetes solution for running inference on open-weight large language
 models (LLMs), including
-[NousResearch's Hermes 3 fine-tuned Llama 3.1 8B model :octicons-link-external-16:](https://nousresearch.com/hermes3/){target="_blank"}.
+[Nous Research's Hermes 3 fine-tuned Llama 3.1 8B model :octicons-link-external-16:](https://nousresearch.com/hermes3/){target="_blank"}.
 Using model servers such as
 [vLLM :octicons-link-external-16:](https://blog.vllm.ai/2023/06/20/vllm.html){target="_blank"}
 and [Ollama :octicons-link-external-16:](https://ollama.com/){target="_blank"},
@@ -28,7 +28,7 @@ In this tutorial, you'll:
 1. Install the
    [NVIDIA GPU Operator :octicons-link-external-16:](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html){target="_blank"}
    so your Kubernetes cluster can use your instance's GPUs.
-1. Deploy KubeAI in your Kubernetes cluster to serve NousResearch's Hermes 3
+1. Deploy KubeAI in your Kubernetes cluster to serve Nous Research's Hermes 3
    model.
 1. Set up an Ingress in your Kubernetes cluster so you can access the web UI.
 1. Interact with the Hermes 3 model using the web UI.
@@ -188,7 +188,7 @@ In this tutorial, you'll:
 
 ## Download and serve Hermes 3
 
-1. Download and serve NousResearch's Hermes 3 model using vLLM by running:
+1. Download and serve Nous Research's Hermes 3 model using vLLM by running:
 
     ```bash
     cat <<EOF | kubectl apply -f -

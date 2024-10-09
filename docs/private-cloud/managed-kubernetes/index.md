@@ -129,7 +129,7 @@ firewall is deployed in high availability (HA) mode with the following rules:
 
 ### Inband
 
-Your Inband network is on `10.141.0.0/22`, as follows:
+Your inband network is on `10.141.0.0/22`, as follows:
 
 -  `10.141.0.1`: Firewall gateway
 -  `10.141.0.250`: Kubernetes API virtual IP

@@ -49,6 +49,10 @@ nav:
       - 'Blog': 'https://lambdalabs.com/blog'
       - 'YouTube': 'https://www.youtube.com/c/LambdaLabs'
       - 'Main site': 'https://lambdalabs.com/'
+      - 'Tags index': 'tags.md'
+    - We welcome your feedback!:
+      # URL needs to change post migration
+      - 'File an issue': 'https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/issues/new/choose'
   - Private Cloud:
     - private-cloud/index.md
     - Managed Kubernetes:
@@ -59,6 +63,10 @@ nav:
       - 'Blog': 'https://lambdalabs.com/blog'
       - 'YouTube': 'https://www.youtube.com/c/LambdaLabs'
       - 'Main site': 'https://lambdalabs.com/'
+      - 'Tags index': 'tags.md'
+    - We welcome your feedback!:
+      # URL needs to change post migration
+      - 'File an issue': 'https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/issues/new/choose'
   - Hardware:
       - hardware/index.md
       - Servers:
@@ -73,6 +81,10 @@ nav:
         - 'Blog': 'https://lambdalabs.com/blog'
         - 'YouTube': 'https://www.youtube.com/c/LambdaLabs'
         - 'Main site': 'https://lambdalabs.com/'
+        - 'Tags index': 'tags.md'
+      - We welcome your feedback!:
+        # URL needs to change post migration
+        - 'File an issue': 'https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/issues/new/choose'
   - Education:
     - education/index.md
     - Generative AI (GAI):
@@ -87,11 +99,15 @@ nav:
       - education/scheduling-and-orchestration/skypilot-deploy-kubernetes.md
     - Basic Linux usage and system administration:
       - education/linux-usage/virtual-environments-containers.md
-    - Additional resources:
+    - Additional resources: 
       - 'Forum': 'https://deeptalk.lambdalabs.com/'
       - 'Blog': 'https://lambdalabs.com/blog'
       - 'YouTube': 'https://www.youtube.com/c/LambdaLabs'
       - 'Main site': 'https://lambdalabs.com/'
+      - 'Tags index': 'tags.md'
+    - We welcome your feedback!:
+      # URL needs to change post migration
+      - 'File an issue': 'https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/issues/new/choose'
 
 markdown_extensions:
   - admonition

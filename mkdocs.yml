@@ -106,6 +106,7 @@ plugins:
       skip_classes:
         - skip-lightbox
   - include-markdown
+  - macros
   - search
   - social
   - redirects:
@@ -130,6 +131,8 @@ extra:
       link: https://x.com/LambdaAPI
     - icon: fontawesome/brands/linkedin-in
       link: https://www.linkedin.com/company/lambda-labs
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/c/LambdaLabs
   analytics:
     provider: google
     property: G-43EZT1FM6Q

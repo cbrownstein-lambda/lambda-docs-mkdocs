@@ -5,6 +5,27 @@ hide:
 
 # Introduction
 
+{{ config.nav }}
+
+{% for item in config.nav %}
+  {% if 'Education' in item %}
+    {{ item }}
+  {% endif %}
+{% endfor %}
+{#
+    {% for section in item.children %}
+      {% if not section.is_page %}
+
+## {{ section.title }}
+
+{% for page in section.children %}
+- [{{ get_title_by_url("../" + page.url, navigation.pages) }}](../{{ page.url }}){% endfor %}
+{{ page.file }}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}#}
+
 ## Generative AI (GAI)
 
 - [Serve the FLUX.1 prompt-to-image models using Lambda Cloud on-demand

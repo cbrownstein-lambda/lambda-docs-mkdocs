@@ -18,6 +18,6 @@ Lambda Public Cloud lets you launch individual virtual machines or clusters and 
 
     Launch clusters of GPU instances consisting of 16 to 512 NVIDIA H100 SXM Tensor Core GPUs.
 
-    [:octicons-arrow-right-24: Introduction](public-cloud/1-click-clusters/index.md)
+    [:octicons-arrow-right-24: Introduction](1-click-clusters/index.md)
 
 </div>

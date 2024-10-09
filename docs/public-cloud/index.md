@@ -4,7 +4,7 @@ Lambda Public Cloud lets you launch individual virtual machines or clusters and 
 
 <div class="grid cards" markdown>
 
--   **On Demand Cloud**
+-   :lambda-odc-icon:{ .lg .middle .lambda } **On Demand Cloud**
 
     ---
 
@@ -12,7 +12,7 @@ Lambda Public Cloud lets you launch individual virtual machines or clusters and 
 
     [:octicons-arrow-right-24: Introduction](on-demand/index.md)
 
--   **1-Click Clusters**
+-   :lambda-1cc-icon:{ .lg .middle .lambda } **1-Click Clusters**
 
     ---
 

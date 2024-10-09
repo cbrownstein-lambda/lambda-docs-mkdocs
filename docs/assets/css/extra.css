@@ -33,6 +33,13 @@
         height: 1.2rem;
         margin: .9rem .6rem;
     }
+    @media screen and (min-width: 60em) {
+        .md-search__form:hover {
+            background-color: #00000042;
+            border-radius: .1rem;
+            height: 1.8rem;
+        }
+    }
     .md-nav--primary .md-nav__title {
         background-color: #FFFFFF;
         color: #000000;
@@ -58,12 +65,19 @@
 
 [data-md-color-scheme="slate"] {
     --md-admonition-fg-color: #FFFFFF;
+    --md-admonition-note-border-color: #0489D1;
+    --md-admonition-note-title-bg-color: #0489D14f;
+    --md-admonition-warning-border-color: #E48603;
+    --md-admonition-warning-title-bg-color: #e486034f;
+    --md-admonition-tip-border-color: #04B9A8;
+    --md-admonition-tip-title-bg-color: #04B9A84f;
     --md-default-bg-color: #000000;
     --md-default-fg-color: #FFFFFF;
     --md-default-fg-color--light: #FFFFFF;
     --md-default-fg-color--lightest: #FFFFFF;
     --md-primary-fg-color: #825DFF;
     --md-typeset-color: #FFFFFF;
+    --md-typeset-table-color: #ffffffb8;
 
     .md-header {
         background-color: hsla(var(--md-hue),15%,8%,1);
@@ -86,6 +100,9 @@
     @media screen and (min-width: 60em) {
         .md-search__form {
             background-color: #ffffff1f;
+        }
+        .md-nav--secondary .md-nav__title {
+            box-shadow: none;
         }
     }
     [data-md-toggle=search]:checked~.md-header .md-search__form {
@@ -127,7 +144,7 @@
 .md-typeset .admonition.note > .admonition-title:before {
     background-color: var(--md-admonition-note-border-color);
     -webkit-mask-image: var(--md-admonition-icon--note);
-    mask-image: var(--md-admonition-icon--note)
+    mask-image: var(--md-admonition-icon--note);
 }
 
 /* Warning */
@@ -143,7 +160,7 @@
 .md-typeset .admonition.warning > .admonition-title:before {
     background-color: var(--md-admonition-warning-border-color);
     -webkit-mask-image: var(--md-admonition-icon--warning);
-    mask-image: var(--md-admonition-icon--warning)
+    mask-image: var(--md-admonition-icon--warning);
 }
 
 /* Tip */
@@ -159,7 +176,7 @@
 .md-typeset .admonition.tip > .admonition-title:before {
     background-color: var(--md-admonition-tip-border-color);
     -webkit-mask-image: var(--md-admonition-icon--tip);
-    mask-image: var(--md-admonition-icon--tip)
+    mask-image: var(--md-admonition-icon--tip);
 }
 
 .external::after {
@@ -191,6 +208,6 @@
 }
 
 /* Fix icon autofills */
-.md-typeset .emojione svg,.md-typeset .gemoji svg,.md-typeset .twemoji svg {
-    fill: none;
+.no-fill svg {
+    fill: none !important;
 }

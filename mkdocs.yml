@@ -44,14 +44,17 @@ nav:
       - public-cloud/1-click-clusters/getting-started.md
       - public-cloud/1-click-clusters/serving-llama-3_1-405b.md
       - public-cloud/1-click-clusters/security-posture.md
-    - Additional resources: 
+    - Additional resources:
       - 'Forum': 'https://deeptalk.lambdalabs.com/'
       - 'Blog': 'https://lambdalabs.com/blog'
       - 'YouTube': 'https://www.youtube.com/c/LambdaLabs'
       - 'Main site': 'https://lambdalabs.com/'
   - Private Cloud:
     - private-cloud/index.md
-    - Additional resources: 
+    - Managed Kubernetes:
+      - private-cloud/managed-kubernetes/index.md
+      - private-cloud/managed-kubernetes/getting-started.md
+    - Additional resources:
       - 'Forum': 'https://deeptalk.lambdalabs.com/'
       - 'Blog': 'https://lambdalabs.com/blog'
       - 'YouTube': 'https://www.youtube.com/c/LambdaLabs'
@@ -65,7 +68,7 @@ nav:
       - Workstations:
           - hardware/workstations/getting-started.md
           - hardware/workstations/troubleshooting.md
-      - Additional resources: 
+      - Additional resources:
         - 'Forum': 'https://deeptalk.lambdalabs.com/'
         - 'Blog': 'https://lambdalabs.com/blog'
         - 'YouTube': 'https://www.youtube.com/c/LambdaLabs'
@@ -84,7 +87,7 @@ nav:
       - education/scheduling-and-orchestration/skypilot-deploy-kubernetes.md
     - Basic Linux usage and system administration:
       - education/linux-usage/virtual-environments-containers.md
-    - Additional resources: 
+    - Additional resources:
       - 'Forum': 'https://deeptalk.lambdalabs.com/'
       - 'Blog': 'https://lambdalabs.com/blog'
       - 'YouTube': 'https://www.youtube.com/c/LambdaLabs'

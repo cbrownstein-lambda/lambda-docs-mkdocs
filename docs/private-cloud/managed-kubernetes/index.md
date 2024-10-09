@@ -12,14 +12,14 @@ your cluster's underlying environment, and you interact with the cluster through
 a browser-based Kubernetes administration UI and the Kubernetes API.
 
 This document outlines the standard configuration for a Managed Kubernetes
-cluster in Lambda's Private Cloud.
+cluster in Lambda Private Cloud.
 
 ## Hardware
 
-Lambda Private Cloud provides dedicated clusters that are isolated from other
-clusters. The hardware details for your specific cluster depend on what you
-chose when reserving your cluster. Each cluster includes at least three control
-(CPU) nodes for cluster administration and job scheduling.
+Lambda Private Cloud provides single-tenant clusters that are isolated from
+other clusters. The hardware details for your specific cluster depend on what
+you chose when reserving your cluster. Each cluster includes at least three
+control (CPU) nodes for cluster administration and job scheduling.
 
 ## Software
 
@@ -38,8 +38,8 @@ Kubernetes Engine 2 (RKE2).
 
 The Rancher dashboard serves as the main UI for your Managed Kubernetes cluster.
 After you set up your SSL VPN connection, you can access your dashboard at
-[https://10.141.3.1](https://10.141.3.1){ .external target="_blank" }. The login details
-for your dashboard can be found in your 1Password vault.
+[https://10.141.3.1](https://10.141.3.1){ .external target="_blank" }. The
+login details for your dashboard can be found in your 1Password vault.
 
 For details on setting up your SSL VPN connection, see
 [Getting started &gt; Establishing a secure connection to your cluster](getting-started#establishing-a-secure-connection).
@@ -78,7 +78,7 @@ Each type is mapped to a corresponding storage class in Kubernetes:
 Longhorn is configured by default to pool the local drives on your control
 nodes, and is best used for everyday storage needs such as shared home
 directories, configuration files, code checkouts, metrics output, and so on. It
-provides fault-tolerance through replication and is available as single or
+provides fault tolerance through replication and is available as single or
 shared PVCs.
 
 !!! note
@@ -91,7 +91,7 @@ shared PVCs.
 
 Intelliflash is a dedicated NAS device with its own high availability (HA),
 replication, and deduplication system. It is capable of much higher performance
-and is uplinked into the Inband network via 4x100Gb links. It is also available
+and is uplinked into the inband network via 4x100Gb links. It is also available
 as single or shared PVCs.
 
 We recommend the Intelliflash as your primary workload storage if you require
@@ -107,8 +107,8 @@ attach to only that volume.
 
 This direct-attached storage can be used for high-speed scratch space during
 jobs. Alternatively, if you construct your jobs to do their own data sharding,
-you can duplicate your whole data set to each of the pods' local volumes and
-maximize performance that way.
+you can maximize performance by duplicating your whole dataset to each pod's
+local volume.
 
 ## Networking
 
@@ -148,17 +148,16 @@ The container network is on `10.42.0.0/16`, and the service network is on
 
 ### Load balancer services
 
-Part of your Inband network has been reserved for use as an IPAM-managed pool of
-LoadBalancer service IPs. The first three of these IPs are allocated to the
-following services:
+The Managed Kubernetes system reserves part of your inband network
+for use as an IPAM-managed pool of LoadBalancer service IPs. The first three
+of these IPs are allocated to the following services:
 
 -  `10.141.3.0`: Ingress controller
 -  `https://10.141.3.1:443`: Rancher dashboard
 -  `http://10.141.3.2:80`: Hubble UI
 
-The remaining IPs from `10.141.3.4-254` are available in the pool for assignment
-to your services, and will automatically be allocated by selecting the
-LoadBalancer type.
+When you apply a new LoadBalancer service, the system automatically
+allocates one of the remaining IPs (`10.141.3.4-254`) to the service.
 
 ## Next steps
 

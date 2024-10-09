@@ -35,7 +35,7 @@ cluster from your local computer:
     forticlient gui
     ```
 
-1.  In the resulting window, in the left nav, click **Remote access**.
+1.  In the left nav of the resulting window, click **Remote access**.
 1.  Click **Configure VPN**.
 1.  On the New VPN Connection page, fill out the configuration form:
     -   *Connection name:* `Lambda Cluster`
@@ -71,11 +71,10 @@ of the Rancher documentation.
 
 ### Viewing your cluster
 
-When you log into the Rancher dashboard, you arrive at a page listing all clusters. In the cluster list, click **local**, which should be the only cluster in the list. You can also click the bull icon in the left nav to access the cluster.
-
-### Managing your nodes
-
-To see an overview of your nodes, click **Cluster** in the left nav of your cluster dashboard and then click **Nodes**. The Nodes page appears.
+When you log into the Rancher dashboard, you arrive at a page listing all
+clusters. In the cluster list, click **local**, which should be the only
+cluster in the list. You can also click the bull icon in the left nav to
+access the cluster.
 
 ### Managing your nodes
 
@@ -95,7 +94,7 @@ running on your node.
 Rancher uses the concept of a *project* to tie users to clusters and
 namespaces. When you create a new Private Cloud cluster with Managed
 Kubernetes, Lambda automatically creates a project and namespace for
-you that your user is the owner of. You can control all of the resources
+you that your user owns. You can control all of the resources
 within this project, including its namespaces.
 
 To view your projects and namespaces, click **Cluster** in the left nav of
@@ -113,27 +112,45 @@ creation of new namespaces, you can use the
 
 #### Filtering your resources by namespace
 
-The top bar of the dashboard provides a dropdown filter for projects/namespaces, shown below. You can select multiple items from the list or type to filter the entries then select the appropriate match. The filter applies to every view in the UI.
+The top bar of the dashboard provides a dropdown filter for projects/namespaces,
+shown below. You can select multiple items from the list or type to filter
+the entries then select the appropriate match. The filter applies to every view
+in the UI.
 
 ![Projects/Namespaces filter](../../assets/images/private-cloud/private-cloud-mk8s-namespaces-filter.png)
 
 ### Managing your workloads
 
-You interact with your workloads from the Workloads page and its subpages. To access the Workload page, click **Workloads** in the left nav of your cluster dashboard.
+You interact with your workloads from the Workloads page and its subpages. To
+access the Workload page, click **Workloads** in the left nav of your cluster
+dashboard.
 
 ![Workloads page](../../assets/images/private-cloud/private-cloud-mk8s-rancher-workloads.png)
 
-When you click **Workloads**, the left nav expands to reveal categories for different resource types. The main Workloads dashboard shows all resources and their resource types. You can switch between viewing the table as folders per namespace or viewing it as a flat list by clicking the buttons to the right of the **Filter** input above the table. You can also filter the view by entering text into the **Filter** input.
+When you click **Workloads**, the left nav expands to reveal categories for
+different resource types. The main Workloads dashboard shows all resources
+and their resource types. You can switch between viewing the table as folders
+per namespace or viewing it as a flat list by clicking the buttons to the
+right of the **Filter** input above the table. You can also filter the view
+by entering text into the **Filter** input.
 
 ### Managing your services
 
-To access services, click **Service Discovery** in the left nav of your cluster dashboard.
+To access services, click **Service Discovery** in the left nav of your cluster
+dashboard.
 
-You might find it useful to filter by namespace here, as described in [Managing your project resources ](#managing-your-project-resources)above. For example, in the screenshot below, the Services table has been filtered by the namespace **kuberay**.  Looking at the namespace, you can see an internal service of type ClusterIP and a LoadBalanced external service. The **Target** column contains some details about exposed ports and their names, if set.
+You might find it useful to filter by namespace here, as described in
+[Managing your project resources](#managing-your-project-resources) above.
+For example, in the screenshot below, the Services table has been filtered by
+the namespace **kuberay**.  Looking at the namespace, you can see an internal
+service of type `ClusterIP` and an external service of type `LoadBalancer`. The
+**Target** column contains some details about exposed ports and their names,
+if set.
 
 ![Services page](../../assets/images/private-cloud/private-cloud-mk8s-rancher-services.png)
 
-In addition, you can view any Ingresses that have been defined by clicking **Service Discovery > Ingresses** in the left nav.
+In addition, you can view any ingresses that have been defined by clicking
+**Service Discovery > Ingresses** in the left nav.
 
 ### Monitoring your cluster
 
@@ -160,8 +177,8 @@ You arrive at a list of available dashboards, as shown in the image below:
 You can view custom resources by clicking **More Resources** in your
 cluster's left navigation panel. Your custom resources are grouped by the
 custom resource definition (CRD) for which they're defined. For example,
-in the screenshot below, the **ray.io** CRD group is where the
-**RayCluster** is defined:
+in the screenshot below, the **RayCluster** is defined in the **ray.io** CRD
+group:
 
 ![ray.io CRD group](../../assets/images/private-cloud/private-cloud-mk8s-ray-crd.png)
 

@@ -10,7 +10,7 @@ Lambda Public Cloud lets you launch individual virtual machines or clusters and 
 
     Instantly launch a Linux-based, GPU-backed virtual machine instance using a variety of NVIDIA chip configurations.
 
-    [:octicons-arrow-right-24: Introduction](public-cloud/on-demand/index.md)
+    [:octicons-arrow-right-24: Introduction](on-demand/index.md)
 
 -   **1-Click Clusters**
 

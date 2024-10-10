@@ -39,7 +39,7 @@ To add another SSH key:
 
 1. [From the dashboard](https://cloud.lambdalabs.com/one-click-clusters/running), save the names of your 1CC nodes into a text file. You can do this by copy and pasting from the dashboard. The file should contain the names of your nodes, each on a separate line, and should look like:
 
-    ```
+    ```{ .text .no-copy }
     us-east-2-1cc-node-1
     us-east-2-1cc-node-2
     us-east-2-1cc-node-3

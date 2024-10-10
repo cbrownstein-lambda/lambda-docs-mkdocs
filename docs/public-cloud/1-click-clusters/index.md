@@ -6,7 +6,7 @@ tags:
 
 # Introduction
 
-1-Click Clusters (1CC) are clusters of GPU and CPU instances in [Lambda On-Demand Cloud](../on-demand/index) consisting of 16 to 512 NVIDIA H100 SXM Tensor Core GPUs. Compute (GPU) nodes are interconnected over an NVIDIA Quantum-2 400Gb/s InfiniBand non-blocking fabric in a rail-optimized topology, providing peer-to-peer GPUDirect RDMA communication of up to 3200Gb/s. All nodes are connected via 2x100Gb/s Ethernet for IP communication and are connected to the Internet via 2x100Gb/s Direct Internet Access (DIA) circuits.
+1-Click Clusters (1CC) are clusters of GPU and CPU instances consisting of 16 to 512 NVIDIA H100 SXM Tensor Core GPUs. Compute (GPU) nodes are interconnected over an NVIDIA Quantum-2 400Gb/s InfiniBand non-blocking fabric in a rail-optimized topology, providing peer-to-peer GPUDirect RDMA communication of up to 3200Gb/s. All nodes are connected via 2x100Gb/s Ethernet for IP communication and are connected to the Internet via 2x100Gb/s Direct Internet Access (DIA) circuits.
 
 Each 1CC includes 3x CPU management (head) nodes for use as jump boxes (bastion hosts) and for cluster administration and job scheduling. These management nodes are assigned public IP addresses and are directly accessible over the Internet via SSH.
 

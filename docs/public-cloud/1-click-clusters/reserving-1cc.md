@@ -8,19 +8,19 @@ tags:
 
 To reserve a 1CC:
 
-* [Log into](https://cloud.lambdalabs.com/cloud/login) your Lambda On-Demand Cloud account. If you don’t already have an account, you can [create an account for free](https://cloud.lambdalabs.com/sign-up).  
-* If you haven’t already, [generate or add an SSH key](../on-demand/dashboard#add-generate-and-delete-ssh-keys) for your 1CC.  
-* Navigate to the [1-Click Clusters page](https://cloud.lambdalabs.com/one-click-clusters/running) of the Lambda Cloud dashboard and click **Reserve 1-Click Cluster**.  
-* Use the 1CC reservation wizard to reserve your cluster.  
-  * *Type/Duration:* Enter the duration in weeks that you want to reserve the cluster, and then select the cluster type you want to launch.  
-  * *Region:* Select the region in which you want to launch your cluster.  
-  * *Filesystem:* Optionally, select an existing file system that you want to attach to the cluster, or click **Create a new filesystem** to create a new file system. If you don’t want to attach an existing file system or create a new file system, click **Don’t attach a filesystem (an empty one will be created)**.  
-  * *SSH Key:* Select the SSH key that you want to use to access your cluster, then click **Next**.  
-  * *Cluster name:* Enter a name for your cluster, then click **Continue to Payment**. You’re presented with a billing summary and the billing information you have saved to your Lambda On-Demand Cloud account.  
-* If needed, update your billing information and change the email address where you’d like the invoice for your 1CC reservation to be sent.  
-* Only the invoice will be sent to this email address. All notifications and other information regarding your 1CC will be sent to the email address associated with your account.  
-* Review the listed policies and terms of service. If you agree to the policies and terms of service, click the checkbox under **Terms and Conditions**.  
-* Click **Submit reservation request**. Within a few minutes, you’ll receive an email confirming your 1CC reservation request.
+1. [Log into](https://cloud.lambdalabs.com/cloud/login) your Lambda On-Demand Cloud account. If you don’t already have an account, you can [create an account for free](https://cloud.lambdalabs.com/sign-up).  
+1. If you haven’t already, [generate or add an SSH key](../on-demand/dashboard#add-generate-and-delete-ssh-keys) for your 1CC.  
+1. Navigate to the [1-Click Clusters page](https://cloud.lambdalabs.com/one-click-clusters/running) of the Lambda Cloud dashboard and click **Reserve 1-Click Cluster**.  
+1. Use the 1CC reservation wizard to reserve your cluster.  
+   * *Type/Duration:* Enter the duration in weeks that you want to reserve the cluster, and then select the cluster type you want to launch.  
+   * *Region:* Select the region in which you want to launch your cluster.  
+   * * *Filesystem:* Optionally, select an existing file system that you want to attach to the cluster, or click **Create a new  filesystem** to create a new file system. If you don’t want to attach an existing file system or create a new file system, click **Don’t attach a filesystem (an empty one will be created)**.  
+   * *SSH Key:* Select the SSH key that you want to use to access your cluster, then click **Next**.  
+   * *Cluster name:* Enter a name for your cluster, then click **Continue to Payment**. You’re presented with a billing summary and the billing information you have saved to your Lambda On-Demand Cloud account.  
+1. If needed, update your billing information and change the email address where you’d like the invoice for your 1CC reservation to be sent.  
+1. Only the invoice will be sent to this email address. All notifications and other information regarding your 1CC will be sent to the email address associated with your account.  
+1. Review the listed policies and terms of service. If you agree to the policies and terms of service, click the checkbox under **Terms and Conditions**.  
+1. Click **Submit reservation request**. Within a few minutes, you’ll receive an email confirming your 1CC reservation request.
 
 You can check the status of your 1CC reservation request or cancel your request by visiting the [Instances page](https://cloud.lambdalabs.com/instances) in the Lambda Cloud dashboard.
 

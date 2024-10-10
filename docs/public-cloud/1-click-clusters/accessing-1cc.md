@@ -61,9 +61,9 @@ To add another SSH key:
     *  Replace `CLUSTER-SSH-CONFIG` with the path to your cluster SSH config. The path should look like `~/.ssh/config.d/config.us-east-2-1cc`.
     *  Replace `PUBLIC-KEY` with the public key you want to add to your 1CC nodes. Public keys look like:  
 
-       ```{ .yaml .no-copy }
-       ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK5HIO+OQSyFjz0clkvg+48YAihYMo5J7AGKiq+9Alg8 user@hostname
-       ```
+        ```{ .yaml .no-copy }
+        ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK5HIO+OQSyFjz0clkvg+48YAihYMo5J7AGKiq+9Alg8 user@hostname
+        ```
 
     *  **Make sure to keep the single quotes (**`' '`**).**
     *  Replace `LIST-OF-NODES` with the name of the file containing the names of your nodes.

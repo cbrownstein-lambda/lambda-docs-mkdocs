@@ -6,6 +6,12 @@
     color: #000000;
 }
 
+.nav-footer-divider {
+    margin: 1rem -0.25em 1rem 0;
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
 [data-md-color-scheme="default"] {
     --md-admonition-fg-color: #000000;
     --md-admonition-note-border-color: #0489D1;
@@ -126,6 +132,10 @@
     .md-typeset .md-tag {
         background-color: #FFFFFF;
         color: #000000;
+    }
+
+    .nav-footer-divider {
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
     }
 }
 

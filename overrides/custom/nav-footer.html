@@ -1,28 +1,57 @@
 {% set custom_list %}
-  {% include 'custom/additional-resources.md' %}
+  {% include 'custom/nav-footer.md' %}
 {% endset %}
 
 {% set lines = custom_list.strip().splitlines() %}
-{% set list_title = lines[0] %}
+{% set foot_ns = namespace(test=[], links=[], section_title='', is_first_section=true) %}
 
+{% for line in lines %}
+  {% if line.strip() | length == 0 %}
+  {% elif line.startswith('-') and not foot_ns.is_first_section %}
+    {% set _ = foot_ns.test.append({'title': foot_ns.section_title, 'links': foot_ns.links}) %}
+    {% set foot_ns.section_title = line.replace('-', '').strip() %}
+    {% set foot_ns.links = [] %}
+  {% elif line.startswith('-') and foot_ns.is_first_section %}
+    {% set foot_ns.section_title = line.replace('-', '').strip() %}
+    {% set foot_ns.is_first_section = false %}
+  {% else %}
+    {% set cleaned_link = line.replace('- ', '').strip() %}
+    {% set _ = foot_ns.links.append(cleaned_link) %}
+  {% endif %}
+{% endfor %}
+{% set _ = foot_ns.test.append({'title': foot_ns.section_title, 'links': foot_ns.links}) %}
+
+{% for section in foot_ns.test %}
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
   <label class="md-nav__link" tabindex="">
-    <span class="md-ellipsis">{{ list_title | safe }}</span>
+    <span class="md-ellipsis">{{ section.title | safe }}</span>
     <span class="md-nav__icon md-icon"></span>
   </label>
   <nav class="md-nav" data-md-level="2">
     <label class="md-nav__title">
       <span class="md-nav__icon md-icon"></span>
-      {{ list_title | safe }}
+      {{ section.title| safe }}
     </label>
     <ul class="md-nav__list">
-      {% for item in lines[1:] %}
-        {% set parts = item.split(': ') %}
-        {% if parts|length == 2 %}
-          {% set page_title = parts[0].strip().replace('-', '').replace('"', '').replace('\'', '') %}
+      {% for link in section.links %}
+        {% set target = '' %}
+        {% set external = '' %}
+        {% if '* ' in link %}
+          {% set target = 'target="_blank"' %}
+          {% set external = 'external' %}
+        {% endif %}
+        {% set parts = link.split(': ') %}
+        {% if parts | length == 2 %}
+          {% set page_title = parts[0].strip().replace('- ', '').replace('* ', '').replace('"', '').replace('\'', '') %}
           {% set page_link = parts[1].strip().strip('"').strip('\'') %}
+          {% if page_link.endswith('.md') %}
+            {% set page_link = page_link[:-3] %}
+          {% endif %}
+          {% if '/' not in page_link %}
+            {% set page_link = config.site_url ~ page_link %}
+          {% endif %}
           <li class="md-nav__item">
-            <a href="{{ page_link }}" class="md-nav__link">
+            <a href="{{ page_link }}" class="md-nav__link {{ external }}" {{ target }}>
               <span class="md-ellipsis">{{ page_title }}</span>
             </a>
           </li>
@@ -31,3 +60,4 @@
     </ul>
   </nav>
 </li>
+{% endfor %}

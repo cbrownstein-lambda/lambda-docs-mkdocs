@@ -51,7 +51,7 @@ To add another SSH key:
 
 1. Add the additional SSH key to your 1CC by running:
 
-    ```
+    ```bash
     while read node; \
     do ssh -n -F CLUSTER-SSH-CONFIG "$node" "echo 'PUBLIC-KEY' >> ~/.ssh/authorized_keys" && echo "Key added to $node"; \
     done < LIST-OF-NODES

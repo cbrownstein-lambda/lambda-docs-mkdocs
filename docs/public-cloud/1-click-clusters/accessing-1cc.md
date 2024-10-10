@@ -11,7 +11,7 @@ If you want to access your management nodes through SSH, make sure your [Firewal
 
 To access your management nodes and compute nodes via SSH:
 
-1. [Log into](https://cloud.lambdalabs.com/cloud/login) your Lambda On-Demand Cloud account. Then, click **1-Click Clusters** in the left sidebar of the dashboard.
+1. [Log into](https://cloud.lambdalabs.com/cloud/login){ .external target="_blank" } your Lambda On-Demand Cloud account. Then, click **1-Click Clusters** in the left sidebar of the dashboard.
 
 1.  At the top of the table of your 1CC’s nodes, next to **SSH LOGIN**, click **SETUP**.
 
@@ -39,7 +39,7 @@ To add another SSH key:
 
 1. [From the dashboard](https://cloud.lambdalabs.com/one-click-clusters/running), save the names of your 1CC nodes into a text file. You can do this by copy and pasting from the dashboard. The file should contain the names of your nodes, each on a separate line, and should look like:
 
-    ```
+    ```{ .text .no-copy }
     us-east-2-1cc-node-1
     us-east-2-1cc-node-2
     us-east-2-1cc-node-3
@@ -51,7 +51,7 @@ To add another SSH key:
 
 1. Add the additional SSH key to your 1CC by running:
 
-    ```
+    ```bash
     while read node; \
     do ssh -n -F CLUSTER-SSH-CONFIG "$node" "echo 'PUBLIC-KEY' >> ~/.ssh/authorized_keys" && echo "Key added to $node"; \
     done < LIST-OF-NODES

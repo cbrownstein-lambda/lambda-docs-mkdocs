@@ -11,7 +11,7 @@ If you want to access your management nodes through SSH, make sure your [Firewal
 
 To access your management nodes and compute nodes via SSH:
 
-1. [Log into](https://cloud.lambdalabs.com/cloud/login) your Lambda On-Demand Cloud account. Then, click **1-Click Clusters** in the left sidebar of the dashboard.
+1. [Log into](https://cloud.lambdalabs.com/cloud/login){ .external target="_blank" } your Lambda On-Demand Cloud account. Then, click **1-Click Clusters** in the left sidebar of the dashboard.
 
 1.  At the top of the table of your 1CC’s nodes, next to **SSH LOGIN**, click **SETUP**.
 

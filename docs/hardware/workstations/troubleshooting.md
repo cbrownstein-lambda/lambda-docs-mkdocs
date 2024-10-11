@@ -21,10 +21,10 @@ Your system has a WRX80 motherboard if the command returns: `Product Name: Pro W
 
 The best solution at this time is to switch to a non-4K monitor, like 1080p.
 
-## No audio from aux ports on Vector workstations
+## No audio from aux ports
 
 ### Known issue with Ubuntu 22.02
-A bug in Ubuntu 22.02 can cause the front aux port to malfunction on some Vector workstations. This issue is resolved in Ubuntu 24.04; however, Lambda Stack does not yet support this version. Once Lambda Stack moves to Ubuntu 24.04, this issue should be resolved.
+A bug in Ubuntu 22.02 can cause the front aux port to malfunction on some Vector desktops and workstations. This issue is resolved in Ubuntu 24.04; however, Lambda Stack does not yet support this version. Once Lambda Stack moves to Ubuntu 24.04, this issue should be resolved.
 
 ### Test the rear audio port
 If your machine does not recognize audio devices connected to the front aux port, try using the rear audio port, which is lime green in color.
@@ -53,6 +53,12 @@ After reinstalling the audio packages, test the aux ports to see if the issue is
 
 #### Check the motherboard HD audio cable connection
 Reseat the HD audio cable connected to the port on the bottom-left of the motherboard and make sure the cable is securely connected.
+
+<figure markdown="span">
+  ![Vector motherboard](../../assets/images/front-audio-vector-mobo.png)
+  <figcaption>Vector and Vector One motherboard front audio port</figcaption>
+</figure>
+
 
 # Contact Lambda
 If you can’t discover the cause for the issue you are experiencing, contact [Lambda Support](https://support.lambdalabs.com/hc/en-us/requests/new?_gl=1*14mhprh*_gcl_aw*R0NMLjE3MjUwNTY3OTYuQ2owS0NRancyOFcyQmhDN0FSSXNBUGVycmNMRnFXN0xyV2RBNlZBV0dzWXR0RTRVZjg1a0Y0YTFUUllOVUI3Zy1DTGtVZEFwclJ1YlZBTWFBdGhuRUFMd193Y0I.*_gcl_au*MTUxMDIxMzUyNS4xNzI2NzgwODUx*_ga*ODIxNzg0NzQ0LjE2OTIzMDA3ODQ.*_ga_43EZT1FM6Q*MTcyODY2NjU3NC44OC4xLjE3Mjg2NjY1ODQuNTAuMC4w) and provide us with your Lambda bug report.

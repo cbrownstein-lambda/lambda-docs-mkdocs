@@ -7,7 +7,7 @@ tags:
 
 # Troubleshooting Workstations and Desktops
 
-## I can't access the BIOS on a Vector desktop with a WRX80 motherboard when it's connected to a 4K monitor.
+## Unable to access the BIOS on a Vector desktop with a WRX80 motherboard when it's connected to a 4K monitor.
 
 If you have a Vector desktop with a WRX80 motherboard and a 4K monitor, when the system boots, the monitor should display the ASUS logo screen; however, it does not show the prompts to access the BIOS. If you press ++f2++ to access the BIOS, the monitor continues to not display the BIOS prompts until after the system restarts. The system boots normally if you don't interact with it, but the video only displays when the Ubuntu OS boots successfully.
 

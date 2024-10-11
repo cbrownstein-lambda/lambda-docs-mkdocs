@@ -52,7 +52,9 @@ sudo apt-get -y install --reinstall gstreamer1.0-pulseaudio:amd64 libpulse-mainl
 After reinstalling the audio packages, test the aux ports to see if the issue is resolved.
 
 #### Check the motherboard HD audio cable connection
-Reseat the HD audio cable connected to the port on the bottom-left of the motherboard and make sure the cable is securely connected.
+Reseat the HD audio cable connected to the front audio port on the bottom-left of the motherboard and make sure the cable is securely connected.
+
+Refer to the image below for the loaction of the HD audio cable port on your motherboard:
 
 <figure markdown="span">
   ![Vector motherboard](../../assets/images/front-audio-vector-mobo.png)

@@ -51,5 +51,4 @@ After reinstalling the audio packages, test the aux ports to see if the issue is
 Reseat the HD audio cable connected to the port on the bottom-left of the motherboard and make sure the cable is securely connected.
 
 # Contact Lambda
-
 If you can’t discover the cause for the issue you are experiencing, contact [Lambda Support](https://support.lambdalabs.com/hc/en-us/requests/new?_gl=1*14mhprh*_gcl_aw*R0NMLjE3MjUwNTY3OTYuQ2owS0NRancyOFcyQmhDN0FSSXNBUGVycmNMRnFXN0xyV2RBNlZBV0dzWXR0RTRVZjg1a0Y0YTFUUllOVUI3Zy1DTGtVZEFwclJ1YlZBTWFBdGhuRUFMd193Y0I.*_gcl_au*MTUxMDIxMzUyNS4xNzI2NzgwODUx*_ga*ODIxNzg0NzQ0LjE2OTIzMDA3ODQ.*_ga_43EZT1FM6Q*MTcyODY2NjU3NC44OC4xLjE3Mjg2NjY1ODQuNTAuMC4w) and provide us with your Lambda bug report.

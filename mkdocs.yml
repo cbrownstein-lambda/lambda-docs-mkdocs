@@ -70,9 +70,7 @@ nav:
   - Hardware:
       - hardware/index.md
       - Servers:
-        - Unboxing and Setup:
-          - hardware/servers/unboxing-and-setup/power-and-network-cables.md
-          - hardware/servers/unboxing-and-setup/using-bmc-ipmi.md
+          - hardware/servers/getting-started.md
       - Workstations:
           - hardware/workstations/getting-started.md
           - hardware/workstations/troubleshooting.md

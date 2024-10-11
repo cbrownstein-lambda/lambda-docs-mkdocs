@@ -247,7 +247,7 @@ In this tutorial, you'll:
                 pathType: Prefix
                 backend:
                   service:
-                    name:  openwebui
+                    name: openwebui
                     port:
                       number: 80
     EOF

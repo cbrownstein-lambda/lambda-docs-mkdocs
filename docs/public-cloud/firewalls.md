@@ -1,4 +1,4 @@
-# Firewall
+# Firewalls
 
 You can restrict incoming traffic to your instances by creating firewall rules
 on the [Firewall page](https://cloud.lambdalabs.com/firewall) in the Lambda

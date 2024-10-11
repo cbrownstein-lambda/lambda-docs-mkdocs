@@ -124,7 +124,7 @@ To install another version of Python alongside the preinstalled version:
       sudo apt -y update && sudo apt -y install pythonVERSION-full
       ```
 
-      Replace **VERSION** with the Python version you want to install, for
+      Replace `VERSION` with the Python version you want to install, for
       example, `3.13`. Make sure `-full` is appended to the Python version,
       otherwise, you won't have the `venv` module needed to create Python
       virtual environments.
@@ -141,8 +141,8 @@ To install another version of Python alongside the preinstalled version:
       pythonVERSION -m venv VENV-NAME
       ```
 
-      Replace **VERSION** with the Python version you installed in the previous
-      step. Replace **VENV-NAME** with the name you want to give your virtual
+      Replace `VERSION` with the Python version you installed in the previous
+      step. Replace `VENV-NAME` with the name you want to give your virtual
       environment.
 
 1. Run the following command to activate the virtual environment:
@@ -151,7 +151,7 @@ To install another version of Python alongside the preinstalled version:
       source VENV-NAME/bin/activate
       ```
 
-      Replace **VENV-NAME** with the name you gave your virtual environment.
+      Replace `VENV-NAME` with the name you gave your virtual environment.
 
       As a complete example, if you want to create a virtual environment named
       `my-virtual-environment` using Python version 3.13 (installed in the example
@@ -373,7 +373,7 @@ Next, run:
 nmap -Pn INSTANCE-IP-ADDRESS
 ```
 
-Replace **INSTANCE-IP-ADDRESS** with your instance's IP address, which you can
+Replace `INSTANCE-IP-ADDRESS` with your instance's IP address, which you can
 get from the [Cloud dashboard :octicons-link-external-16:](https://cloud.lambdalabs.com/instances){target="_blank"}.
 
 The command will output, for example:

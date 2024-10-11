@@ -32,7 +32,11 @@ If you still experience audio issues with the rear port, here are some further s
 
 #### Update drivers
 Update your drivers by running the following command in the terminal:
+
+```bash
 sudo apt-get update && sudo apt-get full-upgrade && sudo reboot.
+```
+
 After updating the drivers, test the aux ports again to see if the issue is resolved.
 
 #### Reinstall audio packages

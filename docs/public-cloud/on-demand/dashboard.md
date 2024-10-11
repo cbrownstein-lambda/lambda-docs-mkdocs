@@ -106,7 +106,7 @@ You should now see your persistent storage file system listed in the dashboard.
 
 #### Add or generate an SSH key
 
-To add an SSH key that you already have:
+##### Add an existing SSH key
 
 1.  Click [**SSH keys**
     :octicons-link-external-16:](https://cloud.lambdalabs.com/ssh-keys){target="_blank"}
@@ -117,7 +117,7 @@ To add an SSH key that you already have:
 2. In the text input box, paste your public SSH key. Enter a name for your key,
    then click **Add SSH key**.
 
-To generate a new SSH key:
+##### Generate a new SSH key
 
 Instead of pasting your public SSH key as instructed, above, click **Generate a
 new SSH key**. Type in a name for your key, then click **Create**.

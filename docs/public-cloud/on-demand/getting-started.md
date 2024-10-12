@@ -411,9 +411,9 @@ To close your Lambda GPU Cloud account:
 1. Back up all of your data on your instances as well as in your persistent
    storage file systems.
 
-!!! tip
+      !!! tip
 
-    [You can use rsync to back up your data](#).
+       [You can use rsync to back up your data](#).
 
 2. Terminate all of your instances from the [Cloud dashboard](#) or using the
    [Cloud API](#).

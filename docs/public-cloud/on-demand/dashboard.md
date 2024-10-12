@@ -31,7 +31,7 @@ To launch an instance:
     :octicons-link-external-16:](https://cloud.lambdalabs.com/instances){target="_blank"}
     in the left sidebar of the dashboard.
 
-    Then, click **Launch instance** at the top-right of the dashboard.
+      Then, click **Launch instance** at the top-right of the dashboard.
 
 2.  Click the instance type that you want to launch.
 
@@ -41,17 +41,17 @@ To launch an instance:
     system](#create-and-manage-persistent-storage-file-systems) that you want to
     attach to your instance.
 
-    If you don't want to or can't attach a persistent storage file system to
-    your instance, click **Don’t attach a filesystem**.
+      If you don't want to or can't attach a persistent storage file system to
+      your instance, click **Don’t attach a filesystem**.
 
 5.  Select the [SSH key](#add-generate-and-delete-ssh-keys) that you want to use
     for your instance. Then, click **Launch instance**.
 
-!!! tip
+    !!! tip
 
-    You can [add additional SSH
-    keys](getting-started.md#is-it-possible-to-use-more-than-one-ssh-key) to your instance once
-    your instance has launched.
+        You can [add additional SSH
+        keys](getting-started.md#is-it-possible-to-use-more-than-one-ssh-key) to your instance once
+        your instance has launched.
 
 6.  Review the license agreements and terms of service. If you agree to them,
     click **I agree to the above** to launch your instance.

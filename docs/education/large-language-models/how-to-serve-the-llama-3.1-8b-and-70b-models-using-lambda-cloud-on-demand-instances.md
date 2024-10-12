@@ -1,20 +1,18 @@
 # How to serve the Llama 3.1 8B and 70B models using Lambda Cloud on-demand instances
 
+!!! note
 
+    [**Apply for Cloud Credits and experiment with this tutorial—for free!**](https://lambdalabs.com/vllm-deployment-guide){ .external target="_blank" }
 
-{% hint style="info" %}
-[**Apply for Cloud Credits and experiment with this tutorial—for free!**](https://lambdalabs.com/vllm-deployment-guide)
-{% endhint %}
-
-This tutorial shows you how to use a [Lambda Cloud](https://lambdalabs.com/service/gpu-cloud) 1x or 8x NVIDIA Tensor Core A100 or H100 instance to serve the Llama 3.1 8B and 70B models. You'll serve the models using [vLLM running inside of a Docker container](https://docs.vllm.ai/en/latest/serving/deploying\_with\_docker.html).
+This tutorial shows you how to use a [Lambda Cloud](https://lambdalabs.com/service/gpu-cloud){ .external target="_blank" } 1x or 8x NVIDIA Tensor Core A100 or H100 instance to serve the Llama 3.1 8B and 70B models. You'll serve the models using [vLLM running inside of a Docker container](https://docs.vllm.ai/en/latest/serving/deploying\_with\_docker.html){ .external target="_blank" }.
 
 ## Prerequisites <a href="#start-the-vllm-api-server" id="start-the-vllm-api-server"></a>
 
 This tutorial assumes the following prerequisites:
 
 1. A Lambda Cloud on-demand instance appropriate for the Llama 3.1 model you want to run.
-   * 8B ([**meta-llama/Meta-Llama-3.1-8B**](https://huggingface.co/meta-llama/Meta-Llama-3.1-8B)[**-Instruct**](https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct)) requires a 1x or 8x A100 or H100 instance.
-   * 70B ([**meta-llama/Meta-Llama-3.1-70B-Instruct**](https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct)[)](https://huggingface.co/meta-llama/Meta-Llama-3-70B) requires an 8x A100 or H100 instance.
+   * 8B ([**meta-llama/Meta-Llama-3.1-8B**](https://huggingface.co/meta-llama/Meta-Llama-3.1-8B){ .external target="_blank" }[**-Instruct**](https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct){ .external target="_blank" }) requires a 1x or 8x A100 or H100 instance.
+   * 70B ([**meta-llama/Meta-Llama-3.1-70B-Instruct**](https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct){ .external target="_blank" }[)](https://huggingface.co/meta-llama/Meta-Llama-3-70B) requires an 8x A100 or H100 instance.
 2. A Hugging Face [user account](https://huggingface.co/join).
 3. An approved [Hugging Face user access token](https://huggingface.co/docs/hub/en/security-tokens) that includes repository read permissions for the  model repository you wish to use.
 

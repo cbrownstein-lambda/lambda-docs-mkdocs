@@ -254,32 +254,3 @@ These commands:
       ChatCompletion(id='chat-8eba7fa7e2f7442aafa82a1683bfc77f', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='The 2020 World Series was played at Globe Life Field in Arlington, Texas. This was a neutral site due to COVID-19 restrictions and was also referred to as a "bubble" environment.', role='assistant', function_call=None, tool_calls=[]), stop_reason=None)], created=1721884178, model='/root/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-405B-Instruct/snapshots/e04e3022cdc89bfed0db69f5ac1d249e21ee2d30', object='chat.completion', service_tier=None, system_fingerprint=None, usage=CompletionUsage(completion_tokens=41, prompt_tokens=59, total_tokens=100))
       ```
 
-<!--
-
-First, create a file named `hostfile` on your shared persistent storage file
-by running `touch "${SHARED_DIR}/hostfile`. Add to this file the IP address of
-each of your 1CC worker nodes. Each IP address should be on a new line.
-
-!!! note
-
-    The IP addresses of your worker nodes are on your
-    [Cloud dashboard](https://cloud.lambdalabs.com/one-click-clusters/running).
-
-The file should look like:
-
-```
-172.26.135.252
-172.26.134.16
-172.26.133.73
-```
-
-```bash
-sudo bash "${SHARED_DIR}/run_cluster.sh" \
-    vllm/vllm-openai \
-    "${HEAD_IP}" \
-    --worker \
-    "${HF_HOME}" \
-    --privileged -e NCCL_IB_HCA=^mlx5_0
-```
-
--->

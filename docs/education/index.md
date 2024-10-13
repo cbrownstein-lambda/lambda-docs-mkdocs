@@ -26,4 +26,4 @@ hide:
 
 ## Basic Linux usage and system administration
 
-- [Virtual environments and Docker containers](linux-usage/virtual-environments-containers.md)
+- [Virtual environments and Docker containers](programming/virtual-environments-containers.md)

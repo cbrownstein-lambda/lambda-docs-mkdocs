@@ -77,7 +77,7 @@ Lambda recommends these containers and virtual environments:
 * **Conda**: Conda provides a virtual environment that is isolated from the system it runs on, so you can train your model consistently on any system while avoiding conflicts with the host system.
 * **Python**: Python is a programming language with a virtual environment module, `venv`, that you use to create virtual environments.
 
-For more information on creating the container or virtual environment, read [Virtual environments and Docker containers](../software/virtual-environments-and-docker-containers.md)[.](../software/virtual-environments-and-docker-containers.md)
+For more information on creating the container or virtual environment, read [Virtual environments and Docker containers](programming/virtual-environments-containers.md).
 
 ### On-Demand Cloud, 1-Click Cluster, or Private Cloud
 
@@ -112,7 +112,7 @@ Every Lambda instance comes with the Lambda Stack preinstalled. The Lambda Stack
 
 ### Configure the container or virtual environment
 
-With your instance or cluster up and running, you can create the Docker container or Conda or Python virtual environment in which you will run your training model. For more information, read [Virtual environments and Docker containers](../software/virtual-environments-and-docker-containers.md).
+With your instance or cluster up and running, you can create the Docker container or Conda or Python virtual environment in which you will run your training model. For more information, read [Virtual environments and Docker containers](programming/virtual-environments-containers.md).
 
 Once the container is running, check out your code repository to the container or virtual environment. If you don’t have a testing repository yet, you can try one of the many examples suggested below.
 

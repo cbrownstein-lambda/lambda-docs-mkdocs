@@ -162,5 +162,5 @@ allocates one of the remaining IPs (`10.141.3.4-254`) to the service.
 ## Next steps
 
 For details on accessing your cluster, as well as a walkthrough of the
-Rancher dashboard, see the [Managed Kubernetes getting started](getting-started)
+Rancher dashboard, see the [Managed Kubernetes getting started](getting-started.md)
 for Private Cloud.

@@ -128,7 +128,7 @@ type will be available in every region.
 
 In addition to the firewall settings mentioned earlier, you can manage your
 instances, filesystems, SSH keys, API keys, and more through the Lambda Cloud
-dashboard. For more information, see [Dashboard](dashboard).
+dashboard. For more information, see [Dashboard](dashboard.md).
 
 ### Cloud API
 

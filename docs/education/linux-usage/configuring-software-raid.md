@@ -8,10 +8,10 @@ Software RAID (redundant array of independent disks) provides fast and resilient
 ```bash
 ubuntu@ubuntu:~$ lsblk
 NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
-nvme1n1  259:1   0 1.8T  0 disk 
-nvme3n1  259:2   0 1.8T  0 disk 
+nvme1n1  259:1   0 1.8T  0 disk
+nvme3n1  259:2   0 1.8T  0 disk
 nvme2n1  259:3   0 1.8T  0 disk
-... 
+...
 ```
 
 3. Use `parted` to partition and format the drives.&#x20;
@@ -21,24 +21,24 @@ nvme2n1  259:3   0 1.8T  0 disk
     Before running this step, ensure you back up **all** your data on this drive. Formatting the drive makes your data unrecoverable.
 
 ```bash
-ubuntu@ubuntu:~$ sudo parted /dev/nvme1n1 
-GNU Parted 3.4 
-Using /dev/nvme1n1 
-Welcome to GNU Parted! Type 'help' to view a list of commands. 
-(parted) mklabel gpt 
-(parted) mkpart primary ext4 0% 100% 
-(parted) set 1 raid on 
-(parted) print 
-Model: MSI M480 PRO 2TB (nvme) 
-Disk /dev/nvme1n1: 2000GB 
-Sector size (logical/physical): 512B/512B 
-Partition Table: gpt 
-Disk Flags: 
+ubuntu@ubuntu:~$ sudo parted /dev/nvme1n1
+GNU Parted 3.4
+Using /dev/nvme1n1
+Welcome to GNU Parted! Type 'help' to view a list of commands.
+(parted) mklabel gpt
+(parted) mkpart primary ext4 0% 100%
+(parted) set 1 raid on
+(parted) print
+Model: MSI M480 PRO 2TB (nvme)
+Disk /dev/nvme1n1: 2000GB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags:
 
-Number  Start   End     Size    File system  Name     Flags 
-   1    1049kB  2000GB  2000GB  ext4         primary  raid 
+Number  Start   End     Size    File system  Name     Flags
+   1    1049kB  2000GB  2000GB  ext4         primary  raid
 
-(parted) quit 
+(parted) quit
 Information: You may need to update /etc/fstab.
 ```
 
@@ -68,7 +68,7 @@ ubuntu@ubuntu:~$ sudo mkfs.ext4 /dev/md0
 7. Update the `mdadm` configuration file so that the software RAID persists through reboots:
 
 ```bash
-ubuntu@ubuntu:~$ sudo mdadm --detail --scan >> /etc/mdadm/mdadm.conf 
+ubuntu@ubuntu:~$ sudo mdadm --detail --scan >> /etc/mdadm/mdadm.conf
 ubuntu@ubuntu:~$ sudo update-initramfs -u
 ```
 

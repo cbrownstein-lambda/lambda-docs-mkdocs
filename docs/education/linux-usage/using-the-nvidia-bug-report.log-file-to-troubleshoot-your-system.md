@@ -1,30 +1,41 @@
 # Using the nvidia-bug-report.log file to troubleshoot your system
 
-NVIDIA provides a script that generates a log file that you can use to troubleshoot issues with NVIDIA GPUs. This log file has comprehensive information about your system, including information about individual devices, configuration of NVIDIA drivers, system journals, and more.
+NVIDIA provides a script that generates a log file that you can use to
+troubleshoot issues with NVIDIA GPUs. This log file has comprehensive
+information about your system, including information about individual devices,
+configuration of NVIDIA drivers, system journals, and more.
 
 ## Generate the log file
 
-To generate the log file, log in as the root user or use `sudo`, then run the following command:
+To generate the log file, log in as the root user or use `sudo`, then run the
+following command:
 
 ```bash
 sudo nvidia-bug-report.sh
 ```
 
-This script generates a zipped file called nvidia-bug-report.log.gz in the current directory. To verify that the script ran successfully, run `ls -la nvidia*` and look for a row similar to the following:
+This script generates a zipped file called nvidia-bug-report.log.gz in the
+current directory. To verify that the script ran successfully, run `ls -la
+nvidia*` and look for a row similar to the following:
 
 ```bash
 -rw-r--r-- 1 root   root   207757 Aug 28 20:11 nvidia-bug-report.log.gz
 ```
 
-After you generate the log archive file, you can expand it and open the log in a text editor.&#x20;
+After you generate the log archive file, you can expand it and open the log in a text editor.
 
 ## Troubleshoot the log file
 
-The log file is comprehensive, as it collects information from various sources. The following are suggestions on where to start looking, depending on the issue you are seeing. You might see output in the log file from the same or a related Linux command you run on your system, or both.&#x20;
+The log file is comprehensive, as it collects information from various sources.
+The following are suggestions on where to start looking, depending on the issue
+you are seeing. You might see output in the log file from the same or a related
+Linux command you run on your system, or both.
 
 ### Use the check-nvidia-bug-report shell script
 
-To make the NVIDIA log report easier to use, Lambda provides a shell script, `check-nvidia-bug-report.sh`, that parses and summarizes the report. This script scans the report for:
+To make the NVIDIA log report easier to use, Lambda provides a shell script,
+`check-nvidia-bug-report.sh`, that parses and summarizes the report. This script
+scans the report for:
 
 * Xid errors
 * Thermal slowdown messages
@@ -34,13 +45,17 @@ To make the NVIDIA log report easier to use, Lambda provides a shell script, `ch
 * “Fallen off the bus” errors
 * RmInit failures
 
-You can find this script in the [lambda-public-tools GitHub repository](https://github.com/lambdal-support/lambda-public-tools). To use the script, first clone the repository:
+You can find this script in the [lambda-public-tools GitHub
+repository](https://github.com/lambdal-support/lambda-public-tools). To use the
+script, first clone the repository:
 
 ```bash
 git clone https://github.com/lambdal-support/lambda-public-tools.git
 ```
 
-After you generate the NVIDIA log file, run the Lambda script. The following example assumes the Lambda script and the NVIDIA log file are in the same directory:
+After you generate the NVIDIA log file, run the Lambda script. The following
+example assumes the Lambda script and the NVIDIA log file are in the same
+directory:
 
 ```bash
 cd lambda-public-tools/check-nvidia-bug-report
@@ -49,7 +64,9 @@ cd lambda-public-tools/check-nvidia-bug-report
 
 ### Verify hardware with dmidecode
 
-If you prefer to investigate the log file on your own, a good place to start is to check that all the hardware reported by the BIOS is installed, available, and seen by the system. Use `dmidecode`, or search for _dmidecode_ in the log file.&#x20;
+If you prefer to investigate the log file on your own, a good place to start is
+to check that all the hardware reported by the BIOS is installed, available, and
+seen by the system. Use `dmidecode`, or search for _dmidecode_ in the log file.
 
 ```bash
 /sbin/dmidecode
@@ -142,11 +159,25 @@ Family: Other
 
 ### Check for Xid or SXid errors
 
-An Xid message is an NVIDIA error report that prints to the kernel log or event log. Xid messages indicate that a general GPU error occurred, typically due to the driver programming the GPU incorrectly or by corruption of the commands sent to the GPU. The messages may indicate a hardware problem, an NVIDIA software problem, or an application problem. To understand the Xid message, read the [NVIDIA documentation](https://docs.nvidia.com/deploy/xid-errors/index.html#xid-error-listing) and review these [common Xid errors](https://docs.nvidia.com/deploy/xid-errors/index.html#common-xid-errors).
+An Xid message is an NVIDIA error report that prints to the kernel log or event
+log. Xid messages indicate that a general GPU error occurred, typically due to
+the driver programming the GPU incorrectly or by corruption of the commands sent
+to the GPU. The messages may indicate a hardware problem, an NVIDIA software
+problem, or an application problem. To understand the Xid message, read the
+[NVIDIA
+documentation](https://docs.nvidia.com/deploy/xid-errors/index.html#xid-error-listing)
+and review these [common Xid
+errors](https://docs.nvidia.com/deploy/xid-errors/index.html#common-xid-errors).
 
-NVIDIA drivers for NVSwitch report error conditions relating to NVSwitch hardware in kernel logs through a mechanism similar to Xids. SXid (or switch Xids) are errors relating to the NVIDIA switch hardware; they appear in kernel logs similar to Xids. For more information about SXids, read appendixes D.4 through D.7 in the [NVIDIA documentation](https://docs.nvidia.com/datacenter/tesla/pdf/fabric-manager-user-guide.pdf).
+NVIDIA drivers for NVSwitch report error conditions relating to NVSwitch
+hardware in kernel logs through a mechanism similar to Xids. SXid (or switch
+Xids) are errors relating to the NVIDIA switch hardware; they appear in kernel
+logs similar to Xids. For more information about SXids, read appendixes D.4
+through D.7 in the [NVIDIA
+documentation](https://docs.nvidia.com/datacenter/tesla/pdf/fabric-manager-user-guide.pdf).
 
-Search the log file for Xid or SXid and see what errors are associated with them, or run `dmesg` as root:
+Search the log file for Xid or SXid and see what errors are associated with
+them, or run `dmesg` as root:
 
 ```bash
 sudo dmesg | grep SXid
@@ -171,7 +202,7 @@ You should see output like the following:
 
 ### Detect the GPU
 
-To make sure your system can see the GPUs, run `nvidia-smi`:&#x20;
+To make sure your system can see the GPUs, run `nvidia-smi`:
 
 ```bash
 nvidia-smi
@@ -180,7 +211,7 @@ nvidia-smi
 The output below is for a single GPU system:
 
 ```bash
-Wed Aug 28 20:01:47 2024       
+Wed Aug 28 20:01:47 2024
 +---------------------------------------------------------------------------------------+
 | NVIDIA-SMI 535.129.03             Driver Version: 535.129.03   CUDA Version: 12.2     |
 |-----------------------------------------+----------------------+----------------------+
@@ -192,7 +223,7 @@ Wed Aug 28 20:01:47 2024
 |  0%   26C    P8               8W / 150W |      4MiB / 23028MiB |      0%      Default |
 |                                         |                      |                  N/A |
 +-----------------------------------------+----------------------+----------------------+
-                                                                                         
+
 +---------------------------------------------------------------------------------------+
 | Processes:                                                                            |
 |  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
@@ -204,7 +235,8 @@ Wed Aug 28 20:01:47 2024
 
 ### Check disk usage
 
-You can use `df -h` to see disk usage on your nodes. Running low on disk space could affect performance of your system.
+You can use `df -h` to see disk usage on your nodes. Running low on disk space
+could affect performance of your system.
 
 ```bash
 df -h
@@ -224,7 +256,9 @@ ae17b7ce-8c3b-464d-9f7c-325bc1080289  8.0E     0  8.0E   0% /home/ubuntu/lambda-
 
 ### Check the systemd journal for errors
 
-To check the `systemd` journal, either search for `journalctl` entries in the log file or run the `journalctl` command. You should see output similar to the following:&#x20;
+To check the `systemd` journal, either search for `journalctl` entries in the
+log file or run the `journalctl` command. You should see output similar to the
+following:
 
 ```bash
 Aug 28 19:18:40 lambda-node jupyter[897]: [W 2024-08-28 19:18:40.342 ServerApp] ServerApp.token config is deprecated in 2.0. Use IdentityProvider.token.
@@ -240,13 +274,17 @@ Aug 28 19:18:40 lambda-node jupyter[897]: [I 2024-08-28 19:18:40.387 ServerApp] 
 
 ### Check Your NVLink topology
 
-To confirm that your NVLink topology is correct, search the log file for `nvidia-smi nvlink --status` output or run the following command:
+To confirm that your NVLink topology is correct, search the log file for
+`nvidia-smi nvlink --status` output or run the following command:
 
 ```bash
 nvidia-smi nvlink --status
 ```
 
-This command checks the status of each NVLink connection for each GPU. The output shows information about each NVLink, including the utilization and active or inactive status. It’s similar to the following truncated output for an eight-GPU system:
+This command checks the status of each NVLink connection for each GPU. The
+output shows information about each NVLink, including the utilization and active
+or inactive status. It’s similar to the following truncated output for an
+eight-GPU system:
 
 ```bash
 GPU 0: NVIDIA H100 80GB HBM3 (UUID: GPU-4f495419-b618-a303-a09b-8246fed175ac)
@@ -298,7 +336,10 @@ Link 17: 26.562 GB/s
 
 ### Show specific output
 
-The `nvidia-smi` command can return a wealth of content. You can fine-tune your results to isolate a specific issue by using the `-d` (display) option along with the `-q` (query) option. For example, if you suspect a memory issue, you can choose to display only memory-related output:
+The `nvidia-smi` command can return a wealth of content. You can fine-tune your
+results to isolate a specific issue by using the `-d` (display) option along
+with the `-q` (query) option. For example, if you suspect a memory issue, you
+can choose to display only memory-related output:
 
 ```bash
 nvidia-smi -q -d MEMORY
@@ -330,7 +371,7 @@ GPU 00000000:08:00.0
         Free                              : 0 MiB
 ```
 
-The output you can display includes:&#x20;
+The output you can display includes:
 
 * `MEMORY`: displays memory usage in the system.
 * `UTILIZATION`: displays GPU, memory, and encode/decode utilization rates, including sampling data with maximum, minimum, and average.
@@ -345,7 +386,8 @@ The output you can display includes:&#x20;
 * `PAGE_RETIREMENT`: when ECC is enabled, this option displays any framebuffer pages that have been dynamically retired.
 * `ACCOUNTING`: displays which processes are subject to accounting, how many processes are subject to accounting, and whether accounting mode is enabled.
 
-You can specify multiple options by separating them with a comma. For example, the following command displays information about both memory and power usage:
+You can specify multiple options by separating them with a comma. For example,
+the following command displays information about both memory and power usage:
 
 ```bash
 nvidia-smi -q -d MEMORY,POWER
@@ -399,15 +441,19 @@ GPU 00000000:08:00.0
 
 ## Contact Lambda
 
-If you can’t discover the cause for the issue you are experiencing, [contact Lambda Support](https://support.lambdalabs.com/hc/en-us/requests/new) and generate then upload the [Lambda bug report](https://docs.lambdalabs.com/software/troubleshooting-and-debugging#generate-a-lambda-bug-report), which includes data from the NVIDIA bug report. For example:
+If you can’t discover the cause for the issue you are experiencing, [contact
+Lambda Support](https://support.lambdalabs.com/hc/en-us/requests/new) and
+generate then upload the [Lambda bug
+report](https://docs.lambdalabs.com/software/troubleshooting-and-debugging#generate-a-lambda-bug-report),
+which includes data from the NVIDIA bug report. For example:
 
 ```bash
-wget -nv -O - https://raw.githubusercontent.com/lambdal-support/lambda-public-tools/main/lambda-bug-report.sh | bash - 
+wget -nv -O - https://raw.githubusercontent.com/lambdal-support/lambda-public-tools/main/lambda-bug-report.sh | bash -
 ```
 
-{% hint style="warning" %}
-You can run this script only on Lambda workstations and On-Demand Cloud instances. Do **not** run it on a cluster.
-{% endhint %}
+!!! warning
+
+    You can run this script only on Lambda workstations and On-Demand Cloud instances. Do **not** run it on a cluster.
 
 ## Other resources
 

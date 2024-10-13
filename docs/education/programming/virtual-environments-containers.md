@@ -99,7 +99,7 @@ To create a conda virtual environment:
     !!! tip
 
         For compatibility with the
-        [Python venv module](virtual-environments-and-docker-containers.md#creating-a-python-virtual-environment){ .external target="_blank" },
+        [Python venv module](#creating-a-python-virtual-environment),
         it's recommended that you disable automatic activation of the conda base
         environment by running:
 

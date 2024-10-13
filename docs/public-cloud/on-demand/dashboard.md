@@ -63,10 +63,10 @@ your instance.
 !!! tip
 
     You can also [launch instances using the Cloud
-    API](#launching-instances).
+    API](../cloud-api.md#launching-instances).
 
     You can also use the Cloud API to [get details of a running
-    instance](#getting-details-of-a-specific-instance).
+    instance](../cloud-api.md#getting-details-of-a-specific-instance).
 
 ### Restart instances
 
@@ -127,7 +127,7 @@ The private key for your new SSH key will automatically download.
 !!! tip
 
     You can also [use the Cloud API to add and generate SSH
-    keys](#add-an-existing-ssh-key-to-your-account).
+    keys](../cloud-api.md#add-an-existing-ssh-key-to-your-account).
 
 #### Delete SSH keys
 

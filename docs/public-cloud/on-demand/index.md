@@ -58,7 +58,7 @@ To use a filesystem with your instance, you must attach it during the instance
 creation process. The filesystem must also reside in the same region as your
 instance.
 
-For more information about filesystems, see [Filesystems](../filesystems).
+For more information about filesystems, see [Filesystems](../filesystems.md).
 
 #### Mount point
 
@@ -73,7 +73,7 @@ When you mount a filesystem to your instance, the filesystem is available at:
 Filesystems are billed per GB used per month, in increments of one hour. If you
 delete an instance but not its associated filesystem, you'll continue to be
 billed for the filesystem. For more details on filesystem pricing, see
-[Filesystems](../filesystems).
+[Filesystems](../filesystems.md).
 
 #### Size limits
 
@@ -87,8 +87,8 @@ the Texas, USA (us-south-1) region, filesystem size is limited to 10 TB.
 
 You connect to your instance through a standard SSH connection. For information
 on creating and managing SSH keys, see [Dashboard > Add, generate, and delete
-SSH keys](dashboard#add-generate-and-delete-ssh-keys) and [Cloud API >
-Managing SSH keys](cloud-api.md#managing-ssh-keys).
+SSH keys](dashboard.md#add-generate-and-delete-ssh-keys) and [Cloud API >
+Managing SSH keys](../cloud-api.md#managing-ssh-keys).
 
 ### Firewall defaults
 
@@ -134,7 +134,7 @@ dashboard. For more information, see [Dashboard](dashboard).
 
 You can perform administrative tasks such as creating, restarting, listing, and
 terminating your instances through the Lambda Cloud API. For more details, see
-[Cloud API](cloud-api).
+[Cloud API](../cloud-api.md).
 
 ## Preinstalled software
 
@@ -159,4 +159,4 @@ Lambda Cloud dashboard and clicking **Cloud IDE** in your instance's row.
 ## Next steps
 
 * [Visit the Lambda Cloud portal](https://cloud.lambdalabs.com)
-* [Explore the Lambda Cloud API](cloud-api)
+* [Explore the Lambda Cloud API](../cloud-api.md)

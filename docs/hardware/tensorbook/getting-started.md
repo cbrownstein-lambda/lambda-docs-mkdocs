@@ -56,4 +56,4 @@ Lambda Stack is now reinstalled in Ubuntu.
 
 ## Where can I download recovery images for my Tensorbook?
 
-Tensorbook recovery images can be downloaded from our [recovery images FAQ](../software/lambda-stack-and-recovery-images.md#tensorbook).
+Tensorbook recovery images can be downloaded from our [recovery images FAQ](../../education/linux-usage/lambda-stack-and-recovery-images.md#tensorbook).

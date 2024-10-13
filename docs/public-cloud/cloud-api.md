@@ -15,7 +15,7 @@ With the [Cloud API](https://cloud.lambdalabs.com/api/v1/docs), you can:
 *  [Get the details of a running instance](#getting-details-of-a-specific-instance).
 *  [Get a list of the instance types offered by Lambda GPU Cloud](#listing-instances-types-offered-by-lambda-gpu-cloud).
 *  [Manage your SSH keys](#managing-ssh-keys).
-*  [List your file systems](#listing-file-systems).
+*  [List your file systems](#listing-filesystems).
 
 !!! note
 
@@ -171,7 +171,7 @@ You can use the [Cloud API](https://cloud.lambdalabs.com/api/v1/docs) to:
     Following these instructions won't add the SSH key to existing instances.
 
     To add SSH keys to existing instances, read our FAQ on
-    [using more than one SSH key](../on-demand/getting-started#is-it-possible-to-use-more-than-one-ssh-key).
+    [using more than one SSH key](on-demand/getting-started.md#is-it-possible-to-use-more-than-one-ssh-key).
 
 !!! note
 
@@ -250,7 +250,7 @@ In this command,
 
 ## Listing filesystems
 
-To list your [persistent storage filesystems](filesystems) using the
+To list your [persistent storage filesystems](filesystems.md) using the
 [Cloud API](https://cloud.lambdalabs.com/api/v1/docs):
 
 1. [Generate an API key](https://cloud.lambdalabs.com/api-keys) if you don’t

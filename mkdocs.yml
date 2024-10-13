@@ -96,7 +96,7 @@ nav:
       - education/scheduling-and-orchestration/deploying-models-with-dstack.md
       - education/scheduling-and-orchestration/skypilot-deploy-kubernetes.md
     - Basic Linux usage and system administration:
-      - education/linux-usage/virtual-environments-containers.md
+      - education/programming/virtual-environments-containers.md
     - Additional resources:
       - 'Forum': 'https://deeptalk.lambdalabs.com/'
       - 'Blog': 'https://lambdalabs.com/blog'

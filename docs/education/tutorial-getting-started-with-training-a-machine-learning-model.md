@@ -28,7 +28,7 @@ The amount of VRAM on a GPU helps determine how large your dataset and model can
 Use the following formula to estimate how much VRAM you need:
 
 ```bash
-Memory required ≈ 
+Memory required ≈
 (model size x precision) +
 (batch size x sequence length x input dimension x precision) +
 (optimizer state x precision)

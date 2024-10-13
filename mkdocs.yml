@@ -97,7 +97,7 @@ nav:
       - education/scheduling-and-orchestration/skypilot-deploy-kubernetes.md
     - Basic Linux usage and system administration:
       - education/linux-usage/virtual-environments-containers.md
-    - Additional resources: 
+    - Additional resources:
       - 'Forum': 'https://deeptalk.lambdalabs.com/'
       - 'Blog': 'https://lambdalabs.com/blog'
       - 'YouTube': 'https://www.youtube.com/c/LambdaLabs'

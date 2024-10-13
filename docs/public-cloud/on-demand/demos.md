@@ -87,12 +87,6 @@ The models used by demos are often several gigabytes in size, and can take 5 to 
 
 1. Once your instance is launched and your demo is accessible, a link with your demo’s name will appear under the **Demo** column. Click the link to access your demo.
 
-{% hint style="success" %}
-To see a gallery of all of your demos, at the top-right of the Demos dashboard, click the **See your demos** button.
-
-![](<../.gitbook/assets/image (1).png>)
-{% endhint %}
-
 ## Troubleshooting demos <a href="#troubleshooting-demos" id="troubleshooting-demos"></a>
 
 If you experience trouble accessing your demo, the Demos logs can be helpful for troubleshooting.

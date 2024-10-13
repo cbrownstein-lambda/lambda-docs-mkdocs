@@ -93,7 +93,7 @@ nav:
     - Programming:
       - education/programming/vs-code-lambda-chat.md
     - Scheduling and orchestration:
-      - education/scheduling-and-orchestration/dstack-vllm-llama-3-1.md
+      - education/scheduling-and-orchestration/deploying-models-with-dstack.md
       - education/scheduling-and-orchestration/skypilot-deploy-kubernetes.md
     - Basic Linux usage and system administration:
       - education/linux-usage/virtual-environments-containers.md

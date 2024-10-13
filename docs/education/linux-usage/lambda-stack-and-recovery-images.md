@@ -21,36 +21,45 @@ wget -nv -O- https://lambdalabs.com/install-lambda-stack.sh | sh -
 
 ## Recovery images
 
-{% hint style="info" %}
-See the [Install Ubuntu desktop tutorial](https://ubuntu.com/tutorials/install-ubuntu-desktop), specifically steps 3 and 4, to learn how to create and boot a USB stick (flash drive) using the below recovery images.
-{% endhint %}
+!!! note
+
+    See the [Install Ubuntu desktop tutorial](https://ubuntu.com/tutorials/install-ubuntu-desktop), specifically steps 3 and 4, to learn how to create and boot a USB stick (flash drive) using the below recovery images.
+
 
 ### Workstations
 
-Recovery ISO images for [Vector](https://lambdalabs.com/gpu-workstations/vector) and [Vector One](https://lambdalabs.com/gpu-workstations/vector-one) can be downloaded using the following links:
+Recovery ISO images for [Vector](https://lambdalabs.com/gpu-workstations/vector)
+and [Vector One](https://lambdalabs.com/gpu-workstations/vector-one) can be
+downloaded using the following links:
 
 * [Lambda Recovery (Focal)](https://files.lambdalabs.com/recovery/lambda-recovery-focal-20230704.iso) (based on Ubuntu 20.04 LTS _focal_)
 * [Lambda Recovery (Jammy)](https://files.lambdalabs.com/recovery/lambda-recovery-jammy-20230704.iso) (based on Ubuntu 22.04 LTS _jammy_)
 
 ### Tensorbook
 
-The recovery ISO image for [Tensorbook](https://lambdalabs.com/deep-learning/laptops/tensorbook) can be downloaded using the following link:
+The recovery ISO image for
+[Tensorbook](https://lambdalabs.com/deep-learning/laptops/tensorbook) can be
+downloaded using the following link:
 
 * [Lambda Recovery for Tensorbook (Jammy)](https://files.lambdalabs.com/recovery/tensorbook-jammy-20230704.iso) (based on Ubuntu 22.04 LTS _jammy_)
 
-{% hint style="info" %}
-This recovery image is for the _Razer x Lambda Tensorbook_ only and won't work on older Tensorbook models.
-{% endhint %}
+!!! note
 
-{% hint style="info" %}
-The recovery images contain software distributed under various licenses, including the [Software License Agreement (SLA) for NVIDIA cuDNN](https://docs.nvidia.com/deeplearning/cudnn/sla/index.html). The licenses can be viewed in the recovery images at `/usr/share/doc/*/copyright`. By using the software contained in the recovery images, you agree to these licenses.
-{% endhint %}
+    This recovery image is for the _Razer x Lambda Tensorbook_ only and won't work on older Tensorbook models.
+
+
+!!! note
+    The recovery images contain software distributed under various licenses, including the [Software License Agreement (SLA) for NVIDIA cuDNN](https://docs.nvidia.com/deeplearning/cudnn/sla/index.html). The licenses can be viewed in the recovery images at `/usr/share/doc/*/copyright`. By using the software contained in the recovery images, you agree to these licenses.
+
 
 ### Servers
 
 Recovery images aren't available for servers.
 
-To reinstall Ubuntu and Lambda Stack on your Lambda server, [download the Ubuntu 22.04 Server install image](https://releases.ubuntu.com/22.04/), then follow [Ubuntu's Server installation instructions](https://ubuntu.com/server/docs/installation).
+To reinstall Ubuntu and Lambda Stack on your Lambda server, [download the Ubuntu
+22.04 Server install image](https://releases.ubuntu.com/22.04/), then follow
+[Ubuntu's Server installation
+instructions](https://ubuntu.com/server/docs/installation).
 
 Install the latest Lambda Stack by logging into Ubuntu and running:
 

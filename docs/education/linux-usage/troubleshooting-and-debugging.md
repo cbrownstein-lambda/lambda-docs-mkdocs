@@ -12,42 +12,58 @@ To generate a Lambda bug report, run:
 wget -nv -O - https://raw.githubusercontent.com/lambdal-support/lambda-public-tools/main/lambda-bug-report.sh | bash -
 ```
 
-{% hint style="warning" %}
-You can run this script only on Lambda workstations and On-Demand Cloud instances. Do **not** run it on a cluster.
-{% endhint %}
+!!! warning
 
-This command creates a file named `lambda-bug-report.tar.gz` in your current directory. This file contains the Lambda bug report.
+    You can run this script only on Lambda workstations and On-Demand Cloud instances. Do **not** run it on a cluster.
 
-You can view the contents of the Lambda bug report by running `tar -zxf lambda-bug-report.tar.gz`. This command creates a directory named `lambda-bug-report` containing the contents of the Lambda bug report.
+This command creates a file named `lambda-bug-report.tar.gz` in your current
+directory. This file contains the Lambda bug report.
 
-The Lambda bug report includes the NVIDIA bug report log file, which contains a lot of information about the GPU. For tips on troubleshooting using the NVIDIA bug report file, see [Using the nvidia-bug-report.log file to troubleshoot your system](using-the-nvidia-bug-report.log-file-to-troubleshoot-your-system.md).
+You can view the contents of the Lambda bug report by running `tar -zxf
+lambda-bug-report.tar.gz`. This command creates a directory named
+`lambda-bug-report` containing the contents of the Lambda bug report.
 
-{% hint style="info" %}
-Be sure to generate and provide a Lambda bug report whenever [submitting a support ticket to Lambda Support](https://lambdalabs.com/support). Providing a Lambda bug report when you first submit a ticket helps Support more quickly troubleshoot any problems you're experiencing with your Lambda system.
-{% endhint %}
+The Lambda bug report includes the NVIDIA bug report log file, which contains a
+lot of information about the GPU. For tips on troubleshooting using the NVIDIA
+bug report file, see [Using the nvidia-bug-report.log file to troubleshoot your
+system](using-the-nvidia-bug-report.log-file-to-troubleshoot-your-system.md).
+
+!!! note
+
+    Be sure to generate and provide a Lambda bug report whenever [submitting a support ticket to Lambda Support](https://lambdalabs.com/support). Providing a Lambda bug report when you first submit a ticket helps Support more quickly troubleshoot any problems you're experiencing with your Lambda system.
 
 ### Fix blank black screen with blinking cursor
 
-If your system boots to a blank black screen with a blinking cursor, rather than the expected GUI, you might need to reinstall [Lambda Stack](https://lambdalabs.com/lambda-stack-deep-learning-software). To reinstall Lambda Stack when the GUI doesn't launch:
+If your system boots to a blank black screen with a blinking cursor, rather than
+the expected GUI, you might need to reinstall [Lambda
+Stack](https://lambdalabs.com/lambda-stack-deep-learning-software). To reinstall
+Lambda Stack when the GUI doesn't launch:
 
-{% hint style="info" %}
-If your boot drive is encrypted, first enter your passphrase at the blank screen, then press **Enter**.
-{% endhint %}
+!!! note
+
+    If your boot drive is encrypted, first enter your passphrase at the blank screen, then press **Enter**.
+
 
 1. Press **Alt** + **Ctrl** + **F3** to switch to a virtual console, then log into Ubuntu using your usual login and password.
-2. Follow the [instructions for removing and reinstalling Lambda Stack](https://docs.lambdalabs.com/software/lambda-stack-and-recovery-images#removing-and-reinstalling-lambda-stack). Then, run `sudo reboot` to restart your system.\
-   \
-   If after restarting you're still encountering a blank black screen with a blinking cursor, follow step 1 again, then run `sudo apt update && sudo apt -y full-upgrade` to update your system. When the update is finished, restart your system by running `sudo reboot`.
+2. Follow the [instructions for removing and reinstalling Lambda Stack](https://docs.lambdalabs.com/software/lambda-stack-and-recovery-images#removing-and-reinstalling-lambda-stack). Then, run `sudo reboot` to restart your system.
 
-{% hint style="success" %}
-If your system is set up for remote access via SSH, you can instead SSH into your system to run the commands listed in step 2.
-{% endhint %}
+    If after restarting you're still encountering a blank black screen with a
+    blinking cursor, follow step 1 again, then run `sudo apt update && sudo apt
+    -y full-upgrade` to update your system. When the update is finished, restart
+    your system by running `sudo reboot`.
+
+!!! tip
+
+    If your system is set up for remote access via SSH, you can instead SSH into your system to run the commands listed in step 2.
 
 ## Windows
 
 ### How do I gather system information in Windows using DxDiag?
 
-You can use the [DirectX Diagnostic Tool (DxDiag)](https://support.microsoft.com/en-us/windows/open-and-run-dxdiag-exe-dad7792c-2ad5-f6cd-5a37-bf92228dfd85) in Windows to gather system information that might be helpful for troubleshooting.
+You can use the [DirectX Diagnostic Tool
+(DxDiag)](https://support.microsoft.com/en-us/windows/open-and-run-dxdiag-exe-dad7792c-2ad5-f6cd-5a37-bf92228dfd85)
+in Windows to gather system information that might be helpful for
+troubleshooting.
 
 To use DxDiag to gather system information:
 
@@ -68,11 +84,15 @@ If you prefer to use the graphical interface of DxDiag to gather system informat
 
 ### How do I gather system information in Windows using MSINFO32?
 
-You can use [MSINFO32](https://support.microsoft.com/en-us/topic/description-of-microsoft-system-information-msinfo32-exe-tool-10d335d8-5834-90b4-8452-42c58e61f9fc), also known as Microsoft System Information or Msinfo32.exe, to gather useful information for troubleshooting your computer.
+You can use
+[MSINFO32](https://support.microsoft.com/en-us/topic/description-of-microsoft-system-information-msinfo32-exe-tool-10d335d8-5834-90b4-8452-42c58e61f9fc),
+also known as Microsoft System Information or Msinfo32.exe, to gather useful
+information for troubleshooting your computer.
 
 To use MSINFO32:
 
-1. Press the **Windows key** + **R** to open the Run window. Type `cmd` then press **Ctrl** + **Shift** + **Enter** to open an elevated command prompt.
+1. Press the **Windows key** + **R** to open the Run window. Type `cmd` then
+   press **Ctrl** + **Shift** + **Enter** to open an elevated command prompt.
 2.  In the elevated command prompt, run:
 
     ```
@@ -81,13 +101,17 @@ To use MSINFO32:
 
 This will create a file on your Desktop named `sysinfo.txt` that contains useful information about your computer.
 
-{% hint style="info" %}
+!!! note
 You can additionally use [DxDiag](troubleshooting-and-debugging.md#how-do-i-gather-system-information-in-windows-using-dxdiag) to gather useful information for troubleshooting.
-{% endhint %}
+
 
 ### How do I prevent an incorrect clock in Windows after booting Ubuntu?
 
-Ubuntu saves the current time to the machine hardware clock in [UTC](https://en.wikipedia.org/wiki/Coordinated\_Universal\_Time). Windows saves the current time to the machine hardware clock in the local time. Because Ubuntu and Windows save the current time to the machine hardware clock differently, the current time displays incorrectly in Windows after booting Ubuntu.
+Ubuntu saves the current time to the machine hardware clock in
+[UTC](https://en.wikipedia.org/wiki/Coordinated\_Universal\_Time). Windows saves
+the current time to the machine hardware clock in the local time. Because Ubuntu
+and Windows save the current time to the machine hardware clock differently, the
+current time displays incorrectly in Windows after booting Ubuntu.
 
 To fix this problem:
 
@@ -128,11 +152,11 @@ To use the DISM tool to fix problems with the filesystem or system files:
 
 Run the `sfc /scannow` command up to 3 times until you receive the message: `Windows Resource Protection did not find any integrity violations.`
 
-{% hint style="info" %}
+!!! note
 If after running this command 3 times you do not receive the message `Windows Resource Protection did not find any integrity violations`, it is unlikely that a problem with the filesystem or system files is the cause of Windows freezing or behaving erratically.
 
 Reboot the machine and test to see if Windows continues to freeze or behave erratically.
-{% endhint %}
+
 
 ### Where can I find my Windows license key?
 
@@ -146,4 +170,3 @@ If you purchased your system with Windows 10 preinstalled, your Windows license 
 **Make sure not to lose your license key!** We can't replace lost license keys.
 
 Inside of the license key envelope is a sticker with the license key on it. We strongly suggest affixing this sticker to your system's chassis.
-{% endhint %}

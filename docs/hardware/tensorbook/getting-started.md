@@ -34,9 +34,9 @@ To reinstall [Lambda Stack](https://lambdalabs.com/lambda-stack-deep-learning-so
     #GRUB_DISABLE_LINUX_UUID=true
     ```
 
-{% hint style="info" %}
-`GRUB_CMDLINE_LINUX=` might contain custom kernel boot options in addition to `button.lid_init_state=open` and `i915.enable_fbc=0`.
-{% endhint %}
+!!! note
+
+    `GRUB_CMDLINE_LINUX=` might contain custom kernel boot options in addition to `button.lid_init_state=open` and `i915.enable_fbc=0`.
 
 If the kernel boot options are not already set correctly, run the following command:
 
@@ -48,9 +48,9 @@ sudo update-grub
 
 This command adds kernel boot options needed for Ubuntu to run properly on the Tensorbook.
 
-{% hint style="info" %}
-Be sure to note any custom kernel boot options before running this command. **Running this command will remove all custom kernel boot options.**
-{% endhint %}
+!!! note
+
+    Be sure to note any custom kernel boot options before running this command. **Running this command will remove all custom kernel boot options.**
 
 Lambda Stack is now reinstalled in Ubuntu.
 

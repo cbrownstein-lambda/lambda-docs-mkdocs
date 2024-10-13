@@ -16,9 +16,9 @@ nvme2n1  259:3   0 1.8T  0 disk
 
 3. Use `parted` to partition and format the drives.&#x20;
 
-{% hint style="danger" %}
-Before running this step, ensure you back up **all** your data on this drive. Formatting the drive makes your data unrecoverable.
-{% endhint %}
+!!! warning
+
+    Before running this step, ensure you back up **all** your data on this drive. Formatting the drive makes your data unrecoverable.
 
 ```bash
 ubuntu@ubuntu:~$ sudo parted /dev/nvme1n1 
@@ -45,11 +45,11 @@ Information: You may need to update /etc/fstab.
 4. Repeat the previous step for every drive listed in step 2.
 5. Use `mdadm` to create the RAID array with the new drives.&#x20;
 
-{% hint style="info" %}
-If mdadm is not on the system already, you can install it by running:
+!!! note
 
-`ubuntu@ubuntu:~$ sudo apt update && sudo apt install mdadm`
-{% endhint %}
+    If mdadm is not on the system already, you can install it by running:
+
+    `ubuntu@ubuntu:~$ sudo apt update && sudo apt install mdadm`
 
 This example uses RAID level 5. To use a different [RAID level](https://en.wikipedia.org/wiki/Standard\_RAID\_levels) (see below), set `--level` to the desired RAID level. Your output should look similar to the following:
 

@@ -4,29 +4,29 @@
 
 User manuals for Lambda server chassis can be downloaded below.
 
-{% hint style="success" %}
-You can run `sudo dmidecode -t 1` to know your server chassis. The command will output, for example:
+!!! tip
 
-```
-# dmidecode 3.2
-Getting SMBIOS data from sysfs.
-SMBIOS 3.3.0 present.
-# SMBIOS implementations newer than version 3.2.0 are not
-# fully supported by this version of dmidecode.
-Handle 0x0001, DMI type 1, 27 bytes
-System Information
-Manufacturer: Supermicro
-Product Name: AS -1114CS-TNR
-Version: 0123456789
-Serial Number: S452392X2826686
-UUID: 51605a00-c54f-11ec-8000-3cecefcdb48b
-Wake-up Type: Power Switch
-SKU Number: To be filled by O.E.M.
-Family: To be filled by O.E.M.
-```
+    You can run `sudo dmidecode -t 1` to know your server chassis. The command will output, for example:
 
-`Product Name` is the server chassis. In this example, the server chassis is AS -1114CS-TNR.
-{% endhint %}
+    ```
+    # dmidecode 3.2
+    Getting SMBIOS data from sysfs.
+    SMBIOS 3.3.0 present.
+    # SMBIOS implementations newer than version 3.2.0 are not
+    # fully supported by this version of dmidecode.
+    Handle 0x0001, DMI type 1, 27 bytes
+    System Information
+    Manufacturer: Supermicro
+    Product Name: AS -1114CS-TNR
+    Version: 0123456789
+    Serial Number: S452392X2826686
+    UUID: 51605a00-c54f-11ec-8000-3cecefcdb48b
+    Wake-up Type: Power Switch
+    SKU Number: To be filled by O.E.M.
+    Family: To be filled by O.E.M.
+    ```
+
+    `Product Name` is the server chassis. In this example, the server chassis is AS -1114CS-TNR.
 
 ### Supermicro <a href="#supermicro" id="supermicro"></a>
 
@@ -68,13 +68,13 @@ On GIGABYTE 4U server chassis, the serial number is on a sticker on the left sid
 
 ## Where can I find my server's IPMI (BMC) password?
 
-{% hint style="success" %}
-You can choose your own IPMI password for your server from within Ubuntu:
+!!! tip
 
-1. Run `sudo apt-get install ipmitool` to install `ipmitool`, which is a program for managing IPMI functions.
-2. Run `ipmitool user list 1` to view the user list. Confirm that `ID 2` is `admin` or `ADMIN`.
-3. Run `ipmitool user set password 2` to set a new IPMI password.
-{% endhint %}
+    You can choose your own IPMI password for your server from within Ubuntu:
+
+    1. Run `sudo apt-get install ipmitool` to install `ipmitool`, which is a program for managing IPMI functions.
+    2. Run `ipmitool user list 1` to view the user list. Confirm that `ID 2` is `admin` or `ADMIN`.
+    3. Run `ipmitool user set password 2` to set a new IPMI password.
 
 ### Supermicro <a href="#supermicro" id="supermicro"></a>
 

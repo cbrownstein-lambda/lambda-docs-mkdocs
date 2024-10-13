@@ -166,7 +166,8 @@ If you purchased your system with Windows 10 preinstalled, your Windows license 
 
 <figure><img src="../.gitbook/assets/windows-license-key-envelope_hu42298444c0bf2bb23a082b86064494bb_46693_400x0_resize_q75_catmullrom.jpg" alt=""><figcaption><p>Cardboard envelope with Windows license key</p></figcaption></figure>
 
-{% hint style="danger" %}
-**Make sure not to lose your license key!** We can't replace lost license keys.
+!!! warning
+
+    **Make sure not to lose your license key!** We can't replace lost license keys.
 
 Inside of the license key envelope is a sticker with the license key on it. We strongly suggest affixing this sticker to your system's chassis.

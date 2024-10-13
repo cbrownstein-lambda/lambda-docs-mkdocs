@@ -56,9 +56,9 @@ These commands:
 1. Create and activate a [Python virtual environment](https://docs.lambdalabs.com/software/virtual-environments-and-docker-containers#creating-a-python-virtual-environment) on the head node for this tutorial.
 2. Download the Llama 3.1 405B model to your 1CC's persistent storage [file system](https://lambdalabs.atlassian.net/wiki/spaces/LT/pages/edit-v2/709328915).
 
-{% hint style="info" %}
-The Llama 3.1 405B model is about 2.3TB in size and can take several hours to download.
-{% endhint %}
+!!! note
+
+    The Llama 3.1 405B model is about 2.3TB in size and can take several hours to download.
 
 Still on the head node, start a tmux session by running `tmux`.
 
@@ -171,9 +171,9 @@ vllm serve "/root/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-405B
 
 Replace `SNAPSHOT` with the name of the Llama 3.1 405B model snapshot you retrieved earlier.&#x20;
 
-{% hint style="info" %}
-It can take 15 minutes or more before the model is loaded onto the GPUs and ready to be served.
-{% endhint %}
+!!! note
+
+    It can take 15 minutes or more before the model is loaded onto the GPUs and ready to be served.
 
 You should begin seeing output similar to:
 

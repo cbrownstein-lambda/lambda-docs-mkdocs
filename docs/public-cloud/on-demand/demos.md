@@ -7,21 +7,21 @@ To get started using the Demos feature, you need to:
 1. [Add a demo to your Lambda GPU Cloud account](demos.md#add-a-demo-to-your-lambda-gpu-cloud-account).
 2. Host your demo on a new instance.
 
-{% hint style="info" %}
-It currently isn’t possible to host a demo on an existing instance.
-{% endhint %}
+!!! note
 
-{% hint style="info" %}
-The new instance hosting your demo can be used like any other Lambda GPU Cloud on-demand instance. For example, you can SSH into the instance and [open Jupyter Notebook](https://old.docs.lambdalabs.com/cloud/open-jupyter-notebook/) on the instance.
+    It currently isn’t possible to host a demo on an existing instance.
 
-As with other Lambda GPU Cloud on-demand instances, [you’re billed for all of the time the instance for your demo is running](https://old.docs.lambdalabs.com/cloud/on-demand-instance-invoicing/).
-{% endhint %}
+!!! note
 
-{% hint style="info" %}
-The Demos feature can be hosted on multi-GPU instance types. However, Demos uses only one of the GPUs.
+    The new instance hosting your demo can be used like any other Lambda GPU Cloud on-demand instance. For example, you can SSH into the instance and [open Jupyter Notebook](https://old.docs.lambdalabs.com/cloud/open-jupyter-notebook/) on the instance.
 
-Also, demos currently can’t be hosted on H100 instances.
-{% endhint %}
+    As with other Lambda GPU Cloud on-demand instances, [you’re billed for all of the time the instance for your demo is running](https://old.docs.lambdalabs.com/cloud/on-demand-instance-invoicing/).
+
+!!! note
+
+    The Demos feature can be hosted on multi-GPU instance types. However, Demos uses only one of the GPUs.
+
+    Also, demos currently can’t be hosted on H100 instances.
 
 ## Add a demo to your Lambda GPU Cloud account <a href="#add-a-demo-to-your-lambda-gpu-cloud-account" id="add-a-demo-to-your-lambda-gpu-cloud-account"></a>
 
@@ -73,17 +73,17 @@ Also, demos currently can’t be hosted on H100 instances.
 6.  Click **Add demo**, then follow the prompts to launch a new instance to host your demo.
 
 
-{% hint style="success" %}
-To host a demo that’s already added to your account, in the [Demos dashboard](https://cloud.lambdalabs.com/edit-demos), find the row containing the demo you want to host, then click **Host**.
-{% endhint %}
+!!! tip
+
+    To host a demo that’s already added to your account, in the [Demos dashboard](https://cloud.lambdalabs.com/edit-demos), find the row containing the demo you want to host, then click **Host**.
 
 [Your new instance will take several minutes to launch](getting-started.md#how-long-does-it-take-for-instances-to-launch) and for your demo to become accessible.
 
-{% hint style="info" %}
-The link to your demo might temporarily appear in the Instances dashboard, then disappear. This is expected behavior and doesn’t mean your instance or demo is broken.
+!!! note
 
-The models used by demos are often several gigabytes in size, and can take 5 to 15 minutes to download and load.
-{% endhint %}
+    The link to your demo might temporarily appear in the Instances dashboard, then disappear. This is expected behavior and doesn’t mean your instance or demo is broken.
+
+    The models used by demos are often several gigabytes in size, and can take 5 to 15 minutes to download and load.
 
 1. Once your instance is launched and your demo is accessible, a link with your demo’s name will appear under the **Demo** column. Click the link to access your demo.
 
@@ -99,11 +99,11 @@ sudo bash -c 'for f in /root/virt-sysprep-firstboot.log ~demo/bootstrap.log; do 
 
 This command will produce a file named `demos_debug_logs.txt` containing the logs for the Demos feature. You can review the logs from within your instance by running `less demos_debug_logs.txt`. Alternatively, you can download the file locally to review or share.
 
-{% hint style="info" %}
-The [Lambda Support](https://lambdalabs.com/support) team provides only basic support for the Demos feature. However, assistance might be available in the [community forum](https://deeptalk.lambdalabs.com/).
+!!! note
 
-If you’re experiencing problems using the Demos feature, running the above command and [providing the `demos_debug_logs.txt` file to the Support team](https://support.lambdalabs.com/hc/en-us/requests/new) can help with future improvements to the Demos feature.
-{% endhint %}
+    The [Lambda Support](https://lambdalabs.com/support) team provides only basic support for the Demos feature. However, assistance might be available in the [community forum](https://deeptalk.lambdalabs.com/).
+
+    If you’re experiencing problems using the Demos feature, running the above command and [providing the `demos_debug_logs.txt` file to the Support team](https://support.lambdalabs.com/hc/en-us/requests/new) can help with future improvements to the Demos feature.
 
 Here are some examples of how problems present in logs:
 

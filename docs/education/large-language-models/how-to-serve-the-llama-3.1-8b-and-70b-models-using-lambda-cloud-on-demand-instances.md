@@ -78,9 +78,9 @@ Both commands, above:
 * Download the model you're serving.
 * Start vLLM's API server with the chosen model.
 
-{% hint style="info" %}
-The difference betweeen the two commands, above, is that the second command enables the tensor parallel strategy to use 8x GPUs. [See vLLM's docs to learn more about the distributed inference strategies](https://docs.vllm.ai/en/latest/serving/distributed\_serving.html).
-{% endhint %}
+!!! note
+
+    The difference betweeen the two commands, above, is that the second command enables the tensor parallel strategy to use 8x GPUs. [See vLLM's docs to learn more about the distributed inference strategies](https://docs.vllm.ai/en/latest/serving/distributed\_serving.html).
 
 The vLLM API server is running once you see:
 
@@ -129,8 +129,9 @@ You should see output similar to:
 {"id":"cmpl-d3a33498b5d74d9ea09a7c256733b8df","object":"text_completion","created":
 ```
 
-{% hint style="success" %}
-You can make the output more human-readable using jq. To do this, first install jq by running:
+!!! tip
+
+    You can make the output more human-readable using jq. To do this, first install jq by running:
 
 ```bash
 sudo apt update && sudo apt install -y jq
@@ -175,7 +176,6 @@ The output should now look similar to:
   }
 }
 ```
-{% endhint %}
 
 ## Acknowledgement <a href="#acknowledgement" id="acknowledgement"></a>
 

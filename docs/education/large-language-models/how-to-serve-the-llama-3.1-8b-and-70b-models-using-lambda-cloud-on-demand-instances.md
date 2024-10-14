@@ -1,3 +1,9 @@
+---
+description: Learn how use On Demand Cloud to serve Meta Llama 3.1 8B and 70B models
+tags:
+  - on-demand cloud
+---
+
 # How to serve the Llama 3.1 8B and 70B models using Lambda Cloud on-demand instances
 
 !!! note

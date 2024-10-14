@@ -1,3 +1,9 @@
+---
+description: Troubleshooting and debugging instructions using Linux
+tags:
+  - troubleshooting
+---
+
 # Troubleshooting and debugging
 
 ## Linux

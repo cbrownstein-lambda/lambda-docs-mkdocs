@@ -1,3 +1,8 @@
+---
+description: Learn how to create a Python or conda virtual development environment
+tags:
+  - Virtualization
+---
 # Virtual environments and Docker containers
 
 ## What are virtual environments?

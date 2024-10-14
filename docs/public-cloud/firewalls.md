@@ -1,3 +1,10 @@
+---
+description: Use the Firewall feature to help keep your instances and management nodes secure.
+tags:
+  - 1-click clusters
+  - on-demand cloud
+---
+
 # Firewalls
 
 You can restrict incoming traffic to your instances by creating firewall rules

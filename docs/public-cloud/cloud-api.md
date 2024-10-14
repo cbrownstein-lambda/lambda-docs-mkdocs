@@ -1,7 +1,9 @@
 ---
 description: Describes how to use the Cloud API to create and manage Lambda resources
 tags:
+  - 1-click clusters
   - automation
+  - on-demand cloud
 ---
 
 # Cloud API

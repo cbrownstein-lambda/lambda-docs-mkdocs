@@ -1,6 +1,7 @@
 ---
 description: How to serve the Llama 3.1 405B model using a Lambda 1-Click Cluster
 tags:
+  - 1-click clusters
   - distributed training
 ---
 

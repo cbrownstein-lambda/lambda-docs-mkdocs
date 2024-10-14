@@ -1,5 +1,8 @@
 ---
 description: Learn how to use the Lambda Public Cloud dashboard.
+tags:
+  - 1-click clusters
+  - on-demand cloud
 ---
 
 # Using the Lambda Public Cloud dashboard

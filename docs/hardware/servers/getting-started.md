@@ -1,3 +1,9 @@
+---
+description: Learn basic information about your Lambda Scalar server.
+tags:
+  - scalar
+---
+
 # Getting started
 
 ## Where can I download the user manual for my server chassis?

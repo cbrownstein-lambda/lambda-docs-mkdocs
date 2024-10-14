@@ -1,3 +1,9 @@
+---
+description: Get started using your Lambda x Razer Tensorbook.
+tags:
+  - tensorbook
+---
+
 # General
 
 ## How do I fix resolution and brightness control on my Tensorbook?

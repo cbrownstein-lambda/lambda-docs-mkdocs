@@ -1,5 +1,9 @@
 ---
 description: Learn how to start using Lambda Public Cloud on-demand instances.
+tags:
+  - 1-click clusters
+  - automation
+  - on-demand cloud
 ---
 
 # Getting started

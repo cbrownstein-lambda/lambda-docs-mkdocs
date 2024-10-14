@@ -1,5 +1,8 @@
 ---
 description: Install the guest agent and get started with Prometheus and Grafana.
+tags:
+  - 1-click clusters
+  - on-demand cloud
 ---
 
 # Installing the guest agent and getting started with Prometheus and Grafana

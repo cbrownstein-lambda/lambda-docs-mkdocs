@@ -1,3 +1,9 @@
+---
+description: Learn how to use the Lambda bug report to troubleshoot your system.
+tags:
+  - troubleshooting
+---
+
 # Using the Lambda bug report to troubleshoot your system
 
 The Lambda bug report helps simplify the process of troubleshooting by collecting system information for you into one place. This article helps you utilize the `lambda-bug-report.log` file to troubleshoot common issues.

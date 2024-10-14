@@ -1,3 +1,11 @@
+---
+description: Learn the basics of distributed training on Lambda Cloud
+tags:
+  - 1-click clusters
+  - automation
+  - on-demand cloud
+---
+
 # Tutorial: Getting started with training a machine learning model
 
 ## Overview

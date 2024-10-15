@@ -18,7 +18,7 @@ Using model servers such as
 [vLLM](https://blog.vllm.ai/2023/06/20/vllm.html){ .external target="_blank" }
 and [Ollama](https://ollama.com/){ .external target="_blank" },
 KubeAI enables you to interact with the models using both an OpenAI-compatible
-API and a web-UI powered by [Open WebUI](https://openwebui.com/).
+API and a web UI powered by [Open WebUI](https://openwebui.com/){ .external target="_blank" }.
 
 In this tutorial, you'll:
 

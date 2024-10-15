@@ -1,7 +1,7 @@
 ---
 description: How to access 1-Click Clusters
 tags:
-  - distributed training
+  - 1-click-clusters
 ---
 
 # Accessing your 1-Click Cluster

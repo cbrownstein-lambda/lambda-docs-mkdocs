@@ -1,7 +1,7 @@
 ---
 description: How to copy data to a 1-Click Cluster
 tags:
-  - distributed training
+  - 1-click-clusters
 ---
 
 

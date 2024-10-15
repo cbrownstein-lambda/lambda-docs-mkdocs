@@ -1,6 +1,7 @@
 ---
 description: How to serve the Llama 3.1 405B model using a Lambda 1-Click Cluster
 tags:
+  - 1-click clusters
   - distributed training
 ---
 
@@ -213,6 +214,7 @@ The Llama 3.1 405B model is ready to be served once you see output similar to:
     INFO:     Application startup complete.
     INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
    ```
+
 
 ## Test the Llama 3.1 405B model
 

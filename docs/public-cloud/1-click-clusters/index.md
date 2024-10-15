@@ -1,6 +1,7 @@
 ---
 description: All you need to know about getting started with 1-Click Clusters
 tags:
+  - 1-click clusters
   - distributed training
 ---
 

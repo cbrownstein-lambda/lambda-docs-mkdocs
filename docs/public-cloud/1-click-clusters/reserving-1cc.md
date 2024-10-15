@@ -1,6 +1,7 @@
 ---
 description: How to reserve 1-Click Clusters and cancel 1-Click Cluster reservations
 tags:
+  - 1-click clusters
   - distributed training
 ---
 

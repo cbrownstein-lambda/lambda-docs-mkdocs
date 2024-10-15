@@ -10,8 +10,6 @@ that are isolated from each other. Lambda recommends using either:
 
 ## Creating a Python virtual environment
 
-=== "Linux / MacOS"
-
     1. Create a Python virtual environment using the `venv` module by running:
 
     ```bash
@@ -66,7 +64,3 @@ that are isolated from each other. Lambda recommends using either:
 
         The above uninstall commands remove all locally installed packages and, on
         on-demand instances, break programs including pip and JupyterLab.
-
-=== "Windows"
-
-    Switch to Linux or MacOS.

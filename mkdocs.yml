@@ -85,18 +85,29 @@ nav:
         - 'File an issue': 'https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/issues/new/choose'
   - Education:
     - education/index.md
+    - education/tutorial-getting-started-with-training-a-machine-learning-model.md
     - Generative AI (GAI):
       - education/generative-ai/flux-prompt-to-image.md
     - Large language models (LLMs):
-      - education/large-language-models/serving-llama-3-1-docker.md
+      - education/large-language-models/deploying-a-llama-3-inference-endpoint.md
+      - education/large-language-models/deploying-llama-3.2-3b-in-a-kubernetes-k8s-cluster.md
+      - education/large-language-models/how-to-serve-the-llama-3.1-8b-and-70b-models-using-lambda-cloud-on-demand-instances.md
       - education/large-language-models/lambda-chat-api.md
+      - education/large-language-models/serving-llama-3-1-405b.md
+      - education/large-language-models/serving-llama-3-1-docker.md
+    - Linux usage and system administration:
+      - education/linux-usage/basic-linux-commands-and-system-administration.md
+      - education/linux-usage/configuring-software-raid.md
+      - education/linux-usage/lambda-stack-and-recovery-images.md
+      - education/linux-usage/troubleshooting-and-debugging.md
+      - education/linux-usage/using-the-lambda-bug-report-to-troubleshoot-your-system.md
+      - education/linux-usage/using-the-nvidia-bug-report.log-file-to-troubleshoot-your-system.md
     - Programming:
+      - education/programming/virtual-environments-containers.md
       - education/programming/vs-code-lambda-chat.md
     - Scheduling and orchestration:
       - education/scheduling-and-orchestration/deploying-models-with-dstack.md
       - education/scheduling-and-orchestration/skypilot-deploy-kubernetes.md
-    - Basic Linux usage and system administration:
-      - education/programming/virtual-environments-containers.md
     - Additional resources:
       - 'Forum': 'https://deeptalk.lambdalabs.com/'
       - 'Blog': 'https://lambdalabs.com/blog'

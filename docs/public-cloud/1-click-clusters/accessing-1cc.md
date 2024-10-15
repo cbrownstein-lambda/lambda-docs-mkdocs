@@ -6,7 +6,7 @@ tags:
 
 # Accessing your 1-Click Cluster
 
-Your 1CC’s management nodes have public IP addresses and can be accessed directly via SSH. You can access your compute nodes via SSH using a management node as a jump box. You can also access both your management nodes and your compute nodes using [Jupyter Notebook](https://docs.lambdalabs.com/on-demand-cloud/getting-started#how-do-i-open-jupyter-notebook-on-my-instance).  
+Your 1CC’s management nodes have public IP addresses and can be accessed directly via SSH. You can access your compute nodes via SSH using a management node as a jump box. You can also access both your management nodes and your compute nodes using [Jupyter Notebook](../on-demand-cloud/getting-started#how-do-i-open-jupyter-notebook-on-my-instance).  
 If you want to access your management nodes through SSH, make sure your [Firewall rules](https://cloud.lambdalabs.com/firewall) are configured to allow SSH traffic.
 
 To access your management nodes and compute nodes via SSH:

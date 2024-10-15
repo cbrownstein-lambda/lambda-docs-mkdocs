@@ -30,14 +30,24 @@ In this tutorial, you'll:
    so your Kubernetes cluster can use your instance's GPUs.
 1. Deploy KubeAI in your Kubernetes cluster to serve Nous Research's Hermes 3
    model.
-1. Set up an Ingress in your Kubernetes cluster so you can access the web UI.
 1. Interact with the Hermes 3 model using the web UI.
 
 ## Stand up a single-node Kubernetes cluster
 
 1. Use the
    [dashboard](https://cloud.lambdalabs.com/instances){ .external target="_blank" }
-   or [Cloud API](../../public-cloud/cloud-api.md#launching-instances) to launch an instance. Then, SSH into your instance.
+   or [Cloud API](../../public-cloud/cloud-api.md#launching-instances) to launch
+   an instance. Then, SSH into your instance by running:
+
+    ```bash
+    ssh ubuntu@<INSTANCE-IP-ADDRESS> -L 8080:localhost:8080
+    ```
+
+    !!! note
+
+        The `-L 3000:localhost:3000` option enables local port forwarding. Local
+        port forwarding is needed to access KubeAI's web UI.
+        [See the SSH man page to learn more](https://manpages.ubuntu.com/manpages/jammy/en/man1/ssh.1.html){ .external target="_blank" }.
 
 1. Install K3s (Kubernetes) by running:
 
@@ -142,10 +152,10 @@ In this tutorial, you'll:
     nvidia.com/gpu-driver-upgrade-enabled: true
     ```
 
-    `nvidia.com/gpu.count=1` indicates that your cluster detects 1 GPUs.
+    `nvidia.com/gpu.count=2` indicates that your cluster detects 2 GPUs.
 
-    `nvidia.com/gpu.product=NVIDIA-H100-PCIe` indicates that the detected GPU is
-    an NVIDIA-H100-PCIe.
+    `nvidia.com/gpu.product=NVIDIA-H100-80GB-HBM3` indicates that the detected
+    GPUs are NVIDIA-H100-80GB-HBM3 GPUs.
 
 ## Install KubeAI
 
@@ -176,7 +186,8 @@ In this tutorial, you'll:
     kubectl get --watch -n kubeai pods
     ```
 
-    This command watches and displays the status of Pods.
+    This command watches and displays the status of pods in the `kubeai`
+    namespace.
 
     KubeAI is installed and ready once you see output similar to:
 
@@ -188,7 +199,7 @@ In this tutorial, you'll:
 
 ## Download and serve Hermes 3
 
-1. Download and serve Nous Research's Hermes 3 model using vLLM by running:
+- Download and serve Nous Research's Hermes 3 model using vLLM by running:
 
     ```bash
     cat <<EOF | kubectl apply -f -
@@ -222,34 +233,13 @@ In this tutorial, you'll:
 
     To stop watching, press ++ctrl++ + ++c++
 
-1. Use the
-   [Firewall](https://cloud.lambdalabs.com/firewall){ .external target="_blank" }
-   feature to create an inbound rule to allow traffic to port TCP/80.
+## Access the KubeAI web UI
 
-## Set up an Ingress and access the web UI
-
-1. Run:
+1. Run the following command to make the KubeAI web UI accessible from your
+   computer:
 
     ```bash
-    cat <<EOF | kubectl apply -f -
-    apiVersion: networking.k8s.io/v1
-    kind: Ingress
-    metadata:
-      name: kubeai
-      namespace: kubeai
-    spec:
-      rules:
-        - host: cody-kubeai.duckdns.org
-          http:
-            paths:
-              - path: /
-                pathType: Prefix
-                backend:
-                  service:
-                    name: openwebui
-                    port:
-                      number: 80
-    EOF
+    kubectl -n kubeai port-forward service/openwebui 8080:8080
     ```
 
-1. Access the web UI.
+1. In your web browser, go to <http://localhost:8080>.

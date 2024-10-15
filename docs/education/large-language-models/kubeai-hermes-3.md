@@ -99,23 +99,23 @@ In this tutorial, you'll:
     You should see output similiar to:
 
     ```{.text .no-copy}
-    nvidia.com/cuda.driver-version.full=535.129.03
-    nvidia.com/cuda.driver-version.major=535
-    nvidia.com/cuda.driver-version.minor=129
-    nvidia.com/cuda.driver-version.revision=03
-    nvidia.com/cuda.driver.major=535
-    nvidia.com/cuda.driver.minor=129
-    nvidia.com/cuda.driver.rev=03
-    nvidia.com/cuda.runtime-version.full=12.2
+    nvidia.com/cuda.driver-version.full=550.90.07
+    nvidia.com/cuda.driver-version.major=550
+    nvidia.com/cuda.driver-version.minor=90
+    nvidia.com/cuda.driver-version.revision=07
+    nvidia.com/cuda.driver.major=550
+    nvidia.com/cuda.driver.minor=90
+    nvidia.com/cuda.driver.rev=07
+    nvidia.com/cuda.runtime-version.full=12.4
     nvidia.com/cuda.runtime-version.major=12
-    nvidia.com/cuda.runtime-version.minor=2
+    nvidia.com/cuda.runtime-version.minor=4
     nvidia.com/cuda.runtime.major=12
-    nvidia.com/cuda.runtime.minor=2
-    nvidia.com/gfd.timestamp=1728238737
+    nvidia.com/cuda.runtime.minor=4
+    nvidia.com/gfd.timestamp=1729014507
     nvidia.com/gpu-driver-upgrade-state=upgrade-done
     nvidia.com/gpu.compute.major=9
     nvidia.com/gpu.compute.minor=0
-    nvidia.com/gpu.count=1
+    nvidia.com/gpu.count=2
     nvidia.com/gpu.deploy.container-toolkit=true
     nvidia.com/gpu.deploy.dcgm=true
     nvidia.com/gpu.deploy.dcgm-exporter=true
@@ -130,7 +130,7 @@ In this tutorial, you'll:
     nvidia.com/gpu.memory=81559
     nvidia.com/gpu.mode=compute
     nvidia.com/gpu.present=true
-    nvidia.com/gpu.product=NVIDIA-H100-PCIe
+    nvidia.com/gpu.product=NVIDIA-H100-80GB-HBM3
     nvidia.com/gpu.replicas=1
     nvidia.com/gpu.sharing-strategy=none
     nvidia.com/mig.capable=true

@@ -58,7 +58,7 @@ Refer to the image below for the loaction of the HD audio cable port on your mot
 
 <figure markdown="span">
   ![Vector One motherboard](../../assets/images/front-audio-vector-one-mobo.png)
-  <figcaption>Vector One motherboard front audio port</figcaption>
+  <figcaption>Location of Vector One motherboard front audio port</figcaption>
 </figure>
 
 

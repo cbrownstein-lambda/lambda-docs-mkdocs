@@ -22,8 +22,8 @@ The model is available in 8B and 70B sizes:
 This tutorial assumes the following prerequisites:
 
 1. Lambda On-Demand Cloud instances appropriate for the Llama 3 model size you want to run.
-   * Model 8B ([meta-llama/Meta-Llama-3-8B)](https://huggingface.co/meta-llama/Meta-Llama-3-8B) requires 1x A100 or H100 GPU node.
-   * Model 70B ([meta-llama/Meta-Llama-3-70B)](https://huggingface.co/meta-llama/Meta-Llama-3-70B) requires 8x A100 or H100 GPU nodes.
+    * Model 8B ([meta-llama/Meta-Llama-3-8B)](https://huggingface.co/meta-llama/Meta-Llama-3-8B) requires 1x A100 or H100 GPU node.
+    * Model 70B ([meta-llama/Meta-Llama-3-70B)](https://huggingface.co/meta-llama/Meta-Llama-3-70B) requires 8x A100 or H100 GPU nodes.
 1. A Hugging Face [user account](https://huggingface.co/join).
 1. An approved [Hugging Face user access token](https://huggingface.co/docs/hub/en/security-tokens) that includes repository read permissions for the meta-llama-3 model repository you wish to use.
 

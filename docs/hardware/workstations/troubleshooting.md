@@ -57,8 +57,8 @@ Reseat the HD audio cable connected to the front audio port on the bottom-left o
 Refer to the image below for the loaction of the HD audio cable port on your motherboard, labelled JAUD1:
 
 <figure markdown="span">
-  ![Vector motherboard](../../assets/images/front-audio-vector-mobo.png)
-  <figcaption>Vector and Vector One motherboard front audio port</figcaption>
+  ![Vector One motherboard](../../assets/images/front-audio-vector-one-mobo.png)
+  <figcaption>Vector One motherboard front audio port</figcaption>
 </figure>
 
 

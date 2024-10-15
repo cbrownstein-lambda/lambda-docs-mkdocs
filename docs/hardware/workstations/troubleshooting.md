@@ -54,7 +54,7 @@ After reinstalling the audio packages, test the aux ports to see if the issue is
 #### Check the motherboard HD audio cable connection
 Reseat the HD audio cable connected to the front audio port on the bottom-left of the motherboard and make sure the cable is securely connected.
 
-Refer to the image below for the loaction of the HD audio cable port on your motherboard, labelled F_AUDIO:
+Refer to the image below for the loaction of the HD audio cable port on your motherboard, labelled JAUD1:
 
 <figure markdown="span">
   ![Vector motherboard](../../assets/images/front-audio-vector-mobo.png)

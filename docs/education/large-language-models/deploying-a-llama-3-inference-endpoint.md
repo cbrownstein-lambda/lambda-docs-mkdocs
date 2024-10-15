@@ -71,7 +71,7 @@ huggingface-cli login
           --model=meta-llama/Meta-Llama-3-8B &> api_server.log & 
         ```
 
-    ==="Llama3 70B"
+    === "Llama3 70B"
 
         ```
          python3 -m vllm.entrypoints.openai.api_server \

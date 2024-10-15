@@ -10,23 +10,23 @@ tags:
 
 ## Introduction
 
-[KubeAI: Private Open AI on Kubernetes :octicons-link-external-16:](https://github.com/substratusai/kubeai){target="_blank"}
+[KubeAI: Private Open AI on Kubernetes](https://github.com/substratusai/kubeai){ .external target="_blank" }
 is a Kubernetes solution for running inference on open-weight large language
 models (LLMs), including
-[Nous Research's Hermes 3 fine-tuned Llama 3.1 8B model :octicons-link-external-16:](https://nousresearch.com/hermes3/){target="_blank"}.
+[Nous Research's Hermes 3 fine-tuned Llama 3.1 8B model](https://nousresearch.com/hermes3/){ .external target="_blank" }.
 Using model servers such as
-[vLLM :octicons-link-external-16:](https://blog.vllm.ai/2023/06/20/vllm.html){target="_blank"}
-and [Ollama :octicons-link-external-16:](https://ollama.com/){target="_blank"},
+[vLLM](https://blog.vllm.ai/2023/06/20/vllm.html){ .external target="_blank" }
+and [Ollama](https://ollama.com/){ .external target="_blank" },
 KubeAI enables you to interact with the models using both an OpenAI-compatible
-API and a web-UI powered by OpenWebUI.
+API and a web-UI powered by [Open WebUI](https://openwebui.com/).
 
 In this tutorial, you'll:
 
 1. Stand up a single-node Kubernetes cluster on an
-   [on-demand instance :octicons-link-external-16:](https://lambdalabs.com/service/gpu-cloud){target="_blank"}
-   using [K3s :octicons-link-external-16:](https://k3s.io/).
+   [on-demand instance](https://lambdalabs.com/service/gpu-cloud){ .external target="_blank" }
+   using [K3s](https://k3s.io/){ .external target="_blank" }.
 1. Install the
-   [NVIDIA GPU Operator :octicons-link-external-16:](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html){target="_blank"}
+   [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html){ .external target="_blank" }
    so your Kubernetes cluster can use your instance's GPUs.
 1. Deploy KubeAI in your Kubernetes cluster to serve Nous Research's Hermes 3
    model.
@@ -36,8 +36,8 @@ In this tutorial, you'll:
 ## Stand up a single-node Kubernetes cluster
 
 1. Use the
-   [dashboard :octicons-link-external-16:](https://cloud.lambdalabs.com/instances)
-   or [Cloud API](#) to launch an instance. Then, SSH into your instance.
+   [dashboard](https://cloud.lambdalabs.com/instances){ .external target="_blank" }
+   or [Cloud API](../../public-cloud/cloud-api.md#launching-instances) to launch an instance. Then, SSH into your instance.
 
 1. Install K3s (Kubernetes) by running:
 
@@ -223,8 +223,7 @@ In this tutorial, you'll:
     To stop watching, press ++ctrl++ + ++c++
 
 1. Use the
-   [Firewall
-   :octicons-link-external-16:](https://cloud.lambdalabs.com/firewall){target="_blank"}
+   [Firewall](https://cloud.lambdalabs.com/firewall){ .external target="_blank" }
    feature to create an inbound rule to allow traffic to port TCP/80.
 
 ## Set up an Ingress and access the web UI

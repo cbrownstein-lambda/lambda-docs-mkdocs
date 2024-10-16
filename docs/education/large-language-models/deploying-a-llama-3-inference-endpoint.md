@@ -56,9 +56,9 @@ Once you have the appropriate Lambda On-Demand Cloud instances and Hugging Face 
 
 1. Log in to Hugging Face:
 
-```
-huggingface-cli login
-```
+    ```
+    huggingface-cli login
+    ```
 
 1. Start the model server (download/cache as necessary).&#x20;
 

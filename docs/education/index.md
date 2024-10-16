@@ -21,9 +21,9 @@ hide:
 
 ## Scheduling and orchestration
 
-- [Deploying models with dstack](scheduling-and-orchestration/dstack-vllm-llama-3-1.md)
+- [Deploying models with dstack](scheduling-and-orchestration/deploying-models-with-dstack.md)
 - [Using SkyPilot to deploy a Kubernetes cluster](scheduling-and-orchestration/skypilot-deploy-kubernetes.md)
 
 ## Basic Linux usage and system administration
 
-- [Virtual environments and Docker containers](linux-usage/virtual-environments-containers.md)
+- [Virtual environments and Docker containers](programming/virtual-environments-containers.md)

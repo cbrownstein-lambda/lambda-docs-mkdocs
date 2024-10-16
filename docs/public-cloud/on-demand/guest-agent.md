@@ -1,5 +1,8 @@
 ---
 description: Install the guest agent and get started with Prometheus and Grafana.
+tags:
+  - 1-click clusters
+  - on-demand cloud
 ---
 
 # Installing the guest agent and getting started with Prometheus and Grafana
@@ -38,7 +41,7 @@ First, SSH into your instance by running:
 ssh ubuntu@IP-ADDRESS -L 3000:localhost:3000
 ```
 
-Replace **IP-ADDRESS** with the actual IP address of your instance.
+Replace `IP-ADDRESS` with the actual IP address of your instance.
 
 !!! note
 
@@ -75,7 +78,7 @@ To set up Prometheus and Grafana:
 
     Under `targets`, change `localhost:9090` to `PRIVATE-IP-ADDRESS:9101`.
 
-    Replace **PRIVATE-IP-ADDRESS** with the private IP address of your instance,
+    Replace `PRIVATE-IP-ADDRESS` with the private IP address of your instance,
     which you obtained in the previous step.
 
     !!! note

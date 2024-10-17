@@ -1,12 +1,11 @@
 ---
 description: All you need to know about getting started with 1-Click Clusters
 tags:
+  - 1-click clusters
   - distributed training
 ---
 
 # Getting started
-
-{% include "../../includes/hello-world.incl.md" %}
 
 ## Conceptual overview
 

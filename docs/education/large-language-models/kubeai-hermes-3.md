@@ -170,7 +170,7 @@ In this tutorial, you'll:
     nvidia.com/gpu-driver-upgrade-enabled: true
     ```
 
-    `nvidia.com/gpu.count=8` indicates that your cluster detects 2 GPUs.
+    `nvidia.com/gpu.count=8` indicates that your cluster detects 8 GPUs.
 
     `nvidia.com/gpu.product=NVIDIA-H100-80GB-HBM3` indicates that the detected
     GPUs are NVIDIA-H100-80GB-HBM3 GPUs.
@@ -273,7 +273,7 @@ In this tutorial, you'll:
 1. To know when the models are downloaded and being served, run:
 
     ```bash
-    kubectl get -w -n kubeai pods | grep model-
+    kubectl get -n kubeai -w --field-selector=status.phase=Running pods | grep model-
     ```
 
 1. The models are downloaded and being served once you see output similar to.
@@ -325,7 +325,7 @@ In this tutorial, you'll:
 1. Enable access to KubeAI's OpenAI-compatible API by running:
 
     ```bash
-    kubectl -n kubeai port-forward service/kubeai 8080:80 &> /dev/null &
+    kubectl -n kubeai port-forward service/kubeai 8081:80 &> /dev/null &
     ```
 
 1. List the models KubeAI is serving using the API's `/models` endpoint by
@@ -376,7 +376,7 @@ In this tutorial, you'll:
     ```
 
     In the above example, the Nemotron model is responding to the prompt
-    `Compare and contrast machine learning and deep learning.`
+    `Machine learning engineers are`.
 
     You should see output similar to:
 
@@ -413,7 +413,7 @@ In this tutorial, you'll:
 1. On your instance, run:
 
     ```bash
-    nvtop -d 5
+    nvtop -d 2
     ```
 
     You should see output similar to:

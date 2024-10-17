@@ -7,7 +7,7 @@ tags:
 
 # Support
 
-At Lambda, we recognize that exceptional support is critical to maximizing the value of your One-Click Cluster (1CC) deployment. Our world-class support team is dedicated to ensuring your success at every stage, from deployment to daily operations.
+At Lambda, we recognize that exceptional support is critical to maximizing the value of your 1-Click Cluster (1CC) deployment. Our world-class support team is dedicated to ensuring your success at every stage, from deployment to daily operations.
 
 ## Support team
 

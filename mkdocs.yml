@@ -41,9 +41,10 @@ nav:
       - public-cloud/on-demand/billing.md
       - public-cloud/on-demand/guest-agent.md
     - 1-Click Clusters:
-      - public-cloud/1-click-clusters/getting-started.md
+      - public-cloud/1-click-clusters/index.md
       - public-cloud/1-click-clusters/serving-llama-3_1-405b.md
       - public-cloud/1-click-clusters/security-posture.md
+      - public-cloud/1-click-clusters/support.md
     - Additional resources:
       - 'Forum': 'https://deeptalk.lambdalabs.com/'
       - 'Blog': 'https://lambdalabs.com/blog'

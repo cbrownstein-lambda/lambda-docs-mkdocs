@@ -34,7 +34,7 @@ User manuals for Lambda server chassis can be downloaded below.
 
     `Product Name` is the server chassis. In this example, the server chassis is AS -1114CS-TNR.
 
-### Supermicro <a href="#supermicro" id="supermicro"></a>
+### Supermicro
 
 | Chassis                     | User manual                                                                |
 | --------------------------- | -------------------------------------------------------------------------- |
@@ -49,7 +49,7 @@ User manuals for Lambda server chassis can be downloaded below.
 | AS -2124US-TNRP             | [Download](https://www.supermicro.com/manuals/superserver/2U/MNL-2288.pdf) |
 | SuperServer 420GP-TNAR      | [Download](https://www.supermicro.com/manuals/superserver/4U/MNL-2350.pdf) |
 
-### GIGABYTE <a href="#gigabyte" id="gigabyte"></a>
+### GIGABYTE
 
 | Chassis  | User manual                                                                                                 |
 | -------- | ----------------------------------------------------------------------------------------------------------- |
@@ -62,15 +62,22 @@ User manuals for Lambda server chassis can be downloaded below.
 
 ## Where do I find my server's serial number?
 
-On Supermicro server chassis, the serial number is on a service tag located at the front-bottom of the chassis.
+On the Supermicro server chassis, the serial number is on a service tag located at the front-bottom of the chassis.
 
-<figure><img src="../.gitbook/assets/serial-number-supermicro.jpg" alt=""><figcaption><p>Serial number on the service tag of a Supermicro server chassis</p></figcaption></figure>
+<figure markdown="span">
+  ![Supermicro server serial number](../../assets/images/server-serial-supermicro.png)
+  <figcaption>Serial number on the service tag of a Supermicro server chassis</figcaption>
+</figure>
+
 
 On GIGABYTE 2U server chassis, the serial number is on a sticker on the right side of the chassis.
 
 On GIGABYTE 4U server chassis, the serial number is on a sticker on the left side of the chassis.
 
-<figure><img src="../.gitbook/assets/serial-number-gigabyte-4u.jpg" alt=""><figcaption><p>Serial number on a sticker on the left side of a GIGABYTE 4U server chassis</p></figcaption></figure>
+<figure markdown="span">
+  ![Supermicro server serial number](../../assets/images/server-serial-gigabyte.png)
+  <figcaption>Serial number on a sticker on the left side of a GIGABYTE 4U server chassis</figcaption>
+</figure>
 
 ## Where can I find my server's IPMI (BMC) password?
 
@@ -82,7 +89,7 @@ On GIGABYTE 4U server chassis, the serial number is on a sticker on the left sid
     2. Run `ipmitool user list 1` to view the user list. Confirm that `ID 2` is `admin` or `ADMIN`.
     3. Run `ipmitool user set password 2` to set a new IPMI password.
 
-### Supermicro <a href="#supermicro" id="supermicro"></a>
+### Supermicro
 
 On Supermicro chassis, the IPMI password appears on one or more of the following:
 
@@ -92,7 +99,7 @@ On Supermicro chassis, the IPMI password appears on one or more of the following
 
 See Supermicro's [BMC Unique Password Guide \[PDF\]](https://www.supermicro.com/support/BMC\_Unique\_Password\_Guide.pdf) for more information.
 
-### GIGABYTE <a href="#gigabyte" id="gigabyte"></a>
+### GIGABYTE
 
 On GIGABYTE chassis, the IPMI password appears on one or more of the following:
 
@@ -123,8 +130,14 @@ Power connector inlets and outlets
 
 This is what **C14 inlets** and **C13 outlets** look like:
 
-<figure><img src="https://old.docs.lambdalabs.com/servers/power-requirements/c14-c13-connectors_hu42f5eb243ec311f38c013be90e0f947f_247364_400x0_resize_catmullrom_3.png" alt="" height="400" width="400"><figcaption><p>Power cord with C14 and C13 connectors</p></figcaption></figure>
+<figure markdown="span">
+  ![Supermicro server serial number](../../assets/images/power-cord-c13-c14.png)
+  <figcaption>Power cord with C14 and C13 connectors</figcaption>
+</figure>
 
 This is what **C20 inlets** and **C19 outlets** look like:
 
-<figure><img src="https://old.docs.lambdalabs.com/servers/power-requirements/c20-c19-connectors_hub7bb92652f6e7d335159a840b3989e9b_248506_400x0_resize_catmullrom_3.png" alt="" height="400" width="400"><figcaption><p>Power cord with C20 and C19 connectors</p></figcaption></figure>
+<figure markdown="span">
+  ![Supermicro server serial number](../../assets/images/power-cord-c19-c20.png)
+  <figcaption>Power cord with C20 and C19 connectors</figcaption>
+</figure>

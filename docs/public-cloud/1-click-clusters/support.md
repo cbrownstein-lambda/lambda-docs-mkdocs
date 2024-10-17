@@ -26,7 +26,7 @@ Lambda classifies incoming support tickets into three categories:
 * Best effort
 * Out of scope
 
-### In Scope
+### In scope
 
 * **Hardware and Infrastructure:** Full support for CPU/GPU VMs, physical hosts, and networking components.  
 * **Software Environment:** Assistance with Lambda Stack, OFED drivers, Jupyter Notebooks, and essential ML tools like NCCL and OpenMPI.  

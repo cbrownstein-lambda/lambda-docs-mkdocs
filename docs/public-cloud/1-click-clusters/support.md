@@ -36,7 +36,8 @@ Lambda classifies incoming support tickets into three categories:
 
 ### Best effort
 
-Our Support team is dedicated to delivering world-class customer service and technical expertise. We empower our engineers to go the extra mile, even when it means stepping beyond the standard scope of our support and engineered products to provide innovative solutions.  
+Our Support team is dedicated to delivering world-class customer service and technical expertise. We empower our engineers to go the extra mile, even when it means stepping beyond the standard scope of our support and engineered products to provide innovative solutions.
+
 In these exceptional cases, we ensure our customers understand that while we strive to help, there may be no guaranteed outcome. Any solutions we provide under these circumstances won't be fully supported in the future, and Lambda cannot assume responsibility for any potential impacts.
 
 ### Out of scope

@@ -14,7 +14,7 @@ At Lambda, we recognize that exceptional support is critical to maximizing the v
 When you choose Lambda, you gain access to a dedicated support team of seasoned professionals with deep expertise in AI/ML infrastructure. This team includes:
 
 * **Customer Success Manager (CSM)**: Your main point of contact post sales, responsible for ensuring your overall satisfaction and delivery of your solution.
-* **Technical Account Manager(TAM)**: An expert specialist who understands the intricacies of your deployment, provides ongoing technical guidance, and escalates any complex issues. 
+* **Technical Account Manager(TAM)**: An expert specialist who understands the specifics of your deployment, provides ongoing technical guidance, and escalates any complex issues. 
 * **Machine learning expert (MLE)**: A AI/ML expert within lambda will provide guidance how how to integrate and scale AI workloads.    
 * **Support Engineering**: Lambda’s Support team, available 24/7 via our ticketing portal, is well-versed in 1CC and will be able to respond to any technical support request, escalating issues and incidents early and often.
 

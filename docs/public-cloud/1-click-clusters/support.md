@@ -29,7 +29,7 @@ Lambda classifies incoming support tickets into three categories:
 ### In scope
 
 * **Hardware and Infrastructure:** Full support for CPU/GPU VMs, physical hosts, and networking components.  
-* **Software Environment:** Assistance with Lambda Stack, OFED drivers, Jupyter Notebooks, and essential ML tools like NCCL and OpenMPI.  
+* **Software Environment:** Assistance with Lambda Stack, OFED drivers, Jupyter Notebooks, and essential ML tools like NCCL and Open MPI.  
 * **Networking and Storage:** Management and troubleshooting for Ethernet and InfiniBand networks, as well as persistent and local storage.  
 * **Slurm Installation:** Guidance on Slurm setup and basic troubleshooting to streamline your job scheduling processes.  
 * **Managed Kubernetes*:** If purchased as an add-on, our team of Kubernetes experts will be there to help you.

@@ -18,7 +18,7 @@ When you choose Lambda, you gain access to a dedicated support team of seasoned 
 * **Machine learning expert (MLE)**: A AI/ML expert within lambda will provide guidance how how to integrate and scale AI workloads.    
 * **Support Engineering**: Lambda’s Support team, available 24/7 via our ticketing portal, is well-versed in 1CC and will be able to respond to any technical support request, escalating issues and incidents early and often.
 
-## Support Scope
+## Support scope
 
 Lambda classifies incoming support tickets into three categories:
 

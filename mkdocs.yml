@@ -192,7 +192,7 @@ plugins:
         'software/configuring-software-raid.md': 'education/linux-usage/configuring-software-raid.md'
         'servers/getting-started.md': 'hardware/servers/getting-started.md'
         '1-click-clusters/serving-llama-3.1-405b-on-a-lambda-1-click-cluster.md': 'education/large-language-models/serving-llama-3-1-405b.md'
-        '1-click-clusters/getting-started.md': 'public-cloud/1-click-clusters/getting-started.md'
+        '1-click-clusters/getting-started.md': 'public-cloud/1-click-clusters/index.md'
         '1-click-clusters/security-posture.md': 'public-cloud/1-click-clusters/security-posture.md'
   - tags:
       tags_file: tags.md

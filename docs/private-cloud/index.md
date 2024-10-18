@@ -6,7 +6,7 @@ tags:
 
 # Introduction
 
-Lambda Private Cloud provides bare metal, single-tenant clusters for defined reservation periods. Lambda builds the cluster to your specifications. Lambda providing 24x7 support for the cluster hardware. Access to the cluster and firewall are restricted solely to you. Lambda can additionally provide managed services, like [Managed Kubernetes](/managed-kubernetes/index.md).
+Lambda Private Cloud provides bare metal, single-tenant clusters for defined reservation periods. Lambda builds the cluster to your specifications. Lambda providing 24x7 support for the cluster hardware. Access to the cluster and firewall are restricted solely to you. Lambda can additionally provide managed services, like [Managed Kubernetes](../private-cloud/managed-kubernetes/index.md).
 
 <div class="grid cards" markdown>
 

@@ -25,7 +25,7 @@ Since the Lambda Chat Completions API is compatible with the
 [OpenAI API](https://platform.openai.com/docs/overview){ .external target="_blank" },
 you can use it as a drop-in replacement for applications currently using the
 OpenAI API. See, for example,
-[our guide on integrating Lambda Chat into VS Code](../programming/vs-code-lambda-chat.md).
+[our guide on integrating Lambda Chat into VS Code](../education/programming/vs-code-lambda-chat.md).
 
 The Lambda Chat Completions API implements endpoints for:
 
@@ -55,7 +55,7 @@ Currently, the following models are available:
     `hermes-3-llama-3.1-405b-fp8-128k` model.
 
 To use the Lambda Chat Completions API, first
-[generate a Cloud API key from the dashboard](../../public-cloud/on-demand/dashboard.md#generate-api-keys).
+[generate a Cloud API key from the dashboard](../public-cloud/on-demand/dashboard.md#generate-api-keys).
 You can also use a Cloud API key that you've already generated.
 
 In the examples below:
@@ -137,7 +137,7 @@ conversation, then outputs a response.
 === "Python"
 
     First,
-    [create and activate a Python virtual environment](../programming/virtual-environments-containers.md#creating-a-python-virtual-environment).
+    [create and activate a Python virtual environment](../education/programming/virtual-environments-containers.md#creating-a-python-virtual-environment).
     Then, install the
     [OpenAI Python API library](https://pypi.org/project/openai/){ .external target="_blank" }.
 
@@ -241,7 +241,7 @@ To use the `/completions` endpoint:
 === "Python"
 
     First,
-    [create and activate a Python virtual environment](../programming/virtual-environments-containers.md#creating-a-python-virtual-environment).
+    [create and activate a Python virtual environment](../education/programming/virtual-environments-containers.md#creating-a-python-virtual-environment).
     Then, install the
     [OpenAI Python API library](https://pypi.org/project/openai/){ .external target="_blank" }.
 
@@ -322,7 +322,7 @@ To use the `/models` endpoint:
 === "Python"
 
     First,
-    [create and activate a Python virtual environment](../programming/virtual-environments-containers.md#creating-a-python-virtual-environment).
+    [create and activate a Python virtual environment](../education/programming/virtual-environments-containers.md#creating-a-python-virtual-environment).
     Then, install the
     [OpenAI Python API library](https://pypi.org/project/openai/){ .external target="_blank" }.
 

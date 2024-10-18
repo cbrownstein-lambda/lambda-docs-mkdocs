@@ -13,7 +13,7 @@ hide:
 ## Large language models (LLMs)
 
 - [Serving the Llama 3.1 8B and 70B models using Lambda Cloud on-demand instances](large-language-models/serving-llama-3-1-docker.md)
-- [Using the Lambda Chat Completions API](large-language-models/lambda-chat-api.md)
+- [Using the Lambda Chat Completions API](../public-cloud/lambda-chat-api.md)
 
 ## Programming
 

@@ -146,6 +146,6 @@ To set up Prometheus and Grafana:
 
     !!! note
 
-        On-demand instances, unlike [1-Click
-        Clusters](../1-click-clusters/getting-started.md), don't use InfiniBand
+        On-demand instances, unlike
+        [1-Click Clusters](../1-click-clusters/index.md), don't use InfiniBand
         fabric. Accordingly, the InfiniBand transfer rates will always be zero.

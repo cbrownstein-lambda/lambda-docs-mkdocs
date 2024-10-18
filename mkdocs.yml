@@ -34,6 +34,7 @@ nav:
     - public-cloud/firewalls.md
     - public-cloud/teams.md
     - public-cloud/cloud-api.md
+    - public-cloud/lambda-chat-api.md
     - On-Demand:
       - public-cloud/on-demand/index.md
       - public-cloud/on-demand/getting-started.md
@@ -93,7 +94,6 @@ nav:
       - education/large-language-models/deploying-a-llama-3-inference-endpoint.md
       - education/large-language-models/deploying-llama-3.2-3b-in-a-kubernetes-k8s-cluster.md
       - education/large-language-models/how-to-serve-the-llama-3.1-8b-and-70b-models-using-lambda-cloud-on-demand-instances.md
-      - education/large-language-models/lambda-chat-api.md
       - education/large-language-models/serving-llama-3-1-405b.md
       - education/large-language-models/serving-llama-3-1-docker.md
     - Linux usage and system administration:

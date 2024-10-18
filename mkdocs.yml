@@ -175,7 +175,7 @@ plugins:
         'on-demand-cloud/billing.md': 'public-cloud/on-demand/billing.md'
         'on-demand-cloud/getting-started.md': 'public-cloud/on-demand/getting-started.md'
         'on-demand-cloud/dashboard.md': 'public-cloud/on-demand/dashboard.md'
-        'on-demand-cloud/how-to-serve-the-llama-3.1-8b-and-70b-models-using-lambda-cloud-on-demand-instances.md': 'education/large-language-models/how-to-serve-the-llama-3.1-8b-and-70b-models-using-lambda-cloud-on-demand-instances.md'
+        'on-demand-cloud/how-to-serve-the-llama-3.1-8b-and-70b-models-using-lambda-cloud-on-demand-instances.md': 'education/large-language-models/serving-llama-3-1-docker.md'
         'on-demand-cloud/deploying-models-with-dstack.md': 'education/scheduling-and-orchestration/deploying-models-with-dstack.md'
         'on-demand-cloud/file-systems.md': 'public-cloud/filesystems.md'
         'tensorbook/getting-started.md': 'hardware/tensorbook/getting-started.md'

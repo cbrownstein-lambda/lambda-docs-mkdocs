@@ -160,7 +160,6 @@ plugins:
   - social
   - redirects:
       redirect_maps:
-        'one-click-clusters/getting-started.md': 'public-cloud/1-click-clusters/getting-started.md'
         'on-demand-cloud/getting-started.md': 'public-cloud/on-demand/getting-started.md'
         'on-demand-cloud/using-skypilot-to-deploy-a-kubernetes-cluster.md': 'education/scheduling-and-orchestration/skypilot-deploy-kubernetes.md'
         'on-demand-cloud/team.md': 'public-cloud/teams.md'

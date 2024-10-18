@@ -14,7 +14,7 @@ hide:
 
 - [Serving the Llama 3.1 8B and 70B models using Lambda Cloud on-demand instances](large-language-models/serving-llama-3-1-docker.md)
 - [Using the Lambda Chat Completions API](large-language-models/lambda-chat-api.md)
-- [Using KubeAI to deploy Nous Research's Hermes 3 LLM](large-language-models/kubeai-hermes-3.md)
+- [Using KubeAI to deploy Nous Research's Hermes 3 and other LLMs](large-language-models/kubeai-hermes-3.md)
 
 ## Programming
 

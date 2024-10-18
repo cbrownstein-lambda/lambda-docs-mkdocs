@@ -8,14 +8,41 @@
 
 [data-md-color-scheme="default"] {
     --md-admonition-fg-color: #000000;
+    --md-admonition-note-border-color: #0489D1;
+    --md-admonition-note-title-bg-color: #0489D11a;
+    --md-admonition-warning-border-color: #E48603;
+    --md-admonition-warning-title-bg-color: #E486031a;
+    --md-admonition-tip-border-color: #04B9A8;
+    --md-admonition-tip-title-bg-color: #04B9A81a;
     --md-default-bg-color: #FFFFFF;
     --md-default-fg-color: #000000;
     --md-default-fg-color--light: #000000;
     --md-default-fg-color--lightest: #000000;
-    --md-primary-fg-color: #6F5CFF;
+    --md-primary-fg-color: #825DFF;
     --md-typeset-color: #000000;
+
+    .md-header__inner .md-logo img,
+    .md-nav--primary .md-nav__title .md-logo img {
+        visibility: hidden;
+    }
+    .md-header__inner .md-logo,
+    .md-nav--primary .md-nav__title .md-logo {
+        background-image: url('../images/lambda/lambda-docs-logo-light-mode.svg') !important;
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 1.2rem;
+        margin: .9rem .6rem;
+    }
+    @media screen and (min-width: 60em) {
+        .md-search__form:hover {
+            background-color: #00000042;
+            border-radius: .1rem;
+            height: 1.8rem;
+        }
+    }
     .md-nav--primary .md-nav__title {
-        color: #FFFFFF;
+        background-color: #FFFFFF;
+        color: #000000;
     }
     .md-tabs {
         background-color: #FFFFFF;
@@ -33,19 +60,62 @@
         background-color: #000000;
         color: #FFFFFF;
     }
+
 }
 
 [data-md-color-scheme="slate"] {
     --md-admonition-fg-color: #FFFFFF;
+    --md-admonition-note-border-color: #0489D1;
+    --md-admonition-note-title-bg-color: #0489D14f;
+    --md-admonition-warning-border-color: #E48603;
+    --md-admonition-warning-title-bg-color: #e486034f;
+    --md-admonition-tip-border-color: #04B9A8;
+    --md-admonition-tip-title-bg-color: #04B9A84f;
     --md-default-bg-color: #000000;
     --md-default-fg-color: #FFFFFF;
     --md-default-fg-color--light: #FFFFFF;
     --md-default-fg-color--lightest: #FFFFFF;
-    --md-primary-fg-color: #6F5CFF;
+    --md-primary-fg-color: #825DFF;
     --md-typeset-color: #FFFFFF;
+    --md-typeset-table-color: #ffffffb8;
+
+    .md-header {
+        background-color: hsla(var(--md-hue),15%,8%,1);
+    }
+    .md-header__inner .md-logo img,
+    .md-nav--primary .md-nav__title .md-logo img {
+        visibility: hidden;
+    }
+    .md-header__inner .md-logo,
+    .md-nav--primary .md-nav__title .md-logo {
+        background-image: url('../images/lambda/lambda-docs-logo-dark-mode.svg') !important;
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 1.2rem;
+        margin: .9rem .6rem;
+    }
+    .md-icon svg {
+        fill: var(--md-default-fg-color);
+    }
+    @media screen and (min-width: 60em) {
+        .md-search__form {
+            background-color: #ffffff1f;
+        }
+        .md-nav--secondary .md-nav__title {
+            box-shadow: none;
+        }
+    }
+    [data-md-toggle=search]:checked~.md-header .md-search__form {
+        background-color: #ffffff2f;
+    }
+    .md-nav--primary .md-nav__title {
+        background-color: var(--md-default-bg-color);
+        color: var(--md-default-fg-color);
+    }
+
     .md-tabs {
-        background-color: #F9F9F9;
-        color: #000000;
+        background-color: hsla(var(--md-hue),15%,8%,1); /* Based on footer BG color */
+        color: var(--md-default-fg-color);
     }
     .md-typeset h1 {
         font-weight: 900;
@@ -59,8 +129,85 @@
     }
 }
 
+/*** Admonitions/Callouts ***/
+
+/* Note */
+
+.md-typeset .admonition.note {
+    border-color: var(--md-admonition-note-border-color);
+}
+
+.md-typeset .admonition.note > .admonition-title {
+    background-color: var(--md-admonition-note-title-bg-color);
+}
+
+.md-typeset .admonition.note > .admonition-title:before {
+    background-color: var(--md-admonition-note-border-color);
+    -webkit-mask-image: var(--md-admonition-icon--note);
+    mask-image: var(--md-admonition-icon--note);
+}
+
+/* Warning */
+
+.md-typeset .admonition.warning {
+    border-color: var(--md-admonition-warning-border-color);
+}
+
+.md-typeset .admonition.warning > .admonition-title {
+    background-color: var(--md-admonition-warning-title-bg-color);
+}
+
+.md-typeset .admonition.warning > .admonition-title:before {
+    background-color: var(--md-admonition-warning-border-color);
+    -webkit-mask-image: var(--md-admonition-icon--warning);
+    mask-image: var(--md-admonition-icon--warning);
+}
+
+/* Tip */
+
+.md-typeset .admonition.tip {
+    border-color: var(--md-admonition-tip-border-color);
+}
+
+.md-typeset .admonition.tip > .admonition-title {
+    background-color: var(--md-admonition-tip-title-bg-color);
+}
+
+.md-typeset .admonition.tip > .admonition-title:before {
+    background-color: var(--md-admonition-tip-border-color);
+    -webkit-mask-image: var(--md-admonition-icon--tip);
+    mask-image: var(--md-admonition-icon--tip);
+}
+
+.external::after {
+    content: '';
+    display: inline-block;
+    width: 0.75em;
+    height: 0.75em;
+    margin: 0 0.15em 0 0.25em;
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="0.75em" height="1em" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M11 10h1v3c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h3v1H1v10h10v-3zM6 2l2.25 2.25L5 7.5L6.5 9l3.25-3.25L12 8V2H6z" fill="%234027FF"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.md-typeset .grid.cards>ul>li:hover {
+    border-color: var(--md-primary-fg-color);
+}
+
 .ll-card-wrapper > a,
 .ll-card-wrapper > a:hover {
     all: unset;
     cursor: pointer;
+}
+
+/* Page TOC border */
+.md-nav--secondary {
+    padding: 1.0rem 0.4rem 0.8rem;
+    border: 1px solid var(--md-typeset-table-color);
+    box-sizing: border-box;
+}
+
+/* Fix icon autofills */
+.no-fill svg {
+    fill: none !important;
 }

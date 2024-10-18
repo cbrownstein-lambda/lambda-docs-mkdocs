@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Introduction
 
 ## Generative AI (GAI)
@@ -8,7 +13,6 @@
 ## Large language models (LLMs)
 
 - [Serving the Llama 3.1 8B and 70B models using Lambda Cloud on-demand instances](large-language-models/serving-llama-3-1-docker.md)
-- Serve Llama 3.1 405B on a Lambda 1-Click Cluster
 - [Using the Lambda Chat Completions API](large-language-models/lambda-chat-api.md)
 - [Deploying Llama 3.2 3B in a Kubernetes (K8s) cluster](large-language-models/k8s-ollama-llama-3-2.md)
 
@@ -16,20 +20,11 @@
 
 - [Integrating Lambda Chat into VS Code](programming/vs-code-lambda-chat.md)
 
-## Benchmarking
-
-- Benchmark DeepSpeed-Chat training on Lambda 1-Click Clusters
-
 ## Scheduling and orchestration
 
-- [Deploying models with dstack](scheduling-and-orchestration/dstack-vllm-llama-3-1.md)
-- Installing K3s lightweight Kubernetes
-- Setting up a Ray Cluster on Kubernetes (KubeRay)
+- [Deploying models with dstack](scheduling-and-orchestration/deploying-models-with-dstack.md)
 - [Using SkyPilot to deploy a Kubernetes cluster](scheduling-and-orchestration/skypilot-deploy-kubernetes.md)
 
 ## Basic Linux usage and system administration
 
-- Transferring large amounts of data
-- Port forwarding using SSH
-- Using Tailscale to securely access remote systems
-- Setting and using environment variables
+- [Virtual environments and Docker containers](programming/virtual-environments-containers.md)

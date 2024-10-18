@@ -1,3 +1,11 @@
+---
+description: Learn how to get started using your Vector, Vector Pro, or Vector One workstation.
+tags:
+  - vector
+  - vector one
+  - vector pro
+---
+
 # Getting started
 
 ## How do I set up my workstation?
@@ -113,7 +121,7 @@ sudo ipmitool raw 0x30 0x0E 0x04 0x06 0x32 0x23 0x49 0x46 0x5a 0x64 0x61 0x64 0x
 
 ## What are the power requirements for my workstation's PSU?
 
-!!! danger
+!!! warning
 
     Lambda workstations are high-performance systems and use a large amount of
     power. For this reason, **Lambda workstations can't reliably be used with
@@ -140,7 +148,7 @@ follows:
 
 Follow these instructions to upgrade your Samsung 980 PRO NVMe SSD's firmware.
 
-!!! danger
+!!! warning
 
     [Samsung 980 PRO NVMe SSDs with the older 3B2QGXA7 firmware are known to
     fail

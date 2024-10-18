@@ -1,3 +1,11 @@
+---
+description: Learn how to use the Lambda Cloud Team feature.
+tags:
+  - 1-click clusters
+  - automation
+  - on-demand cloud
+---
+
 # Teams
 
 ## Create a team
@@ -8,7 +16,7 @@
    Select their role in the team, either an **Admin** or a **Member**.
    Then, click **Send invitation**.
 
-    !!! danger
+    !!! warning
 
         **Be sure to invite only trusted persons to your team!**
 
@@ -74,9 +82,9 @@ then choose **Change to Member**.
 To close a teammate’s account, click the **⋮** where your teammate is
 listed in your Team dashboard. Then, choose **Deactivate user**.
 
-!!! danger
+!!! warning "Important"
 
-    **Carefully review the information in the dialog box that pops up.**
+    Carefully review the information in the dialog box that pops up.
 
 ## Change team name
 

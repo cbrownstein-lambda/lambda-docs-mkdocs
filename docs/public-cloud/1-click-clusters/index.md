@@ -35,7 +35,11 @@ To reserve a 1CC:
     1. *SSH Key:* Select the SSH key that you want to use to access your cluster, then click **Next**.
     1. *Cluster name:* Enter a name for your cluster, then click **Continue to Payment**. You’re presented with a billing summary and the billing information you have saved to your Lambda On-Demand Cloud account.
 1. If needed, update your billing information and change the email address where you’d like the invoice for your 1CC reservation to be sent.
-1. Only the invoice will be sent to this email address. All notifications and other information regarding your 1CC will be sent to the email address associated with your account.
+
+    !!! note
+
+        Only the invoice will be sent to this email address. All notifications and other information regarding your 1CC will be sent to the email address associated with your account.
+
 1. Review the listed policies and terms of service. If you agree to the policies and terms of service, click the checkbox under **Terms and Conditions**.
 1. Click **Submit reservation request**. Within a few minutes, you’ll receive an email confirming your 1CC reservation request.
 

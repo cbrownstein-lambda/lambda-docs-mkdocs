@@ -92,7 +92,7 @@ nav:
       - education/generative-ai/flux-prompt-to-image.md
     - Large language models (LLMs):
       - education/large-language-models/deploying-a-llama-3-inference-endpoint.md
-      - education/large-language-models/deploying-llama-3.2-3b-in-a-kubernetes-k8s-cluster.md
+      - education/large-language-models/k8s-ollama-llama-3-2.md
       - education/large-language-models/kubeai-hermes-3.md
       - education/large-language-models/serving-llama-3-1-405b.md
       - education/large-language-models/serving-llama-3-1-docker.md
@@ -163,7 +163,7 @@ plugins:
         'on-demand-cloud/getting-started.md': 'public-cloud/on-demand/getting-started.md'
         'on-demand-cloud/using-skypilot-to-deploy-a-kubernetes-cluster.md': 'education/scheduling-and-orchestration/skypilot-deploy-kubernetes.md'
         'on-demand-cloud/team.md': 'public-cloud/teams.md'
-        'on-demand-cloud/deploying-llama-3.2-3b-in-a-kubernetes-k8s-cluster.md': 'education/large-language-models/deploying-llama-3.2-3b-in-a-kubernetes-k8s-cluster.md'
+        'on-demand-cloud/deploying-llama-3.2-3b-in-a-kubernetes-k8s-cluster.md': 'education/large-language-models/k8s-ollama-llama-3-2.md'
         'on-demand-cloud/integrating-lambda-chat-into-vs-code.md': 'education/programming/vs-code-lambda-chat.md'
         'on-demand-cloud/how-to-serve-the-flux.1-prompt-to-image-models-using-lambda-cloud-on-demand-instances.md': 'education/generative-ai/flux-prompt-to-image.md'
         'on-demand-cloud/firewall.md': 'public-cloud/firewalls.md'

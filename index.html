@@ -1,0 +1,3188 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lambda GPU Cloud documentation">
+      
+      
+      
+        <link rel="canonical" href="https://cbrownstein-lambda.github.io/lambda-docs-mkdocs/">
+      
+      
+      
+        <link rel="next" href="public-cloud/">
+      
+      
+      <link rel="icon" href="assets/images/lambda/lambda-logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.41">
+    
+    
+      
+        <title>Lambda Docs [PROOF OF CONCEPT]</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/css/extra.css">
+    
+      <link rel="stylesheet" href="assets/css/glightbox.min.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-43EZT1FM6Q"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-43EZT1FM6Q",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-43EZT1FM6Q",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Lambda Docs [PROOF OF CONCEPT]" >
+      
+        <meta  property="og:description"  content="Lambda GPU Cloud documentation" >
+      
+        <meta  property="og:image"  content="https://cbrownstein-lambda.github.io/lambda-docs-mkdocs/assets/images/social/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://cbrownstein-lambda.github.io/lambda-docs-mkdocs/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Lambda Docs [PROOF OF CONCEPT]" >
+      
+        <meta  name="twitter:description"  content="Lambda GPU Cloud documentation" >
+      
+        <meta  name="twitter:image"  content="https://cbrownstein-lambda.github.io/lambda-docs-mkdocs/assets/images/social/index.png" >
+      
+    
+    
+   <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#welcome-to-lambda-docs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      <!--
+  Copyright (c) 2016-2024 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine classes -->
+
+
+
+<!-- Header -->
+<header class="md-header" data-md-component="header">
+  <nav
+    class="md-header__inner md-grid"
+    aria-label="Header"
+  >
+
+    <!-- Link to home -->
+    <a
+      href="."
+      title="Lambda Docs [PROOF OF CONCEPT]"
+      class="md-header__button md-logo"
+      aria-label="Lambda Docs [PROOF OF CONCEPT]"
+      data-md-component="logo"
+    >
+      
+  <img src="assets/images/lambda/lambda-docs-logo-light-mode.svg" alt="logo">
+
+    </a>
+
+    <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+
+    <!-- Header title -->
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Color palette toggle -->
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+
+    <!-- User preference: color palette -->
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+
+    <!-- Site language selector -->
+    
+
+    <!-- Button to open search modal -->
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+
+      <!-- Search interface -->
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    <!-- Repository information -->
+    
+  </nav>
+
+  <!-- Navigation tabs (sticky) -->
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="public-cloud/" class="md-tabs__link">
+          
+  
+  Public Cloud
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="private-cloud/" class="md-tabs__link">
+          
+  
+  Private Cloud
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="hardware/" class="md-tabs__link">
+          
+  
+  Hardware
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="education/" class="md-tabs__link">
+          
+  
+  Education
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Lambda Docs [PROOF OF CONCEPT]" class="md-nav__button md-logo" aria-label="Lambda Docs [PROOF OF CONCEPT]" data-md-component="logo">
+      
+  <img src="assets/images/lambda/lambda-docs-logo-light-mode.svg" alt="logo">
+
+    </a>
+    Lambda Docs [PROOF OF CONCEPT]
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Public Cloud
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Public Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="public-cloud/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="public-cloud/filesystems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Filesystems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="public-cloud/firewalls/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Firewalls
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="public-cloud/teams/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teams
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="public-cloud/cloud-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloud API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="public-cloud/lambda-chat-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the Lambda Chat Completions API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    On-Demand
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            On-Demand
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="public-cloud/on-demand/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="public-cloud/on-demand/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="public-cloud/on-demand/dashboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the Lambda Public Cloud dashboard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="public-cloud/on-demand/billing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Billing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="public-cloud/on-demand/guest-agent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing the guest agent and getting started with Prometheus and Grafana
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1-Click Clusters
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            1-Click Clusters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="public-cloud/1-click-clusters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="public-cloud/1-click-clusters/serving-llama-3_1-405b/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to serve the Llama 3.1 405B model using a Lambda 1-Click Cluster
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="public-cloud/1-click-clusters/security-posture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security posture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="public-cloud/1-click-clusters/support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Additional resources
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            Additional resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://deeptalk.lambdalabs.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Forum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://lambdalabs.com/blog" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.youtube.com/c/LambdaLabs" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    YouTube
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://lambdalabs.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Main site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tags index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    We welcome your feedback!
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            We welcome your feedback!
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/issues/new/choose" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File an issue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Private Cloud
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Private Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="private-cloud/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Managed Kubernetes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Managed Kubernetes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="private-cloud/managed-kubernetes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="private-cloud/managed-kubernetes/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Additional resources
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Additional resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://deeptalk.lambdalabs.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Forum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://lambdalabs.com/blog" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.youtube.com/c/LambdaLabs" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    YouTube
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://lambdalabs.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Main site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tags index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    We welcome your feedback!
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            We welcome your feedback!
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/issues/new/choose" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File an issue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hardware
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Hardware
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Servers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Servers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hardware/servers/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Workstations
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Workstations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hardware/workstations/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hardware/workstations/troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting Workstations and Desktops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Additional resources
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Additional resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://deeptalk.lambdalabs.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Forum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://lambdalabs.com/blog" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.youtube.com/c/LambdaLabs" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    YouTube
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://lambdalabs.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Main site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tags index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    We welcome your feedback!
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            We welcome your feedback!
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/issues/new/choose" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File an issue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Education
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Education
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="education/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="education/tutorial-getting-started-with-training-a-machine-learning-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial: Getting started with training a machine learning model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Generative AI (GAI)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Generative AI (GAI)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="education/generative-ai/flux-prompt-to-image/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to serve the FLUX.1 prompt-to-image models using Lambda Cloud on-demand instances
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Large language models (LLMs)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Large language models (LLMs)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="education/large-language-models/deploying-a-llama-3-inference-endpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deploying a Llama 3 inference endpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="education/large-language-models/k8s-ollama-llama-3-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deploying Llama 3.2 3B in a Kubernetes (K8s) cluster
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="education/large-language-models/kubeai-hermes-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using KubeAI to deploy Nous Research's Hermes 3 and other LLMs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="education/large-language-models/serving-llama-3-1-405b/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Serving Llama 3.1 405B on a Lambda 1-Click Cluster
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="education/large-language-models/serving-llama-3-1-docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Serving the Llama 3.1 8B and 70B models using Lambda Cloud on-demand instances
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux usage and system administration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Linux usage and system administration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="education/linux-usage/basic-linux-commands-and-system-administration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Linux commands and system administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="education/linux-usage/configuring-software-raid/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuring Software RAID
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="education/linux-usage/lambda-stack-and-recovery-images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lambda Stack and recovery images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="education/linux-usage/troubleshooting-and-debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting and debugging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="education/linux-usage/using-the-lambda-bug-report-to-troubleshoot-your-system/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the Lambda bug report to troubleshoot your system
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="education/linux-usage/using-the-nvidia-bug-report.log-file-to-troubleshoot-your-system/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the nvidia-bug-report.log file to troubleshoot your system
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Programming
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            Programming
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="education/programming/virtual-environments-containers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Virtual environments and Docker containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="education/programming/vs-code-lambda-chat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrating Lambda Chat into VS Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Scheduling and orchestration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7">
+            <span class="md-nav__icon md-icon"></span>
+            Scheduling and orchestration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="education/scheduling-and-orchestration/deploying-models-with-dstack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deploying models with dstack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="education/scheduling-and-orchestration/skypilot-deploy-kubernetes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using SkyPilot to deploy a Kubernetes cluster
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_8" id="__nav_5_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Additional resources
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_8">
+            <span class="md-nav__icon md-icon"></span>
+            Additional resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://deeptalk.lambdalabs.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Forum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://lambdalabs.com/blog" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.youtube.com/c/LambdaLabs" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    YouTube
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://lambdalabs.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Main site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tags index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_9" id="__nav_5_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    We welcome your feedback!
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_9">
+            <span class="md-nav__icon md-icon"></span>
+            We welcome your feedback!
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/issues/new/choose" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File an issue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!-- Determine title -->
+
+
+
+<!-- Table of contents -->
+
+
+
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<p><img alt="Homepage" class="skip-lightbox" src="assets/images/lambda/MKDocs_banner.png" /></p>
+<h1 id="welcome-to-lambda-docs">Welcome to Lambda Docs<a class="headerlink" href="#welcome-to-lambda-docs" title="Permanent link">#</a></h1>
+<div class="grid cards">
+<ul>
+<li>
+<p><span class="twemoji lg middle lambda"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21.0107 17.4456C20.9278 17.4456 20.8344 17.4249 20.7619 17.3834C20.513 17.2486 20.4196 16.9271 20.5544 16.6782C20.6996 16.4293 21.0107 16.336 21.2596 16.4708C21.5085 16.616 21.6019 16.9271 21.4567 17.1864C21.3633 17.3523 21.187 17.456 21.0004 17.456L21.0107 17.4456ZM19.3826 16.5123C19.2996 16.5123 19.2063 16.4916 19.1337 16.4501C18.8848 16.3153 18.7915 15.9938 18.9263 15.7449C19.0611 15.496 19.3826 15.4027 19.6315 15.5375C19.8804 15.6827 19.9737 15.9938 19.8285 16.253C19.7352 16.419 19.5589 16.5227 19.3722 16.5227L19.3826 16.5123ZM17.7544 15.5686C17.6714 15.5686 17.5781 15.5478 17.5055 15.5064C17.2566 15.3715 17.1633 15.0501 17.2981 14.8012C17.4329 14.5523 17.7544 14.4589 18.0033 14.5937C18.2522 14.7389 18.3455 15.0501 18.2003 15.3093C18.107 15.4752 17.9307 15.579 17.744 15.579L17.7544 15.5686Z" fill="#825DFF"/>
+<path d="M22.4189 18.2653C22.2841 18.2653 22.1493 18.2031 22.0559 18.1097C21.9522 18.0164 21.9004 17.8816 21.9004 17.7468C21.9004 17.6016 21.9522 17.4668 22.0559 17.3734C22.2011 17.2282 22.4293 17.1868 22.616 17.2594C22.6782 17.2905 22.7404 17.3319 22.7819 17.3734C22.8337 17.4253 22.8752 17.4771 22.896 17.5394C22.9271 17.6016 22.9374 17.6742 22.9374 17.7468C22.9374 17.8816 22.8856 18.006 22.7819 18.1097C22.7404 18.1616 22.6782 18.1927 22.616 18.2238C22.5537 18.2446 22.4915 18.2653 22.4189 18.2653Z" fill="#825DFF"/>
+<path d="M22.4189 16.357C22.1285 16.357 21.9004 16.1288 21.9004 15.8488C21.9004 15.5481 22.1285 15.3199 22.4189 15.3199C22.7093 15.3199 22.9374 15.5481 22.9374 15.8385C22.9374 16.1288 22.7093 16.357 22.4189 16.357ZM22.4189 14.4385C22.1285 14.4385 21.9004 14.2103 21.9004 13.9303C21.9004 13.6295 22.1285 13.4014 22.4189 13.4014C22.7093 13.4014 22.9374 13.6295 22.9374 13.9199C22.9374 14.2103 22.7093 14.4385 22.4189 14.4385ZM22.4189 12.5199C22.1285 12.5199 21.9004 12.2917 21.9004 12.0117C21.9004 11.711 22.1285 11.4828 22.4189 11.4828C22.7093 11.4828 22.9374 11.711 22.9374 12.0014C22.9374 12.2917 22.7093 12.5199 22.4189 12.5199ZM22.4189 10.6117C22.1285 10.6117 21.9004 10.3836 21.9004 10.1036C21.9004 9.80282 22.1285 9.57467 22.4189 9.57467C22.7093 9.57467 22.9374 9.80282 22.9374 10.0932C22.9374 10.3836 22.7093 10.6117 22.4189 10.6117ZM22.4189 8.69318C22.1285 8.69318 21.9004 8.46502 21.9004 8.17465C21.9004 7.8739 22.1285 7.64575 22.4189 7.64575C22.7093 7.64575 22.9374 7.8739 22.9374 8.16428C22.9374 8.45465 22.7093 8.69318 22.4189 8.69318Z" fill="#825DFF"/>
+<path d="M22.4189 6.77464C22.2841 6.77464 22.1493 6.72278 22.0559 6.61908C22.0041 6.5776 21.9626 6.51537 21.9419 6.45315C21.9108 6.39093 21.9004 6.3287 21.9004 6.25611C21.9004 6.12129 21.9522 5.98648 22.0559 5.89314C22.253 5.6961 22.5952 5.6961 22.7923 5.89314C22.8856 5.98648 22.9374 6.12129 22.9374 6.25611C22.9374 6.31833 22.9374 6.39093 22.896 6.45315C22.8752 6.51537 22.8337 6.5776 22.7923 6.61908C22.6885 6.72278 22.5537 6.77464 22.4189 6.77464Z" fill="#825DFF"/>
+<path d="M20.7701 5.82041C20.6768 5.82041 20.5834 5.79967 20.5005 5.73744C20.2619 5.58188 20.1893 5.2604 20.3345 5.01151C20.4901 4.77298 20.8116 4.70039 21.0501 4.84558C21.2886 5.00113 21.3716 5.32262 21.216 5.56114C21.1123 5.7167 20.9464 5.81004 20.7805 5.81004L20.7701 5.82041ZM19.1108 4.86632C19.0175 4.86632 18.9241 4.84558 18.8412 4.78335C18.6026 4.6278 18.5301 4.30631 18.6752 4.05742C18.8308 3.81889 19.1523 3.7463 19.3908 3.89149C19.6293 4.04705 19.7123 4.36853 19.5567 4.60705C19.453 4.76261 19.2871 4.85595 19.1212 4.85595L19.1108 4.86632ZM17.4515 3.91223C17.3582 3.91223 17.2648 3.89149 17.1819 3.82926C16.9434 3.67371 16.8708 3.35222 17.016 3.10333C17.1715 2.86481 17.493 2.79221 17.7315 2.9374C17.97 3.09296 18.053 3.41444 17.8974 3.65297C17.7937 3.80852 17.6278 3.90186 17.4619 3.90186L17.4515 3.91223ZM15.7922 2.94777C15.7093 2.94777 15.6263 2.92703 15.5537 2.88555C15.3048 2.75073 15.2011 2.42924 15.3359 2.18035C15.4707 1.92109 15.7819 1.82775 16.0411 1.96257C16.29 2.09739 16.3937 2.4085 16.2589 2.66777C16.1656 2.84406 15.9893 2.94777 15.8026 2.94777H15.7922ZM14.1329 1.99368C14.05 1.99368 13.967 1.97294 13.8944 1.93146C13.6455 1.79664 13.5418 1.47515 13.6766 1.22626C13.8115 0.966998 14.1226 0.873663 14.3818 1.00848C14.6307 1.1433 14.7344 1.45441 14.5996 1.71368C14.5063 1.88998 14.33 1.99368 14.1433 1.99368H14.1329Z" fill="#825DFF"/>
+<path d="M12.4736 1.02928C12.3388 1.02928 12.204 0.977423 12.1003 0.884088C12.0069 0.780383 11.9551 0.645566 11.9551 0.510749C11.9551 0.448526 11.9551 0.375932 11.9966 0.313709C12.0173 0.251485 12.0588 0.189262 12.1003 0.14778C12.2973 -0.04926 12.6499 -0.04926 12.8366 0.14778C12.8884 0.189262 12.9195 0.251485 12.9506 0.313709C12.9714 0.375932 12.9921 0.438155 12.9921 0.510749C12.9921 0.583342 12.9714 0.645566 12.9506 0.707789C12.9195 0.770012 12.8884 0.832235 12.8366 0.884088C12.7951 0.92557 12.7329 0.967052 12.6706 0.987793C12.6084 1.0189 12.5358 1.02928 12.4736 1.02928Z" fill="#825DFF"/>
+<path d="M4.17745 5.82054C4.00115 5.82054 3.83522 5.73757 3.74189 5.58201C3.58633 5.34349 3.65892 5.02201 3.90782 4.86645C4.14634 4.71089 4.47819 4.78348 4.62338 5.02201C4.77894 5.26053 4.70635 5.58201 4.46782 5.73757C4.38486 5.7998 4.28115 5.82054 4.18782 5.82054H4.17745ZM5.83673 4.86645C5.66044 4.86645 5.49451 4.78348 5.40117 4.62793C5.24561 4.3894 5.31821 4.06792 5.5671 3.91236C5.80562 3.7568 6.13748 3.82939 6.28267 4.06792C6.43823 4.30644 6.36563 4.62793 6.12711 4.78348C6.04414 4.84571 5.94044 4.86645 5.8471 4.86645H5.83673ZM7.49602 3.90199C7.30935 3.90199 7.13305 3.79828 7.03972 3.62198C6.9049 3.37309 7.0086 3.0516 7.2575 2.92716C7.51676 2.79234 7.82788 2.88568 7.96269 3.14494C8.09751 3.39383 8.00418 3.70495 7.74491 3.83976C7.67232 3.88125 7.58935 3.90199 7.50639 3.90199H7.49602ZM9.1553 2.9479C8.97901 2.9479 8.80271 2.85456 8.70937 2.69901C8.56418 2.45011 8.63678 2.139 8.88567 1.98344C9.13456 1.83825 9.45605 1.91085 9.60124 2.15974C9.74642 2.40863 9.67383 2.71975 9.42494 2.86493C9.34197 2.91679 9.24864 2.9479 9.1553 2.9479ZM10.8146 1.99381C10.6383 1.99381 10.4724 1.91085 10.379 1.75529C10.2235 1.51677 10.2961 1.19528 10.545 1.03972C10.7835 0.884163 11.1153 0.956757 11.2605 1.19528C11.4161 1.4338 11.3435 1.75529 11.105 1.91085C11.022 1.97307 10.9183 1.99381 10.825 1.99381H10.8146Z" fill="#825DFF"/>
+<path d="M2.5289 6.77442C2.4563 6.77442 2.38371 6.77442 2.32149 6.73294C2.25926 6.7122 2.20741 6.67072 2.15556 6.61887C2.10371 6.57738 2.07259 6.51516 2.04148 6.45294C2.02074 6.39071 2 6.31812 2 6.2559C2 6.12108 2.06222 5.98626 2.15556 5.89293C2.20741 5.84108 2.25926 5.79959 2.32149 5.77885C2.51853 5.69589 2.74668 5.74774 2.89187 5.89293C2.9852 5.98626 3.04742 6.12108 3.04742 6.2559C3.04742 6.32849 3.02668 6.39071 3.00594 6.45294C2.97483 6.51516 2.94372 6.57738 2.89187 6.61887C2.78816 6.72257 2.66371 6.77442 2.5289 6.77442Z" fill="#825DFF"/>
+<path d="M2.51853 16.3463C2.23852 16.3463 2 16.1181 2 15.8277C2 15.5374 2.22815 15.2988 2.51853 15.2988C2.8089 15.2988 3.03705 15.527 3.03705 15.8174C3.03705 16.1181 2.8089 16.3463 2.51853 16.3463ZM2.51853 14.4381C2.23852 14.4381 2 14.1996 2 13.9196C2 13.6396 2.22815 13.401 2.51853 13.401C2.8089 13.401 3.03705 13.6292 3.03705 13.9092C3.03705 14.2099 2.8089 14.4381 2.51853 14.4381ZM2.51853 12.5195C2.23852 12.5195 2 12.2914 2 12.001C2 11.7106 2.22815 11.4825 2.51853 11.4825C2.8089 11.4825 3.03705 11.7106 3.03705 11.9906C3.03705 12.2914 2.8089 12.5195 2.51853 12.5195ZM2.51853 10.601C2.23852 10.601 2 10.3728 2 10.0825C2 9.79209 2.22815 9.56394 2.51853 9.56394C2.8089 9.56394 3.03705 9.79209 3.03705 10.0721C3.03705 10.3728 2.8089 10.601 2.51853 10.601ZM2.51853 8.69281C2.23852 8.69281 2 8.45429 2 8.17429C2 7.89428 2.22815 7.65576 2.51853 7.65576C2.8089 7.65576 3.03705 7.88391 3.03705 8.16392C3.03705 8.46466 2.8089 8.69281 2.51853 8.69281Z" fill="#825DFF"/>
+<path d="M2.5289 18.265C2.4563 18.265 2.38371 18.2443 2.32149 18.2235C2.25926 18.1924 2.20741 18.1613 2.15556 18.1095C2.06222 18.0161 2 17.8813 2 17.7465C2 17.6739 2.02074 17.6013 2.04148 17.5391C2.07259 17.4769 2.10371 17.425 2.15556 17.3732C2.3526 17.1865 2.69483 17.1761 2.89187 17.3732C2.94372 17.425 2.97483 17.4769 3.00594 17.5391C3.02668 17.6013 3.04742 17.6739 3.04742 17.7465C3.04742 17.8813 2.9852 18.0161 2.89187 18.1095C2.78816 18.2028 2.66371 18.265 2.5289 18.265Z" fill="#825DFF"/>
+<path d="M10.8147 23.0457C10.7213 23.0457 10.628 23.0146 10.5347 22.9628C10.2961 22.8072 10.2132 22.4857 10.3687 22.2472C10.5243 22.0087 10.8354 21.9257 11.0843 22.0813C11.3228 22.2368 11.3954 22.5583 11.2502 22.8072C11.1465 22.9628 10.9806 23.0457 10.8147 23.0457ZM9.15537 22.0916C9.06204 22.0916 8.9687 22.0605 8.87537 22.0087C8.63685 21.8531 8.55388 21.5316 8.70944 21.2931C8.865 21.0546 9.17611 20.9716 9.42501 21.1272C9.66353 21.2827 9.73612 21.6042 9.59094 21.8531C9.48723 22.0087 9.3213 22.0916 9.15537 22.0916ZM7.49609 21.1375C7.41312 21.1375 7.33016 21.1168 7.25757 21.0753C7.00867 20.9405 6.90497 20.6294 7.03979 20.3701C7.1746 20.1109 7.48572 20.0175 7.73461 20.1523C7.9835 20.2872 8.08721 20.6086 7.95239 20.8575C7.85906 21.0338 7.68276 21.1375 7.49609 21.1375ZM5.8368 20.1731C5.74347 20.1731 5.65013 20.1523 5.56717 20.1005C5.31828 19.9553 5.23531 19.6338 5.3805 19.3849C5.52569 19.136 5.8368 19.0531 6.0857 19.2086C6.33459 19.3642 6.40718 19.6857 6.262 19.9242C6.16866 20.0901 5.99236 20.1731 5.81606 20.1731H5.8368ZM4.17752 19.219C4.08418 19.219 3.99085 19.1879 3.89751 19.136C3.65899 18.9805 3.57603 18.659 3.73159 18.4205C3.88714 18.1819 4.19826 18.099 4.44715 18.2545C4.68567 18.4101 4.75827 18.7316 4.61308 18.9805C4.50938 19.136 4.34345 19.219 4.17752 19.219Z" fill="#825DFF"/>
+<path d="M12.4736 24.0003C12.401 24.0003 12.3388 23.9899 12.2766 23.9692C12.2143 23.9381 12.1521 23.907 12.1106 23.8551C12.0069 23.7514 11.9551 23.6269 11.9551 23.4818C11.9551 23.3469 12.0069 23.2225 12.1106 23.1188C12.1521 23.0773 12.2143 23.0358 12.2766 23.0047C12.4632 22.9321 12.6914 22.9736 12.8366 23.1188C12.9403 23.2225 12.9921 23.3469 12.9921 23.4818C12.9921 23.6269 12.9403 23.7514 12.8366 23.8551C12.7432 23.9484 12.6084 24.0003 12.4736 24.0003Z" fill="#825DFF"/>
+<path d="M14.1232 23.0459C13.9469 23.0459 13.781 22.9629 13.6877 22.8074C13.5321 22.5688 13.6047 22.2473 13.8432 22.0918C14.0818 21.9362 14.4032 22.0088 14.5588 22.2473C14.7144 22.4859 14.6418 22.8074 14.3929 22.9629C14.3099 23.0148 14.2062 23.0459 14.1129 23.0459H14.1232ZM15.7825 22.0918C15.6062 22.0918 15.4299 22.0088 15.3366 21.8429C15.1914 21.594 15.264 21.2829 15.5129 21.1377C15.7618 20.9821 16.0729 21.0651 16.2285 21.314C16.384 21.5629 16.301 21.874 16.0522 22.0296C15.9692 22.0814 15.8759 22.1022 15.7825 22.1022V22.0918ZM17.4418 21.1377C17.2551 21.1377 17.0685 21.034 16.9855 20.8577C16.8507 20.6088 16.944 20.2977 17.2033 20.1629C17.4522 20.0281 17.7737 20.1214 17.9085 20.3807C18.0433 20.6295 17.9396 20.951 17.6907 21.0755C17.6077 21.117 17.5248 21.1377 17.4418 21.1377ZM19.1011 20.1732C18.9248 20.1732 18.7589 20.0903 18.6655 19.9347C18.51 19.6962 18.5826 19.3747 18.8211 19.2192C19.07 19.0636 19.3811 19.1362 19.5366 19.3747C19.6922 19.6132 19.6196 19.9347 19.3707 20.0903C19.2878 20.1421 19.1841 20.1732 19.0907 20.1732H19.1011ZM20.7604 19.2192C20.5841 19.2192 20.4181 19.1362 20.3248 18.9806C20.1693 18.7421 20.2418 18.4206 20.4804 18.2651C20.7189 18.1095 21.0404 18.1821 21.1959 18.4206C21.3515 18.6591 21.2789 18.9806 21.03 19.1362C20.947 19.188 20.8433 19.2192 20.75 19.2192H20.7604Z" fill="#825DFF"/>
+<path d="M22.4189 6.77464C22.2841 6.77464 22.1493 6.72278 22.0559 6.61908C22.0041 6.5776 21.9626 6.51537 21.9419 6.45315C21.9108 6.39093 21.9004 6.3287 21.9004 6.25611C21.9004 6.12129 21.9522 5.98648 22.0559 5.89314C22.253 5.6961 22.5952 5.6961 22.7923 5.89314C22.8856 5.98648 22.9374 6.12129 22.9374 6.25611C22.9374 6.31833 22.9374 6.39093 22.896 6.45315C22.8752 6.51537 22.8337 6.5776 22.7923 6.61908C22.6885 6.72278 22.5537 6.77464 22.4189 6.77464Z" fill="#825DFF"/>
+<path d="M14.1329 11.5654C13.9463 11.5654 13.77 11.4617 13.6766 11.2854C13.5418 11.0365 13.6455 10.715 13.8944 10.5906C14.1433 10.4558 14.4648 10.5491 14.5996 10.8084C14.7344 11.0573 14.6411 11.3684 14.3818 11.5032C14.3092 11.5447 14.2263 11.5654 14.1433 11.5654H14.1329ZM15.7819 10.601C15.5952 10.601 15.4189 10.4972 15.3256 10.3209C15.1907 10.0721 15.2944 9.75057 15.5433 9.62612C15.8026 9.4913 16.1137 9.58464 16.2485 9.8439C16.3834 10.0928 16.29 10.4039 16.0308 10.5387C15.9582 10.5802 15.8752 10.601 15.7922 10.601H15.7819ZM17.4411 9.64686C17.2648 9.64686 17.0989 9.5639 17.0056 9.40834C16.85 9.16982 16.9226 8.84833 17.1715 8.69277C17.41 8.53721 17.7419 8.60981 17.8871 8.84833C18.0426 9.08685 17.97 9.40834 17.7315 9.5639C17.6486 9.62612 17.5448 9.64686 17.4515 9.64686H17.4411ZM19.1004 8.69277C18.9241 8.69277 18.7582 8.60981 18.6649 8.45425C18.5093 8.21573 18.5819 7.89424 18.8308 7.73868C19.0693 7.58313 19.4012 7.65572 19.5464 7.89424C19.7019 8.13276 19.6293 8.45425 19.3908 8.60981C19.3078 8.67203 19.2041 8.69277 19.1108 8.69277H19.1004ZM20.7597 7.73868C20.5834 7.73868 20.4175 7.65572 20.3242 7.50016C20.1686 7.26164 20.2412 6.94015 20.4901 6.78459C20.7286 6.62904 21.0605 6.70163 21.2056 6.94015C21.3612 7.17867 21.2886 7.50016 21.0501 7.65572C20.9671 7.71794 20.8634 7.73868 20.7701 7.73868H20.7597Z" fill="#825DFF"/>
+<path d="M12.4736 12.5199C12.401 12.5199 12.3388 12.5199 12.2766 12.4785C12.2143 12.4577 12.1521 12.4162 12.1003 12.3644C12.0069 12.271 11.9551 12.1362 11.9551 12.0014C11.9551 11.8666 12.0069 11.7318 12.1003 11.6281C12.1521 11.5866 12.2143 11.5451 12.2766 11.514C12.4632 11.4414 12.6914 11.4829 12.8366 11.6281C12.9299 11.7318 12.9921 11.8666 12.9921 12.0014C12.9921 12.1362 12.9299 12.271 12.8366 12.3644C12.7432 12.4681 12.6084 12.5199 12.4736 12.5199Z" fill="#825DFF"/>
+<path d="M10.8144 11.5655C10.7211 11.5655 10.6277 11.5448 10.5448 11.4826C10.3062 11.327 10.2337 11.0055 10.3788 10.7566C10.5344 10.5181 10.8559 10.4455 11.0944 10.5907C11.3329 10.7463 11.4159 11.0677 11.2603 11.3063C11.1566 11.4618 10.9907 11.5552 10.8248 11.5552L10.8144 11.5655ZM9.15512 10.6114C9.06178 10.6114 8.96845 10.5907 8.88548 10.5285C8.64696 10.3729 8.57437 10.0514 8.71955 9.80253C8.87511 9.56401 9.1966 9.49142 9.43512 9.6366C9.67364 9.79216 9.75661 10.1136 9.60105 10.3522C9.49734 10.5077 9.33142 10.6011 9.16549 10.6011L9.15512 10.6114ZM7.5062 9.64698C7.41287 9.64698 7.31953 9.62623 7.23657 9.56401C6.99805 9.40845 6.92545 9.08697 7.07064 8.83807C7.2262 8.59955 7.54768 8.52696 7.78621 8.67215C8.02473 8.8277 8.10769 9.14919 7.95214 9.38771C7.84843 9.54327 7.6825 9.6366 7.51657 9.6366L7.5062 9.64698ZM5.84692 8.69289C5.76395 8.69289 5.68099 8.67215 5.6084 8.63066C5.3595 8.49585 5.2558 8.17436 5.39061 7.92547C5.52543 7.6662 5.83655 7.57287 6.09581 7.70769C6.3447 7.8425 6.44841 8.15362 6.31359 8.41288C6.22026 8.58918 6.04396 8.69289 5.85729 8.69289H5.84692ZM4.18763 7.7388C4.10467 7.7388 4.0217 7.71806 3.94911 7.67657C3.70022 7.54176 3.59651 7.22027 3.73133 6.97138C3.86615 6.71212 4.17726 6.61878 4.43653 6.7536C4.68542 6.88841 4.78912 7.19953 4.65431 7.45879C4.56097 7.63509 4.38467 7.7388 4.198 7.7388H4.18763Z" fill="#825DFF"/>
+<path d="M2.5289 6.77442C2.4563 6.77442 2.38371 6.77442 2.32149 6.73294C2.25926 6.7122 2.20741 6.67072 2.15556 6.61887C2.10371 6.57738 2.07259 6.51516 2.04148 6.45294C2.02074 6.39071 2 6.31812 2 6.2559C2 6.12108 2.06222 5.98626 2.15556 5.89293C2.20741 5.84108 2.25926 5.79959 2.32149 5.77885C2.51853 5.69589 2.74668 5.74774 2.89187 5.89293C2.9852 5.98626 3.04742 6.12108 3.04742 6.2559C3.04742 6.32849 3.02668 6.39071 3.00594 6.45294C2.97483 6.51516 2.94372 6.57738 2.89187 6.61887C2.78816 6.72257 2.66371 6.77442 2.5289 6.77442Z" fill="#825DFF"/>
+<path d="M12.4736 24.0003C12.401 24.0003 12.3388 23.9899 12.2766 23.9692C12.2143 23.9381 12.1521 23.907 12.1106 23.8551C12.0069 23.7514 11.9551 23.6269 11.9551 23.4818C11.9551 23.3469 12.0069 23.2225 12.1106 23.1188C12.1521 23.0773 12.2143 23.0358 12.2766 23.0047C12.4632 22.9321 12.6914 22.9736 12.8366 23.1188C12.9403 23.2225 12.9921 23.3469 12.9921 23.4818C12.9921 23.6269 12.9403 23.7514 12.8366 23.8551C12.7432 23.9484 12.6084 24.0003 12.4736 24.0003Z" fill="#825DFF"/>
+<path d="M12.4736 22.092C12.1832 22.092 11.9551 21.8638 11.9551 21.5838C11.9551 21.2831 12.1832 21.0549 12.4736 21.0549C12.764 21.0549 12.9921 21.2831 12.9921 21.5735C12.9921 21.8638 12.764 22.092 12.4736 22.092ZM12.4736 20.1838C12.1832 20.1838 11.9551 19.9557 11.9551 19.6757C11.9551 19.3749 12.1832 19.1468 12.4736 19.1468C12.764 19.1468 12.9921 19.3749 12.9921 19.6653C12.9921 19.9557 12.764 20.1838 12.4736 20.1838ZM12.4736 18.2653C12.1832 18.2653 11.9551 18.0371 11.9551 17.7467C11.9551 17.446 12.1832 17.2178 12.4736 17.2178C12.764 17.2178 12.9921 17.446 12.9921 17.7364C12.9921 18.0267 12.764 18.2653 12.4736 18.2653ZM12.4736 16.3571C12.1832 16.3571 11.9551 16.1289 11.9551 15.8386C11.9551 15.5378 12.1832 15.3097 12.4736 15.3097C12.764 15.3097 12.9921 15.5378 12.9921 15.8282C12.9921 16.1186 12.764 16.3571 12.4736 16.3571ZM12.4736 14.4385C12.1832 14.4385 11.9551 14.2104 11.9551 13.92C11.9551 13.6193 12.1832 13.3911 12.4736 13.3911C12.764 13.3911 12.9921 13.6193 12.9921 13.9096C12.9921 14.2 12.764 14.4385 12.4736 14.4385Z" fill="#825DFF"/>
+<path d="M12.4736 12.5199C12.401 12.5199 12.3388 12.5199 12.2766 12.4785C12.2143 12.4577 12.1521 12.4162 12.1003 12.3644C12.0069 12.271 11.9551 12.1362 11.9551 12.0014C11.9551 11.8666 12.0069 11.7318 12.1003 11.6281C12.1521 11.5866 12.2143 11.5451 12.2766 11.514C12.4632 11.4414 12.6914 11.4829 12.8366 11.6281C12.9299 11.7318 12.9921 11.8666 12.9921 12.0014C12.9921 12.1362 12.9299 12.271 12.8366 12.3644C12.7432 12.4681 12.6084 12.5199 12.4736 12.5199Z" fill="#825DFF"/>
+<path d="M6.69821 15.8488C6.55303 15.8488 6.42858 15.7865 6.32487 15.6932C6.23154 15.5999 6.17969 15.4651 6.17969 15.3302C6.17969 15.2576 6.19006 15.1954 6.22117 15.1332C6.24191 15.0606 6.28339 15.0087 6.32487 14.9569C6.53229 14.7702 6.86414 14.7702 7.06118 14.9569C7.11304 15.0087 7.14415 15.0606 7.17526 15.1332C7.196 15.1954 7.21674 15.2576 7.21674 15.3302C7.21674 15.4651 7.15452 15.5999 7.06118 15.6932C6.96785 15.7865 6.83303 15.8488 6.69821 15.8488Z" fill="#825DFF"/>
+<path d="M3.91768 17.4563C3.74138 17.4563 3.57546 17.3733 3.48212 17.2074C3.32656 16.9689 3.39916 16.6474 3.64805 16.4918C3.88657 16.3363 4.21843 16.4089 4.36362 16.6578C4.51917 16.8963 4.44658 17.2178 4.20806 17.3733C4.12509 17.4356 4.03176 17.4563 3.93842 17.4563H3.91768ZM5.30733 16.6578C5.13104 16.6578 4.96511 16.5748 4.87177 16.4089C4.71621 16.1703 4.78881 15.8489 5.0377 15.6933C5.28659 15.5377 5.60808 15.6103 5.75327 15.8592C5.90883 16.0978 5.83623 16.4192 5.59771 16.5748C5.51475 16.637 5.42141 16.6578 5.32808 16.6578H5.30733Z" fill="#825DFF"/>
+<path d="M2.5289 18.265C2.4563 18.265 2.38371 18.2443 2.32149 18.2235C2.25926 18.1924 2.20741 18.1613 2.15556 18.1095C2.06222 18.0161 2 17.8813 2 17.7465C2 17.6739 2.02074 17.6013 2.04148 17.5391C2.07259 17.4769 2.10371 17.425 2.15556 17.3732C2.3526 17.1865 2.69483 17.1761 2.89187 17.3732C2.94372 17.425 2.97483 17.4769 3.00594 17.5391C3.02668 17.6013 3.04742 17.6739 3.04742 17.7465C3.04742 17.8813 2.9852 18.0161 2.89187 18.1095C2.78816 18.2028 2.66371 18.265 2.5289 18.265Z" fill="#825DFF"/>
+<path d="M12.4736 1.02928C12.3388 1.02928 12.204 0.977423 12.1003 0.884088C12.0069 0.780383 11.9551 0.645566 11.9551 0.510749C11.9551 0.448526 11.9551 0.375932 11.9966 0.313709C12.0173 0.251485 12.0588 0.189262 12.1003 0.14778C12.2973 -0.04926 12.6499 -0.04926 12.8366 0.14778C12.8884 0.189262 12.9195 0.251485 12.9506 0.313709C12.9714 0.375932 12.9921 0.438155 12.9921 0.510749C12.9921 0.583342 12.9714 0.645566 12.9506 0.707789C12.9195 0.770012 12.8884 0.832235 12.8366 0.884088C12.7951 0.92557 12.7329 0.967052 12.6706 0.987793C12.6084 1.0189 12.5358 1.02928 12.4736 1.02928Z" fill="#825DFF"/>
+<path d="M12.4736 4.46193C12.1832 4.46193 11.9551 4.23378 11.9551 3.9434C11.9551 3.65303 12.1832 3.42488 12.4736 3.42488C12.764 3.42488 12.9921 3.65303 12.9921 3.9434C12.9921 4.24415 12.764 4.4723 12.4736 4.4723V4.46193ZM12.4736 2.74042C12.1832 2.74042 11.9551 2.51227 11.9551 2.2219C11.9551 1.93152 12.1832 1.70337 12.4736 1.70337C12.764 1.70337 12.9921 1.93152 12.9921 2.2219C12.9921 2.52264 12.764 2.75079 12.4736 2.75079V2.74042Z" fill="#825DFF"/>
+<path d="M12.4736 6.17319C12.3388 6.17319 12.204 6.11097 12.1003 6.01763C12.0069 5.91393 11.9551 5.77911 11.9551 5.64429C11.9551 5.58207 11.9551 5.50948 11.9966 5.44725C12.0173 5.38503 12.0588 5.33318 12.1003 5.28132C12.2973 5.08428 12.6395 5.08428 12.8366 5.28132C12.8884 5.33318 12.9195 5.38503 12.9506 5.44725C12.9818 5.50948 12.9921 5.58207 12.9921 5.64429C12.9921 5.77911 12.9403 5.91393 12.8366 6.01763C12.7432 6.11097 12.6084 6.17319 12.4736 6.17319Z" fill="#825DFF"/>
+<path d="M12.2134 19.1152L6.437 15.7759L6.17773 15.33V8.66175L6.95552 8.21582L12.7319 11.5551L12.9912 12.0011V18.6693L12.2134 19.1152ZM7.21479 15.0293L11.9541 17.7671V12.2914L7.21479 9.55362V15.0293Z" fill="#825DFF"/>
+<path d="M15.0981 17.5081L12.2048 15.8384L12.7233 14.9465L14.8389 16.1599V10.6946L10.0996 7.95681V10.3317H9.0625V7.05458L9.84029 6.60864L15.6167 9.93758L15.8759 10.3939V17.0621L15.0981 17.5081Z" fill="#825DFF"/>
+<path d="M12.9921 5.33301H11.9551V8.72417H12.9921V5.33301Z" fill="#825DFF"/>
+<path d="M17.9907 15.7863L15.0973 14.1166L15.6159 13.2144L17.7315 14.4381V8.96245L12.9921 6.22463V8.72393H11.9551V5.33277L12.7329 4.87646L18.5093 8.21578L18.7685 8.66171V15.33L17.9907 15.7863Z" fill="#825DFF"/>
+</svg>
+</span> <strong>Public Cloud</strong></p>
+<hr />
+<p>Instantly launch a 16x to 512x NVIDIA H100 GPU cluster or a single-node
+instance. No long-term commitments required. Managed Kubernetes,
+Preinstalled Kubernetes, and Slurm are available. Our Public Cloud
+includes use of serverless APIs for inference.</p>
+<p><a href="public-cloud/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Introduction</a></p>
+</li>
+<li>
+<p><span class="twemoji lg middle lambda"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.3951 18.2582C22.2604 18.2582 22.1257 18.1961 22.0324 18.1028C21.9288 18.0095 21.877 17.8748 21.877 17.7401C21.877 17.595 21.9288 17.4603 22.0324 17.367C22.1775 17.2219 22.4055 17.1804 22.592 17.253C22.6542 17.2841 22.7164 17.3255 22.7682 17.367C22.8097 17.4188 22.8511 17.4706 22.8718 17.5328C22.9029 17.6053 22.9133 17.6675 22.9133 17.7401C22.9133 17.8748 22.8615 17.9991 22.7682 18.1028C22.6646 18.1961 22.5298 18.2582 22.3951 18.2582Z" fill="#825DFF"/>
+<path d="M22.4049 16.3414C22.1147 16.3414 21.8867 16.1134 21.8867 15.8336C21.8867 15.533 22.1147 15.305 22.4049 15.305C22.6951 15.305 22.9231 15.533 22.9231 15.8232C22.9231 16.1134 22.6951 16.3414 22.4049 16.3414ZM22.4049 14.4345C22.1147 14.4345 21.8867 14.2065 21.8867 13.9267C21.8867 13.6262 22.1147 13.3982 22.4049 13.3982C22.6951 13.3982 22.9231 13.6262 22.9231 13.9163C22.9231 14.2065 22.6951 14.4345 22.4049 14.4345ZM22.4049 12.5173C22.1147 12.5173 21.8867 12.2893 21.8867 12.0095C21.8867 11.7089 22.1147 11.4809 22.4049 11.4809C22.6951 11.4809 22.9231 11.7089 22.9231 11.9991C22.9231 12.2893 22.6951 12.5173 22.4049 12.5173ZM22.4049 10.6001C22.1147 10.6001 21.8867 10.3721 21.8867 10.0922C21.8867 9.79171 22.1147 9.56371 22.4049 9.56371C22.6951 9.56371 22.9231 9.79171 22.9231 10.0819C22.9231 10.3721 22.6951 10.6001 22.4049 10.6001ZM22.4049 8.69319C22.1147 8.69319 21.8867 8.46519 21.8867 8.17502C21.8867 7.87448 22.1147 7.64648 22.4049 7.64648C22.6951 7.64648 22.9231 7.87448 22.9231 8.16465C22.9231 8.45483 22.6951 8.69319 22.4049 8.69319Z" fill="#825DFF"/>
+<path d="M22.3951 6.77591C22.2604 6.77591 22.1257 6.72409 22.0324 6.62046C21.9806 6.579 21.9391 6.51682 21.9184 6.45464C21.8873 6.39246 21.877 6.33028 21.877 6.25774C21.877 6.12301 21.9288 5.98829 22.0324 5.89502C22.1775 5.74993 22.4055 5.69812 22.592 5.78102C22.6542 5.80175 22.7164 5.8432 22.7578 5.89502C22.8615 5.98829 22.9133 6.12301 22.9133 6.25774C22.9133 6.33028 22.9029 6.39246 22.8718 6.45464C22.8511 6.51682 22.8097 6.579 22.7578 6.62046C22.7164 6.67228 22.6542 6.71373 22.592 6.73446C22.5298 6.76555 22.4677 6.77591 22.3951 6.77591Z" fill="#825DFF"/>
+<path d="M20.7473 5.82206C20.654 5.82206 20.5608 5.80134 20.4779 5.73916C20.2395 5.5837 20.167 5.26244 20.312 5.01372C20.4675 4.77536 20.7888 4.70281 21.0271 4.8479C21.2655 5.00335 21.3484 5.32462 21.1929 5.56298C21.0893 5.71843 20.9235 5.8117 20.7577 5.8117L20.7473 5.82206ZM19.0892 4.86863C18.9959 4.86863 18.913 4.8479 18.8301 4.79609C18.5813 4.64063 18.5088 4.31937 18.6539 4.08101C18.799 3.83229 19.1202 3.74938 19.369 3.90483C19.6177 4.04992 19.7006 4.37119 19.5555 4.61991C19.4622 4.78572 19.2861 4.87899 19.1099 4.87899L19.0892 4.86863ZM17.431 3.90483C17.3481 3.90483 17.2652 3.88411 17.1927 3.84265C16.9439 3.70793 16.8403 3.38666 16.975 3.13794C17.1097 2.87886 17.4206 2.78558 17.6797 2.92031C17.9388 3.05503 18.0321 3.36594 17.8974 3.62502C17.8041 3.8012 17.6279 3.90483 17.4414 3.90483H17.431ZM15.7729 2.9514C15.6796 2.9514 15.5863 2.93067 15.5034 2.86849C15.2651 2.71304 15.1925 2.39178 15.3376 2.14305C15.4931 1.9047 15.8143 1.83215 16.0527 1.97724C16.291 2.13269 16.3739 2.45396 16.2185 2.69231C16.1149 2.84777 15.949 2.94104 15.7832 2.94104L15.7729 2.9514ZM14.1251 1.99797C14.0318 1.99797 13.9385 1.97724 13.8556 1.91506C13.6173 1.75961 13.5447 1.43834 13.6898 1.18962C13.8453 0.951262 14.1665 0.878718 14.4049 1.02381C14.6433 1.17926 14.7262 1.50052 14.5707 1.73888C14.4671 1.89433 14.3013 1.9876 14.1354 1.9876L14.1251 1.99797Z" fill="#825DFF"/>
+<path d="M12.4557 1.03445C12.3209 1.03445 12.1862 0.982637 12.0826 0.889367C11.9893 0.785732 11.9375 0.651008 11.9375 0.516284C11.9375 0.38156 11.9893 0.246835 12.0826 0.153565C12.238 0.00847712 12.466 -0.0433399 12.6526 0.0395673C12.7148 0.0602941 12.7666 0.101748 12.8184 0.153565C12.9117 0.246835 12.9738 0.38156 12.9738 0.516284C12.9738 0.651008 12.9117 0.785732 12.8184 0.889367C12.7666 0.93082 12.7148 0.972274 12.6526 0.993001C12.5904 1.02409 12.5179 1.03445 12.4557 1.03445Z" fill="#825DFF"/>
+<path d="M4.17709 5.81207C4.00092 5.81207 3.8351 5.72916 3.74183 5.57371C3.58638 5.33535 3.65892 5.01409 3.90765 4.85863C4.146 4.70318 4.47763 4.77573 4.62272 5.01409C4.77817 5.25244 4.70563 5.57371 4.46727 5.72916C4.38436 5.79134 4.28073 5.81207 4.18746 5.81207H4.17709ZM5.83524 4.85863C5.65906 4.85863 5.49325 4.77573 5.39998 4.62028C5.24452 4.38192 5.31707 4.06065 5.56579 3.9052C5.80415 3.74975 6.13578 3.82229 6.28087 4.06065C6.43632 4.29901 6.36377 4.62028 6.12541 4.77573C6.04251 4.83791 5.93887 4.85863 5.8456 4.85863H5.83524ZM7.49338 3.9052C7.30684 3.9052 7.13066 3.80157 7.03739 3.62539C6.90267 3.37667 7.0063 3.0554 7.25503 2.93104C7.50375 2.79632 7.82501 2.88959 7.95974 3.14867C8.09446 3.39739 8.00119 3.7083 7.74211 3.84302C7.66956 3.88447 7.58665 3.9052 7.50375 3.9052H7.49338ZM9.15153 2.9414C8.97535 2.9414 8.79917 2.84813 8.7059 2.69268C8.56081 2.44396 8.63336 2.13306 8.88208 1.97761C9.1308 1.83252 9.45207 1.90506 9.59715 2.15379C9.74224 2.40251 9.6697 2.71341 9.42098 2.8585C9.33807 2.91031 9.2448 2.9414 9.15153 2.9414ZM10.7993 1.98797C10.6231 1.98797 10.4573 1.90506 10.364 1.74961C10.2086 1.51125 10.2811 1.18999 10.5299 1.03454C10.7786 0.879087 11.0998 0.951631 11.2449 1.18999C11.4004 1.42835 11.3278 1.74961 11.0895 1.90506C11.0066 1.96724 10.9029 1.98797 10.8097 1.98797H10.7993Z" fill="#825DFF"/>
+<path d="M2.51817 6.77613C2.37308 6.77613 2.24872 6.72431 2.14509 6.62068C2.09327 6.57922 2.06218 6.51704 2.03109 6.45486C2.01036 6.39268 2 6.3305 2 6.25796C2 6.12323 2.05182 5.98851 2.14509 5.89524C2.34199 5.69833 2.68398 5.69833 2.88089 5.89524C2.97416 5.98851 3.03634 6.12323 3.03634 6.25796C3.03634 6.3305 3.01561 6.39268 2.99489 6.45486C2.9638 6.51704 2.93271 6.57922 2.88089 6.62068C2.77726 6.72431 2.65289 6.77613 2.51817 6.77613Z" fill="#825DFF"/>
+<path d="M2.51817 16.3414C2.22799 16.3414 2 16.1134 2 15.8232C2 15.533 2.22799 15.2947 2.51817 15.2947C2.80835 15.2947 3.03634 15.5227 3.03634 15.8128C3.03634 16.1134 2.80835 16.3414 2.51817 16.3414ZM2.51817 14.4242C2.22799 14.4242 2 14.1962 2 13.906C2 13.6158 2.22799 13.3878 2.51817 13.3878C2.80835 13.3878 3.03634 13.6158 3.03634 13.8956C3.03634 14.1962 2.80835 14.4242 2.51817 14.4242ZM2.51817 12.5173C2.22799 12.5173 2 12.2893 2 11.9991C2 11.7089 2.22799 11.4809 2.51817 11.4809C2.80835 11.4809 3.03634 11.7089 3.03634 11.9888C3.03634 12.2893 2.80835 12.5173 2.51817 12.5173ZM2.51817 10.6001C2.22799 10.6001 2 10.3721 2 10.0819C2 9.79171 2.22799 9.56371 2.51817 9.56371C2.80835 9.56371 3.03634 9.79171 3.03634 10.0715C3.03634 10.3721 2.80835 10.6001 2.51817 10.6001ZM2.51817 8.68282C2.22799 8.68282 2 8.45483 2 8.16465C2 7.87448 2.22799 7.64648 2.51817 7.64648C2.80835 7.64648 3.03634 7.87448 3.03634 8.15429C3.03634 8.45483 2.80835 8.68282 2.51817 8.68282Z" fill="#825DFF"/>
+<path d="M2.50781 18.2582C2.37308 18.2582 2.24872 18.1961 2.14509 18.1028C2.05182 17.9991 2 17.8748 2 17.7401C2 17.595 2.05182 17.4706 2.14509 17.367C2.30054 17.2219 2.51817 17.1804 2.71508 17.253C2.77726 17.2841 2.82907 17.3255 2.88089 17.367C2.93271 17.4188 2.9638 17.4706 2.99489 17.5328C3.01561 17.6053 3.03634 17.6675 3.03634 17.7401C3.03634 17.8748 2.97416 17.9991 2.88089 18.1028C2.82907 18.1546 2.77726 18.1857 2.71508 18.2168C2.65289 18.2375 2.58035 18.2582 2.50781 18.2582Z" fill="#825DFF"/>
+<path d="M10.7994 23.036C10.7061 23.036 10.6128 23.0049 10.5196 22.9531C10.2812 22.7977 10.1983 22.4764 10.3537 22.238C10.5092 21.9997 10.8201 21.9168 11.0688 22.0722C11.3072 22.2277 11.3797 22.5489 11.2346 22.7977C11.131 22.9531 10.9652 23.036 10.7994 23.036ZM9.14123 22.0826C9.04796 22.0826 8.95469 22.0515 8.86142 21.9997C8.62306 21.8442 8.54015 21.523 8.6956 21.2846C8.85105 21.0463 9.16196 20.9633 9.41068 21.1188C9.64904 21.2742 9.72158 21.5955 9.57649 21.8442C9.47286 21.9997 9.30704 22.0826 9.14123 22.0826ZM7.49345 21.1188C7.41054 21.1188 7.32763 21.0981 7.25509 21.0566C7.00637 20.9219 6.90273 20.611 7.03746 20.3519C7.17218 20.0928 7.48308 19.9995 7.73181 20.1343C7.98053 20.269 8.08416 20.5903 7.94944 20.839C7.85617 21.0152 7.67999 21.1188 7.49345 21.1188ZM5.8353 20.1654C5.74203 20.1654 5.64876 20.1446 5.56585 20.0928C5.31713 19.9477 5.23422 19.6265 5.37931 19.3777C5.5244 19.129 5.8353 19.0461 6.08402 19.2016C6.33275 19.357 6.40529 19.6783 6.2602 19.9166C6.16693 20.0825 5.99075 20.1654 5.81458 20.1654H5.8353ZM4.17716 19.2119C4.08389 19.2119 3.99062 19.1808 3.89735 19.129C3.65899 18.9736 3.57608 18.6523 3.73153 18.4139C3.88698 18.1756 4.19788 18.0927 4.44661 18.2481C4.68496 18.4036 4.75751 18.7248 4.61242 18.9736C4.50879 19.129 4.34297 19.2119 4.17716 19.2119Z" fill="#825DFF"/>
+<path d="M12.4557 23.9999C12.3831 23.9999 12.3209 23.9792 12.2588 23.9585C12.1966 23.9274 12.1344 23.8963 12.0826 23.8445C12.0411 23.7927 11.9997 23.7408 11.979 23.6787C11.9479 23.6061 11.9375 23.5439 11.9375 23.4714C11.9375 23.4092 11.9479 23.3367 11.979 23.2745C11.9997 23.2123 12.0411 23.1605 12.0826 23.1087C12.1344 23.0569 12.1966 23.0258 12.2588 22.9947C12.3831 22.9429 12.5282 22.9429 12.6526 22.9947C12.7148 23.0258 12.7769 23.0569 12.8184 23.1087C12.8702 23.1605 12.9013 23.2123 12.9324 23.2745C12.9635 23.3367 12.9738 23.4092 12.9738 23.4714C12.9738 23.5439 12.9738 23.6061 12.9324 23.6787C12.9013 23.7408 12.8702 23.7927 12.8184 23.8445C12.7769 23.8859 12.7148 23.9274 12.6526 23.9585C12.5904 23.9792 12.5179 23.9999 12.4557 23.9999Z" fill="#825DFF"/>
+<path d="M14.1151 23.0362C13.9389 23.0362 13.7731 22.9533 13.6798 22.7978C13.5244 22.5595 13.5969 22.2382 13.8353 22.0828C14.0736 21.9273 14.3949 21.9998 14.5503 22.2382C14.7058 22.4766 14.6332 22.7978 14.3845 22.9533C14.3016 23.0051 14.198 23.0362 14.1047 23.0362H14.1151ZM15.7732 22.0828C15.597 22.0828 15.4209 21.9998 15.3276 21.834C15.1825 21.5853 15.255 21.2744 15.5038 21.1293C15.7525 20.9739 16.0634 21.0568 16.2188 21.3055C16.3639 21.5542 16.2914 21.8651 16.0427 22.0206C15.9598 22.0724 15.8665 22.0931 15.7732 22.0931V22.0828ZM17.4314 21.119C17.2448 21.119 17.0583 21.0153 16.9754 20.8391C16.8406 20.5904 16.9339 20.2795 17.193 20.1448C17.4417 20.0101 17.763 20.1033 17.8977 20.3624C18.0324 20.6112 17.9288 20.9324 17.6801 21.0568C17.5972 21.0982 17.5143 21.119 17.4314 21.119ZM19.0791 20.1655C18.903 20.1655 18.7371 20.0826 18.6439 19.9272C18.4884 19.6888 18.561 19.3675 18.7993 19.2121C19.0377 19.0566 19.3589 19.1292 19.5144 19.3675C19.6698 19.6059 19.5973 19.9272 19.3486 20.0826C19.2657 20.1344 19.162 20.1655 19.0688 20.1655H19.0791ZM20.7373 19.2121C20.5611 19.2121 20.3953 19.1292 20.302 18.9737C20.1466 18.7354 20.2191 18.4141 20.4575 18.2587C20.7062 18.1032 21.0171 18.1758 21.1725 18.4141C21.328 18.6525 21.2555 18.9737 21.0067 19.1292C20.9238 19.181 20.8202 19.2121 20.7269 19.2121H20.7373Z" fill="#825DFF"/>
+<path d="M22.3951 6.77615C22.2604 6.77615 22.1257 6.72434 22.0324 6.6207C21.9806 6.57925 21.9391 6.51707 21.9184 6.45489C21.8873 6.39271 21.877 6.33053 21.877 6.25798C21.877 6.12326 21.9288 5.98853 22.0324 5.89526C22.1775 5.75018 22.4055 5.69836 22.592 5.78127C22.6542 5.80199 22.7164 5.84345 22.7578 5.89526C22.8615 5.98853 22.9133 6.12326 22.9133 6.25798C22.9133 6.33053 22.9029 6.39271 22.8718 6.45489C22.8511 6.51707 22.8097 6.57925 22.7578 6.6207C22.7164 6.67252 22.6542 6.71397 22.592 6.7347C22.5298 6.76579 22.4677 6.77615 22.3951 6.77615Z" fill="#825DFF"/>
+<path d="M14.1146 11.5535C13.9384 11.5535 13.7726 11.4706 13.6793 11.3152C13.5239 11.0768 13.5964 10.7555 13.8451 10.6001C14.0939 10.4446 14.4151 10.5172 14.5602 10.7555C14.7157 10.9939 14.6431 11.3152 14.4048 11.4706C14.3219 11.5328 14.2182 11.5535 14.125 11.5535H14.1146ZM15.7727 10.6001C15.5966 10.6001 15.4307 10.5172 15.3375 10.3617C15.182 10.1234 15.2546 9.80211 15.5033 9.64666C15.7416 9.49121 16.0733 9.56375 16.2184 9.80211C16.3738 10.0405 16.3013 10.3617 16.0629 10.5172C15.98 10.5794 15.8764 10.6001 15.7831 10.6001H15.7727ZM17.4309 9.64666C17.2443 9.64666 17.0682 9.54302 16.9749 9.36684C16.8402 9.11812 16.9438 8.79686 17.1925 8.6725C17.4412 8.53777 17.7625 8.63104 17.8972 8.89013C18.032 9.13885 17.9387 9.44975 17.6796 9.58448C17.6071 9.62593 17.5242 9.64666 17.4412 9.64666H17.4309ZM19.089 8.68286C18.9129 8.68286 18.7367 8.58959 18.6434 8.43414C18.4983 8.18542 18.5709 7.87451 18.8196 7.71906C19.0683 7.57398 19.3896 7.64652 19.5347 7.89524C19.6797 8.14396 19.6072 8.45486 19.3585 8.59995C19.2756 8.65177 19.1823 8.68286 19.089 8.68286ZM20.7472 7.72943C20.571 7.72943 20.4052 7.64652 20.3119 7.49107C20.1565 7.25271 20.229 6.93144 20.4777 6.77599C20.7161 6.62054 21.0477 6.69309 21.1928 6.93144C21.3483 7.1698 21.2757 7.49107 21.0373 7.64652C20.9544 7.7087 20.8508 7.72943 20.7575 7.72943H20.7472Z" fill="#825DFF"/>
+<path d="M12.4557 12.5176C12.3831 12.5176 12.3209 12.4969 12.2588 12.4762C12.1966 12.4451 12.1344 12.414 12.0826 12.3622C12.0411 12.3103 11.9997 12.2585 11.979 12.1963C11.9479 12.1342 11.9375 12.0616 11.9375 11.9994C11.9375 11.9269 11.9479 11.8647 11.979 11.8025C11.9997 11.7404 12.0411 11.6782 12.0826 11.6264C12.1344 11.5849 12.1966 11.5435 12.2588 11.5227C12.4453 11.4398 12.6733 11.4813 12.8184 11.6264C12.8702 11.6782 12.9013 11.7404 12.9324 11.8025C12.9531 11.8647 12.9738 11.9269 12.9738 11.9994C12.9738 12.0616 12.9531 12.1342 12.9324 12.1963C12.9013 12.2585 12.8702 12.3103 12.8184 12.3622C12.7251 12.4554 12.5904 12.5176 12.4557 12.5176Z" fill="#825DFF"/>
+<path d="M10.8081 11.5639C10.7149 11.5639 10.6216 11.5432 10.5387 11.481C10.3003 11.3255 10.2278 11.0043 10.3729 10.7555C10.5283 10.5172 10.8496 10.4446 11.088 10.5897C11.3263 10.7452 11.4092 11.0664 11.2538 11.3048C11.1501 11.4603 10.9843 11.5535 10.8185 11.5535L10.8081 11.5639ZM9.14999 10.6001C9.05672 10.6001 8.96345 10.5794 8.88055 10.5172C8.64219 10.3617 8.56964 10.0405 8.71473 9.79174C8.87018 9.55338 9.19145 9.48084 9.42981 9.62593C9.66817 9.78138 9.75107 10.1026 9.59562 10.341C9.49199 10.4965 9.32617 10.5897 9.16036 10.5897L9.14999 10.6001ZM7.49185 9.64666C7.39858 9.64666 7.30531 9.62593 7.2224 9.56375C6.98404 9.4083 6.9115 9.08703 7.05659 8.83831C7.20167 8.58959 7.5333 8.52741 7.77166 8.67249C8.01002 8.82795 8.09293 9.14921 7.93748 9.38757C7.83384 9.54302 7.66803 9.63629 7.50221 9.63629L7.49185 9.64666ZM5.8337 8.69322C5.7508 8.69322 5.66789 8.67249 5.59535 8.63104C5.34662 8.49632 5.24299 8.17505 5.37771 7.92633C5.51244 7.66724 5.82334 7.57397 6.08243 7.7087C6.33115 7.84342 6.43478 8.15432 6.30006 8.41341C6.20679 8.58959 6.03061 8.69322 5.84407 8.69322H5.8337ZM4.17556 7.73979C4.09265 7.73979 4.00975 7.71906 3.9372 7.67761C3.68848 7.54288 3.58485 7.22162 3.71957 6.9729C3.85429 6.71381 4.1652 6.62054 4.42428 6.75526C4.673 6.88999 4.77664 7.20089 4.64191 7.45998C4.54864 7.63615 4.37246 7.73979 4.18592 7.73979H4.17556Z" fill="#825DFF"/>
+<path d="M2.51817 6.77613C2.37308 6.77613 2.24872 6.72431 2.14509 6.62068C2.09327 6.57922 2.06218 6.51704 2.03109 6.45486C2.01036 6.39268 2 6.3305 2 6.25796C2 6.12323 2.05182 5.98851 2.14509 5.89524C2.34199 5.69833 2.68398 5.69833 2.88089 5.89524C2.97416 5.98851 3.03634 6.12323 3.03634 6.25796C3.03634 6.3305 3.01561 6.39268 2.99489 6.45486C2.9638 6.51704 2.93271 6.57922 2.88089 6.62068C2.77726 6.72431 2.65289 6.77613 2.51817 6.77613Z" fill="#825DFF"/>
+<path d="M17.4225 15.3778C17.2877 15.3778 17.153 15.3259 17.0597 15.2327C16.9561 15.129 16.9043 15.0047 16.9043 14.8699C16.9043 14.7974 16.9147 14.7249 16.9458 14.6627C16.9665 14.6005 17.0079 14.5487 17.0597 14.4969C17.2048 14.3518 17.4328 14.3103 17.6194 14.3829C17.6816 14.414 17.7437 14.445 17.7852 14.4969C17.8888 14.6005 17.9406 14.7249 17.9406 14.8699C17.9406 15.0047 17.8888 15.129 17.7852 15.2327C17.7437 15.2741 17.6816 15.3156 17.6194 15.3467C17.5572 15.3674 17.495 15.3778 17.4225 15.3778Z" fill="#825DFF"/>
+<path d="M20.7396 17.2952C20.6463 17.2952 20.5531 17.2642 20.4598 17.2123C20.2214 17.0569 20.1385 16.7356 20.294 16.4973C20.4494 16.2589 20.7603 16.176 21.009 16.3314C21.2474 16.4869 21.32 16.8082 21.1749 17.0569C21.0712 17.2123 20.9054 17.2952 20.7396 17.2952ZM19.0815 16.3418C18.9882 16.3418 18.8949 16.3107 18.8016 16.2589C18.5633 16.1035 18.4804 15.7822 18.6358 15.5438C18.7913 15.3055 19.1022 15.2226 19.3509 15.378C19.5893 15.5335 19.6618 15.8547 19.5167 16.1035C19.4131 16.2589 19.2473 16.3418 19.0815 16.3418Z" fill="#825DFF"/>
+<path d="M22.3971 18.259C22.2624 18.259 22.1276 18.1968 22.0344 18.1035C21.9307 18.0102 21.8789 17.8755 21.8789 17.7408C21.8789 17.5957 21.9307 17.461 22.0344 17.3677C22.1794 17.2226 22.4074 17.1812 22.594 17.2537C22.6562 17.2848 22.7183 17.3263 22.7702 17.3677C22.8116 17.4195 22.8531 17.4713 22.8738 17.5335C22.9049 17.6061 22.9152 17.6683 22.9152 17.7408C22.9152 17.8755 22.8634 17.9999 22.7702 18.1035C22.6665 18.1968 22.5318 18.259 22.3971 18.259Z" fill="#825DFF"/>
+<path d="M12.4557 24.0002C12.3831 24.0002 12.3209 23.9794 12.2588 23.9587C12.1966 23.9276 12.1344 23.8965 12.0826 23.8447C12.0411 23.7929 11.9997 23.7411 11.979 23.6789C11.9479 23.6064 11.9375 23.5442 11.9375 23.4716C11.9375 23.4095 11.9479 23.3369 11.979 23.2747C11.9997 23.2125 12.0411 23.1607 12.0826 23.1089C12.1344 23.0571 12.1966 23.026 12.2588 22.9949C12.3831 22.9431 12.5282 22.9431 12.6526 22.9949C12.7148 23.026 12.7769 23.0571 12.8184 23.1089C12.8702 23.1607 12.9013 23.2125 12.9324 23.2747C12.9635 23.3369 12.9738 23.4095 12.9738 23.4716C12.9738 23.5442 12.9738 23.6064 12.9324 23.6789C12.9013 23.7411 12.8702 23.7929 12.8184 23.8447C12.7769 23.8862 12.7148 23.9276 12.6526 23.9587C12.5904 23.9794 12.5179 24.0002 12.4557 24.0002Z" fill="#825DFF"/>
+<path d="M12.4557 22.0831C12.1655 22.0831 11.9375 21.8551 11.9375 21.5753C11.9375 21.2747 12.1655 21.0467 12.4557 21.0467C12.7458 21.0467 12.9738 21.2747 12.9738 21.5649C12.9738 21.8551 12.7458 22.0831 12.4557 22.0831ZM12.4557 20.1659C12.1655 20.1659 11.9375 19.9379 11.9375 19.658C11.9375 19.3575 12.1655 19.1295 12.4557 19.1295C12.7458 19.1295 12.9738 19.3575 12.9738 19.6477C12.9738 19.9379 12.7458 20.1659 12.4557 20.1659ZM12.4557 18.259C12.1655 18.259 11.9375 18.031 11.9375 17.7408C11.9375 17.4403 12.1655 17.2123 12.4557 17.2123C12.7458 17.2123 12.9738 17.4403 12.9738 17.7305C12.9738 18.0206 12.7458 18.259 12.4557 18.259ZM12.4557 16.3418C12.1655 16.3418 11.9375 16.1138 11.9375 15.8236C11.9375 15.523 12.1655 15.2951 12.4557 15.2951C12.7458 15.2951 12.9738 15.523 12.9738 15.8132C12.9738 16.1034 12.7458 16.3418 12.4557 16.3418ZM12.4557 14.4349C12.1655 14.4349 11.9375 14.2069 11.9375 13.9167C11.9375 13.6162 12.1655 13.3882 12.4557 13.3882C12.7458 13.3882 12.9738 13.6162 12.9738 13.9064C12.9738 14.1965 12.7458 14.4349 12.4557 14.4349Z" fill="#825DFF"/>
+<path d="M12.4557 12.5174C12.3831 12.5174 12.3209 12.4966 12.2588 12.4759C12.1966 12.4448 12.1344 12.4137 12.0826 12.3619C12.0411 12.3101 11.9997 12.2583 11.979 12.1961C11.9479 12.1339 11.9375 12.0614 11.9375 11.9992C11.9375 11.9267 11.9479 11.8645 11.979 11.8023C11.9997 11.7401 12.0411 11.6779 12.0826 11.6261C12.1344 11.5847 12.1966 11.5432 12.2588 11.5225C12.4453 11.4396 12.6733 11.481 12.8184 11.6261C12.8702 11.6779 12.9013 11.7401 12.9324 11.8023C12.9531 11.8645 12.9738 11.9267 12.9738 11.9992C12.9738 12.0614 12.9531 12.1339 12.9324 12.1961C12.9013 12.2583 12.8702 12.3101 12.8184 12.3619C12.7251 12.4552 12.5904 12.5174 12.4557 12.5174Z" fill="#825DFF"/>
+<path d="M7.51231 15.4082C7.37759 15.4082 7.24286 15.3461 7.14959 15.2528C7.09777 15.201 7.06668 15.1492 7.03559 15.087C7.01487 15.0248 6.99414 14.9522 6.99414 14.8901C6.99414 14.745 7.05632 14.6206 7.14959 14.517C7.29468 14.3719 7.52267 14.3304 7.70922 14.4133C7.7714 14.4341 7.83358 14.4755 7.88539 14.517C7.97866 14.6206 8.03048 14.745 8.03048 14.8901C8.03048 14.9522 8.03048 15.0248 7.98903 15.087C7.9683 15.1492 7.92685 15.201 7.88539 15.2528C7.83358 15.3046 7.7714 15.3357 7.70922 15.3668C7.64704 15.3875 7.58485 15.4082 7.51231 15.4082Z" fill="#825DFF"/>
+<path d="M4.18728 17.3049C4.00074 17.3049 3.82456 17.2013 3.73129 17.0251C3.59656 16.7764 3.7002 16.4551 3.94892 16.3308C4.19764 16.196 4.51891 16.2893 4.65363 16.5484C4.78836 16.7971 4.69509 17.108 4.436 17.2427C4.36346 17.2842 4.28055 17.3049 4.19764 17.3049H4.18728ZM5.85579 16.3515C5.66925 16.3515 5.49307 16.2479 5.3998 16.0717C5.26507 15.823 5.36871 15.5017 5.61743 15.3773C5.87651 15.2426 6.18742 15.3359 6.32214 15.595C6.45686 15.8437 6.36359 16.1546 6.10451 16.2893C6.03196 16.3308 5.94906 16.3515 5.86615 16.3515H5.85579Z" fill="#825DFF"/>
+<path d="M2.50781 18.2582C2.37308 18.2582 2.24872 18.1961 2.14509 18.1028C2.05182 17.9991 2 17.8748 2 17.7401C2 17.595 2.05182 17.4706 2.14509 17.367C2.30054 17.2219 2.51817 17.1804 2.71508 17.253C2.77726 17.2841 2.82907 17.3255 2.88089 17.367C2.93271 17.4188 2.9638 17.4706 2.99489 17.5328C3.01561 17.6053 3.03634 17.6675 3.03634 17.7401C3.03634 17.8748 2.97416 17.9991 2.88089 18.1028C2.82907 18.1546 2.77726 18.1857 2.71508 18.2168C2.65289 18.2375 2.58035 18.2582 2.50781 18.2582Z" fill="#825DFF"/>
+<path d="M12.4557 1.03445C12.3209 1.03445 12.1862 0.982637 12.0826 0.889367C11.9893 0.785732 11.9375 0.651008 11.9375 0.516284C11.9375 0.38156 11.9893 0.246835 12.0826 0.153565C12.238 0.00847712 12.466 -0.0433399 12.6526 0.0395673C12.7148 0.0602941 12.7666 0.101748 12.8184 0.153565C12.9117 0.246835 12.9738 0.38156 12.9738 0.516284C12.9738 0.651008 12.9117 0.785732 12.8184 0.889367C12.7666 0.93082 12.7148 0.972274 12.6526 0.993001C12.5904 1.02409 12.5179 1.03445 12.4557 1.03445Z" fill="#825DFF"/>
+<path d="M12.4557 4.88958C12.1655 4.88958 11.9375 4.66159 11.9375 4.37141C11.9375 4.08123 12.1655 3.85324 12.4557 3.85324C12.7458 3.85324 12.9738 4.08124 12.9738 4.36105C12.9738 4.66159 12.7458 4.88958 12.4557 4.88958ZM12.4557 2.96199C12.1655 2.96199 11.9375 2.73399 11.9375 2.44382C11.9375 2.15364 12.1655 1.91528 12.4557 1.91528C12.7458 1.91528 12.9738 2.14328 12.9738 2.43345C12.9738 2.73399 12.7458 2.96199 12.4557 2.96199Z" fill="#825DFF"/>
+<path d="M12.4557 6.8169C12.3106 6.8169 12.1862 6.76508 12.093 6.67181C11.9893 6.56818 11.9375 6.44382 11.9375 6.29873C11.9375 6.23655 11.9479 6.164 11.979 6.10182C11.9997 6.03964 12.0411 5.98783 12.093 5.93601C12.2899 5.7391 12.6215 5.7391 12.8184 5.93601C12.8702 5.98783 12.9117 6.03964 12.9324 6.10182C12.9635 6.164 12.9738 6.23655 12.9738 6.29873C12.9738 6.44382 12.922 6.56818 12.8184 6.67181C12.7251 6.76508 12.5904 6.8169 12.4557 6.8169Z" fill="#825DFF"/>
+<path d="M17.1626 21.0567L7.25518 15.3361L6.99609 14.8905V3.44929L7.77335 3.00366L17.6808 8.72426L17.9398 9.16989V20.6111L17.1626 21.0567ZM8.0428 14.59L16.9139 19.7095V9.47043L8.0428 4.34054V14.5796V14.59Z" fill="#825DFF"/>
+</svg>
+</span> <strong>Private Cloud</strong></p>
+<hr />
+<p>Private Cloud is the ideal solution for organizations requiring a
+single-tenant cluster with greater than 512x GPUs. Private Cloud customers
+have low-level access to their cluster infrastructure. Managed Kubernetes,
+Preinstalled Kubernetes, and Slurm are available.</p>
+<p><a href="private-cloud/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Introduction</a></p>
+</li>
+<li>
+<p><span class="twemoji lg middle lambda"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_649_7053)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.531 8.69983C12.1902 8.68454 11.8452 8.74496 11.5798 8.86963C11.3046 8.99887 11.2273 9.13682 11.2144 9.19685C11.2077 9.22775 11.1999 9.31815 11.3777 9.44466C11.5604 9.57463 11.8551 9.66512 12.1996 9.68058C12.5404 9.69587 12.8855 9.63545 13.1509 9.51078C13.4261 9.38154 13.5033 9.24359 13.5163 9.18356C13.5229 9.15266 13.5307 9.06226 13.3529 8.93575C13.1703 8.80578 12.8756 8.71529 12.531 8.69983ZM12.5646 7.95058C13.0001 7.97012 13.4504 8.08463 13.7877 8.32466C14.1299 8.56815 14.3377 8.93275 14.2494 9.34185C14.1673 9.72182 13.8546 10.0089 13.4698 10.1896C13.0752 10.375 12.6052 10.4495 12.166 10.4298C11.7306 10.4103 11.2803 10.2958 10.9429 10.0558C10.6007 9.81226 10.3929 9.44766 10.4813 9.03856C10.5633 8.65859 10.8761 8.37154 11.2609 8.19078C11.6555 8.00545 12.1254 7.93087 12.5646 7.95058Z" fill="#825DFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.9541 6.77724C11.7473 6.72201 10.4939 6.92988 9.47751 7.40043C8.4535 7.87452 7.93702 8.49219 7.81783 9.04647C7.70489 9.57171 7.9238 10.1714 8.68465 10.7027C9.45377 11.2397 10.5778 11.5576 11.7896 11.613C12.9979 11.6683 14.2509 11.4603 15.2618 10.9901L15.2624 10.9898C16.2864 10.5158 16.8029 9.89808 16.9221 9.3438C17.035 8.81856 16.8161 8.21885 16.0553 7.6876C15.286 7.15049 14.1644 6.83264 12.9541 6.77724ZM12.9884 6.02803C14.2905 6.08763 15.5639 6.42978 16.4846 7.07267C17.4138 7.72142 17.8499 8.59671 17.6553 9.50147C17.467 10.3771 16.7136 11.1444 15.5778 11.6703C14.4388 12.2 13.0619 12.422 11.7553 12.3622C10.4522 12.3027 9.17616 11.9606 8.25528 11.3176C7.32614 10.6688 6.89004 9.79356 7.0846 8.8888C7.27291 8.01308 8.02643 7.24575 9.16242 6.71983C10.306 6.19039 11.6827 5.96826 12.9884 6.02803Z" fill="#825DFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17.5143 9.09979C17.5144 9.09988 17.5145 9.09997 17.2898 9.40016C17.065 9.70036 17.0651 9.70043 17.0652 9.7005L17.0632 9.69899L17.0511 9.69031C17.0398 9.68223 17.0219 9.66972 16.998 9.6536C16.9502 9.62134 16.8784 9.57481 16.7864 9.52058C16.6017 9.41175 16.339 9.27394 16.0275 9.15778C15.3971 8.92269 14.6155 8.79343 13.8756 9.10566L13.584 8.41466C14.574 7.9969 15.5725 8.18764 16.2896 8.45505C16.6518 8.59014 16.9547 8.7492 17.1672 8.87443C17.2738 8.93724 17.3585 8.99204 17.4175 9.03184C17.447 9.05176 17.4702 9.06797 17.4865 9.0796L17.5058 9.09352L17.5115 9.09772L17.5133 9.09909L17.5143 9.09979Z" fill="#825DFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.97 12.3338C11.9699 12.3339 11.9698 12.3339 11.8199 11.9902C11.6701 11.6464 11.67 11.6465 11.6699 11.6465L11.6744 11.6445L11.6921 11.6365C11.7081 11.6292 11.7321 11.6181 11.7627 11.6034C11.8241 11.574 11.9112 11.5305 12.0124 11.4755C12.2174 11.3641 12.4683 11.2114 12.6783 11.0376C12.9 10.854 13.0207 10.6917 13.0523 10.5732C13.0649 10.5257 13.0626 10.4886 13.0471 10.4501C13.0298 10.4069 12.985 10.336 12.8695 10.246L13.3303 9.6543C13.5199 9.80187 13.6638 9.97287 13.7433 10.171C13.8247 10.374 13.8271 10.578 13.777 10.7662C13.6829 11.1193 13.4074 11.4076 13.1566 11.6153C12.894 11.8327 12.5962 12.0119 12.3706 12.1345C12.2564 12.1965 12.1578 12.2457 12.0872 12.2796C12.0519 12.2965 12.0234 12.3097 12.0033 12.3189L11.9797 12.3295L11.973 12.3325L11.9709 12.3334L11.97 12.3338Z" fill="#825DFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.8697 6.06641C12.8698 6.06636 12.8699 6.06632 13.0198 6.41007C13.1696 6.75382 13.1697 6.75379 13.1698 6.75376L13.1653 6.75575L13.1476 6.76373C13.1316 6.77102 13.1076 6.78216 13.077 6.79685C13.0156 6.82629 12.9285 6.86971 12.8273 6.9247C12.6223 7.03614 12.3714 7.18882 12.1614 7.36265C11.9397 7.54624 11.819 7.70859 11.7874 7.82707C11.7748 7.87458 11.7771 7.91164 11.7926 7.95012C11.8099 7.99339 11.8547 8.06427 11.9702 8.15419L11.5094 8.74595C11.3198 8.59837 11.1759 8.42738 11.0964 8.2292C11.015 8.02623 11.0126 7.82228 11.0627 7.634C11.1568 7.28093 11.4323 6.99265 11.6831 6.78499C11.9457 6.56757 12.2435 6.38837 12.4691 6.26575C12.5833 6.20371 12.6819 6.15456 12.7525 6.12067C12.7878 6.10371 12.8163 6.0905 12.8364 6.08135L12.86 6.0707L12.8667 6.06771L12.8688 6.06682L12.8697 6.06641Z" fill="#825DFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.22461 9.30048C7.2245 9.30039 7.22439 9.3003 7.44912 9.00011C7.67386 8.69991 7.67376 8.69984 7.67367 8.69977C7.67361 8.69973 7.67352 8.69965 7.67367 8.69977L7.67574 8.70128L7.68778 8.70996C7.69911 8.71804 7.71696 8.73055 7.74085 8.74667C7.78868 8.77893 7.86046 8.82546 7.95248 8.87969C8.13715 8.98852 8.39991 9.12633 8.7114 9.24249C9.34182 9.47758 10.1234 9.60684 10.8633 9.29461L11.1549 9.98561C10.1649 10.4034 9.16643 10.2126 8.44935 9.94522C8.08709 9.81013 7.78422 9.65107 7.5717 9.52584C7.46513 9.46303 7.38043 9.40823 7.32142 9.36843C7.29189 9.34851 7.26873 9.3323 7.25242 9.32067L7.23311 9.30675L7.22741 9.30255L7.22556 9.30118L7.22461 9.30048Z" fill="#825DFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M15.842 11.4193C15.842 11.4196 15.8419 11.4198 15.4804 11.32C15.1189 11.2203 15.1189 11.2205 15.1188 11.2207L15.1187 11.2211L15.1186 11.2216L15.1184 11.2223C15.1183 11.2226 15.1183 11.2225 15.1185 11.222L15.1203 11.2146C15.1221 11.2068 15.1251 11.1935 15.1285 11.1754C15.1353 11.139 15.1438 11.0845 15.1488 11.0178C15.1589 10.8819 15.1534 10.7098 15.101 10.5412C15.0502 10.3776 14.9556 10.2163 14.7795 10.085C14.6009 9.95182 14.3122 9.82996 13.8418 9.79395L13.899 9.04614C14.4737 9.09013 14.9087 9.24577 15.2279 9.48381C15.5496 9.72375 15.7269 10.0275 15.8173 10.3189C15.9062 10.6053 15.9113 10.8782 15.8967 11.0735C15.8894 11.1725 15.8767 11.2552 15.8655 11.3146C15.8598 11.3443 15.8545 11.3685 15.8503 11.3863L15.845 11.4081L15.8431 11.4152L15.8424 11.4178L15.8422 11.4189L15.842 11.4193Z" fill="#825DFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.50587 11.4044C8.50578 11.4044 8.50569 11.4044 8.53015 11.0302C8.55461 10.656 8.55455 10.656 8.5545 10.656L8.55565 10.6561L8.56102 10.6564L8.58415 10.6577C8.60491 10.6588 8.63609 10.6603 8.6763 10.6618C8.75677 10.6648 8.87307 10.6678 9.0141 10.6679C9.2973 10.668 9.67482 10.6562 10.0598 10.6092C10.4489 10.5618 10.8238 10.481 11.1128 10.3537C11.4079 10.2238 11.5475 10.0761 11.5912 9.93164L12.3091 10.1488C12.1728 10.5993 11.7949 10.8729 11.415 11.0402C11.029 11.2101 10.5714 11.3024 10.1505 11.3537C9.72548 11.4055 9.3155 11.418 9.0137 11.4179C8.86222 11.4178 8.73665 11.4145 8.64837 11.4112C8.6042 11.4096 8.56929 11.4079 8.54506 11.4067L8.51686 11.4051L8.50908 11.4046L8.50587 11.4044Z" fill="#825DFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16.3442 7.0259C16.3443 7.0259 16.3444 7.02591 16.32 7.40011C16.2955 7.77431 16.2956 7.77431 16.2956 7.77432L16.2944 7.77424L16.2891 7.77392L16.266 7.77264C16.2452 7.77156 16.214 7.77008 16.1738 7.76858C16.0933 7.76558 15.977 7.76253 15.836 7.76245C15.5528 7.7623 15.1753 7.77417 14.7903 7.8211C14.4012 7.86855 14.0263 7.94934 13.7373 8.0766C13.4422 8.20651 13.3026 8.35421 13.2589 8.49869L12.541 8.28152C12.6773 7.83101 13.0552 7.55745 13.4351 7.39018C13.8211 7.22025 14.2787 7.12792 14.6996 7.07661C15.1246 7.0248 15.5346 7.01229 15.8364 7.01245C15.9879 7.01253 16.1134 7.01581 16.2017 7.0191C16.2459 7.02075 16.2808 7.0224 16.305 7.02366L16.3332 7.02522L16.341 7.02569L16.3442 7.0259Z" fill="#825DFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.94766 6.98073C8.94772 6.98052 8.94778 6.98031 9.30927 7.08003C9.67077 7.17976 9.67082 7.17956 9.67088 7.17937L9.67097 7.17903L9.67113 7.17845L9.67132 7.17774C9.67139 7.17746 9.67136 7.17758 9.67124 7.17807L9.66944 7.18544C9.6676 7.19324 9.66464 7.20658 9.66122 7.22469C9.65435 7.26109 9.64586 7.31561 9.64089 7.38228C9.63077 7.51815 9.63632 7.69025 9.68866 7.85885C9.73946 8.02249 9.8341 8.18373 10.0102 8.31505C10.1888 8.44826 10.4775 8.57012 10.9479 8.60613L10.8906 9.35394C10.316 9.30995 9.881 9.15431 9.56181 8.91627C9.24008 8.67633 9.06284 8.37258 8.97238 8.08121C8.88348 7.79482 8.87841 7.52192 8.89297 7.32654C8.90034 7.22758 8.91303 7.14491 8.92424 7.08553C8.92987 7.05575 8.93517 7.03155 8.93935 7.01379L8.94469 6.99199L8.94655 6.98485L8.94725 6.98225L8.94753 6.9812L8.94766 6.98073Z" fill="#825DFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0.567068 12.0199C0.705138 11.7807 1.01093 11.6988 1.25008 11.8368L1.29421 11.8623C1.53335 12.0004 1.61529 12.3062 1.47723 12.5453C1.33916 12.7845 1.03336 12.8664 0.794214 12.7284L0.750087 12.7029C0.51094 12.5648 0.429 12.259 0.567068 12.0199ZM23.6731 12.0199C23.8112 12.259 23.7292 12.5648 23.4901 12.7029L23.446 12.7283C23.2068 12.8664 22.901 12.7845 22.7629 12.5453C22.6249 12.3062 22.7068 12.0004 22.946 11.8623L22.9901 11.8368C23.2292 11.6988 23.535 11.7807 23.6731 12.0199ZM21.8639 13.0644C22.002 13.3035 21.92 13.6093 21.6809 13.7474L21.5926 13.7984C21.3535 13.9364 21.0477 13.8545 20.9096 13.6153C20.7715 13.3762 20.8535 13.0704 21.0926 12.9323L21.1809 12.8814C21.42 12.7433 21.7258 12.8252 21.8639 13.0644ZM2.37627 13.0644C2.51434 12.8252 2.82014 12.7433 3.05929 12.8814L3.14754 12.9323C3.38669 13.0704 3.46863 13.3762 3.33056 13.6153C3.19249 13.8545 2.8867 13.9364 2.64755 13.7984L2.55929 13.7474C2.32015 13.6093 2.23821 13.3035 2.37627 13.0644ZM20.0106 14.1344C20.1486 14.3735 20.0667 14.6793 19.8275 14.8174L19.7393 14.8683C19.5001 15.0064 19.1943 14.9245 19.0563 14.6853C18.9182 14.4462 19.0001 14.1404 19.2393 14.0023L19.3275 13.9514C19.5667 13.8133 19.8725 13.8952 20.0106 14.1344ZM4.22961 14.1344C4.36768 13.8952 4.67347 13.8133 4.91262 13.9514L5.00087 14.0023C5.24002 14.1404 5.32196 14.4462 5.18389 14.6853C5.04582 14.9245 4.74003 15.0064 4.50088 14.8684L4.41263 14.8174C4.17348 14.6793 4.09154 14.3735 4.22961 14.1344ZM18.1572 15.2044C18.2953 15.4435 18.2134 15.7493 17.9742 15.8874L17.886 15.9384C17.6468 16.0764 17.341 15.9945 17.2029 15.7553C17.0649 15.5162 17.1468 15.2104 17.386 15.0723L17.4742 15.0214C17.7134 14.8833 18.0192 14.9652 18.1572 15.2044ZM6.08294 15.2044C6.22101 14.9652 6.5268 14.8833 6.76595 15.0214L6.85421 15.0723C7.09335 15.2104 7.17529 15.5162 7.03723 15.7553C6.89916 15.9945 6.59336 16.0764 6.35421 15.9384L6.26596 15.8874C6.02681 15.7493 5.94487 15.4435 6.08294 15.2044ZM16.3039 16.2744C16.442 16.5135 16.36 16.8193 16.1209 16.9574L16.0326 17.0083C15.7935 17.1464 15.4877 17.0645 15.3496 16.8253C15.2115 16.5862 15.2935 16.2804 15.5326 16.1423L15.6209 16.0914C15.86 15.9533 16.1658 16.0352 16.3039 16.2744ZM7.93628 16.2744C8.07434 16.0352 8.38014 15.9533 8.61929 16.0914L8.70754 16.1423C8.94669 16.2804 9.02863 16.5862 8.89056 16.8253C8.75249 17.0645 8.4467 17.1464 8.20755 17.0084L8.11929 16.9574C7.88015 16.8193 7.79821 16.5135 7.93628 16.2744ZM9.78961 17.3444C9.92768 17.1052 10.2335 17.0233 10.4726 17.1614L10.5609 17.2123C10.8 17.3504 10.882 17.6562 10.7439 17.8953C10.6058 18.1345 10.3 18.2164 10.0609 18.0784L9.97263 18.0274C9.73348 17.8893 9.65154 17.5835 9.78961 17.3444ZM14.4506 17.3444C14.5886 17.5835 14.5067 17.8893 14.2675 18.0274L14.1793 18.0784C13.9401 18.2164 13.6343 18.1345 13.4963 17.8953C13.3582 17.6562 13.4401 17.3504 13.6793 17.2123L13.7675 17.1614C14.0067 17.0233 14.3125 17.1052 14.4506 17.3444ZM12.1201 18.1662C11.9324 18.1497 11.7433 18.2405 11.6429 18.4144C11.5049 18.6535 11.5868 18.9593 11.826 19.0974L11.8701 19.1229C12.0248 19.2122 12.2154 19.2122 12.3701 19.1229L12.4142 19.0974C12.6534 18.9593 12.7353 18.6535 12.5972 18.4144C12.4968 18.2405 12.3077 18.1497 12.1201 18.1662Z" fill="#825DFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.1206 2.42285L24.2412 9.40964L12.1206 16.4073L0 9.40964L12.1206 2.42285ZM2.0012 9.41031L12.1206 15.2526L22.24 9.41031L12.1206 3.5771L2.0012 9.41031Z" fill="#825DFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.12 20.9727L1.24999 14.697L0.75 15.5631L12.12 22.1274L23.49 15.5631L22.99 14.697L12.12 20.9727Z" fill="#825DFF"/>
+</g>
+<defs>
+<clipPath id="clip0_649_7053">
+<rect width="24" height="24" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</span> <strong>Hardware</strong></p>
+<hr />
+<p>For individuals and small teams looking for on-prem hardware solutions, we
+offer our Scalar servers, and our Vector One, Vector, and Vector Pro
+workstations and desktops. Our servers, workstations, and desktops can be
+configured to meet your specific needs.</p>
+<p><a href="hardware/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Introduction</a></p>
+</li>
+<li>
+<p><span class="twemoji lg middle lambda"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.03906 11.9748V11.97H6.03906V11.9748C6.03906 12.251 5.8152 12.4748 5.53906 12.4748C5.26292 12.4748 5.03906 12.251 5.03906 11.9748ZM18.6591 11.99V11.9948C18.6591 12.271 18.4352 12.4948 18.1591 12.4948C17.8829 12.4948 17.6591 12.271 17.6591 11.9948V11.99H18.6591ZM5.53906 13.4218C5.8152 13.4218 6.03906 13.6456 6.03906 13.9218V13.9315C6.03906 14.2076 5.8152 14.4315 5.53906 14.4315C5.26292 14.4315 5.03906 14.2076 5.03906 13.9315V13.9218C5.03906 13.6456 5.26292 13.4218 5.53906 13.4218ZM18.1591 13.4351C18.4352 13.4351 18.6591 13.659 18.6591 13.9351V13.9448C18.6591 14.221 18.4352 14.4448 18.1591 14.4448C17.8829 14.4448 17.6591 14.221 17.6591 13.9448V13.9351C17.6591 13.659 17.8829 13.4351 18.1591 13.4351ZM5.53906 15.3784C5.8152 15.3784 6.03906 15.6023 6.03906 15.8784V15.8882C6.03906 16.1643 5.8152 16.3882 5.53906 16.3882C5.26292 16.3882 5.03906 16.1643 5.03906 15.8882V15.8784C5.03906 15.6023 5.26292 15.3784 5.53906 15.3784ZM18.1591 15.3851C18.4352 15.3851 18.6591 15.609 18.6591 15.8851V15.8948C18.6591 16.171 18.4352 16.3948 18.1591 16.3948C17.8829 16.3948 17.6591 16.171 17.6591 15.8948V15.8851C17.6591 15.609 17.8829 15.3851 18.1591 15.3851ZM5.97978 17.5987C5.89543 17.4418 5.72971 17.3351 5.53906 17.3351C5.26292 17.3351 5.03906 17.559 5.03906 17.8351V17.84L5.28922 18.2731L5.29315 18.2753C5.53234 18.4133 5.83811 18.3313 5.97609 18.0921C6.06718 17.9342 6.06238 17.7472 5.97978 17.5987ZM18.1591 17.3351C18.4352 17.3351 18.6591 17.559 18.6591 17.8351V17.84L18.4089 18.2731L18.405 18.2753C18.1658 18.4133 17.86 18.3313 17.722 18.0921C17.6308 17.934 17.6358 17.7468 17.7186 17.5982C17.8031 17.4416 17.9686 17.3351 18.1591 17.3351ZM6.67953 18.4979C6.81752 18.2587 7.12328 18.1766 7.36248 18.3146L7.37033 18.3191C7.60952 18.4571 7.69157 18.7629 7.55359 19.0021C7.41561 19.2413 7.10984 19.3233 6.87065 19.1853L6.8628 19.1808C6.6236 19.0428 6.54155 18.7371 6.67953 18.4979ZM17.0186 18.4979C17.1566 18.7371 17.0745 19.0428 16.8353 19.1808L16.8275 19.1853C16.5883 19.3233 16.2825 19.2413 16.1445 19.0021C16.0066 18.7629 16.0886 18.4571 16.3278 18.3191L16.3356 18.3146C16.5748 18.1766 16.8806 18.2587 17.0186 18.4979ZM8.25703 19.4079C8.39502 19.1687 8.70078 19.0866 8.93998 19.2246L8.94783 19.2291C9.18702 19.3671 9.26907 19.6729 9.13109 19.9121C8.99311 20.1513 8.68734 20.2333 8.44815 20.0953L8.4403 20.0908C8.2011 19.9528 8.11905 19.6471 8.25703 19.4079ZM15.4411 19.4079C15.5791 19.6471 15.497 19.9528 15.2578 20.0908L15.25 20.0953C15.0108 20.2333 14.705 20.1513 14.567 19.9121C14.4291 19.6729 14.5111 19.3671 14.7503 19.2291L14.7581 19.2246C14.9973 19.0866 15.3031 19.1687 15.4411 19.4079ZM9.83453 20.3179C9.97252 20.0787 10.2783 19.9966 10.5175 20.1346L10.5253 20.1391C10.7645 20.2771 10.8466 20.5829 10.7086 20.8221C10.5706 21.0613 10.2648 21.1433 10.0256 21.0053L10.0178 21.0008C9.7786 20.8628 9.69655 20.5571 9.83453 20.3179ZM13.8636 20.3179C14.0016 20.5571 13.9195 20.8628 13.6803 21.0008L13.6725 21.0053C13.4333 21.1433 13.1275 21.0613 12.9895 20.8221C12.8516 20.5829 12.9336 20.2771 13.1728 20.1391L13.1806 20.1346C13.4198 19.9966 13.7256 20.0787 13.8636 20.3179ZM11.8491 20.9776C11.675 20.9764 11.5052 21.0663 11.412 21.2279C11.2741 21.4671 11.3561 21.7728 11.5953 21.9108L11.5992 21.9131H12.0989L12.1028 21.9108C12.342 21.7728 12.4241 21.4671 12.2861 21.2279C12.1929 21.0663 12.0232 20.9764 11.8491 20.9776Z" fill="#825DFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M21.9395 15.6601V9.33008H22.9395V15.6601H21.9395Z" fill="#825DFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1.99325 9.32995L11.8691 15.081L21.6995 9.32995L11.8691 3.57889L1.99325 9.32995ZM0.748047 8.89787L11.618 2.56787L12.1221 2.56838L22.9421 8.89838V9.76152L12.1221 16.0915L11.618 16.092L0.748047 9.76203L0.748047 8.89787Z" fill="#825DFF"/>
+</svg>
+</span> <strong>Education</strong></p>
+<hr />
+<p>Our expert ML Engineers and Researchers have put together guides and
+tutorials to get you up and running quickly on Lambda's cloud and hardware
+solutions. Whether you're looking to fine-tune a model or host a
+load-balanced API server for inference, we have a guide for you.</p>
+<p><a href="education/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Introduction</a></p>
+</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <!--
+  Copyright (c) 2016-2024 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Copyright and theme information -->
+<div class="md-copyright">
+
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://x.com/LambdaAPI" target="_blank" rel="noopener" title="x.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9zm-24.8 373.8h39.1L151.1 88h-42z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/lambda-labs" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3M447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.sections", "navigation.tabs", "navigation.top", "navigation.expand", "content.code.copy"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="js/mkdocs-charts-plugin.js"></script>
+      
+        <script src="assets/js/glightbox.min.js"></script>
+      
+        <script src="assets/js/docs-landing-page.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+      
+        <script src="https://js.hs-scripts.com/21998649.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

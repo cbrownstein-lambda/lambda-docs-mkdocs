@@ -1,0 +1,3508 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn the basics of distributed training on Lambda Cloud">
+      
+      
+      
+        <link rel="canonical" href="https://cbrownstein-lambda.github.io/lambda-docs-mkdocs/education/tutorial-getting-started-with-training-a-machine-learning-model/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../generative-ai/flux-prompt-to-image/">
+      
+      
+      <link rel="icon" href="../../assets/images/lambda/lambda-logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.41">
+    
+    
+      
+        <title>Tutorial: Getting started with training a machine learning model - Lambda Docs [PROOF OF CONCEPT]</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/css/glightbox.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-43EZT1FM6Q"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-43EZT1FM6Q",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-43EZT1FM6Q",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Tutorial: Getting started with training a machine learning model - Lambda Docs [PROOF OF CONCEPT]" >
+      
+        <meta  property="og:description"  content="Learn the basics of distributed training on Lambda Cloud" >
+      
+        <meta  property="og:image"  content="https://cbrownstein-lambda.github.io/lambda-docs-mkdocs/assets/images/social/education/tutorial-getting-started-with-training-a-machine-learning-model.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://cbrownstein-lambda.github.io/lambda-docs-mkdocs/education/tutorial-getting-started-with-training-a-machine-learning-model/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Tutorial: Getting started with training a machine learning model - Lambda Docs [PROOF OF CONCEPT]" >
+      
+        <meta  name="twitter:description"  content="Learn the basics of distributed training on Lambda Cloud" >
+      
+        <meta  name="twitter:image"  content="https://cbrownstein-lambda.github.io/lambda-docs-mkdocs/assets/images/social/education/tutorial-getting-started-with-training-a-machine-learning-model.png" >
+      
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tutorial-getting-started-with-training-a-machine-learning-model" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      <!--
+  Copyright (c) 2016-2024 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine classes -->
+
+
+
+<!-- Header -->
+<header class="md-header" data-md-component="header">
+  <nav
+    class="md-header__inner md-grid"
+    aria-label="Header"
+  >
+
+    <!-- Link to home -->
+    <a
+      href="../.."
+      title="Lambda Docs [PROOF OF CONCEPT]"
+      class="md-header__button md-logo"
+      aria-label="Lambda Docs [PROOF OF CONCEPT]"
+      data-md-component="logo"
+    >
+      
+  <img src="../../assets/images/lambda/lambda-docs-logo-light-mode.svg" alt="logo">
+
+    </a>
+
+    <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+
+    <!-- Header title -->
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Color palette toggle -->
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+
+    <!-- User preference: color palette -->
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+
+    <!-- Site language selector -->
+    
+
+    <!-- Button to open search modal -->
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+
+      <!-- Search interface -->
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    <!-- Repository information -->
+    
+  </nav>
+
+  <!-- Navigation tabs (sticky) -->
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../public-cloud/" class="md-tabs__link">
+          
+  
+  Public Cloud
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../private-cloud/" class="md-tabs__link">
+          
+  
+  Private Cloud
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../hardware/" class="md-tabs__link">
+          
+  
+  Hardware
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  Education
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Lambda Docs [PROOF OF CONCEPT]" class="md-nav__button md-logo" aria-label="Lambda Docs [PROOF OF CONCEPT]" data-md-component="logo">
+      
+  <img src="../../assets/images/lambda/lambda-docs-logo-light-mode.svg" alt="logo">
+
+    </a>
+    Lambda Docs [PROOF OF CONCEPT]
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Public Cloud
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Public Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../public-cloud/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../public-cloud/filesystems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Filesystems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../public-cloud/firewalls/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Firewalls
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../public-cloud/teams/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teams
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../public-cloud/cloud-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloud API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../public-cloud/lambda-chat-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the Lambda Chat Completions API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    On-Demand
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            On-Demand
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../public-cloud/on-demand/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../public-cloud/on-demand/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../public-cloud/on-demand/dashboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the Lambda Public Cloud dashboard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../public-cloud/on-demand/billing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Billing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../public-cloud/on-demand/guest-agent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing the guest agent and getting started with Prometheus and Grafana
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1-Click Clusters
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            1-Click Clusters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../public-cloud/1-click-clusters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../public-cloud/1-click-clusters/serving-llama-3_1-405b/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to serve the Llama 3.1 405B model using a Lambda 1-Click Cluster
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../public-cloud/1-click-clusters/security-posture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security posture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../public-cloud/1-click-clusters/support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Additional resources
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            Additional resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://deeptalk.lambdalabs.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Forum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://lambdalabs.com/blog" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.youtube.com/c/LambdaLabs" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    YouTube
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://lambdalabs.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Main site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tags index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    We welcome your feedback!
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            We welcome your feedback!
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/issues/new/choose" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File an issue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Private Cloud
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Private Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../private-cloud/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Managed Kubernetes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Managed Kubernetes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../private-cloud/managed-kubernetes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../private-cloud/managed-kubernetes/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Additional resources
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Additional resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://deeptalk.lambdalabs.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Forum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://lambdalabs.com/blog" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.youtube.com/c/LambdaLabs" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    YouTube
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://lambdalabs.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Main site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tags index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    We welcome your feedback!
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            We welcome your feedback!
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/issues/new/choose" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File an issue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hardware
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Hardware
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Servers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Servers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/servers/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Workstations
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Workstations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/workstations/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/workstations/troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting Workstations and Desktops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Additional resources
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Additional resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://deeptalk.lambdalabs.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Forum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://lambdalabs.com/blog" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.youtube.com/c/LambdaLabs" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    YouTube
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://lambdalabs.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Main site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tags index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    We welcome your feedback!
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            We welcome your feedback!
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/issues/new/choose" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File an issue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Education
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Education
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Tutorial: Getting started with training a machine learning model
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial: Getting started with training a machine learning model
+  </span>
+  
+
+      </a>
+      
+        <!-- Determine title -->
+
+
+
+<!-- Table of contents -->
+
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+  <!--
+    Check whether the content starts with a level 1 headline. If it does, the
+    top-level anchor must be skipped, since it would be redundant to the link
+    to the current page that is located just above the anchor. Therefore we
+    directly continue with the children of the anchor.
+  -->
+  
+    
+  
+
+  <!-- Table of contents title and list -->
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-begin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Before you begin
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Before you begin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scope-your-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scope your project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vram" class="md-nav__link">
+    <span class="md-ellipsis">
+      VRAM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpus-and-cpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPUs and CPUs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-or-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container or virtual environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-demand-cloud-1-click-cluster-or-private-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      On-Demand Cloud, 1-Click Cluster, or Private Cloud
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch-a-lambda-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Launch a Lambda instance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Launch a Lambda instance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lambda-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lambda Stack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-container-or-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure the container or virtual environment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Generative AI (GAI)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Generative AI (GAI)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generative-ai/flux-prompt-to-image/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to serve the FLUX.1 prompt-to-image models using Lambda Cloud on-demand instances
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Large language models (LLMs)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Large language models (LLMs)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../large-language-models/deploying-a-llama-3-inference-endpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deploying a Llama 3 inference endpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../large-language-models/k8s-ollama-llama-3-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deploying Llama 3.2 3B in a Kubernetes (K8s) cluster
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../large-language-models/kubeai-hermes-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using KubeAI to deploy Nous Research's Hermes 3 and other LLMs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../large-language-models/serving-llama-3-1-405b/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Serving Llama 3.1 405B on a Lambda 1-Click Cluster
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../large-language-models/serving-llama-3-1-docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Serving the Llama 3.1 8B and 70B models using Lambda Cloud on-demand instances
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Linux usage and system administration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Linux usage and system administration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux-usage/basic-linux-commands-and-system-administration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Linux commands and system administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux-usage/configuring-software-raid/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuring Software RAID
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux-usage/lambda-stack-and-recovery-images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lambda Stack and recovery images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux-usage/troubleshooting-and-debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting and debugging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux-usage/using-the-lambda-bug-report-to-troubleshoot-your-system/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the Lambda bug report to troubleshoot your system
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux-usage/using-the-nvidia-bug-report.log-file-to-troubleshoot-your-system/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the nvidia-bug-report.log file to troubleshoot your system
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Programming
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            Programming
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../programming/virtual-environments-containers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Virtual environments and Docker containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../programming/vs-code-lambda-chat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrating Lambda Chat into VS Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Scheduling and orchestration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7">
+            <span class="md-nav__icon md-icon"></span>
+            Scheduling and orchestration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scheduling-and-orchestration/deploying-models-with-dstack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deploying models with dstack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scheduling-and-orchestration/skypilot-deploy-kubernetes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using SkyPilot to deploy a Kubernetes cluster
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_8" id="__nav_5_8_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Additional resources
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_8">
+            <span class="md-nav__icon md-icon"></span>
+            Additional resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://deeptalk.lambdalabs.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Forum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://lambdalabs.com/blog" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.youtube.com/c/LambdaLabs" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    YouTube
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://lambdalabs.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Main site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tags index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_9" id="__nav_5_9_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    We welcome your feedback!
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_9">
+            <span class="md-nav__icon md-icon"></span>
+            We welcome your feedback!
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/cbrownstein-lambda/lambda-docs-mkdocs/issues/new/choose" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File an issue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!-- Determine title -->
+
+
+
+<!-- Table of contents -->
+
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+  <!--
+    Check whether the content starts with a level 1 headline. If it does, the
+    top-level anchor must be skipped, since it would be redundant to the link
+    to the current page that is located just above the anchor. Therefore we
+    directly continue with the children of the anchor.
+  -->
+  
+    
+  
+
+  <!-- Table of contents title and list -->
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-begin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Before you begin
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Before you begin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scope-your-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scope your project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vram" class="md-nav__link">
+    <span class="md-ellipsis">
+      VRAM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpus-and-cpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPUs and CPUs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-or-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container or virtual environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-demand-cloud-1-click-cluster-or-private-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      On-Demand Cloud, 1-Click Cluster, or Private Cloud
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch-a-lambda-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Launch a Lambda instance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Launch a Lambda instance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lambda-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lambda Stack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-container-or-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure the container or virtual environment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../../tags/#1-click-clusters" class="md-tag">1-click clusters</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#automation" class="md-tag">automation</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#on-demand-cloud" class="md-tag">on-demand cloud</a>
+    
+  
+</nav>
+
+
+
+<h1 id="tutorial-getting-started-with-training-a-machine-learning-model">Tutorial: Getting started with training a machine learning model<a class="headerlink" href="#tutorial-getting-started-with-training-a-machine-learning-model" title="Permanent link">#</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
+<p>This tutorial walks you through the process of getting ready to start training a model using Lambda solutions. It helps you to scope out and decide what resources you are going to need and which Lambda solution to use.</p>
+<p>This tutorial is aimed at machine learning engineers and systems administrators responsible for setting up the training environment.</p>
+<h2 id="before-you-begin">Before you begin<a class="headerlink" href="#before-you-begin" title="Permanent link">#</a></h2>
+<p>Before you make your Lambda reservation, it’s a good idea to scale out your project so you know which path to take.&#x20;</p>
+<h3 id="scope-your-project">Scope your project<a class="headerlink" href="#scope-your-project" title="Permanent link">#</a></h3>
+<p>Start by getting a sense of the overall scope and strategy of your project. Some factors to consider include:</p>
+<ul>
+<li><strong>Batch size</strong>: Are you processing a single stream or multiple streams? Processing eight parallel streams at the same time is much different than processing a single stream.</li>
+<li><strong>Model size and composition</strong>: How big is your model? How many copies of your model can you fit on a single GPU, if any? What are the main components of the model? A transformer scales differently with input length than a pure convolutional model.</li>
+<li><strong>Time</strong>: If you have time constraints, can you quantize the model to a lower precision to finish training faster? Or can you distill the model so you can train a smaller one?</li>
+<li><strong>Data type and size</strong>: Is your training data composed of text, images, or something else? Is it a recurring process, like a stream of text? Or do you plan to have all the input processed at once, like with a dataset of documents?</li>
+</ul>
+<p>Once you have a general idea of the scope, you can move on to determine how much of each resource (GPUs/CPUs, VRAM, and storage) you need.</p>
+<h3 id="vram">VRAM<a class="headerlink" href="#vram" title="Permanent link">#</a></h3>
+<p>The amount of VRAM on a GPU helps determine how large your dataset and model can be without needing to offload to the system memory, which decreases efficiency.&#x20;</p>
+<p>Use the following formula to estimate how much VRAM you need:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Memory<span class="w"> </span>required<span class="w"> </span>≈
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="o">(</span>model<span class="w"> </span>size<span class="w"> </span>x<span class="w"> </span>precision<span class="o">)</span><span class="w"> </span>+
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="o">(</span>batch<span class="w"> </span>size<span class="w"> </span>x<span class="w"> </span>sequence<span class="w"> </span>length<span class="w"> </span>x<span class="w"> </span>input<span class="w"> </span>dimension<span class="w"> </span>x<span class="w"> </span>precision<span class="o">)</span><span class="w"> </span>+
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="o">(</span>optimizer<span class="w"> </span>state<span class="w"> </span>x<span class="w"> </span>precision<span class="o">)</span>
+</span></code></pre></div>
+<p>Where:</p>
+<ul>
+<li><strong>Model size</strong>: is the number of parameters in your model</li>
+<li><strong>Precision</strong>: use 4 bytes for single precision (FP32) or 2 bytes for mixed-precision training</li>
+<li><strong>Batch size</strong>: is the number of samples to process in parallel</li>
+<li><strong>Sequence length</strong>: is the length of the input sequences in bytes</li>
+<li><strong>Input dimension</strong>: is the dimensionality of the input data; for example, use 128 for 128-dimensional word embeddings</li>
+<li><strong>Optimizer state</strong>: is the size of the optimizer's internal state, which depends on the specific optimizer</li>
+</ul>
+<p>Lambda also offers its own <a href="https://huggingface.co/spaces/lambdabrendan/Lambda-LLM-Calculator">VRAM calculator</a> for large language models.</p>
+<h3 id="gpus-and-cpus">GPUs and CPUs<a class="headerlink" href="#gpus-and-cpus" title="Permanent link">#</a></h3>
+<p>Once you know how much VRAM you need, you can then determine the minimum number of GPUs you need, since the number of GPUs is bound by the memory requirements and the memory limitations of a given GPU. You can then scale out to see how many more GPUs you can use, since utilizing more GPUs for your training speeds it up, reducing training time, in a nearly linear fashion.&#x20;</p>
+<p>If you are training an LLM, the Lambda <a href="https://huggingface.co/spaces/lambdabrendan/Lambda-LLM-Calculator">VRAM calculator</a> can tell you the minimum number of GPUs you need.&#x20;</p>
+<p>While GPUs occupy most of the spotlight when it comes to their importance in training ML models, CPUs play a very important role as well. Their workloads are more varied and fall into these categories:</p>
+<ul>
+<li>ML operations or workload management, including the monitoring stack</li>
+<li>Dedicated CPU processing tasks, typically in the pre- and post-processing of data sets</li>
+<li>Feeding the GPUs a consistent stream of data before the training application can take advantage of direct memory access (DMA) between GPUs or the storage devices</li>
+</ul>
+<p>Lambda provides sufficient CPU resources for the GPUs you can select when you make a reservation.</p>
+<h3 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">#</a></h3>
+<p>To estimate how much storage you need, follow this rule of thumb: take the number of parameters you plan to train on and multiply that number by 2 bytes, as each parameter typically requires 2 bytes for 16-bit precision. For example, a 70 billion parameter model would require roughly 140GB of disk space.</p>
+<p>For 32-bit precision, double that number to 4 bytes per parameter. So this same 70 billion parameter model would require at least 280GB of storage.</p>
+<p>That said, training data size can vary drastically between domains, depending on whether you are training on NLP, LLM, vision, or audio data. In general, datasets typically require hundreds of gigabytes of storage, so having 1TB or 2TB in total provides a comfortable cushion.</p>
+<h3 id="container-or-virtual-environment">Container or virtual environment<a class="headerlink" href="#container-or-virtual-environment" title="Permanent link">#</a></h3>
+<p>A container or virtual environment can help streamline your AI training process by offering a consistent, isolated environment, better resource management, and easier collaboration.&#x20;</p>
+<p>Lambda recommends these containers and virtual environments:</p>
+<ul>
+<li><strong>Docker</strong>: a Docker container includes the whole runtime environment so you can train your model in the exact same environment on any cloud.</li>
+<li><strong>Conda</strong>: Conda provides a virtual environment that is isolated from the system it runs on, so you can train your model consistently on any system while avoiding conflicts with the host system.</li>
+<li><strong>Python</strong>: Python is a programming language with a virtual environment module, <code>venv</code>, that you use to create virtual environments.</li>
+</ul>
+<p>For more information on creating the container or virtual environment, read <a href="../programming/virtual-environments-containers/">Virtual environments and Docker containers</a>.</p>
+<h3 id="on-demand-cloud-1-click-cluster-or-private-cloud">On-Demand Cloud, 1-Click Cluster, or Private Cloud<a class="headerlink" href="#on-demand-cloud-1-click-cluster-or-private-cloud" title="Permanent link">#</a></h3>
+<p>Now that you have a good idea of what resources you need, you can choose the best product to suit your needs.</p>
+<ul>
+<li><strong>On-Demand Cloud</strong>: is great for smaller models and shorter durations. On-Demand Cloud instances offer a choice from one to eight GPUs that you can rent by the hour.</li>
+<li><strong>1-Click Clusters</strong>: is best for larger models requiring 16 to 512 GPUs that you can rent by the week, with discounts for longer terms.</li>
+<li><strong>Private Cloud</strong>: is aimed at the largest and longest-lasting deployments. Lambda Private Cloud provides you with a cluster of 512 to 2048 GPUs for one to three years.</li>
+</ul>
+<p>If you need to start working immediately, choose On-Demand Cloud or reserve a 1-Click Cluster for the near term. If you are on a longer timeline and intend to train your AI over a period of years using a cluster of GPUs, then you should choose Lambda Private Cloud.</p>
+<p>This tutorial does not cover Private Cloud. For more information about these options and for pricing, visit the <a href="https://lambdalabs.com/service/gpu-cloud">Lambda website</a>.</p>
+<h2 id="launch-a-lambda-instance">Launch a Lambda instance<a class="headerlink" href="#launch-a-lambda-instance" title="Permanent link">#</a></h2>
+<p>Before you can launch a Lambda On-Demand Cloud instance or 1-Click Cluster, you need to <a href="https://cloud.lambdalabs.com/sign-up">create a Lambda Public Cloud account</a> if you have not already done so and provide the following information:</p>
+<ul>
+<li>Account type (individual or business)</li>
+<li>Your contact information</li>
+<li>Your billing information</li>
+</ul>
+<p>Agree to Lambda’s terms and conditions, go to your <a href="https://cloud.lambdalabs.com/instances">Lambda Cloud dashboard</a> in your browser, and then launch an instance:</p>
+<ul>
+<li>To launch an On-Demand Cloud instance, click <strong>Launch instance</strong> and follow the steps under <a href="https://docs.lambdalabs.com/on-demand-cloud/dashboard#launch-instances">Launch instances</a>.</li>
+<li>To launch a 1-Click Cluster, click <strong>Request 1-Click Cluster</strong> then follow the steps under <a href="https://docs.lambdalabs.com/1-click-clusters/getting-started#reserving-1-click-clusters">Reserving 1-Click Clusters</a>.</li>
+</ul>
+<p>You also need to generate an SSH key, which you select during the launch process. Read the section on <a href="https://docs.lambdalabs.com/on-demand-cloud/dashboard#add-generate-and-delete-ssh-keys">adding or generating an SSH key</a> in the Dashboard chapter.&#x20;</p>
+<h3 id="lambda-stack">Lambda Stack<a class="headerlink" href="#lambda-stack" title="Permanent link">#</a></h3>
+<p>Every Lambda instance comes with the Lambda Stack preinstalled. The Lambda Stack is an AI software suite that includes PyTorch, TensorFlow, CUDA, cuDNN, and NVIDIA drivers. It runs on Ubuntu 22.04 LTS and 20.04 LTS. For more information, read <a href="https://lambdalabs.com/lambda-stack-deep-learning-software#server-installation">our website</a> and the <a href="https://docs.lambdalabs.com/on-demand-cloud/overview#preinstalled-software">overview page</a>.&#x20;</p>
+<h3 id="configure-the-container-or-virtual-environment">Configure the container or virtual environment<a class="headerlink" href="#configure-the-container-or-virtual-environment" title="Permanent link">#</a></h3>
+<p>With your instance or cluster up and running, you can create the Docker container or Conda or Python virtual environment in which you will run your training model. For more information, read <a href="../programming/virtual-environments-containers/">Virtual environments and Docker containers</a>.</p>
+<p>Once the container is running, check out your code repository to the container or virtual environment. If you don’t have a testing repository yet, you can try one of the many examples suggested below.</p>
+<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">#</a></h2>
+<p>The final step before you start training is to choose a training model.</p>
+<p>If you need guidance on where to go next, Lambda offers many different examples that you can run in your instance or cluster and see how they perform. &#x20;</p>
+<ul>
+<li>The <a href="https://github.com/LambdaLabsML/distributed-training-guide/tree/main">Lambda distributed training guide</a> is a comprehensive introduction to training, covering a range of topics from a single GPU to a cluster. Clone the relevant chapter into your instance or cluster and give it a try. Note that these examples run in a <a href="https://docs.lambdalabs.com/software/virtual-environments-and-docker-containers#creating-a-python-virtual-environment">Python virtual environment</a>.&#x20;</li>
+<li><a href="https://github.com/LambdaLabsML/distributed-training-guide/tree/main/01-single-gpu">A single GPU on a single node</a>. This is the most basic example. Since it is limited to one GPU on one node, there is no distributed training involved.</li>
+<li><a href="https://github.com/LambdaLabsML/distributed-training-guide/tree/main/02-multi-gpu">Multiple GPUs on a single node</a>. This example is more involved and actually demonstrates distributed training, since it splits the workload — the batches from the dataset — over multiple GPUs.</li>
+<li><a href="https://github.com/LambdaLabsML/distributed-training-guide/tree/main/03-multi-node">Multiple GPUs across multiple nodes</a>. You need a multi-node instance to try this example. It demonstrates the need for identical environments.</li>
+<li>GPU cluster. In order to test across a cluster, you need a mechanism to launch the training jobs on each node. You can use <a href="https://github.com/LambdaLabsML/distributed-training-guide/tree/main/04-job-launchers-bash">Bash</a>, <a href="https://github.com/LambdaLabsML/distributed-training-guide/tree/main/04-job-launchers-deepspeed">DeepSpeed</a>, <a href="https://github.com/LambdaLabsML/distributed-training-guide/tree/main/04-job-launchers-mpirun"><code>mpirun</code></a>, or <a href="https://github.com/LambdaLabsML/distributed-training-guide/tree/main/04-job-launchers-slurm">Slurm</a> as the launcher.</li>
+<li>For more targeted examples, try these <a href="https://github.com/LambdaLabsML/examples">deep learning tutorials</a>:</li>
+<li><a href="https://github.com/LambdaLabsML/examples/tree/main/stable-diffusion-finetuning">Fine tuning Stable Diffusion</a>. This example runs through performing extra training on a model to get more desirable results.</li>
+<li><a href="https://github.com/LambdaLabsML/examples/tree/main/yolov5">Object detection using YoloV5</a>. This workflow downloads a dataset, prepares it for YoloV5, then downloads pretrained weights files.</li>
+<li><a href="https://github.com/LambdaLabsML/examples/tree/main/gpt-neox-training">GPTNeoX LLM distributed training</a>. This example shows how to train a LLM across multiple nodes on Lambda Cloud. It uses the open source <code>gpt-neox</code> repository, which is built on DeepSpeed and MegatronLM.</li>
+<li><a href="https://github.com/LambdaLabsML/examples/tree/main/experiment-tracking">Experiment tracking comparison</a>. This example compares these common experiment tracking libraries: Comet, MLflow, Neptune.ai, and <code>wandb</code>.</li>
+<li><a href="https://github.com/LambdaLabsML/examples/tree/main/pytorch/distributed">PyTorch multi-node training</a>. This example shows how to write and launch PyTorch distributed data parallel jobs. We walk you through this example on the <a href="https://lambdalabs.com/blog/multi-node-pytorch-distributed-training-guide">Lambda blog</a></li>
+<li><a href="https://github.com/LambdaLabsML/examples/tree/main/nerfstudio">Running Nerfstudio on Lambda</a>. This example demonstrates how to create and view NeRF (Neural Radiance Fields) models.</li>
+</ul>
+<p>\
+\
+\</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <!--
+  Copyright (c) 2016-2024 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Copyright and theme information -->
+<div class="md-copyright">
+
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://x.com/LambdaAPI" target="_blank" rel="noopener" title="x.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9zm-24.8 373.8h39.1L151.1 88h-42z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/lambda-labs" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3M447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.tabs", "navigation.top", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/mkdocs-charts-plugin.js"></script>
+      
+        <script src="../../assets/js/glightbox.min.js"></script>
+      
+        <script src="../../assets/js/docs-landing-page.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+      
+        <script src="https://js.hs-scripts.com/21998649.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

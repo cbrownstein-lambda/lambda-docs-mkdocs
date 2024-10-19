@@ -19,24 +19,28 @@ improved bandwidth between the NVIDIA GPUs in a single physical server.
 
     Lambda prohibits cryptocurrency mining on ODC instances.
 
-As of August 2024, ODC offers the following instance types:
+As of October 2024, ODC offers the following instance types:
 
 | GPU        | Number of GPUs | VRAM   | vCPU cores | RAM       | Root volume size |
 |------------|----------------|--------|------------|-----------|------------------|
-| H100 SXM   | 8              | 80 GB  | 208        | 19 TB     | 24.2 TB          |
-| H100 PCIe  | 1              | 80 GB  | 26         | 205.4 GB  | 1.1 TB           |
-| A100 SXM   | 8              | 80 GB  | 240        | 19 TB     | 22 TB            |
-|            | 8              | 40 GB  | 124        | 19 TB     | 6.6 TB           |
-|            | 1              | 40 GB  | 30         | 205.4 GB  | 525.8 GB         |
-| A100 PCIe  | 4              | 40 GB  | 120        | 821.6 GB  | 1.1 TB           |
-|            | 2              | 40 GB  | 60         | 410.8 GB  | 1.1 TB           |
-|            | 1              | 40 GB  | 30         | 205.4 GB  | 525.8 GB         |
-| A10        | 1              | 24 GB  | 30         | 205.4 GB  | 1.5 TB           |
-| A6000      | 4              | 48 GB  | 56         | 410.8 GB  | 1.1 TB           |
-|            | 2              | 48 GB  | 28         | 205.4 GB  | 1.1 TB           |
-|            | 1              | 48 GB  | 14         | 102.7 GB  | 205.4 GB         |
-| Tesla V100 | 8              | 16 GB  | 92         | 460.1 GB  | 6.5 TB           |
-| RTX 6000   | 1              | 24 GB  | 14         | 47.2 GB   | 525.8 GB         |
+| H100 SXM   | 8              | 80 GB  | 208        | 1800 GiB  | 26 TiB           |
+|            | 8              | 80 GB  | 208        | 1800 GiB  | 22 TiB           |
+|            | 4              | 80 GB  | 104        | 900 GiB   | 11 TiB           |
+|            | 2              | 80 GB  | 52         | 450 GiB   | 5.5 TiB          |
+|            | 1              | 80 GB  | 26         | 225 GiB   | 2.75 TiB         |
+| H100 PCIe  | 1              | 80 GB  | 26         | 225 GiB   | 1 TiB            |
+| A100 SXM   | 8              | 80 GB  | 240        | 1800 GiB  | 19.5 TiB         |
+|            | 8              | 40 GB  | 124        | 1800 GiB  | 5.8 TiB          |
+|            | 1              | 40 GB  | 30         | 220 GiB   | 512 GiB          |
+| A100 PCIe  | 4              | 40 GB  | 120        | 900 GiB   | 1 TiB            |
+|            | 2              | 40 GB  | 60         | 450 GiB   | 1 TiB            |
+|            | 1              | 40 GB  | 30         | 225 GiB   | 512 GiB          |
+| A10        | 1              | 24 GB  | 30         | 226 GiB   | 1.3 TiB          |
+| A6000      | 4              | 48 GB  | 56         | 400 GiB   | 1 TiB            |
+|            | 2              | 48 GB  | 28         | 200 GiB   | 1 TiB            |
+|            | 1              | 48 GB  | 14         | 100 GiB   | 512 GiB          |
+| Tesla V100 | 8              | 16 GB  | 88         | 448 GiB   | 5.8 TiB          |
+| RTX 6000   | 1              | 24 GB  | 14         | 46 GiB    | 512 GiB          |
 
 ## Storage
 

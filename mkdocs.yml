@@ -34,6 +34,7 @@ nav:
     - public-cloud/firewalls.md
     - public-cloud/teams.md
     - public-cloud/cloud-api.md
+    - public-cloud/lambda-chat-api.md
     - On-Demand:
       - public-cloud/on-demand/index.md
       - public-cloud/on-demand/getting-started.md
@@ -92,8 +93,6 @@ nav:
     - Large language models (LLMs):
       - education/large-language-models/deploying-a-llama-3-inference-endpoint.md
       - education/large-language-models/deploying-llama-3.2-3b-in-a-kubernetes-k8s-cluster.md
-      - education/large-language-models/how-to-serve-the-llama-3.1-8b-and-70b-models-using-lambda-cloud-on-demand-instances.md
-      - education/large-language-models/lambda-chat-api.md
       - education/large-language-models/k8s-ollama-llama-3-2.md
       - education/large-language-models/serving-llama-3-1-405b.md
       - education/large-language-models/serving-llama-3-1-docker.md
@@ -161,7 +160,6 @@ plugins:
   - social
   - redirects:
       redirect_maps:
-        'one-click-clusters/getting-started.md': 'public-cloud/1-click-clusters/getting-started.md'
         'on-demand-cloud/getting-started.md': 'public-cloud/on-demand/getting-started.md'
         'on-demand-cloud/using-skypilot-to-deploy-a-kubernetes-cluster.md': 'education/scheduling-and-orchestration/skypilot-deploy-kubernetes.md'
         'on-demand-cloud/team.md': 'public-cloud/teams.md'
@@ -174,11 +172,11 @@ plugins:
         'on-demand-cloud/demos.md': 'public-cloud/on-demand/demos.md'
         'on-demand-cloud/tutorial-getting-started-with-training-a-machine-learning-model.md': 'education/tutorial-getting-started-with-training-a-machine-learning-model.md'
         'on-demand-cloud/deploying-a-llama-3-inference-endpoint.md': 'education/large-language-models/deploying-a-llama-3-inference-endpoint.md'
-        'on-demand-cloud/using-the-lambda-chat-completions-api.md': 'education/large-language-models/lambda-chat-api.md'
+        'on-demand-cloud/using-the-lambda-chat-completions-api.md': 'public-cloud/lambda-chat-api.md'
         'on-demand-cloud/billing.md': 'public-cloud/on-demand/billing.md'
         'on-demand-cloud/getting-started.md': 'public-cloud/on-demand/getting-started.md'
         'on-demand-cloud/dashboard.md': 'public-cloud/on-demand/dashboard.md'
-        'on-demand-cloud/how-to-serve-the-llama-3.1-8b-and-70b-models-using-lambda-cloud-on-demand-instances.md': 'education/large-language-models/how-to-serve-the-llama-3.1-8b-and-70b-models-using-lambda-cloud-on-demand-instances.md'
+        'on-demand-cloud/how-to-serve-the-llama-3.1-8b-and-70b-models-using-lambda-cloud-on-demand-instances.md': 'education/large-language-models/serving-llama-3-1-docker.md'
         'on-demand-cloud/deploying-models-with-dstack.md': 'education/scheduling-and-orchestration/deploying-models-with-dstack.md'
         'on-demand-cloud/file-systems.md': 'public-cloud/filesystems.md'
         'tensorbook/getting-started.md': 'hardware/tensorbook/getting-started.md'
@@ -193,7 +191,7 @@ plugins:
         'software/configuring-software-raid.md': 'education/linux-usage/configuring-software-raid.md'
         'servers/getting-started.md': 'hardware/servers/getting-started.md'
         '1-click-clusters/serving-llama-3.1-405b-on-a-lambda-1-click-cluster.md': 'education/large-language-models/serving-llama-3-1-405b.md'
-        '1-click-clusters/getting-started.md': 'public-cloud/1-click-clusters/getting-started.md'
+        '1-click-clusters/getting-started.md': 'public-cloud/1-click-clusters/index.md'
         '1-click-clusters/security-posture.md': 'public-cloud/1-click-clusters/security-posture.md'
   - tags:
       tags_file: tags.md

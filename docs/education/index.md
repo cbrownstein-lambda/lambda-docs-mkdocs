@@ -15,6 +15,7 @@ hide:
 
 - [Deploying a Llama 3 inference endpoint](large-language-models/deploying-a-llama-3-inference-endpoint.md)
 - [Deploying Llama 3.2 3B in a Kubernetes (K8s) cluster](large-language-models/k8s-ollama-llama-3-2.md)
+- [Using KubeAI to deploy Nous Research's Hermes 3 and other LLMs](large-language-models/kubeai-hermes-3.md)
 - [Serving the Llama 3.1 8B and 70B models using Lambda Cloud on-demand instances](large-language-models/serving-llama-3-1-docker.md)
 - [Serving Llama 3.1 405B on a Lambda 1-Click Cluster](large-language-models/serving-llama-3-1-405b.md)
 
@@ -26,6 +27,7 @@ hide:
 - [Troubleshooting and debugging](linux-usage/troubleshooting-and-debugging.md)
 - [Using the Lambda bug report to troubleshoot your system](linux-usage/using-the-lambda-bug-report-to-troubleshoot-your-system.md)
 - [Using the nvidia-bug-report.log file to troubleshoot your system](linux-usage/using-the-nvidia-bug-report.log-file-to-troubleshoot-your-system.md)
+- [Using KubeAI to deploy Nous Research's Hermes 3 and other LLMs](large-language-models/kubeai-hermes-3.md)
 
 ## Programming
 
